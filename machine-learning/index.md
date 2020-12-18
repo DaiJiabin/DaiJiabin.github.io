@@ -76,7 +76,7 @@
 
 - Vector:
 
-  - A vector is a Matrix with __one Column and many rows.__ i.g., $\begin{bmatrix}x_0 \\ x_1 \\x_2 \\x_3 \end{bmatrix}$
+  - A vector is a Matrix with __one Column and many rows.__ i.g., $\begin{bmatrix}x_0 \\\\ x_1 \\\\x_2 \\\\x_3 \end{bmatrix}$
 
 - Hypothesis:
 
