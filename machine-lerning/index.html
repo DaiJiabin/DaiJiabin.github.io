@@ -33,7 +33,7 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "https:\/\/daijiabin.github.io\/machine-lerning\/"
-        },"image": ["https:\/\/daijiabin.github.io\/images\/Apple-Devices-Preview.png"],"genre": "posts","wordcount":  522 ,
+        },"image": ["https:\/\/daijiabin.github.io\/images\/Apple-Devices-Preview.png"],"genre": "posts","wordcount":  910 ,
         "url": "https:\/\/daijiabin.github.io\/machine-lerning\/","datePublished": "2020-12-18T19:11:53+01:00","dateModified": "2020-12-18T19:11:53+01:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
             "@type": "Organization",
             "name": "Dai Jiabin","logo": "https:\/\/daijiabin.github.io\/images\/avatar.png"},"author": {
@@ -114,8 +114,8 @@
             <div class="toc-content" id="toc-content-auto"></div>
         </div><article class="page single"><h1 class="single-title animated flipInX">Machine Learning</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="daijiabin.github.io" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw"></i>Dai Jiabin</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2020-12-18">2020-12-18</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;522 words&nbsp;
-                <i class="far fa-clock fa-fw"></i>&nbsp;3 minutes&nbsp;</div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2020-12-18">2020-12-18</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;910 words&nbsp;
+                <i class="far fa-clock fa-fw"></i>&nbsp;5 minutes&nbsp;</div>
         </div><div class="details toc" id="toc-static"  kept="">
                 <div class="details-summary toc-title">
                     <span>Contents</span>
@@ -128,6 +128,9 @@
         <li><a href="#supervised-learning-vs-unsupervised-learning">Supervised Learning vs. Unsupervised Learning</a></li>
         <li><a href="#regression-vs-classification">Regression vs. Classification</a></li>
         <li><a href="#linear-regression-with-1-variable--feature">Linear Regression with 1 Variable / Feature</a></li>
+        <li><a href="#multiple-features-and-matrix">Multiple Features and Matrix</a></li>
+        <li><a href="#feature-scaling">Feature Scaling</a></li>
+        <li><a href="#normal-equation">Normal Equation</a></li>
       </ul>
     </li>
   </ul>
@@ -155,7 +158,7 @@
 <thead>
 <tr>
 <th style="text-align:center"></th>
-<th style="text-align:center">Size($m^2$)</th>
+<th style="text-align:center">Size</th>
 <th style="text-align:center">Number of Bedrooms</th>
 <th style="text-align:center">Number of Floors</th>
 <th style="text-align:center">Age(years)</th>
@@ -164,7 +167,7 @@
 </thead>
 <tbody>
 <tr>
-<td style="text-align:center">($TrainingData_1$)</td>
+<td style="text-align:center">$TrainingData_1$</td>
 <td style="text-align:center">2104</td>
 <td style="text-align:center">5</td>
 <td style="text-align:center">1</td>
@@ -172,7 +175,7 @@
 <td style="text-align:center">460</td>
 </tr>
 <tr>
-<td style="text-align:center">($TrainingData_2$)</td>
+<td style="text-align:center">$TrainingData_2$</td>
 <td style="text-align:center">1416</td>
 <td style="text-align:center">3</td>
 <td style="text-align:center">2</td>
@@ -180,7 +183,7 @@
 <td style="text-align:center">232</td>
 </tr>
 <tr>
-<td style="text-align:center">($TrainingData_3$)</td>
+<td style="text-align:center">$TrainingData_3$</td>
 <td style="text-align:center">1534</td>
 <td style="text-align:center">3</td>
 <td style="text-align:center">2</td>
@@ -188,7 +191,7 @@
 <td style="text-align:center">315</td>
 </tr>
 <tr>
-<td style="text-align:center">($TrainingData_4$)</td>
+<td style="text-align:center">$TrainingData_4$</td>
 <td style="text-align:center">852</td>
 <td style="text-align:center">2</td>
 <td style="text-align:center">1</td>
@@ -224,7 +227,7 @@
 <h3 id="regression-vs-classification">Regression vs. Classification</h3>
 <ul>
 <li>
-<p>Regression: The Value we want to predict is <strong>continous</strong> instead of discrete. i.g., the Price of a House.</p>
+<p>Regression: The Value we want to predict is <strong>continious</strong> instead of discrete. i.g., the Price of a House.</p>
 <blockquote>
 <p>In a regression problem, we are trying to predict results within a continuous output, meaning that we are trying to map input variables to some continuous function.</p>
 </blockquote>
@@ -238,36 +241,115 @@
 </ul>
 <h3 id="linear-regression-with-1-variable--feature">Linear Regression with 1 Variable / Feature</h3>
 <ul>
-<li>Hypothesis Function
+<li>
+<p>Hypothesis Function</p>
 <ul>
 <li>$\hat y = h_\theta = \theta_0 + \theta_1x$</li>
 </ul>
 </li>
-<li>Cost Function
+<li>
+<p>Cost Function</p>
 <ul>
 <li>$J(\theta_0, \theta_1) = \frac{1}{2m} \sum_{i=1}^m(\hat y_i - y_i)^2 = \frac{1}{2m} \sum_{i=1}^m(h_\theta(x_i) - y_i)^2$</li>
 </ul>
 </li>
-<li>Optimize
+<li>
+<p>Optimize</p>
 <ul>
 <li>
 <p><strong>Gradient Descnet.</strong> More specifically, repeat:</p>
-<p>$tmp_0 = \theta_0 - \alpha\frac{\partial}{\theta_0}{J(\theta_0, \theta_1)} = \theta_0 - \alpha\frac{1}{m}\sum_{i=1}^nm{(h_\theta(x_i) - y_i)}$
-$tmp_1 = \theta_1 - \alpha\frac{\partial}{\theta_1}{J(\theta_0, \theta_1)} = \theta_1 - \alpha\frac{1}{m}\sum_{i=1}^m{((h_\theta(x_i) - y_i)x_i)}$
-$\theta_0 = tmp_0$
-$\theta_1 = tmp_1$</p>
+<p>$tmp_0 = \theta_0 - \alpha\frac{\partial}{\theta_0}{J(\theta_0, \theta_1)} = \theta_0 - \alpha\frac{1}{m}\sum_{i=1}^m{(h_\theta(x_i) - y_i)}$</p>
+<p>$tmp_1 = \theta_1 - \alpha\frac{\partial}{\theta_1}{J(\theta_0, \theta_1)} = \theta_1 - \alpha\frac{1}{m}\sum_{i=1}^m{((h_\theta(x_i) - y_i)x_1)}$</p>
+<p>$\theta_0 = tmp_0$</p>
+<p>$\theta_1 = tmp_1$</p>
 <p>We call $\alpha$ <strong>Learning Rate.</strong> Its' value has influence on the speed, how fast we can find the parameters, with that we can reach a local optimal value.</p>
 </li>
 <li>
 <p><strong>When $\alpha$ too large / too small is:</strong></p>
 <ul>
-<li>too large: we might miss the parameters, which can help us get the local optimal value.</li>
-<li>too small: We need more iterations ( Baby Steps / more time ).</li>
-<li>We can make the judge, whether $\alpha$ too large / small ist by drawing the plot of <strong>iterations - $J(\theta_0, \theta_1)$:</strong> It should be lower. Otherwise is $\alpha$ too large.</li>
-<li>We can start $\alpha$ from <strong>0.001, &hellip;, 0.01, &hellip;, 0.1.</strong> And Andrew Ng advises us to use 3 times ( 0.001, 0.003, 0.01, 0.03, 0.1 ) to try it.</li>
+<li>
+<p>too large: we might miss the parameters, which can help us get the local optimal value.</p>
+</li>
+<li>
+<p>too small: We need more iterations ( Baby Steps / more time ).</p>
+</li>
+<li>
+<p>We can make the judge, whether $\alpha$ too large / small ist by drawing the plot of <strong>iterations - $J(\theta_0, \theta_1)$:</strong> It should be lower. Otherwise is $\alpha$ too large.</p>
+</li>
+<li>
+<p>We can start $\alpha$ from <strong>0.001, &hellip;, 0.01, &hellip;, 0.1.</strong> And Andrew Ng advises us to use 3 times ( 0.001, 0.003, 0.01, 0.03, 0.1 ) to try it.</p>
+</li>
 </ul>
 </li>
 </ul>
+</li>
+</ul>
+<h3 id="multiple-features-and-matrix">Multiple Features and Matrix</h3>
+<ul>
+<li>
+<p>Vector:</p>
+<ul>
+<li>A vector is a Matrix with <strong>one Column and many rows.</strong> i.g., $\begin{bmatrix}x_0 \ x_1 \x_2 \x_3 \end{bmatrix}$</li>
+</ul>
+</li>
+<li>
+<p>Hypothesis:</p>
+<ul>
+<li>
+<p>We use the table above as example, we have 4 Training Data and each of them has 4 Features. According to this, we should have 4+1 parameters $\theta_0-\theta_4$. We write the Hypothesis below:</p>
+<p>$h_\theta(x^i) = \theta_0 + \sum_{j=1}^4\theta_jx_j^i$</p>
+<p>$x_i^j$ here means the <em>jth Feature</em> of the <em>ith Training Data.</em></p>
+<p>Actually we can add a Feature $x_0 \equiv 1$, then we can use the Matrix. So that we can write the Equation above as below:</p>
+<p>$h_\theta(x^i) = \sum_{j=0}^4\theta_jx_j^i$</p>
+<p>We let:</p>
+<p>$\Theta = \begin{bmatrix}\theta_0, \theta_1, \theta_2, \theta_3, \theta_4\end{bmatrix}$,</p>
+<p>$X = \begin{bmatrix}  x^1_0 &amp; x^2_0 &amp; x^3_0 &amp; x^4_0 \ x^1_1 &amp; x^2_1 &amp; x^3_1 &amp; x^4_1 \ x^1_2 &amp; x^2_2 &amp; x^3_2 &amp; x^4_2 \ x^1_3 &amp; x^2_3 &amp; x^3_3 &amp; x^4_3 \ x^1_4 &amp; x^2_4 &amp; x^3_4 &amp; x^4_4 \end{bmatrix}$.</p>
+<p>So that $h_\theta(x^i) = \Theta * i_{th}$ column of $X$. In Matrix $X$, element $x_0^i \equiv 1$. We can also calculate $\Theta * X$ directly, the $i_{th}$ colum is the value of $h_\theta(x^i)$.</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Cost Function:</p>
+<ul>
+<li>
+<p>Assume we have <strong>m Training Data</strong>, each of them has <strong>n Features</strong>.</p>
+<p>$J(\theta_0, \theta_1, &hellip; \theta_n) = \frac{1}{2m}\sum_{i=1}^m(h_\theta(x^i) - y^i)^2$</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Gradien Descent:</p>
+<ul>
+<li>
+<p>repeat:</p>
+<p>$tmp_i = \theta_i - \alpha\frac{\partial}{\partial\theta_i}J(\theta_0, \theta_1, &hellip;, \theta_n) = \theta_i - \alpha\frac{1}{m}\sum_{i=1}^n(h_\theta(x^i) - y^i)* x^i)$</p>
+<p>$\theta_i = tmp_i$</p>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="feature-scaling">Feature Scaling</h3>
+<ul>
+<li>
+<p>We use this technique <strong>when the range of Features have great Difference.</strong> i.g., $0 \leq x_1 \leq 2000, 0 \leq x_2 \leq 5$, then we can $x_1 \coloneqq x_1 / 2000, x_2 \coloneqq x_2 / 5.$ This helps with the speed up of the Gradient Descent.</p>
+</li>
+<li>
+<p>Andrew Ng advices that scaling all Features <strong>approximately</strong> into the range <strong>[-1, 1]</strong>.</p>
+</li>
+<li>
+<p>We can also scale the Features by using this:</p>
+<p>$x_i = \frac{x_i - \mu_i}{s_i}$</p>
+<p>Here $\mu_i$ is the average value of Feature $x_i$, $s_i$ is normally $value_{max} - value_{min}$.</p>
+</li>
+</ul>
+<h3 id="normal-equation">Normal Equation</h3>
+<ul>
+<li>
+<p>The Method to solve for $\Theta$ analytically:</p>
+<p>$\Theta = (X^TX)^{-1}X^Ty$ can minimize the $J(\theta)$.</p>
+<p>$x^i = \begin{bmatrix}x_0^i, x_1^i, &hellip;, x_n^i\end{bmatrix}$</p>
+<p>$X = \begin{bmatrix} x_0^1 &amp; x_1^1 &amp; {&hellip;} &amp; x_n^1 \ x_0^2 &amp; x_1^2 &amp; {&hellip;} &amp; x_n^2 \ &hellip; &amp; &hellip; &amp; &hellip; &amp; &hellip; \x_0^m &amp; x_1^m &amp; {&hellip;} &amp; x_n^m \end{bmatrix}$</p>
+<p>In this Matrix, we write <strong>each row the Features of one Training Data</strong>.</p>
 </li>
 </ul>
 </div><div class="post-footer" id="post-footer">
@@ -309,5 +391,5 @@ $\theta_1 = tmp_1$</p>
             </a><a href="#" id="view-comments" class="fixed-button" title="View Comments">
                 <i class="fas fa-comment fa-fw"></i>
             </a>
-        </div><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/smooth-scroll@16.1.3/dist/smooth-scroll.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/autocomplete.js@0.37.1/dist/autocomplete.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/algoliasearch@4.2.0/dist/algoliasearch-lite.umd.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lazysizes@5.2.2/lazysizes.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sharer.js@0.4.0/sharer.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/typeit@7.0.4/dist/typeit.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"Copy to clipboard","maxShownLines":10},"comment":{},"data":{"id-1":"BE AWESOME!","id-2":"BE AWESOME!"},"search":{"algoliaAppID":"PASDMWALPK","algoliaIndex":"index.en","algoliaSearchKey":"b42948e51daaa93df92381c8e2ac0f93","highlightTag":"em","maxResultLength":10,"noResultsFound":"No results found","snippetLength":30,"type":"algolia"},"typeit":{"cursorChar":"|","cursorSpeed":1000,"data":{"id-1":["id-1"],"id-2":["id-2"]},"duration":-1,"speed":100}};</script><script type="text/javascript" src="/js/theme.min.js"></script></body>
+        </div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/copy-tex.min.css"><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/smooth-scroll@16.1.3/dist/smooth-scroll.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/autocomplete.js@0.37.1/dist/autocomplete.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/algoliasearch@4.2.0/dist/algoliasearch-lite.umd.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lazysizes@5.2.2/lazysizes.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sharer.js@0.4.0/sharer.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/typeit@7.0.4/dist/typeit.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/auto-render.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/copy-tex.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/mhchem.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"Copy to clipboard","maxShownLines":10},"comment":{},"data":{"id-1":"BE AWESOME!","id-2":"BE AWESOME!"},"math":{"delimiters":[{"display":true,"left":"$$","right":"$$"},{"display":true,"left":"\\[","right":"\\]"},{"display":false,"left":"$","right":"$"},{"display":false,"left":"\\(","right":"\\)"}],"strict":false},"search":{"algoliaAppID":"PASDMWALPK","algoliaIndex":"index.en","algoliaSearchKey":"b42948e51daaa93df92381c8e2ac0f93","highlightTag":"em","maxResultLength":10,"noResultsFound":"No results found","snippetLength":30,"type":"algolia"},"typeit":{"cursorChar":"|","cursorSpeed":1000,"data":{"id-1":["id-1"],"id-2":["id-2"]},"duration":-1,"speed":100}};</script><script type="text/javascript" src="/js/theme.min.js"></script></body>
 </html>
