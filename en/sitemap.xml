@@ -2,23 +2,16 @@
     xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
     xmlns:xhtml="http://www.w3.org/1999/xhtml"
     ><url>
-            <loc>https://daijiabin.github.io/</loc><lastmod>2020-12-18T19:11:53&#43;01:00</lastmod><changefreq>weekly</changefreq><priority>1</priority><xhtml:link
+            <loc>https://daijiabin.github.io/tags/ai/</loc><lastmod>2020-12-18T22:05:12&#43;01:00</lastmod><changefreq>weekly</changefreq><priority>1</priority><xhtml:link
                         rel="alternate"
                         hreflang="zh-cn"
-                        href="https://daijiabin.github.io/zh-cn/"
-                        /><xhtml:link
-                        rel="alternate"
-                        hreflang="fr"
-                        href="https://daijiabin.github.io/fr/"
+                        href="https://daijiabin.github.io/zh-cn/tags/ai/"
                         /><xhtml:link
                     rel="alternate"
                     hreflang="en"
-                    href="https://daijiabin.github.io/"
+                    href="https://daijiabin.github.io/tags/ai/"
                     /></url><url>
-            <loc>https://daijiabin.github.io/machine-lerning/</loc><lastmod>2020-12-18T19:11:53&#43;01:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
-            <loc>https://daijiabin.github.io/posts/</loc><lastmod>2020-12-18T19:11:53&#43;01:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
-            <loc>https://daijiabin.github.io/about/</loc><lastmod>2020-12-18T16:36:36&#43;01:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
-            <loc>https://daijiabin.github.io/categories/</loc><changefreq>weekly</changefreq><priority>0.5</priority><xhtml:link
+            <loc>https://daijiabin.github.io/categories/</loc><lastmod>2020-12-18T22:05:12&#43;01:00</lastmod><changefreq>weekly</changefreq><priority>1</priority><xhtml:link
                         rel="alternate"
                         hreflang="zh-cn"
                         href="https://daijiabin.github.io/zh-cn/categories/"
@@ -31,7 +24,47 @@
                     hreflang="en"
                     href="https://daijiabin.github.io/categories/"
                     /></url><url>
-            <loc>https://daijiabin.github.io/tags/</loc><changefreq>weekly</changefreq><priority>0.5</priority><xhtml:link
+            <loc>https://daijiabin.github.io/</loc><lastmod>2020-12-18T22:05:12&#43;01:00</lastmod><changefreq>weekly</changefreq><priority>1</priority><xhtml:link
+                        rel="alternate"
+                        hreflang="zh-cn"
+                        href="https://daijiabin.github.io/zh-cn/"
+                        /><xhtml:link
+                        rel="alternate"
+                        hreflang="fr"
+                        href="https://daijiabin.github.io/fr/"
+                        /><xhtml:link
+                    rel="alternate"
+                    hreflang="en"
+                    href="https://daijiabin.github.io/"
+                    /></url><url>
+            <loc>https://daijiabin.github.io/categories/learn/</loc><lastmod>2020-12-18T22:05:12&#43;01:00</lastmod><changefreq>weekly</changefreq><priority>1</priority><xhtml:link
+                        rel="alternate"
+                        hreflang="zh-cn"
+                        href="https://daijiabin.github.io/zh-cn/categories/learn/"
+                        /><xhtml:link
+                    rel="alternate"
+                    hreflang="en"
+                    href="https://daijiabin.github.io/categories/learn/"
+                    /></url><url>
+            <loc>https://daijiabin.github.io/machine-learning/</loc><lastmod>2020-12-18T22:05:12&#43;01:00</lastmod><changefreq>weekly</changefreq><priority>1</priority><xhtml:link
+                        rel="alternate"
+                        hreflang="zh-cn"
+                        href="https://daijiabin.github.io/zh-cn/machine-learning/"
+                        /><xhtml:link
+                    rel="alternate"
+                    hreflang="en"
+                    href="https://daijiabin.github.io/machine-learning/"
+                    /></url><url>
+            <loc>https://daijiabin.github.io/posts/</loc><lastmod>2020-12-18T22:05:12&#43;01:00</lastmod><changefreq>weekly</changefreq><priority>1</priority><xhtml:link
+                        rel="alternate"
+                        hreflang="zh-cn"
+                        href="https://daijiabin.github.io/zh-cn/posts/"
+                        /><xhtml:link
+                    rel="alternate"
+                    hreflang="en"
+                    href="https://daijiabin.github.io/posts/"
+                    /></url><url>
+            <loc>https://daijiabin.github.io/tags/</loc><lastmod>2020-12-18T22:05:12&#43;01:00</lastmod><changefreq>weekly</changefreq><priority>1</priority><xhtml:link
                         rel="alternate"
                         hreflang="zh-cn"
                         href="https://daijiabin.github.io/zh-cn/tags/"
@@ -43,4 +76,5 @@
                     rel="alternate"
                     hreflang="en"
                     href="https://daijiabin.github.io/tags/"
-                    /></url></urlset>
+                    /></url><url>
+            <loc>https://daijiabin.github.io/about/</loc><lastmod>2020-12-18T21:48:45&#43;01:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url></urlset>

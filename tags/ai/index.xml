@@ -1,16 +1,14 @@
 <rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
     <channel>
-        <title>Jiabin&#39;s Blog</title>
-        <link>https://daijiabin.github.io/zh-cn/</link>
-        <description>关于 LoveIt 主题</description>
-        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Fri, 18 Dec 2020 19:11:53 &#43;0100</lastBuildDate>
-            <atom:link href="https://daijiabin.github.io/zh-cn/index.xml" rel="self" type="application/rss+xml" />
-        <item>
+        <title>AI - Tag - Jiabin&#39;s Blog</title>
+        <link>https://daijiabin.github.io/tags/ai/</link>
+        <description>AI - Tag - Jiabin&#39;s Blog</description>
+        <generator>Hugo -- gohugo.io</generator><language>en</language><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Fri, 18 Dec 2020 19:11:53 &#43;0100</lastBuildDate><atom:link href="https://daijiabin.github.io/tags/ai/" rel="self" type="application/rss+xml" /><item>
     <title>Machine Learning</title>
-    <link>https://daijiabin.github.io/zh-cn/machine-learning/</link>
+    <link>https://daijiabin.github.io/machine-learning/</link>
     <pubDate>Fri, 18 Dec 2020 19:11:53 &#43;0100</pubDate>
-    <author>作者</author>
-    <guid>https://daijiabin.github.io/zh-cn/machine-learning/</guid>
+    <author>Author</author>
+    <guid>https://daijiabin.github.io/machine-learning/</guid>
     <description><![CDATA[Lecture by Andrew Ng, Coursera Week 1 Supervised Learning vs. Unsupervised Learning   Supervised Learning:
  In supervised learning, we are given a data set and already know what our correct output should look like, having the idea that there is a relationship between the input and the output.
    Training Data already has the value, which our Function should predict for a new, strange input. i.e, In the case below, we want to get a function, so that we can calculate the price of a house to be sold.]]></description>

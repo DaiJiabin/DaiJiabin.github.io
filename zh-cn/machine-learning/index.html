@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+        <title>Machine Learning - Jiabin&#39;s Blog</title><meta name="Description" content="关于 LoveIt 主题"><meta property="og:title" content="Machine Learning" />
+<meta property="og:description" content="Lecture by Andrew Ng, Coursera Week 1 Supervised Learning vs. Unsupervised Learning   Supervised Learning:
+ In supervised learning, we are given a data set and already know what our correct output should look like, having the idea that there is a relationship between the input and the output.
+   Training Data already has the value, which our Function should predict for a new, strange input. i.e, In the case below, we want to get a function, so that we can calculate the price of a house to be sold." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://daijiabin.github.io/zh-cn/machine-learning/" />
+<meta property="og:image" content="https://daijiabin.github.io/logo.png"/>
+<meta property="article:published_time" content="2020-12-18T19:11:53+01:00" />
+<meta property="article:modified_time" content="2020-12-18T22:05:12+01:00" />
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://daijiabin.github.io/logo.png"/>
+
+<meta name="twitter:title" content="Machine Learning"/>
+<meta name="twitter:description" content="Lecture by Andrew Ng, Coursera Week 1 Supervised Learning vs. Unsupervised Learning   Supervised Learning:
+ In supervised learning, we are given a data set and already know what our correct output should look like, having the idea that there is a relationship between the input and the output.
+   Training Data already has the value, which our Function should predict for a new, strange input. i.e, In the case below, we want to get a function, so that we can calculate the price of a house to be sold."/>
+<meta name="application-name" content="LoveIt">
+<meta name="apple-mobile-web-app-title" content="LoveIt"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://daijiabin.github.io/zh-cn/machine-learning/" /><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/normalize.css@8.0.1/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.13.0/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.7.2/animate.min.css"><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "Machine Learning",
+        "inLanguage": "zh-CN",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https:\/\/daijiabin.github.io\/zh-cn\/machine-learning\/"
+        },"image": ["https:\/\/daijiabin.github.io\/images\/Apple-Devices-Preview.png"],"genre": "posts","keywords": "AI","wordcount":  910 ,
+        "url": "https:\/\/daijiabin.github.io\/zh-cn\/machine-learning\/","datePublished": "2020-12-18T19:11:53+01:00","dateModified": "2020-12-18T22:05:12+01:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
+            "@type": "Organization",
+            "name": "Dai Jiabin","logo": "https:\/\/daijiabin.github.io\/images\/avatar.png"},"author": {
+                "@type": "Person",
+                "name": "Dai Jiabin"
+            },"description": ""
+    }
+    </script></head>
+    <body header-desktop="fixed" header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/zh-cn/" title="Jiabin&#39;s Blog"><span class="header-title-pre"><i class='fas fa-user-secret fa-fw'></i></span><span id="id-1" class="typeit"></span></a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/zh-cn/posts/"> 所有文章 </a><a class="menu-item" href="/zh-cn/tags/"> 标签 </a><a class="menu-item" href="/zh-cn/categories/"> 分类 </a><a class="menu-item" href="/zh-cn/categories/documentation/"> 文档 </a><a class="menu-item" href="/zh-cn/about/"> 关于 </a><span class="menu-item delimiter"></span><a href="javascript:void(0);" class="menu-item language" title="选择语言">简体中文<i class="fas fa-chevron-right fa-fw"></i>
+                        <select class="language-select" id="language-select-desktop" onchange="location = this.value;"><option value="/machine-learning/">English</option><option value="/zh-cn/machine-learning/" selected>简体中文</option></select>
+                    </a><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="搜索文章标题或内容..." id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="搜索">
+                            <i class="fas fa-search fa-fw"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="清空">
+                            <i class="fas fa-times-circle fa-fw"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin"></i>
+                        </span>
+                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                    <i class="fas fa-adjust fa-fw"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/zh-cn/" title="Jiabin&#39;s Blog"><span class="header-title-pre"><i class='fas fa-user-secret fa-fw'></i></span><span id="id-2" class="typeit"></span></a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="搜索文章标题或内容..." id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="搜索">
+                            <i class="fas fa-search fa-fw"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="清空">
+                            <i class="fas fa-times-circle fa-fw"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin"></i>
+                        </span>
+                    </div>
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                        取消
+                    </a>
+                </div><a class="menu-item" href="/zh-cn/posts/" title="">所有文章</a><a class="menu-item" href="/zh-cn/tags/" title="">标签</a><a class="menu-item" href="/zh-cn/categories/" title="">分类</a><a class="menu-item" href="/zh-cn/categories/documentation/" title="">文档</a><a class="menu-item" href="/zh-cn/about/" title="">关于</a><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                <i class="fas fa-adjust fa-fw"></i>
+            </a><a href="javascript:void(0);" class="menu-item" title="选择语言">简体中文<i class="fas fa-chevron-right fa-fw"></i>
+                    <select class="language-select" onchange="location = this.value;"><option value="/machine-learning/">English</option><option value="/zh-cn/machine-learning/" selected>简体中文</option></select>
+                </a></div>
+    </div>
+</header>
+<div class="search-dropdown desktop">
+    <div id="search-dropdown-desktop"></div>
+</div>
+<div class="search-dropdown mobile">
+    <div id="search-dropdown-mobile"></div>
+</div>
+<main class="main">
+                <div class="container"><div class="toc" id="toc-auto">
+            <h2 class="toc-title">目录</h2>
+            <div class="toc-content" id="toc-content-auto"></div>
+        </div><article class="page single"><h1 class="single-title animated flipInX">Machine Learning</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="daijiabin.github.io" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw"></i>Dai Jiabin</a></span>&nbsp;<span class="post-category">收录于 <a href="/zh-cn/categories/learn/"><i class="far fa-folder fa-fw"></i>Learn</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2020-12-18">2020-12-18</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 910 字&nbsp;
+                <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 5 分钟&nbsp;</div>
+        </div><div class="details toc" id="toc-static"  kept="">
+                <div class="details-summary toc-title">
+                    <span>目录</span>
+                    <span><i class="details-icon fas fa-angle-right"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#week-1">Week 1</a>
+      <ul>
+        <li><a href="#supervised-learning-vs-unsupervised-learning">Supervised Learning vs. Unsupervised Learning</a></li>
+        <li><a href="#regression-vs-classification">Regression vs. Classification</a></li>
+        <li><a href="#linear-regression-with-1-variable--feature">Linear Regression with 1 Variable / Feature</a></li>
+        <li><a href="#multiple-features-and-matrix">Multiple Features and Matrix</a></li>
+        <li><a href="#feature-scaling">Feature Scaling</a></li>
+        <li><a href="#normal-equation">Normal Equation</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><h1 id="lecture-by-andrew-ng-courserahttpswwwcourseraorglearnmachine-learning">Lecture by <a href="https://www.coursera.org/learn/machine-learning" target="_blank" rel="noopener noreffer">Andrew Ng, Coursera</a></h1>
+<h2 id="week-1">Week 1</h2>
+<h3 id="supervised-learning-vs-unsupervised-learning">Supervised Learning vs. Unsupervised Learning</h3>
+<ul>
+<li>
+<p>Supervised Learning:</p>
+<blockquote>
+<p>In supervised learning, we are given a data set and already know what our correct output should look like, having the idea that there is a relationship between the input and the output.</p>
+</blockquote>
+<ul>
+<li>
+<p>Training Data already has the value, which our Function should predict for a new, strange input. i.e, In the case below, we want to get a function, so that we can calculate the price of a house to be sold. We have <strong>4 Training Data</strong> in this table and each Data has 4 <strong>Features</strong> that have a influence on its' price ( we call it as <strong>Multi-Features</strong>. It&rsquo;ll be discussed later:) ).</p>
+</li>
+<li>
+<p>It&rsquo;s devided in <strong>Regression</strong> and <strong>Classification</strong> Problems</p>
+</li>
+</ul>
+</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th style="text-align:center"></th>
+<th style="text-align:center">Size</th>
+<th style="text-align:center">Number of Bedrooms</th>
+<th style="text-align:center">Number of Floors</th>
+<th style="text-align:center">Age(years)</th>
+<th style="text-align:center">Price(1000$)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">$TrainingData_1$</td>
+<td style="text-align:center">2104</td>
+<td style="text-align:center">5</td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">45</td>
+<td style="text-align:center">460</td>
+</tr>
+<tr>
+<td style="text-align:center">$TrainingData_2$</td>
+<td style="text-align:center">1416</td>
+<td style="text-align:center">3</td>
+<td style="text-align:center">2</td>
+<td style="text-align:center">40</td>
+<td style="text-align:center">232</td>
+</tr>
+<tr>
+<td style="text-align:center">$TrainingData_3$</td>
+<td style="text-align:center">1534</td>
+<td style="text-align:center">3</td>
+<td style="text-align:center">2</td>
+<td style="text-align:center">30</td>
+<td style="text-align:center">315</td>
+</tr>
+<tr>
+<td style="text-align:center">$TrainingData_4$</td>
+<td style="text-align:center">852</td>
+<td style="text-align:center">2</td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">36</td>
+<td style="text-align:center">178</td>
+</tr>
+<tr>
+<td style="text-align:center">&hellip;</td>
+<td style="text-align:center">&hellip;</td>
+<td style="text-align:center">&hellip;</td>
+<td style="text-align:center">&hellip;</td>
+<td style="text-align:center">&hellip;</td>
+<td style="text-align:center">&hellip;</td>
+</tr>
+<tr>
+<td style="text-align:center"></td>
+<td style="text-align:center">($x_1$)</td>
+<td style="text-align:center">($x_2$)</td>
+<td style="text-align:center">($x_3$)</td>
+<td style="text-align:center">($x_4$)</td>
+<td style="text-align:center">($x_5$)</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>
+<p>Unsupervised Learning</p>
+<blockquote>
+<p>Unsupervised learning, on the other hand, allows us to approach problems with little or no idea what our results should look like. We can derive structure from data where we don&rsquo;t necessarily know the effect of the variables.</p>
+</blockquote>
+</li>
+</ul>
+<h3 id="regression-vs-classification">Regression vs. Classification</h3>
+<ul>
+<li>
+<p>Regression: The Value we want to predict is <strong>continious</strong> instead of discrete. i.g., the Price of a House.</p>
+<blockquote>
+<p>In a regression problem, we are trying to predict results within a continuous output, meaning that we are trying to map input variables to some continuous function.</p>
+</blockquote>
+</li>
+<li>
+<p>Classification: As its' name, we want to <strong>devide the input in different classes</strong>. i.g., After training, with the help of the <u>color, weight, outlook and smel</u> ( <strong>Features</strong> ), we want to predict if the coffee beans we have come from Arabica or Robusta.</p>
+<blockquote>
+<p>In a classification problem, we are instead trying to predict results in a discrete output. In other words, we are trying to map input variables into discrete categories.</p>
+</blockquote>
+</li>
+</ul>
+<h3 id="linear-regression-with-1-variable--feature">Linear Regression with 1 Variable / Feature</h3>
+<ul>
+<li>
+<p>Hypothesis Function</p>
+<ul>
+<li>$\hat y = h_\theta = \theta_0 + \theta_1x$</li>
+</ul>
+</li>
+<li>
+<p>Cost Function</p>
+<ul>
+<li>$J(\theta_0, \theta_1) = \frac{1}{2m} \sum_{i=1}^m(\hat y_i - y_i)^2 = \frac{1}{2m} \sum_{i=1}^m(h_\theta(x_i) - y_i)^2$</li>
+</ul>
+</li>
+<li>
+<p>Optimize</p>
+<ul>
+<li>
+<p><strong>Gradient Descnet.</strong> More specifically, repeat:</p>
+<p>$tmp_0 = \theta_0 - \alpha\frac{\partial}{\theta_0}{J(\theta_0, \theta_1)} = \theta_0 - \alpha\frac{1}{m}\sum_{i=1}^m{(h_\theta(x_i) - y_i)}$</p>
+<p>$tmp_1 = \theta_1 - \alpha\frac{\partial}{\theta_1}{J(\theta_0, \theta_1)} = \theta_1 - \alpha\frac{1}{m}\sum_{i=1}^m{((h_\theta(x_i) - y_i)x_1)}$</p>
+<p>$\theta_0 = tmp_0$</p>
+<p>$\theta_1 = tmp_1$</p>
+<p>We call $\alpha$ <strong>Learning Rate.</strong> Its' value has influence on the speed, how fast we can find the parameters, with that we can reach a local optimal value.</p>
+</li>
+<li>
+<p><strong>When $\alpha$ too large / too small is:</strong></p>
+<ul>
+<li>
+<p>too large: we might miss the parameters, which can help us get the local optimal value.</p>
+</li>
+<li>
+<p>too small: We need more iterations ( Baby Steps / more time ).</p>
+</li>
+<li>
+<p>We can make the judge, whether $\alpha$ too large / small ist by drawing the plot of <strong>iterations - $J(\theta_0, \theta_1)$:</strong> It should be lower. Otherwise is $\alpha$ too large.</p>
+</li>
+<li>
+<p>We can start $\alpha$ from <strong>0.001, &hellip;, 0.01, &hellip;, 0.1.</strong> And Andrew Ng advises us to use 3 times ( 0.001, 0.003, 0.01, 0.03, 0.1 ) to try it.</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="multiple-features-and-matrix">Multiple Features and Matrix</h3>
+<ul>
+<li>
+<p>Vector:</p>
+<ul>
+<li>A vector is a Matrix with <strong>one Column and many rows.</strong> i.g., $\begin{bmatrix}x_0 \ x_1 \x_2 \x_3 \end{bmatrix}$</li>
+</ul>
+</li>
+<li>
+<p>Hypothesis:</p>
+<ul>
+<li>
+<p>We use the table above as example, we have 4 Training Data and each of them has 4 Features. According to this, we should have 4+1 parameters $\theta_0-\theta_4$. We write the Hypothesis below:</p>
+<p>$h_\theta(x^i) = \theta_0 + \sum_{j=1}^4\theta_jx_j^i$</p>
+<p>$x_i^j$ here means the <em>jth Feature</em> of the <em>ith Training Data.</em></p>
+<p>Actually we can add a Feature $x_0 \equiv 1$, then we can use the Matrix. So that we can write the Equation above as below:</p>
+<p>$h_\theta(x^i) = \sum_{j=0}^4\theta_jx_j^i$</p>
+<p>We let:</p>
+<p>$\Theta = \begin{bmatrix}\theta_0, \theta_1, \theta_2, \theta_3, \theta_4\end{bmatrix}$,</p>
+<p>$X = \begin{bmatrix}  x^1_0 &amp; x^2_0 &amp; x^3_0 &amp; x^4_0 \\ x^1_1 &amp; x^2_1 &amp; x^3_1 &amp; x^4_1 \\ x^1_2 &amp; x^2_2 &amp; x^3_2 &amp; x^4_2 \\ x^1_3 &amp; x^2_3 &amp; x^3_3 &amp; x^4_3 \\ x^1_4 &amp; x^2_4 &amp; x^3_4 &amp; x^4_4 \end{bmatrix}$.</p>
+<p>So that $h_\theta(x^i) = \Theta * i_{th}$ column of $X$. In Matrix $X$, element $x_0^i \equiv 1$. We can also calculate $\Theta * X$ directly, the $i_{th}$ colum is the value of $h_\theta(x^i)$.</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Cost Function:</p>
+<ul>
+<li>
+<p>Assume we have <strong>m Training Data</strong>, each of them has <strong>n Features</strong>.</p>
+<p>$J(\theta_0, \theta_1, &hellip; \theta_n) = \frac{1}{2m}\sum_{i=1}^m(h_\theta(x^i) - y^i)^2$</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Gradien Descent:</p>
+<ul>
+<li>
+<p>repeat:</p>
+<p>$tmp_i = \theta_i - \alpha\frac{\partial}{\partial\theta_i}J(\theta_0, \theta_1, &hellip;, \theta_n) = \theta_i - \alpha\frac{1}{m}\sum_{i=1}^n(h_\theta(x^i) - y^i)* x^i)$</p>
+<p>$\theta_i = tmp_i$</p>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="feature-scaling">Feature Scaling</h3>
+<ul>
+<li>
+<p>We use this technique <strong>when the range of Features have great Difference.</strong> i.g., $0 \leq x_1 \leq 2000, 0 \leq x_2 \leq 5$, then we can $x_1 \coloneqq x_1 / 2000, x_2 \coloneqq x_2 / 5.$ This helps with the speed up of the Gradient Descent.</p>
+</li>
+<li>
+<p>Andrew Ng advices that scaling all Features <strong>approximately</strong> into the range <strong>[-1, 1]</strong>.</p>
+</li>
+<li>
+<p>We can also scale the Features by using this:</p>
+<p>$x_i = \frac{x_i - \mu_i}{s_i}$</p>
+<p>Here $\mu_i$ is the average value of Feature $x_i$, $s_i$ is normally $value_{max} - value_{min}$.</p>
+</li>
+</ul>
+<h3 id="normal-equation">Normal Equation</h3>
+<ul>
+<li>
+<p>The Method to solve for $\Theta$ analytically:</p>
+<p>$\Theta = (X^TX)^{-1}X^Ty$ can minimize the $J(\theta)$.</p>
+<p>$x^i = \begin{bmatrix}x_0^i, x_1^i, &hellip;, x_n^i\end{bmatrix}$</p>
+<p>$X = \begin{bmatrix} x_0^1 &amp; x_1^1 &amp; {&hellip;} &amp; x_n^1 \\ x_0^2 &amp; x_1^2 &amp; {&hellip;} &amp; x_n^2 \\ &hellip; &amp; &hellip; &amp; &hellip; &amp; &hellip; \\x_0^m &amp; x_1^m &amp; {&hellip;} &amp; x_n^m \end{bmatrix}$</p>
+<p>In this Matrix, we write <strong>each row the Features of one Training Data</strong>.</p>
+</li>
+</ul>
+</div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>更新于 2020-12-18&nbsp;<a class="git-hash" href="https://github.com/dillonzq/LoveIt/commit/12a40ea47c80e2632296cee430852ba11b4fb869" target="_blank" title="commit by DaiJiabin(kechou.dai@gmail.com) 12a40ea47c80e2632296cee430852ba11b4fb869: 1st">
+                                    <i class="fas fa-hashtag fa-fw"></i>12a40ea</a></span>
+            </div>
+            <div class="post-info-license"></div>
+        </div>
+        <div class="post-info-line">
+            <div class="post-info-md"><span>
+                            <a class="link-to-markdown" href="/zh-cn/machine-learning/index.md" target="_blank">阅读原始文档</a>
+                        </span></div>
+            <div class="post-info-share">
+                <span><a href="javascript:void(0);" title="分享到 Twitter" data-sharer="twitter" data-url="https://daijiabin.github.io/zh-cn/machine-learning/" data-title="Machine Learning" data-hashtags="AI"><i class="fab fa-twitter fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Facebook" data-sharer="facebook" data-url="https://daijiabin.github.io/zh-cn/machine-learning/" data-hashtag="AI"><i class="fab fa-facebook-square fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Linkedin" data-sharer="linkedin" data-url="https://daijiabin.github.io/zh-cn/machine-learning/"><i class="fab fa-linkedin fa-fw"></i></a><a href="javascript:void(0);" title="分享到 WhatsApp" data-sharer="whatsapp" data-url="https://daijiabin.github.io/zh-cn/machine-learning/" data-title="Machine Learning" data-web><i class="fab fa-whatsapp fa-fw"></i></a><a href="javascript:void(0);" title="分享到 微博" data-sharer="weibo" data-url="https://daijiabin.github.io/zh-cn/machine-learning/" data-title="Machine Learning" data-ralateuid="5635632808/profile?rightmod=1&amp;wvr=6&amp;mod=personinfo"><i class="fab fa-weibo fa-fw"></i></a></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/zh-cn/tags/ai/">AI</a></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">返回</a></span>&nbsp;|&nbsp;<span><a href="/zh-cn/">主页</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"></div>
+</div>
+</article></div>
+            </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line">
+                </div><div class="footer-line"><i class="far fa-copyright fa-fw"></i><span itemprop="copyrightYear">2020</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="daijiabin.github.io" target="_blank">Dai Jiabin</a></span></div>
+        </div>
+    </footer></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="回到顶部">
+                <i class="fas fa-arrow-up fa-fw"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="查看评论">
+                <i class="fas fa-comment fa-fw"></i>
+            </a>
+        </div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/copy-tex.min.css"><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/smooth-scroll@16.1.3/dist/smooth-scroll.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/autocomplete.js@0.37.1/dist/autocomplete.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/algoliasearch@4.2.0/dist/algoliasearch-lite.umd.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lazysizes@5.2.2/lazysizes.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sharer.js@0.4.0/sharer.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/typeit@7.0.4/dist/typeit.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/auto-render.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/copy-tex.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/mhchem.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"复制到剪贴板","maxShownLines":10},"comment":{},"data":{"id-1":"BE AWESOME!","id-2":"BE AWESOME!"},"math":{"delimiters":[{"display":true,"left":"$$","right":"$$"},{"display":true,"left":"\\[","right":"\\]"},{"display":false,"left":"$","right":"$"},{"display":false,"left":"\\(","right":"\\)"}],"strict":false},"search":{"algoliaAppID":"PASDMWALPK","algoliaIndex":"index.zh-cn","algoliaSearchKey":"b42948e51daaa93df92381c8e2ac0f93","highlightTag":"em","maxResultLength":10,"noResultsFound":"没有找到结果","snippetLength":50,"type":"algolia"},"typeit":{"cursorChar":"|","cursorSpeed":1000,"data":{"id-1":["id-1"],"id-2":["id-2"]},"duration":-1,"speed":100}};</script><script type="text/javascript" src="/js/theme.min.js"></script></body>
+</html>
