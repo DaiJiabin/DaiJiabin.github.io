@@ -53,12 +53,14 @@
 
   3. French
   
-  4. Spanish
+  4. Russian
   
-  5. Italian
+  5. Spanish
+  
+  6. Italian
 
-  6. Japanese
+  7. Japanese
   
-  7. Icelandic
+  8. Icelandic
 
 - Programm Field
