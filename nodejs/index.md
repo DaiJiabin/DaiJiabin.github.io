@@ -19,13 +19,13 @@
 
 - Deals well with High Concurrency and I/O intensiv
 
-### CPU Intensiv vs. I/O Intensiv
+## CPU Intensiv vs. I/O Intensiv
 
 - CPU Intensiv: compress, decompress, encrpt, descrypt
 
 - I/O Intensiv: Operations on File, Network and Database, which are offen used by Web ( Reading Static Resources, Operate Database, Render).
 
-### How to deal with High Concurrency
+## How to deal with High Concurrency
 
 - Increase Servers
 
