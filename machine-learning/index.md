@@ -1,6 +1,8 @@
 # Machine Learning
 
 
+![Machine-Learning](/Machine-Learning.jpg)
+
 # Lecture by [Andrew Ng, Coursera](https://www.coursera.org/learn/machine-learning)
 
 # Week 1
