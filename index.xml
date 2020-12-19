@@ -14,5 +14,17 @@
     <description><![CDATA[Lecture by Andrew Ng, Coursera Week 1 Supervised Learning vs. Unsupervised Learning   Supervised Learning:
  In supervised learning, we are given a data set and already know what our correct output should look like, having the idea that there is a relationship between the input and the output.
    Training Data already has the value, which our Function should predict for a new, strange input. i.e, In the case below, we want to get a function, so that we can calculate the price of a house to be sold.]]></description>
+</item><item>
+    <title>NodeJS</title>
+    <link>https://daijiabin.github.io/nodejs/</link>
+    <pubDate>Fri, 18 Dec 2020 13:30:23 &#43;0100</pubDate>
+    <author>Author</author>
+    <guid>https://daijiabin.github.io/nodejs/</guid>
+    <description><![CDATA[Week 1 What is NodeJS?   Node.js is a JavaScript runtime built on Chrome&rsquo;s V8
+  Node.js uses an event-driven, non-blocking I/O model
+  Blocking: When I/O processing, process waits until I/O finishes.
+  Non-blocking: When I/o processing, process doesn&rsquo;t wait.
+  Event-driven: i.g., Click event.
+    Advantages of NodeJS  Deals well with High Concurrency and I/O intensiv  CPU Intensiv vs.]]></description>
 </item></channel>
 </rss>
