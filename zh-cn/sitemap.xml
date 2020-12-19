@@ -2,6 +2,35 @@
     xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
     xmlns:xhtml="http://www.w3.org/1999/xhtml"
     ><url>
+            <loc>https://daijiabin.github.io/zh-cn/diary/</loc><lastmod>2020-12-19T15:14:10&#43;01:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+            <loc>https://daijiabin.github.io/zh-cn/tags/diary/</loc><lastmod>2020-12-19T15:14:10&#43;01:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+            <loc>https://daijiabin.github.io/zh-cn/</loc><lastmod>2020-12-19T15:14:10&#43;01:00</lastmod><changefreq>weekly</changefreq><priority>1</priority><xhtml:link
+                        rel="alternate"
+                        hreflang="en"
+                        href="https://daijiabin.github.io/"
+                        /><xhtml:link
+                        rel="alternate"
+                        hreflang="fr"
+                        href="https://daijiabin.github.io/fr/"
+                        /><xhtml:link
+                    rel="alternate"
+                    hreflang="zh-cn"
+                    href="https://daijiabin.github.io/zh-cn/"
+                    /></url><url>
+            <loc>https://daijiabin.github.io/zh-cn/tags/</loc><lastmod>2020-12-19T15:14:10&#43;01:00</lastmod><changefreq>weekly</changefreq><priority>1</priority><xhtml:link
+                        rel="alternate"
+                        hreflang="en"
+                        href="https://daijiabin.github.io/tags/"
+                        /><xhtml:link
+                        rel="alternate"
+                        hreflang="fr"
+                        href="https://daijiabin.github.io/fr/tags/"
+                        /><xhtml:link
+                    rel="alternate"
+                    hreflang="zh-cn"
+                    href="https://daijiabin.github.io/zh-cn/tags/"
+                    /></url><url>
+            <loc>https://daijiabin.github.io/zh-cn/diary/%E4%BD%9C%E5%88%AB2020/</loc><lastmod>2020-12-19T15:14:10&#43;01:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
             <loc>https://daijiabin.github.io/zh-cn/tags/ai/</loc><lastmod>2020-12-18T22:05:12&#43;01:00</lastmod><changefreq>weekly</changefreq><priority>1</priority><xhtml:link
                         rel="alternate"
                         hreflang="en"
@@ -23,19 +52,6 @@
                     rel="alternate"
                     hreflang="zh-cn"
                     href="https://daijiabin.github.io/zh-cn/categories/"
-                    /></url><url>
-            <loc>https://daijiabin.github.io/zh-cn/</loc><lastmod>2020-12-18T22:05:12&#43;01:00</lastmod><changefreq>weekly</changefreq><priority>1</priority><xhtml:link
-                        rel="alternate"
-                        hreflang="en"
-                        href="https://daijiabin.github.io/"
-                        /><xhtml:link
-                        rel="alternate"
-                        hreflang="fr"
-                        href="https://daijiabin.github.io/fr/"
-                        /><xhtml:link
-                    rel="alternate"
-                    hreflang="zh-cn"
-                    href="https://daijiabin.github.io/zh-cn/"
                     /></url><url>
             <loc>https://daijiabin.github.io/zh-cn/categories/learn/</loc><lastmod>2020-12-18T22:05:12&#43;01:00</lastmod><changefreq>weekly</changefreq><priority>1</priority><xhtml:link
                         rel="alternate"
@@ -63,17 +79,4 @@
                     rel="alternate"
                     hreflang="zh-cn"
                     href="https://daijiabin.github.io/zh-cn/posts/"
-                    /></url><url>
-            <loc>https://daijiabin.github.io/zh-cn/tags/</loc><lastmod>2020-12-18T22:05:12&#43;01:00</lastmod><changefreq>weekly</changefreq><priority>1</priority><xhtml:link
-                        rel="alternate"
-                        hreflang="en"
-                        href="https://daijiabin.github.io/tags/"
-                        /><xhtml:link
-                        rel="alternate"
-                        hreflang="fr"
-                        href="https://daijiabin.github.io/fr/tags/"
-                        /><xhtml:link
-                    rel="alternate"
-                    hreflang="zh-cn"
-                    href="https://daijiabin.github.io/zh-cn/tags/"
                     /></url></urlset>
