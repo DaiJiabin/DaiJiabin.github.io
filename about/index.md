@@ -47,9 +47,11 @@
     
      - CET6 551
 
-  2. German, C1 - C2
+  2. German, GER C1.1 - C1.2
 
-     - TestDaF 18
+    <div style="text-align: center">
+      <img src="../static/TestDaF.jpg"/>
+    </div>
 
   3. French
   
@@ -64,3 +66,15 @@
   8. Icelandic
 
 - Programm Field
+
+  1. Languages I've learned:
+
+  2. Applications & Enviroments:
+  
+  3. Certificates on __[Coursera](https://www.coursera.org/):__
+  
+  4. Programm written by myself
+   
+- Social Field
+
+- Other Field
