@@ -13,7 +13,7 @@
 <meta property="og:url" content="https://daijiabin.github.io/machine-learning/" />
 <meta property="og:image" content="https://daijiabin.github.io/logo.png"/>
 <meta property="article:published_time" content="2020-12-18T19:11:53+01:00" />
-<meta property="article:modified_time" content="2020-12-18T22:05:12+01:00" />
+<meta property="article:modified_time" content="2020-12-19T11:43:38+01:00" />
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="https://daijiabin.github.io/logo.png"/>
 
@@ -33,8 +33,8 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "https:\/\/daijiabin.github.io\/machine-learning\/"
-        },"image": ["https:\/\/daijiabin.github.io\/images\/Apple-Devices-Preview.png"],"genre": "posts","keywords": "AI","wordcount":  910 ,
-        "url": "https:\/\/daijiabin.github.io\/machine-learning\/","datePublished": "2020-12-18T19:11:53+01:00","dateModified": "2020-12-18T22:05:12+01:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
+        },"image": ["https:\/\/daijiabin.github.io\/images\/Apple-Devices-Preview.png"],"genre": "posts","keywords": "AI","wordcount":  1024 ,
+        "url": "https:\/\/daijiabin.github.io\/machine-learning\/","datePublished": "2020-12-18T19:11:53+01:00","dateModified": "2020-12-19T11:43:38+01:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
             "@type": "Organization",
             "name": "Dai Jiabin","logo": "https:\/\/daijiabin.github.io\/images\/avatar.png"},"author": {
                 "@type": "Person",
@@ -114,7 +114,7 @@
             <div class="toc-content" id="toc-content-auto"></div>
         </div><article class="page single"><h1 class="single-title animated flipInX">Machine Learning</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="daijiabin.github.io" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw"></i>Dai Jiabin</a></span>&nbsp;<span class="post-category">included in <a href="/categories/learn/"><i class="far fa-folder fa-fw"></i>Learn</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2020-12-18">2020-12-18</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;910 words&nbsp;
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2020-12-18">2020-12-18</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;1024 words&nbsp;
                 <i class="far fa-clock fa-fw"></i>&nbsp;5 minutes&nbsp;</div>
         </div><div class="details toc" id="toc-static"  kept="">
                 <div class="details-summary toc-title">
@@ -123,7 +123,7 @@
                 </div>
                 <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
   <ul>
-    <li><a href="#week-1">Week 1</a>
+    <li>
       <ul>
         <li><a href="#supervised-learning-vs-unsupervised-learning">Supervised Learning vs. Unsupervised Learning</a></li>
         <li><a href="#regression-vs-classification">Regression vs. Classification</a></li>
@@ -136,7 +136,7 @@
   </ul>
 </nav></div>
             </div><div class="content" id="content"><h1 id="lecture-by-andrew-ng-courserahttpswwwcourseraorglearnmachine-learning">Lecture by <a href="https://www.coursera.org/learn/machine-learning" target="_blank" rel="noopener noreffer">Andrew Ng, Coursera</a></h1>
-<h2 id="week-1">Week 1</h2>
+<h1 id="week-1">Week 1</h1>
 <h3 id="supervised-learning-vs-unsupervised-learning">Supervised Learning vs. Unsupervised Learning</h3>
 <ul>
 <li>
@@ -250,7 +250,10 @@
 <li>
 <p>Cost Function</p>
 <ul>
-<li>$J(\theta_0, \theta_1) = \frac{1}{2m} \sum_{i=1}^m(\hat y_i - y_i)^2 = \frac{1}{2m} \sum_{i=1}^m(h_\theta(x_i) - y_i)^2$</li>
+<li>
+<p>$J(\theta_0, \theta_1) = \frac{1}{2m} \sum_{i=1}^m(\hat y_i - y_i)^2$</p>
+<p>$\rarr J(\theta_0, \theta_1) = \frac{1}{2m} \sum_{i=1}^m(h_\theta(x_i) - y_i)^2$</p>
+</li>
 </ul>
 </li>
 <li>
@@ -258,8 +261,10 @@
 <ul>
 <li>
 <p><strong>Gradient Descnet.</strong> More specifically, repeat:</p>
-<p>$tmp_0 = \theta_0 - \alpha\frac{\partial}{\theta_0}{J(\theta_0, \theta_1)} = \theta_0 - \alpha\frac{1}{m}\sum_{i=1}^m{(h_\theta(x_i) - y_i)}$</p>
-<p>$tmp_1 = \theta_1 - \alpha\frac{\partial}{\theta_1}{J(\theta_0, \theta_1)} = \theta_1 - \alpha\frac{1}{m}\sum_{i=1}^m{((h_\theta(x_i) - y_i)x_1)}$</p>
+<p>$tmp_0 = \theta_0 - \alpha\frac{\partial}{\theta_0}{J(\theta_0, \theta_1)}$</p>
+<p>$\rarr tmp_0 = \theta_0 - \alpha\frac{1}{m}\sum_{i=1}^m{(h_\theta(x_i) - y_i)}$</p>
+<p>$tmp_1 = \theta_1 - \alpha\frac{\partial}{\theta_1}{J(\theta_0, \theta_1)}$</p>
+<p>$\rarr tmp_1 = \theta_1 - \alpha\frac{1}{m}\sum_{i=1}^m{((h_\theta(x_i) - y_i)x_1)}$</p>
 <p>$\theta_0 = tmp_0$</p>
 <p>$\theta_1 = tmp_1$</p>
 <p>We call $\alpha$ <strong>Learning Rate.</strong> Its' value has influence on the speed, how fast we can find the parameters, with that we can reach a local optimal value.</p>
@@ -322,7 +327,8 @@
 <ul>
 <li>
 <p>repeat:</p>
-<p>$tmp_i = \theta_i - \alpha\frac{\partial}{\partial\theta_i}J(\theta_0, \theta_1, &hellip;, \theta_n) = \theta_i - \alpha\frac{1}{m}\sum_{i=1}^n(h_\theta(x^i) - y^i)* x^i)$</p>
+<p>$tmp_i = \theta_i - \alpha\frac{\partial}{\partial\theta_i}J(\theta_0, \theta_1, &hellip;, \theta_n)$</p>
+<p>$\rarr tmp_i = \theta_i - \alpha\frac{1}{m}\sum_{i=1}^m(h_\theta(x^i) - y^i)* x^i)$</p>
 <p>$\theta_i = tmp_i$</p>
 </li>
 </ul>
@@ -331,7 +337,7 @@
 <h3 id="feature-scaling">Feature Scaling</h3>
 <ul>
 <li>
-<p>We use this technique <strong>when the range of Features have great Difference.</strong> i.g., $0 \leq x_1 \leq 2000, 0 \leq x_2 \leq 5$, then we can $x_1 \coloneqq x_1 / 2000, x_2 \coloneqq x_2 / 5.$ This helps with the speed up of the Gradient Descent.</p>
+<p>We use this technique <strong>when the range of Features have great Difference.</strong> i.g., $0 \leq x_1 \leq 2000, 0 \leq x_2 \leq 5$, then we can $x_1 \coloneqq \frac{x_1}{2000}, x_2 \coloneqq \frac{x_2}{5}.$ This helps with the speed up of the Gradient Descent.</p>
 </li>
 <li>
 <p>Andrew Ng advices that scaling all Features <strong>approximately</strong> into the range <strong>[-1, 1]</strong>.</p>
@@ -351,13 +357,54 @@
 <p>$X = \begin{bmatrix} x_0^1 &amp; x_1^1 &amp; {&hellip;} &amp; x_n^1 \\ x_0^2 &amp; x_1^2 &amp; {&hellip;} &amp; x_n^2 \\ &hellip; &amp; &hellip; &amp; &hellip; &amp; &hellip; \\x_0^m &amp; x_1^m &amp; {&hellip;} &amp; x_n^m \end{bmatrix}$</p>
 <p>In this Matrix, we write <strong>each row the Features of one Training Data</strong>.</p>
 </li>
+<li>
+<p>The following table can helps us decide, when to use <strong>Normal Equation</strong>, when to use <strong>Gradient Descent</strong>.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">Normal Equation</th>
+<th style="text-align:center">Gradient Descent</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">No need to choose $\alpha$.</td>
+<td style="text-align:center">May have &ldquo;Baby Step&rdquo; issue, or miss the local optimal value when $\alpha$ too large.</td>
+</tr>
+<tr>
+<td style="text-align:center">Can be slow when <strong>n ( Number of Features )</strong> too large is.</td>
+<td style="text-align:center">Works fine even when n large is.</td>
+</tr>
+<tr>
+<td style="text-align:center">Some Matrix is <strong>singular or degenerated.</strong></td>
+<td></td>
+</tr>
+<tr>
+<td style="text-align:center">$n \leq 10,000$</td>
+<td style="text-align:center">$n &gt; 10,000$</td>
+</tr>
+</tbody>
+</table>
+</li>
+<li>
+<p>Reasons of uninvertibility of Matrix $(X^TX)^{-1}$:</p>
+<ul>
+<li>
+<p>Redundant Elements: linear depent.</p>
+<p>i.g., $x_1 = $size in $feet^2$, $x_2$ = size in $m^2$.</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Too many Features: Just delete some of them, or use <strong>regulization ( discuss later ).</strong></p>
+</li>
 </ul>
 </div><div class="post-footer" id="post-footer">
     <div class="post-info">
         <div class="post-info-line">
             <div class="post-info-mod">
-                <span>Updated on 2020-12-18&nbsp;<a class="git-hash" href="https://github.com/dillonzq/LoveIt/commit/12a40ea47c80e2632296cee430852ba11b4fb869" target="_blank" title="commit by DaiJiabin(kechou.dai@gmail.com) 12a40ea47c80e2632296cee430852ba11b4fb869: 1st">
-                                    <i class="fas fa-hashtag fa-fw"></i>12a40ea</a></span>
+                <span>Updated on 2020-12-19&nbsp;<a class="git-hash" href="https://github.com/dillonzq/LoveIt/commit/a682439ec27ae8eda3f1f437150c67c342d0a52b" target="_blank" title="commit by DaiJiabin(kechou.dai@gmail.com) a682439ec27ae8eda3f1f437150c67c342d0a52b: 1st">
+                                    <i class="fas fa-hashtag fa-fw"></i>a682439</a></span>
             </div>
             <div class="post-info-license"></div>
         </div>

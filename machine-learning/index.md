@@ -3,7 +3,7 @@
 
 # Lecture by [Andrew Ng, Coursera](https://www.coursera.org/learn/machine-learning)
 
-## Week 1
+# Week 1
 
 ### Supervised Learning vs. Unsupervised Learning
 
@@ -47,15 +47,21 @@
 
 - Cost Function
 
-  - $J(\theta_0, \theta_1) = \frac{1}{2m} \sum_{i=1}^m(\hat y_i - y_i)^2 = \frac{1}{2m} \sum_{i=1}^m(h_\theta(x_i) - y_i)^2$
+  - $J(\theta_0, \theta_1) = \frac{1}{2m} \sum_{i=1}^m(\hat y_i - y_i)^2$
+    
+    $\rarr J(\theta_0, \theta_1) = \frac{1}{2m} \sum_{i=1}^m(h_\theta(x_i) - y_i)^2$
 
 - Optimize
 
   - __Gradient Descnet.__ More specifically, repeat:
   
-    $tmp_0 = \theta_0 - \alpha\frac{\partial}{\theta_0}{J(\theta_0, \theta_1)} = \theta_0 - \alpha\frac{1}{m}\sum_{i=1}^m{(h_\theta(x_i) - y_i)}$
+    $tmp_0 = \theta_0 - \alpha\frac{\partial}{\theta_0}{J(\theta_0, \theta_1)}$
     
-    $tmp_1 = \theta_1 - \alpha\frac{\partial}{\theta_1}{J(\theta_0, \theta_1)} = \theta_1 - \alpha\frac{1}{m}\sum_{i=1}^m{((h_\theta(x_i) - y_i)x_1)}$
+    $\rarr tmp_0 = \theta_0 - \alpha\frac{1}{m}\sum_{i=1}^m{(h_\theta(x_i) - y_i)}$
+    
+    $tmp_1 = \theta_1 - \alpha\frac{\partial}{\theta_1}{J(\theta_0, \theta_1)}$
+    
+    $\rarr tmp_1 = \theta_1 - \alpha\frac{1}{m}\sum_{i=1}^m{((h_\theta(x_i) - y_i)x_1)}$
     
     $\theta_0 = tmp_0$
     
@@ -108,13 +114,15 @@
 
   - repeat:
   
-    $tmp_i = \theta_i - \alpha\frac{\partial}{\partial\theta_i}J(\theta_0, \theta_1, ..., \theta_n) = \theta_i - \alpha\frac{1}{m}\sum_{i=1}^n(h_\theta(x^i) - y^i)* x^i)$
+    $tmp_i = \theta_i - \alpha\frac{\partial}{\partial\theta_i}J(\theta_0, \theta_1, ..., \theta_n)$ 
+    
+    $\rarr tmp_i = \theta_i - \alpha\frac{1}{m}\sum_{i=1}^m(h_\theta(x^i) - y^i)* x^i)$
 
     $\theta_i = tmp_i$
 
 ### Feature Scaling
 
-- We use this technique __when the range of Features have great Difference.__ i.g., $0 \leq x_1 \leq 2000, 0 \leq x_2 \leq 5$, then we can $x_1 \coloneqq x_1 / 2000, x_2 \coloneqq x_2 / 5.$ This helps with the speed up of the Gradient Descent.
+- We use this technique __when the range of Features have great Difference.__ i.g., $0 \leq x_1 \leq 2000, 0 \leq x_2 \leq 5$, then we can $x_1 \coloneqq \frac{x_1}{2000}, x_2 \coloneqq \frac{x_2}{5}.$ This helps with the speed up of the Gradient Descent.
 
 - Andrew Ng advices that scaling all Features __approximately__ into the range __[-1, 1]__.
 
@@ -135,3 +143,20 @@
   $X = \begin{bmatrix} x_0^1 & x_1^1 & {...} & x_n^1 \\\\ x_0^2 & x_1^2 & {...} & x_n^2 \\\\ ... & ... & ... & ... \\\\x_0^m & x_1^m & {...} & x_n^m \end{bmatrix}$
 
   In this Matrix, we write __each row the Features of one Training Data__.
+
+- The following table can helps us decide, when to use __Normal Equation__, when to use __Gradient Descent__.
+
+  |Normal Equation|Gradient Descent|
+  |:-------------:|:--------------:|
+  |No need to choose $\alpha$.|May have "Baby Step" issue, or miss the local optimal value when $\alpha$ too large.|
+  |Can be slow when __n ( Number of Features )__ too large is.|Works fine even when n large is.|
+  |Some Matrix is __singular or degenerated.__||
+  |$n \leq 10,000$|$n > 10,000$|
+
+- Reasons of uninvertibility of Matrix $(X^TX)^{-1}$:
+  
+  - Redundant Elements: linear depent.
+  
+    i.g., $x_1 = $size in $feet^2$, $x_2$ = size in $m^2$.
+  
+- Too many Features: Just delete some of them, or use __regulization ( discuss later ).__
