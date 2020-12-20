@@ -229,7 +229,7 @@
 
 - We can also write it like below:
 
-  - __$Cost(h_\theta(x), y) = -ylog(h_\theta(x)) - (1-y)log(1 - h_\theta(x))$__
+  - $Cost(h_\theta(x), y) = -ylog(h_\theta(x)) - (1-y)log(1 - h_\theta(x))$
 
 ![Logistic-Cost-Function](/Logistic-Regression-cost-function.png)
 
