@@ -13,7 +13,7 @@
 <meta property="og:url" content="https://daijiabin.github.io/machine-learning/" />
 <meta property="og:image" content="https://daijiabin.github.io/logo.png"/>
 <meta property="article:published_time" content="2020-12-18T19:11:53+01:00" />
-<meta property="article:modified_time" content="2020-12-20T13:33:36+01:00" />
+<meta property="article:modified_time" content="2020-12-20T16:40:05+01:00" />
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="https://daijiabin.github.io/logo.png"/>
 
@@ -33,8 +33,8 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "https:\/\/daijiabin.github.io\/machine-learning\/"
-        },"image": ["https:\/\/daijiabin.github.io\/images\/Apple-Devices-Preview.png"],"genre": "posts","keywords": "AI","wordcount":  1382 ,
-        "url": "https:\/\/daijiabin.github.io\/machine-learning\/","datePublished": "2020-12-18T19:11:53+01:00","dateModified": "2020-12-20T13:33:36+01:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
+        },"image": ["https:\/\/daijiabin.github.io\/images\/Apple-Devices-Preview.png"],"genre": "posts","keywords": "AI","wordcount":  1466 ,
+        "url": "https:\/\/daijiabin.github.io\/machine-learning\/","datePublished": "2020-12-18T19:11:53+01:00","dateModified": "2020-12-20T16:40:05+01:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
             "@type": "Organization",
             "name": "Dai Jiabin","logo": "https:\/\/daijiabin.github.io\/images\/avatar.png"},"author": {
                 "@type": "Person",
@@ -114,7 +114,7 @@
             <div class="toc-content" id="toc-content-auto"></div>
         </div><article class="page single"><h1 class="single-title animated flipInX">Machine Learning</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="https://www.github.com/DaiJiabin" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw"></i>Dai Jiabin</a></span>&nbsp;<span class="post-category">included in <a href="/categories/learn/"><i class="far fa-folder fa-fw"></i>Learn</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2020-12-18">2020-12-18</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;1382 words&nbsp;
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2020-12-18">2020-12-18</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;1466 words&nbsp;
                 <i class="far fa-clock fa-fw"></i>&nbsp;7 minutes&nbsp;</div>
         </div><div class="details toc" id="toc-static"  kept="">
                 <div class="details-summary toc-title">
@@ -139,6 +139,8 @@
         <li><a href="#deciding-boundary">Deciding Boundary</a></li>
         <li><a href="#cost-function">Cost Function</a></li>
         <li><a href="#gradient-descent">Gradient Descent</a></li>
+        <li><a href="#anvanced-optimization">Anvanced Optimization</a></li>
+        <li><a href="#multi-class-classification-one-vs-all--one-vs-rest-">Multi-class Classification: one-vs-all ( one-vs-rest )</a></li>
       </ul>
     </li>
   </ul>
@@ -561,12 +563,65 @@ $Cost(h_\theta(x), y) = \frac{1}{2}(h_\theta(x) - y)^2$</p>
 <p><strong>Try to write it out:</strong></p>
 </li>
 </ul>
+<h3 id="anvanced-optimization">Anvanced Optimization</h3>
+<ul>
+<li>
+<p>Algorithms:</p>
+<ul>
+<li>
+<p><del>Gradient Descent</del></p>
+</li>
+<li>
+<p>Conjugate gradient</p>
+</li>
+<li>
+<p>BFGS</p>
+</li>
+<li>
+<p>L-BFGS</p>
+</li>
+</ul>
+<p>Advantages:</p>
+<ul>
+<li>
+<p>No need to manually choose $\alpha$</p>
+</li>
+<li>
+<p>Often faster than gradient descent</p>
+</li>
+</ul>
+<p>Disadvantages:</p>
+<ul>
+<li>More complex</li>
+</ul>
+</li>
+</ul>
+<h3 id="multi-class-classification-one-vs-all--one-vs-rest-">Multi-class Classification: one-vs-all ( one-vs-rest )</h3>
+<ul>
+<li>
+<p>i.g., Email foldering / tagging: Work, Friends, Family, Hobby ($y=1, y=2, y=3, y=4$)</p>
+</li>
+<li>
+<p>$h_\theta^{(i)} = P(y = i | x; \theta)$ $(i=1,2,3)$</p>
+</li>
+<li>
+<p>Train a logistic regression classifier $h_\theta^{(i)}(x)$ for each class $i$ to predict the probability that $y=i$. On a new input $x$, to make a prediction, pick the class $i$ that __maximizes__ $max_ih_\theta^{(i)}(x)$.</p>
+</li>
+</ul>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/multiclass.png"
+        data-srcset="/multiclass.png, /multiclass.png 1.5x, /multiclass.png 2x"
+        data-sizes="auto"
+        alt="/multiclass.png"
+        title="multiclass.png" /></p>
 </div><div class="post-footer" id="post-footer">
     <div class="post-info">
         <div class="post-info-line">
             <div class="post-info-mod">
-                <span>Updated on 2020-12-20&nbsp;<a class="git-hash" href="https://github.com/dillonzq/LoveIt/commit/a347665c3974e0d97e7c47371016d5a940d38619" target="_blank" title="commit by DaiJiabin(kechou.dai@gmail.com) a347665c3974e0d97e7c47371016d5a940d38619: Processing Sun 20 Dec 2020 01:33:36 PM CET">
-                                    <i class="fas fa-hashtag fa-fw"></i>a347665</a></span>
+                <span>Updated on 2020-12-20&nbsp;<a class="git-hash" href="https://github.com/dillonzq/LoveIt/commit/8ce90ffed81d1d15300ca6eecea49f3d427316df" target="_blank" title="commit by DaiJiabin(kechou.dai@gmail.com) 8ce90ffed81d1d15300ca6eecea49f3d427316df: Processing Sun 20 Dec 2020 04:40:05 PM CET">
+                                    <i class="fas fa-hashtag fa-fw"></i>8ce90ff</a></span>
             </div>
             <div class="post-info-license"></div>
         </div>

@@ -252,3 +252,35 @@
     - In Logistic Regression is $h_\theta(x) = \frac{1}{1 + e^{-\theta^Tx}}$
 
 - __Try to write it out:__
+
+### Anvanced Optimization
+
+- Algorithms:
+  
+  - ~~Gradient Descent~~
+  
+  - Conjugate gradient
+  
+  - BFGS
+  
+  - L-BFGS
+
+  Advantages:
+
+  - No need to manually choose $\alpha$
+  
+  - Often faster than gradient descent
+
+  Disadvantages:
+
+  - More complex
+
+### Multi-class Classification: one-vs-all ( one-vs-rest )
+
+- i.g., Email foldering / tagging: Work, Friends, Family, Hobby ($y=1, y=2, y=3, y=4$)
+
+- $h_\theta^{(i)} = P(y = i | x; \theta)$ $(i=1,2,3)$
+
+- Train a logistic regression classifier $h_\theta^{(i)}(x)$ for each class $i$ to predict the probability that $y=i$. On a new input $x$, to make a prediction, pick the class $i$ that __maximizes__ $max_ih_\theta^{(i)}(x)$.
+
+![multiclass.png](/multiclass.png)
