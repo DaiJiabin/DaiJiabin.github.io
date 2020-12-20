@@ -219,7 +219,7 @@
     $J(\theta) = \frac{1}{m}\sum_{i=1}^m\frac{1}{2}(h_\theta(x^{(i)} - y^{(i)})^2$  
     $Cost(h_\theta(x), y) = \frac{1}{2}(h_\theta(x) - y)^2$
 
-- __$Cost(h_\theta(x), y) = \begin{cases}-log(h_\theta(x))&\text{if y = 1}\\\\-log(1 - h_\theta(x)) &\text{if y=0}\end{cases}$__
+- $Cost(h_\theta(x), y) = \begin{cases}-log(h_\theta(x))&\text{if y = 1}\\\\-log(1 - h_\theta(x)) &\text{if y=0}\end{cases}$
 
   - $Cost = 0$ if $y = 1, h_\theta(x) = 0$.
 
