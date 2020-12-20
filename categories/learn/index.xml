@@ -9,8 +9,8 @@
     <pubDate>Fri, 18 Dec 2020 19:11:53 &#43;0100</pubDate>
     <author>Author</author>
     <guid>https://daijiabin.github.io/machine-learning/</guid>
-    <description><![CDATA[Lecture by Andrew Ng, Coursera Week 1 Supervised Learning vs. Unsupervised Learning   Supervised Learning:
+    <description><![CDATA[Lecture by Andrew Ng, Coursera Week 1 Basic Concepts &amp; Linear Regression Supervised Learning vs. Unsupervised Learning   Supervised Learning:
  In supervised learning, we are given a data set and already know what our correct output should look like, having the idea that there is a relationship between the input and the output.
-   Training Data already has the value, which our Function should predict for a new, strange input. i.e, In the case below, we want to get a function, so that we can calculate the price of a house to be sold.]]></description>
+   Training Data already has the value, which our Function should predict for a new, strange input.]]></description>
 </item></channel>
 </rss>

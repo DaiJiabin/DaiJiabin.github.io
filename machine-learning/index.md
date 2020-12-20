@@ -5,7 +5,7 @@
 
 # Lecture by [Andrew Ng, Coursera](https://www.coursera.org/learn/machine-learning)
 
-# Week 1
+## Week 1 Basic Concepts & Linear Regression 
 
 ### Supervised Learning vs. Unsupervised Learning
 
@@ -55,7 +55,7 @@
 
 - Optimize
 
-  - __Gradient Descnet.__ More specifically, repeat:
+  - __Gradient Descent.__ More specifically, repeat:
   
     $tmp_0 = \theta_0 - \alpha\frac{\partial}{\theta_0}{J(\theta_0, \theta_1)}$
     
@@ -138,7 +138,7 @@
 
 - The Method to solve for $\Theta$ analytically:
   
-  $\Theta = (X^TX)^{-1}X^Ty$ can minimize the $J(\theta)$.
+  $\Theta = (X^TX)^{-1}X^TY$ can minimize the $J(\theta)$.
 
   $x^i = \begin{bmatrix}x_0^i, x_1^i, ..., x_n^i\end{bmatrix}$
 
@@ -162,3 +162,93 @@
     i.g., $x_1 = $size in $feet^2$, $x_2$ = size in $m^2$.
   
 - Too many Features: Just delete some of them, or use __regulization ( discuss later ).__
+
+## Week 2 Logistic Regression
+
+### Logistic Regression - Classification
+
+  - Examples: Email (Spam / Not Spam), Online Transactions: Fraudulent ( Yes / No ) ?
+  
+  - $y \isin {0, 1} \begin{cases} 0 &\text{Negative Class} \\\\ 1 &\text{Positive Class} \end{cases}$
+
+  - p.s. In __multi-class__ Prolems this set can have more than 2 elements.
+
+- What if we use linear Regression in a classfication problem?
+  
+  - $h_\theta(x) = \theta^Tx< 0$ or $> 1$
+
+- In __Logistic Regression__, it shouled always be: __$0 \leq h_\theta(x) \leq 1$__. So we do the following transformation, then we get the __Hypothesis__:
+
+  - $h_\theta(x) = g(\theta^Tx)$
+
+  - Then we use __Sigmoid Function / Logistic Function:__ 
+
+    - $g(z) = \frac{1}{1 + e^{-z}}$
+    
+    ![Sigmoid](/Sigmoid.png)
+
+  - We have now:
+    
+    - $h_\theta(x) = \frac{1}{1 + e ^ {-\theta^Tx}}$
+
+  - This Function $h_\theta(x)$ comes out the result that estimated probability that $y = 1$ on input x. We can also write it in the following Form:
+    
+    $h_\theta(x) = P(y = 1 | x; \theta)$ $\rarr$ Probability that $y = 1$, given $x$, parameterized by $\theta$.
+
+  - $P(y = 1 | x; \theta) + P(y = 0 | x; \theta) = 1$
+
+### Deciding Boundary 
+  
+- Linear
+
+  ![Linear](/Linear.png)
+
+- Non-Linear
+
+  ![Non-Linear](/Non-Linear.png)
+
+### Cost Function
+
+- Training Set: ${(x^{(1)}, y^{(1)}), (x^{(2)}, y^{(2)}), ..., (x^{(m)}, y^{(m)})}$, __m examples__
+
+- x $\isin \begin{bmatrix}x_0 \\\\ x_1 \\\\ ... \\\\ x_m\end{bmatrix}, x_0 \equiv 1, y \isin (0, 1)$
+
+- $h_\theta(x) = \frac{1}{1 + e ^ {-\theta^Tx}}$
+
+  > Brief Review: Cost Function in __Linear Regression:__  
+    $J(\theta) = \frac{1}{m}\sum_{i=1}^m\frac{1}{2}(h_\theta(x^{(i)} - y^{(i)})^2$  
+    $Cost(h_\theta(x), y) = \frac{1}{2}(h_\theta(x) - y)^2$
+
+- __$Cost(h_\theta(x), y) = \begin{cases}-log(h_\theta(x))&\text{if y = 1}\\\\-log(1 - h_\theta(x)) &\text{if y=0}\end{cases}$__
+
+  - $Cost = 0$ if $y = 1, h_\theta(x) = 0$.
+
+  - But as $h_\theta(x) \rarr 0, Cost \rarr \infty$
+
+    Predict $P(y=1|x; \theta) = 0$, but $y = 1$, we'll penalize learning algorithm by a very large cost.
+
+- We can also write it like below:
+
+  - __$Cost(h_\theta(x), y) = -ylog(h_\theta(x)) - (1-y)log(1 - h_\theta(x))$__
+
+![Logistic-Cost-Function](/Logistic-Regression-cost-function.png)
+
+### Gradient Descent
+
+- $J(\theta) = \frac{1}{m}\sum_{i=1}^mCost(h_\theta(x^{(i)}), y^{(i)})$
+  
+  $\rarr J(\theta) = -\frac{1}{m}[\sum_{i=1}^my^{(i)}log(h_\theta(x^{(i)}) - y^{(i)}) + (1 - y^{(i)})log(1 - h_\theta(x^{(i)}))]$
+
+- Repeat:
+  
+  $\theta_j := \theta_j - \alpha\frac{\partial}{\partial\theta_j}J(\theta)$
+
+  $\rarr \theta_j := \theta_j - \alpha\frac{1}{m}\sum_{i=1}^m(h_\theta(x^{(i)}) - y^{(i)})x^{(i)}_j$
+
+  __It looks identical to Linear Regression. BUT:__
+
+    - $h_\theta(x) = \theta^Tx$ in Linear Regression
+    
+    - In Logistic Regression is $h_\theta(x) = \frac{1}{1 + e^{-\theta^Tx}}$
+
+- __Try to write it out:__

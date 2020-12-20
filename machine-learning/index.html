@@ -6,21 +6,21 @@
         <meta name="robots" content="noodp" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
         <title>Machine Learning - Jiabin&#39;s Blog</title><meta name="Description" content="About LoveIt Theme"><meta property="og:title" content="Machine Learning" />
-<meta property="og:description" content="Lecture by Andrew Ng, Coursera Week 1 Supervised Learning vs. Unsupervised Learning   Supervised Learning:
+<meta property="og:description" content="Lecture by Andrew Ng, Coursera Week 1 Basic Concepts &amp; Linear Regression Supervised Learning vs. Unsupervised Learning   Supervised Learning:
  In supervised learning, we are given a data set and already know what our correct output should look like, having the idea that there is a relationship between the input and the output.
-   Training Data already has the value, which our Function should predict for a new, strange input. i.e, In the case below, we want to get a function, so that we can calculate the price of a house to be sold." />
+   Training Data already has the value, which our Function should predict for a new, strange input." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://daijiabin.github.io/machine-learning/" />
 <meta property="og:image" content="https://daijiabin.github.io/logo.png"/>
 <meta property="article:published_time" content="2020-12-18T19:11:53+01:00" />
-<meta property="article:modified_time" content="2020-12-19T15:03:58+01:00" />
+<meta property="article:modified_time" content="2020-12-20T11:10:09+01:00" />
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="https://daijiabin.github.io/logo.png"/>
 
 <meta name="twitter:title" content="Machine Learning"/>
-<meta name="twitter:description" content="Lecture by Andrew Ng, Coursera Week 1 Supervised Learning vs. Unsupervised Learning   Supervised Learning:
+<meta name="twitter:description" content="Lecture by Andrew Ng, Coursera Week 1 Basic Concepts &amp; Linear Regression Supervised Learning vs. Unsupervised Learning   Supervised Learning:
  In supervised learning, we are given a data set and already know what our correct output should look like, having the idea that there is a relationship between the input and the output.
-   Training Data already has the value, which our Function should predict for a new, strange input. i.e, In the case below, we want to get a function, so that we can calculate the price of a house to be sold."/>
+   Training Data already has the value, which our Function should predict for a new, strange input."/>
 <meta name="application-name" content="Jiabin&#39;s Blog">
 <meta name="apple-mobile-web-app-title" content="Jiabin&#39;s Blog"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
@@ -33,8 +33,8 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "https:\/\/daijiabin.github.io\/machine-learning\/"
-        },"image": ["https:\/\/daijiabin.github.io\/images\/Apple-Devices-Preview.png"],"genre": "posts","keywords": "AI","wordcount":  1024 ,
-        "url": "https:\/\/daijiabin.github.io\/machine-learning\/","datePublished": "2020-12-18T19:11:53+01:00","dateModified": "2020-12-19T15:03:58+01:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
+        },"image": ["https:\/\/daijiabin.github.io\/images\/Apple-Devices-Preview.png"],"genre": "posts","keywords": "AI","wordcount":  1382 ,
+        "url": "https:\/\/daijiabin.github.io\/machine-learning\/","datePublished": "2020-12-18T19:11:53+01:00","dateModified": "2020-12-20T11:10:09+01:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
             "@type": "Organization",
             "name": "Dai Jiabin","logo": "https:\/\/daijiabin.github.io\/images\/avatar.png"},"author": {
                 "@type": "Person",
@@ -114,8 +114,8 @@
             <div class="toc-content" id="toc-content-auto"></div>
         </div><article class="page single"><h1 class="single-title animated flipInX">Machine Learning</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="https://www.github.com/DaiJiabin" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw"></i>Dai Jiabin</a></span>&nbsp;<span class="post-category">included in <a href="/categories/learn/"><i class="far fa-folder fa-fw"></i>Learn</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2020-12-18">2020-12-18</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;1024 words&nbsp;
-                <i class="far fa-clock fa-fw"></i>&nbsp;5 minutes&nbsp;</div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2020-12-18">2020-12-18</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;1382 words&nbsp;
+                <i class="far fa-clock fa-fw"></i>&nbsp;7 minutes&nbsp;</div>
         </div><div class="details toc" id="toc-static"  kept="">
                 <div class="details-summary toc-title">
                     <span>Contents</span>
@@ -123,7 +123,7 @@
                 </div>
                 <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
   <ul>
-    <li>
+    <li><a href="#week-1-basic-concepts--linear-regression">Week 1 Basic Concepts &amp; Linear Regression</a>
       <ul>
         <li><a href="#supervised-learning-vs-unsupervised-learning">Supervised Learning vs. Unsupervised Learning</a></li>
         <li><a href="#regression-vs-classification">Regression vs. Classification</a></li>
@@ -131,6 +131,14 @@
         <li><a href="#multiple-features-and-matrix">Multiple Features and Matrix</a></li>
         <li><a href="#feature-scaling">Feature Scaling</a></li>
         <li><a href="#normal-equation">Normal Equation</a></li>
+      </ul>
+    </li>
+    <li><a href="#week-2-logistic-regression">Week 2 Logistic Regression</a>
+      <ul>
+        <li><a href="#logistic-regression---classification">Logistic Regression - Classification</a></li>
+        <li><a href="#deciding-boundary">Deciding Boundary</a></li>
+        <li><a href="#cost-function">Cost Function</a></li>
+        <li><a href="#gradient-descent">Gradient Descent</a></li>
       </ul>
     </li>
   </ul>
@@ -144,7 +152,7 @@
         alt="/Machine-Learning.jpg"
         title="Machine-Learning" /></p>
 <h1 id="lecture-by-andrew-ng-courserahttpswwwcourseraorglearnmachine-learning">Lecture by <a href="https://www.coursera.org/learn/machine-learning" target="_blank" rel="noopener noreffer">Andrew Ng, Coursera</a></h1>
-<h1 id="week-1">Week 1</h1>
+<h2 id="week-1-basic-concepts--linear-regression">Week 1 Basic Concepts &amp; Linear Regression</h2>
 <h3 id="supervised-learning-vs-unsupervised-learning">Supervised Learning vs. Unsupervised Learning</h3>
 <ul>
 <li>
@@ -268,7 +276,7 @@
 <p>Optimize</p>
 <ul>
 <li>
-<p><strong>Gradient Descnet.</strong> More specifically, repeat:</p>
+<p><strong>Gradient Descent.</strong> More specifically, repeat:</p>
 <p>$tmp_0 = \theta_0 - \alpha\frac{\partial}{\theta_0}{J(\theta_0, \theta_1)}$</p>
 <p>$\rarr tmp_0 = \theta_0 - \alpha\frac{1}{m}\sum_{i=1}^m{(h_\theta(x_i) - y_i)}$</p>
 <p>$tmp_1 = \theta_1 - \alpha\frac{\partial}{\theta_1}{J(\theta_0, \theta_1)}$</p>
@@ -360,7 +368,7 @@
 <ul>
 <li>
 <p>The Method to solve for $\Theta$ analytically:</p>
-<p>$\Theta = (X^TX)^{-1}X^Ty$ can minimize the $J(\theta)$.</p>
+<p>$\Theta = (X^TX)^{-1}X^TY$ can minimize the $J(\theta)$.</p>
 <p>$x^i = \begin{bmatrix}x_0^i, x_1^i, &hellip;, x_n^i\end{bmatrix}$</p>
 <p>$X = \begin{bmatrix} x_0^1 &amp; x_1^1 &amp; {&hellip;} &amp; x_n^1 \\ x_0^2 &amp; x_1^2 &amp; {&hellip;} &amp; x_n^2 \\ &hellip; &amp; &hellip; &amp; &hellip; &amp; &hellip; \\x_0^m &amp; x_1^m &amp; {&hellip;} &amp; x_n^m \end{bmatrix}$</p>
 <p>In this Matrix, we write <strong>each row the Features of one Training Data</strong>.</p>
@@ -407,12 +415,158 @@
 <p>Too many Features: Just delete some of them, or use <strong>regulization ( discuss later ).</strong></p>
 </li>
 </ul>
+<h2 id="week-2-logistic-regression">Week 2 Logistic Regression</h2>
+<h3 id="logistic-regression---classification">Logistic Regression - Classification</h3>
+<ul>
+<li>
+<p>Examples: Email (Spam / Not Spam), Online Transactions: Fraudulent ( Yes / No ) ?</p>
+</li>
+<li>
+<p>$y \isin {0, 1} \begin{cases} 0 &amp;\text{Negative Class} \\ 1 &amp;\text{Positive Class} \end{cases}$</p>
+</li>
+<li>
+<p>p.s. In <strong>multi-class</strong> Prolems this set can have more than 2 elements.</p>
+</li>
+<li>
+<p>What if we use linear Regression in a classfication problem?</p>
+<ul>
+<li>$h_\theta(x) = \theta^Tx&lt; 0$ or $&gt; 1$</li>
+</ul>
+</li>
+<li>
+<p>In <strong>Logistic Regression</strong>, it shouled always be: <em><em>$0 \leq h</em>\theta(x) \leq 1$</em>_. So we do the following transformation, then we get the <strong>Hypothesis</strong>:</p>
+<ul>
+<li>
+<p>$h_\theta(x) = g(\theta^Tx)$</p>
+</li>
+<li>
+<p>Then we use <strong>Sigmoid Function / Logistic Function:</strong></p>
+<ul>
+<li>$g(z) = \frac{1}{1 + e^{-z}}$</li>
+</ul>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/Sigmoid.png"
+        data-srcset="/Sigmoid.png, /Sigmoid.png 1.5x, /Sigmoid.png 2x"
+        data-sizes="auto"
+        alt="/Sigmoid.png"
+        title="Sigmoid" /></p>
+</li>
+<li>
+<p>We have now:</p>
+<ul>
+<li>$h_\theta(x) = \frac{1}{1 + e ^ {-\theta^Tx}}$</li>
+</ul>
+</li>
+<li>
+<p>This Function $h_\theta(x)$ comes out the result that estimated probability that $y = 1$ on input x. We can also write it in the following Form:</p>
+<p>$h_\theta(x) = P(y = 1 | x; \theta)$ $\rarr$ Probability that $y = 1$, given $x$, parameterized by $\theta$.</p>
+</li>
+<li>
+<p>$P(y = 1 | x; \theta) + P(y = 0 | x; \theta) = 1$</p>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="deciding-boundary">Deciding Boundary</h3>
+<ul>
+<li>
+<p>Linear</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/Linear.png"
+        data-srcset="/Linear.png, /Linear.png 1.5x, /Linear.png 2x"
+        data-sizes="auto"
+        alt="/Linear.png"
+        title="Linear" /></p>
+</li>
+<li>
+<p>Non-Linear</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/Non-Linear.png"
+        data-srcset="/Non-Linear.png, /Non-Linear.png 1.5x, /Non-Linear.png 2x"
+        data-sizes="auto"
+        alt="/Non-Linear.png"
+        title="Non-Linear" /></p>
+</li>
+</ul>
+<h3 id="cost-function">Cost Function</h3>
+<ul>
+<li>
+<p>Training Set: ${(x^{(1)}, y^{(1)}), (x^{(2)}, y^{(2)}), &hellip;, (x^{(m)}, y^{(m)})}$, <strong>m examples</strong></p>
+</li>
+<li>
+<p>x $\isin \begin{bmatrix}x_0 \\ x_1 \\ &hellip; \\ x_m\end{bmatrix}, x_0 \equiv 1, y \isin (0, 1)$</p>
+</li>
+<li>
+<p>$h_\theta(x) = \frac{1}{1 + e ^ {-\theta^Tx}}$</p>
+<blockquote>
+<p>Brief Review: Cost Function in <strong>Linear Regression:</strong><br>
+$J(\theta) = \frac{1}{m}\sum_{i=1}^m\frac{1}{2}(h_\theta(x^{(i)} - y^{(i)})^2$<br>
+$Cost(h_\theta(x), y) = \frac{1}{2}(h_\theta(x) - y)^2$</p>
+</blockquote>
+</li>
+<li>
+<p><em><em>$Cost(h</em>\theta(x), y) = \begin{cases}-log(h</em>\theta(x))&amp;\text{if y = 1}\\-log(1 - h_\theta(x)) &amp;\text{if y=0}\end{cases}$__</p>
+<ul>
+<li>
+<p>$Cost = 0$ if $y = 1, h_\theta(x) = 0$.</p>
+</li>
+<li>
+<p>But as $h_\theta(x) \rarr 0, Cost \rarr \infty$</p>
+<p>Predict $P(y=1|x; \theta) = 0$, but $y = 1$, we&rsquo;ll penalize learning algorithm by a very large cost.</p>
+</li>
+</ul>
+</li>
+<li>
+<p>We can also write it like below:</p>
+<ul>
+<li><em><em>$Cost(h</em>\theta(x), y) = -ylog(h</em>\theta(x)) - (1-y)log(1 - h_\theta(x))$__</li>
+</ul>
+</li>
+</ul>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/Logistic-Regression-cost-function.png"
+        data-srcset="/Logistic-Regression-cost-function.png, /Logistic-Regression-cost-function.png 1.5x, /Logistic-Regression-cost-function.png 2x"
+        data-sizes="auto"
+        alt="/Logistic-Regression-cost-function.png"
+        title="Logistic-Cost-Function" /></p>
+<h3 id="gradient-descent">Gradient Descent</h3>
+<ul>
+<li>
+<p>$J(\theta) = \frac{1}{m}\sum_{i=1}^mCost(h_\theta(x^{(i)}), y^{(i)})$</p>
+<p>$\rarr J(\theta) = -\frac{1}{m}[\sum_{i=1}^my^{(i)}log(h_\theta(x^{(i)}) - y^{(i)}) + (1 - y^{(i)})log(1 - h_\theta(x^{(i)}))]$</p>
+</li>
+<li>
+<p>Repeat:</p>
+<p>$\theta_j := \theta_j - \alpha\frac{\partial}{\partial\theta_j}J(\theta)$</p>
+<p>$\rarr \theta_j := \theta_j - \alpha\frac{1}{m}\sum_{i=1}^m(h_\theta(x^{(i)}) - y^{(i)})x^{(i)}_j$</p>
+<p><strong>It looks identical to Linear Regression. BUT:</strong></p>
+<ul>
+<li>
+<p>$h_\theta(x) = \theta^Tx$ in Linear Regression</p>
+</li>
+<li>
+<p>In Logistic Regression is $h_\theta(x) = \frac{1}{1 + e^{-\theta^Tx}}$</p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Try to write it out:</strong></p>
+</li>
+</ul>
 </div><div class="post-footer" id="post-footer">
     <div class="post-info">
         <div class="post-info-line">
             <div class="post-info-mod">
-                <span>Updated on 2020-12-19&nbsp;<a class="git-hash" href="https://github.com/dillonzq/LoveIt/commit/b1d99a9ac020431e9bbc9adddda495c8c2929a7e" target="_blank" title="commit by DaiJiabin(kechou.dai@gmail.com) b1d99a9ac020431e9bbc9adddda495c8c2929a7e: 1st">
-                                    <i class="fas fa-hashtag fa-fw"></i>b1d99a9</a></span>
+                <span>Updated on 2020-12-20&nbsp;<a class="git-hash" href="https://github.com/dillonzq/LoveIt/commit/2b6bdd0ccc0d40a7c3b5d8813e751642df06391d" target="_blank" title="commit by DaiJiabin(kechou.dai@gmail.com) 2b6bdd0ccc0d40a7c3b5d8813e751642df06391d: Processing Sun 20 Dec 2020 11:10:09 AM CET">
+                                    <i class="fas fa-hashtag fa-fw"></i>2b6bdd0</a></span>
             </div>
             <div class="post-info-license"></div>
         </div>
