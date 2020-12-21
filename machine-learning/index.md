@@ -138,13 +138,17 @@
 
 - The Method to solve for $\Theta$ analytically:
   
-  $\Theta = (X^TX)^{-1}X^TY$ can minimize the $J(\theta)$.
+  $\Theta = (X^TX)^{-1}X^Ty$ can minimize the $J(\theta)$.
 
   $x^i = \begin{bmatrix}x_0^i, x_1^i, ..., x_n^i\end{bmatrix}$
 
   $X = \begin{bmatrix} x_0^1 & x_1^1 & {...} & x_n^1 \\\\ x_0^2 & x_1^2 & {...} & x_n^2 \\\\ ... & ... & ... & ... \\\\x_0^m & x_1^m & {...} & x_n^m \end{bmatrix}$
 
   In this Matrix, we write __each row the Features of one Training Data__.
+  
+  $y = \begin{bmatrix}y^{(1)}\\\\...\\\\y^{(m)}\end{bmatrix}$
+
+- Suppose $m \leq n$, then is $X^TX$ is degenerated.
 
 - The following table can helps us decide, when to use __Normal Equation__, when to use __Gradient Descent__.
 
@@ -281,6 +285,92 @@
 
 - $h_\theta^{(i)} = P(y = i | x; \theta)$ $(i=1,2,3)$
 
-- Train a logistic regression classifier $h_\theta^{(i)}(x)$ for each class $i$ to predict the probability that $y=i$. On a new input $x$, to make a prediction, pick the class $i$ that __maximizes__ $max_ih_\theta^{(i)}(x)$.
+- Train a logistic regression classifier $h_\theta^{(i)}(x)$ for each class $i$ to predict the probability that $y=i$. On a new input $x$, to make a prediction, pick the class $i$ that maximizes $max_ih_\theta^{(i)}(x)$.
 
 ![multiclass.png](/multiclass.png)
+
+### Overfitting
+
+- If we have too many Features, the learned hypothesis may __fit the training set very well, but fail to generalize to new examples__. $\darr$
+
+![Overfitting.png](/Overfitting.png)
+
+- On Logistic Regression $\darr$
+
+![Overfitting-Logistic.png](/Overfitting-Logistic.png)
+
+- Adressing Overfitting:
+  
+  1. __Reduce number of Features__
+     
+     - Manually select which Features to keep
+     
+     - Model selection algorithm
+  
+  2. __Regularization__
+     
+     - Keep all the Features, but reduce magnitude / values of parameters $\theta$.
+     
+     - Works well when we have a lot of Features, each of which contributes a bit to predicting $y$.
+
+### Regularization
+
+- Small Values for parameters $\theta_0, \theta_1, ..., \theta_n$
+  
+  - "Simpler" hypothesis
+  
+  - Less prone to overfitting
+
+- i.g. Housing:
+  
+  - Features: $x_1, x_2, ..., x_{100}$
+  
+  - Parameters: $\theta_0, \theta_1, ..., \theta_n$
+  
+  - $J(\theta) = \frac{1}{2m}[\sum_{i=1}^m(h_\theta(x^{(i)} - y^{(i)})^2 + \lambda\sum_{j=1}^{n}\theta_j^2]$. We pinelize only $\theta_{i > 0}$
+     
+  - $\lambda\sum_{j=1}^{n}\theta_j^2$ is called Regulization Parameter.
+  
+  - When the $\lambda$ too large is, $h_\theta(x) = \theta_0$ (Because this can make $\theta_{i > 0} \thickapprox 0$)
+
+#### Regularized Linear Regression
+
+  - __Cost Function:__
+    
+    - $J(\theta) = \frac{1}{2m}[\sum_{i=1}^m(h_\theta(x^{(i)} - y^{(i)})^2 + \lambda\sum_{j=1}^{n}\theta_j^2]$.
+  
+  - __Gradient Descent:__
+  
+    - $\theta_0 := \theta_0 - \alpha \frac{1}{m}\sum_{i=1}^m(h_\theta(x^{(i)}) - y^{(i)})(x_0 \equiv 1))$
+  
+    - $\theta_{j > 0} := \theta_j - \alpha[\frac{1}{m}\sum_{i=1}^m(h_\theta(x^{(i)} - y^{(i)}))x^{(i)} + \frac{\lambda}{m}\theta_j]$
+    
+      $\rarr \theta_{j > 0} := \theta_j(1- \alpha\frac{\lambda}{m}) - \alpha\frac{1}{m}\sum_{i=1}^m(h_\theta(x^{(i)} - y^{(i)}))x^{(i)}$
+
+    - In the Equation above, $ \theta_j(1- \alpha\frac{\lambda}{m}) < 1$. We can be sure that the parameter will be smaller in each iteration.
+
+- __Normal Equition:__
+
+  - $X = \begin{bmatrix}(x^{(i)})^T\\\\...\\\\(x^{(m)})^T\\\\\end{bmatrix}$
+  
+  - $y = \begin{bmatrix}y^{(1)}\\\\...\\\\y^{(m)}\end{bmatrix}$
+
+  - $\theta = (X^TX + \lambda\begin{bmatrix}0 & 0 & 0\\\\0 & 1 &0 \\\\ 0 & 0 & 1\end{bmatrix})^{-1}X^Ty$
+    
+    - The Elements in the Matrix next to $\lambda$ looks like: $e_{i = j\not = 0}$
+
+#### Regularized Logistic Regression
+
+- __Cost Function:__
+  
+  - $J(\theta) = -[\frac{1}{m}\sum_{i=1}^my^{(i)}logh_\theta(x^{(i)}) + (1 - y^{(i)})log(1 - h_\theta(x^{(i)}))] + \frac{\lambda}{2m}\sum_{j=1}^m\theta_j^2$
+
+- __Gradient Descent:__
+  
+  - $\theta_0 := \theta_0 - \alpha \frac{1}{m}\sum_{i=1}^m(h_\theta(x^{(i)}) - y^{(i)})(x_0 \equiv 1))$  
+  
+  - $\theta_{j > 0} := \theta_j - \alpha[\frac{1}{m}\sum_{i=1}^m(h_\theta(x^{(i)} - y^{(i)}))x^{(i)} + \frac{\lambda}{m}\theta_j]$
+  
+  - Here $h_\theta(x) = \frac{1}{1 + e^{-\theta^Tx}}$
+
+- __Normal Equation:__

@@ -13,7 +13,7 @@
 <meta property="og:url" content="https://daijiabin.github.io/machine-learning/" />
 <meta property="og:image" content="https://daijiabin.github.io/logo.png"/>
 <meta property="article:published_time" content="2020-12-18T19:11:53+01:00" />
-<meta property="article:modified_time" content="2020-12-20T16:40:05+01:00" />
+<meta property="article:modified_time" content="2020-12-21T10:28:52+01:00" />
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="https://daijiabin.github.io/logo.png"/>
 
@@ -33,8 +33,8 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "https:\/\/daijiabin.github.io\/machine-learning\/"
-        },"image": ["https:\/\/daijiabin.github.io\/images\/Apple-Devices-Preview.png"],"genre": "posts","keywords": "AI","wordcount":  1466 ,
-        "url": "https:\/\/daijiabin.github.io\/machine-learning\/","datePublished": "2020-12-18T19:11:53+01:00","dateModified": "2020-12-20T16:40:05+01:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
+        },"image": ["https:\/\/daijiabin.github.io\/images\/Apple-Devices-Preview.png"],"genre": "posts","keywords": "AI","wordcount":  1772 ,
+        "url": "https:\/\/daijiabin.github.io\/machine-learning\/","datePublished": "2020-12-18T19:11:53+01:00","dateModified": "2020-12-21T10:28:52+01:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
             "@type": "Organization",
             "name": "Dai Jiabin","logo": "https:\/\/daijiabin.github.io\/images\/avatar.png"},"author": {
                 "@type": "Person",
@@ -114,8 +114,8 @@
             <div class="toc-content" id="toc-content-auto"></div>
         </div><article class="page single"><h1 class="single-title animated flipInX">Machine Learning</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="https://www.github.com/DaiJiabin" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw"></i>Dai Jiabin</a></span>&nbsp;<span class="post-category">included in <a href="/categories/learn/"><i class="far fa-folder fa-fw"></i>Learn</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2020-12-18">2020-12-18</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;1466 words&nbsp;
-                <i class="far fa-clock fa-fw"></i>&nbsp;7 minutes&nbsp;</div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2020-12-18">2020-12-18</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;1772 words&nbsp;
+                <i class="far fa-clock fa-fw"></i>&nbsp;9 minutes&nbsp;</div>
         </div><div class="details toc" id="toc-static"  kept="">
                 <div class="details-summary toc-title">
                     <span>Contents</span>
@@ -141,6 +141,13 @@
         <li><a href="#gradient-descent">Gradient Descent</a></li>
         <li><a href="#anvanced-optimization">Anvanced Optimization</a></li>
         <li><a href="#multi-class-classification-one-vs-all--one-vs-rest-">Multi-class Classification: one-vs-all ( one-vs-rest )</a></li>
+        <li><a href="#overfitting">Overfitting</a></li>
+        <li><a href="#regularization">Regularization</a>
+          <ul>
+            <li><a href="#regularized-linear-regression">Regularized Linear Regression</a></li>
+            <li><a href="#regularized-logistic-regression">Regularized Logistic Regression</a></li>
+          </ul>
+        </li>
       </ul>
     </li>
   </ul>
@@ -370,10 +377,14 @@
 <ul>
 <li>
 <p>The Method to solve for $\Theta$ analytically:</p>
-<p>$\Theta = (X^TX)^{-1}X^TY$ can minimize the $J(\theta)$.</p>
+<p>$\Theta = (X^TX)^{-1}X^Ty$ can minimize the $J(\theta)$.</p>
 <p>$x^i = \begin{bmatrix}x_0^i, x_1^i, &hellip;, x_n^i\end{bmatrix}$</p>
 <p>$X = \begin{bmatrix} x_0^1 &amp; x_1^1 &amp; {&hellip;} &amp; x_n^1 \\ x_0^2 &amp; x_1^2 &amp; {&hellip;} &amp; x_n^2 \\ &hellip; &amp; &hellip; &amp; &hellip; &amp; &hellip; \\x_0^m &amp; x_1^m &amp; {&hellip;} &amp; x_n^m \end{bmatrix}$</p>
 <p>In this Matrix, we write <strong>each row the Features of one Training Data</strong>.</p>
+<p>$y = \begin{bmatrix}y^{(1)}\\&hellip;\\y^{(m)}\end{bmatrix}$</p>
+</li>
+<li>
+<p>Suppose $m \leq n$, then is $X^TX$ is degenerated.</p>
 </li>
 <li>
 <p>The following table can helps us decide, when to use <strong>Normal Equation</strong>, when to use <strong>Gradient Descent</strong>.</p>
@@ -605,7 +616,7 @@ $Cost(h_\theta(x), y) = \frac{1}{2}(h_\theta(x) - y)^2$</p>
 <p>$h_\theta^{(i)} = P(y = i | x; \theta)$ $(i=1,2,3)$</p>
 </li>
 <li>
-<p>Train a logistic regression classifier $h_\theta^{(i)}(x)$ for each class $i$ to predict the probability that $y=i$. On a new input $x$, to make a prediction, pick the class $i$ that __maximizes__ $max_ih_\theta^{(i)}(x)$.</p>
+<p>Train a logistic regression classifier $h_\theta^{(i)}(x)$ for each class $i$ to predict the probability that $y=i$. On a new input $x$, to make a prediction, pick the class $i$ that maximizes $max_ih_\theta^{(i)}(x)$.</p>
 </li>
 </ul>
 <p><img
@@ -616,12 +627,165 @@ $Cost(h_\theta(x), y) = \frac{1}{2}(h_\theta(x) - y)^2$</p>
         data-sizes="auto"
         alt="/multiclass.png"
         title="multiclass.png" /></p>
+<h3 id="overfitting">Overfitting</h3>
+<ul>
+<li>If we have too many Features, the learned hypothesis may <strong>fit the training set very well, but fail to generalize to new examples</strong>. $\darr$</li>
+</ul>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/Overfitting.png"
+        data-srcset="/Overfitting.png, /Overfitting.png 1.5x, /Overfitting.png 2x"
+        data-sizes="auto"
+        alt="/Overfitting.png"
+        title="Overfitting.png" /></p>
+<ul>
+<li>On Logistic Regression $\darr$</li>
+</ul>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/Overfitting-Logistic.png"
+        data-srcset="/Overfitting-Logistic.png, /Overfitting-Logistic.png 1.5x, /Overfitting-Logistic.png 2x"
+        data-sizes="auto"
+        alt="/Overfitting-Logistic.png"
+        title="Overfitting-Logistic.png" /></p>
+<ul>
+<li>
+<p>Adressing Overfitting:</p>
+<ol>
+<li>
+<p><strong>Reduce number of Features</strong></p>
+<ul>
+<li>
+<p>Manually select which Features to keep</p>
+</li>
+<li>
+<p>Model selection algorithm</p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Regularization</strong></p>
+<ul>
+<li>
+<p>Keep all the Features, but reduce magnitude / values of parameters $\theta$.</p>
+</li>
+<li>
+<p>Works well when we have a lot of Features, each of which contributes a bit to predicting $y$.</p>
+</li>
+</ul>
+</li>
+</ol>
+</li>
+</ul>
+<h3 id="regularization">Regularization</h3>
+<ul>
+<li>
+<p>Small Values for parameters $\theta_0, \theta_1, &hellip;, \theta_n$</p>
+<ul>
+<li>
+<p>&ldquo;Simpler&rdquo; hypothesis</p>
+</li>
+<li>
+<p>Less prone to overfitting</p>
+</li>
+</ul>
+</li>
+<li>
+<p>i.g. Housing:</p>
+<ul>
+<li>
+<p>Features: $x_1, x_2, &hellip;, x_{100}$</p>
+</li>
+<li>
+<p>Parameters: $\theta_0, \theta_1, &hellip;, \theta_n$</p>
+</li>
+<li>
+<p>$J(\theta) = \frac{1}{2m}[\sum_{i=1}^m(h_\theta(x^{(i)} - y^{(i)})^2 + \lambda\sum_{j=1}^{n}\theta_j^2]$. We pinelize only $\theta_{i &gt; 0}$</p>
+</li>
+<li>
+<p>$\lambda\sum_{j=1}^{n}\theta_j^2$ is called Regulization Parameter.</p>
+</li>
+<li>
+<p>When the $\lambda$ too large is, $h_\theta(x) = \theta_0$ (Because this can make $\theta_{i &gt; 0} \thickapprox 0$)</p>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="regularized-linear-regression">Regularized Linear Regression</h4>
+<ul>
+<li>
+<p><strong>Cost Function:</strong></p>
+<ul>
+<li>$J(\theta) = \frac{1}{2m}[\sum_{i=1}^m(h_\theta(x^{(i)} - y^{(i)})^2 + \lambda\sum_{j=1}^{n}\theta_j^2]$.</li>
+</ul>
+</li>
+<li>
+<p><strong>Gradient Descent:</strong></p>
+<ul>
+<li>
+<p>$\theta_0 := \theta_0 - \alpha \frac{1}{m}\sum_{i=1}^m(h_\theta(x^{(i)}) - y^{(i)})(x_0 \equiv 1))$</p>
+</li>
+<li>
+<p>$\theta_{j &gt; 0} := \theta_j - \alpha[\frac{1}{m}\sum_{i=1}^m(h_\theta(x^{(i)} - y^{(i)}))x^{(i)} + \frac{\lambda}{m}\theta_j]$</p>
+<p>$\rarr \theta_{j &gt; 0} := \theta_j(1- \alpha\frac{\lambda}{m}) - \alpha\frac{1}{m}\sum_{i=1}^m(h_\theta(x^{(i)} - y^{(i)}))x^{(i)}$</p>
+</li>
+<li>
+<p>In the Equation above, $ \theta_j(1- \alpha\frac{\lambda}{m}) &lt; 1$. We can be sure that the parameter will be smaller in each iteration.</p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Normal Equition:</strong></p>
+<ul>
+<li>
+<p>$X = \begin{bmatrix}(x^{(i)})^T\\&hellip;\\(x^{(m)})^T\\\end{bmatrix}$</p>
+</li>
+<li>
+<p>$y = \begin{bmatrix}y^{(1)}\\&hellip;\\y^{(m)}\end{bmatrix}$</p>
+</li>
+<li>
+<p>$\theta = (X^TX + \lambda\begin{bmatrix}0 &amp; 0 &amp; 0\\0 &amp; 1 &amp;0 \\ 0 &amp; 0 &amp; 1\end{bmatrix})^{-1}X^Ty$</p>
+<ul>
+<li>The Elements in the Matrix next to $\lambda$ looks like: $e_{i = j\not = 0}$</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="regularized-logistic-regression">Regularized Logistic Regression</h4>
+<ul>
+<li>
+<p><strong>Cost Function:</strong></p>
+<ul>
+<li>$J(\theta) = -[\frac{1}{m}\sum_{i=1}^my^{(i)}logh_\theta(x^{(i)}) + (1 - y^{(i)})log(1 - h_\theta(x^{(i)}))] + \frac{\lambda}{2m}\sum_{j=1}^m\theta_j^2$</li>
+</ul>
+</li>
+<li>
+<p><strong>Gradient Descent:</strong></p>
+<ul>
+<li>
+<p>$\theta_0 := \theta_0 - \alpha \frac{1}{m}\sum_{i=1}^m(h_\theta(x^{(i)}) - y^{(i)})(x_0 \equiv 1))$</p>
+</li>
+<li>
+<p>$\theta_{j &gt; 0} := \theta_j - \alpha[\frac{1}{m}\sum_{i=1}^m(h_\theta(x^{(i)} - y^{(i)}))x^{(i)} + \frac{\lambda}{m}\theta_j]$</p>
+</li>
+<li>
+<p>Here $h_\theta(x) = \frac{1}{1 + e^{-\theta^Tx}}$</p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Normal Equation:</strong></p>
+</li>
+</ul>
 </div><div class="post-footer" id="post-footer">
     <div class="post-info">
         <div class="post-info-line">
             <div class="post-info-mod">
-                <span>Updated on 2020-12-20&nbsp;<a class="git-hash" href="https://github.com/dillonzq/LoveIt/commit/8ce90ffed81d1d15300ca6eecea49f3d427316df" target="_blank" title="commit by DaiJiabin(kechou.dai@gmail.com) 8ce90ffed81d1d15300ca6eecea49f3d427316df: Processing Sun 20 Dec 2020 04:40:05 PM CET">
-                                    <i class="fas fa-hashtag fa-fw"></i>8ce90ff</a></span>
+                <span>Updated on 2020-12-21&nbsp;<a class="git-hash" href="https://github.com/dillonzq/LoveIt/commit/2a6cd03ede84eb476f05d598f677f39b5abda930" target="_blank" title="commit by DaiJiabin(kechou.dai@gmail.com) 2a6cd03ede84eb476f05d598f677f39b5abda930: Processing Mon 21 Dec 2020 10:28:52 AM CET">
+                                    <i class="fas fa-hashtag fa-fw"></i>2a6cd03</a></span>
             </div>
             <div class="post-info-license"></div>
         </div>
