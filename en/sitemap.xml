@@ -2,7 +2,7 @@
     xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
     xmlns:xhtml="http://www.w3.org/1999/xhtml"
     ><url>
-            <loc>https://daijiabin.github.io/tags/ai/</loc><lastmod>2020-12-21T10:28:52&#43;01:00</lastmod><changefreq>weekly</changefreq><priority>1</priority><xhtml:link
+            <loc>https://daijiabin.github.io/tags/ai/</loc><lastmod>2020-12-22T16:05:21&#43;01:00</lastmod><changefreq>weekly</changefreq><priority>1</priority><xhtml:link
                         rel="alternate"
                         hreflang="zh-cn"
                         href="https://daijiabin.github.io/zh-cn/tags/ai/"
@@ -11,7 +11,7 @@
                     hreflang="en"
                     href="https://daijiabin.github.io/tags/ai/"
                     /></url><url>
-            <loc>https://daijiabin.github.io/categories/</loc><lastmod>2020-12-21T10:28:52&#43;01:00</lastmod><changefreq>weekly</changefreq><priority>1</priority><xhtml:link
+            <loc>https://daijiabin.github.io/categories/</loc><lastmod>2020-12-22T16:06:39&#43;01:00</lastmod><changefreq>weekly</changefreq><priority>1</priority><xhtml:link
                         rel="alternate"
                         hreflang="zh-cn"
                         href="https://daijiabin.github.io/zh-cn/categories/"
@@ -24,8 +24,7 @@
                     hreflang="en"
                     href="https://daijiabin.github.io/categories/"
                     /></url><url>
-            <loc>https://daijiabin.github.io/tags/german/</loc><lastmod>2020-12-18T19:11:53&#43;01:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
-            <loc>https://daijiabin.github.io/</loc><lastmod>2020-12-21T10:28:52&#43;01:00</lastmod><changefreq>weekly</changefreq><priority>1</priority><xhtml:link
+            <loc>https://daijiabin.github.io/</loc><lastmod>2020-12-22T16:06:39&#43;01:00</lastmod><changefreq>weekly</changefreq><priority>1</priority><xhtml:link
                         rel="alternate"
                         hreflang="zh-cn"
                         href="https://daijiabin.github.io/zh-cn/"
@@ -38,8 +37,7 @@
                     hreflang="en"
                     href="https://daijiabin.github.io/"
                     /></url><url>
-            <loc>https://daijiabin.github.io/categories/language/</loc><lastmod>2020-12-18T19:11:53&#43;01:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
-            <loc>https://daijiabin.github.io/categories/learn/</loc><lastmod>2020-12-21T10:28:52&#43;01:00</lastmod><changefreq>weekly</changefreq><priority>1</priority><xhtml:link
+            <loc>https://daijiabin.github.io/categories/learn/</loc><lastmod>2020-12-22T16:05:21&#43;01:00</lastmod><changefreq>weekly</changefreq><priority>1</priority><xhtml:link
                         rel="alternate"
                         hreflang="zh-cn"
                         href="https://daijiabin.github.io/zh-cn/categories/learn/"
@@ -48,7 +46,7 @@
                     hreflang="en"
                     href="https://daijiabin.github.io/categories/learn/"
                     /></url><url>
-            <loc>https://daijiabin.github.io/machine-learning/</loc><lastmod>2020-12-21T10:28:52&#43;01:00</lastmod><changefreq>weekly</changefreq><priority>1</priority><xhtml:link
+            <loc>https://daijiabin.github.io/machine-learning/</loc><lastmod>2020-12-22T16:05:21&#43;01:00</lastmod><changefreq>weekly</changefreq><priority>1</priority><xhtml:link
                         rel="alternate"
                         hreflang="zh-cn"
                         href="https://daijiabin.github.io/zh-cn/machine-learning/"
@@ -57,7 +55,7 @@
                     hreflang="en"
                     href="https://daijiabin.github.io/machine-learning/"
                     /></url><url>
-            <loc>https://daijiabin.github.io/posts/</loc><lastmod>2020-12-21T10:28:52&#43;01:00</lastmod><changefreq>weekly</changefreq><priority>1</priority><xhtml:link
+            <loc>https://daijiabin.github.io/posts/</loc><lastmod>2020-12-22T16:06:39&#43;01:00</lastmod><changefreq>weekly</changefreq><priority>1</priority><xhtml:link
                         rel="alternate"
                         hreflang="zh-cn"
                         href="https://daijiabin.github.io/zh-cn/posts/"
@@ -66,7 +64,7 @@
                     hreflang="en"
                     href="https://daijiabin.github.io/posts/"
                     /></url><url>
-            <loc>https://daijiabin.github.io/tags/</loc><lastmod>2020-12-21T10:28:52&#43;01:00</lastmod><changefreq>weekly</changefreq><priority>1</priority><xhtml:link
+            <loc>https://daijiabin.github.io/tags/</loc><lastmod>2020-12-22T16:06:39&#43;01:00</lastmod><changefreq>weekly</changefreq><priority>1</priority><xhtml:link
                         rel="alternate"
                         hreflang="zh-cn"
                         href="https://daijiabin.github.io/zh-cn/tags/"
@@ -79,7 +77,9 @@
                     hreflang="en"
                     href="https://daijiabin.github.io/tags/"
                     /></url><url>
-            <loc>https://daijiabin.github.io/testdaf-reference/</loc><lastmod>2020-12-18T19:11:53&#43;01:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
             <loc>https://daijiabin.github.io/about/</loc><lastmod>2020-12-19T14:39:21&#43;01:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
             <loc>https://daijiabin.github.io/tags/nodejs/</loc><lastmod>2020-12-19T23:52:15&#43;01:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
-            <loc>https://daijiabin.github.io/nodejs/</loc><lastmod>2020-12-19T23:52:15&#43;01:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url></urlset>
+            <loc>https://daijiabin.github.io/nodejs/</loc><lastmod>2020-12-19T23:52:15&#43;01:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+            <loc>https://daijiabin.github.io/tags/german/</loc><lastmod>2020-12-22T16:06:39&#43;01:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+            <loc>https://daijiabin.github.io/categories/language/</loc><lastmod>2020-12-22T16:06:39&#43;01:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+            <loc>https://daijiabin.github.io/testdaf-reference/</loc><lastmod>2020-12-22T16:06:39&#43;01:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url></urlset>

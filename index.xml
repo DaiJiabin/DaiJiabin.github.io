@@ -15,20 +15,6 @@
  In supervised learning, we are given a data set and already know what our correct output should look like, having the idea that there is a relationship between the input and the output.
    Training Data already has the value, which our Function should predict for a new, strange input.]]></description>
 </item><item>
-    <title>TestDaF Arguments ( German / zh-CN )</title>
-    <link>https://daijiabin.github.io/testdaf-reference/</link>
-    <pubDate>Fri, 18 Dec 2020 19:11:53 &#43;0100</pubDate>
-    <author>Author</author>
-    <guid>https://daijiabin.github.io/testdaf-reference/</guid>
-    <description><![CDATA[德福考试论据汇总——写作 Aber jede Medaille hat auch Kehrseite.
-一、在德大学生应选择何种工作(大学生兼职)   Pro:
-  通过一份与专业相关的兼职学生可以积累职业经验，以此他们可以在以后的职场上更好地维持。
-Durch einen fachbezogenen Job können die Studenten Berufserfahrungen sammeln, mit denen sie sich später auf dem Arbeitsmarkt besser behaupten können.
-  在做与专业相关的兼职工作的同时人不仅可以获得(erzielen)更好的收入(Gehalt)，也积累很多必将(sicherlich)使他在职场上的职业前景更加美好的经验。
-Bei einem fachbezogenen Job erzielt man nicht nur ein besseres Gehalt, sondern man sammelt viele Erfahrungen, die sicherlich seine Berufsaussicht auf dem Arbeitsmarkt verbessert.
-  学业一直是学生的核心工作(im Mittelpunkt stehen)。在兼职工作中，他们也应该一直思考：他们应该如何将所学的东西(Gelernte)在实习中得以转化——这仅实现在专业相关的工作。
-Das Studium steht immer im Mittelpunkt für die Studenten.]]></description>
-</item><item>
     <title>NodeJS</title>
     <link>https://daijiabin.github.io/nodejs/</link>
     <pubDate>Fri, 18 Dec 2020 13:30:23 &#43;0100</pubDate>
@@ -40,5 +26,19 @@ Das Studium steht immer im Mittelpunkt für die Studenten.]]></description>
   Non-blocking: When I/o processing, process doesn&rsquo;t wait.
   Event-driven: i.g., Click event.
     Advantages of NodeJS  Deals well with High Concurrency and I/O intensiv  CPU Intensiv vs.]]></description>
+</item><item>
+    <title>TestDaF Arguments ( German / zh-CN )</title>
+    <link>https://daijiabin.github.io/testdaf-reference/</link>
+    <pubDate>Wed, 15 Jul 2020 00:00:00 &#43;0100</pubDate>
+    <author>Author</author>
+    <guid>https://daijiabin.github.io/testdaf-reference/</guid>
+    <description><![CDATA[德福考试论据汇总——写作 Aber jede Medaille hat auch Kehrseite.
+一、在德大学生应选择何种工作(大学生兼职)   Pro:
+  通过一份与专业相关的兼职学生可以积累职业经验，以此他们可以在以后的职场上更好地维持。
+Durch einen fachbezogenen Job können die Studenten Berufserfahrungen sammeln, mit denen sie sich später auf dem Arbeitsmarkt besser behaupten können.
+  在做与专业相关的兼职工作的同时人不仅可以获得(erzielen)更好的收入(Gehalt)，也积累很多必将(sicherlich)使他在职场上的职业前景更加美好的经验。
+Bei einem fachbezogenen Job erzielt man nicht nur ein besseres Gehalt, sondern man sammelt viele Erfahrungen, die sicherlich seine Berufsaussicht auf dem Arbeitsmarkt verbessert.
+  学业一直是学生的核心工作(im Mittelpunkt stehen)。在兼职工作中，他们也应该一直思考：他们应该如何将所学的东西(Gelernte)在实习中得以转化——这仅实现在专业相关的工作。
+Das Studium steht immer im Mittelpunkt für die Studenten.]]></description>
 </item></channel>
 </rss>
