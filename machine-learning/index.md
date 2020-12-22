@@ -167,7 +167,7 @@
   
 - Too many Features: Just delete some of them, or use __regulization ( discuss later ).__
 
-## Week 2 Logistic Regression
+## Week 2 Logistic Regression & Overfitting & Regularization 
 
 ### Logistic Regression - Classification
 
@@ -225,7 +225,7 @@
 
 - $Cost(h_\theta(x), y) = \begin{cases}-log(h_\theta(x))&\text{if y = 1}\\\\-log(1 - h_\theta(x)) &\text{if y=0}\end{cases}$
 
-  - $Cost = 0$ if $y = 1, h_\theta(x) = 0$.
+  - if $y = 1, h_\theta(x) = 1 \rarr Cost = 0$.
 
   - But as $h_\theta(x) \rarr 0, Cost \rarr \infty$
 
@@ -373,4 +373,56 @@
   
   - Here $h_\theta(x) = \frac{1}{1 + e^{-\theta^Tx}}$
 
-- __Normal Equation:__
+## Week 3 Non-Linear Hypothesis
+
+- What should we do when we proceed an Image?
+
+  - Transfer it into a grayscale-image. It has only $\frac{1}{3}$ Features that RGB-image has.
+
+### Neural Network
+
+- Origins: Algorithms that try to mimic the brain.
+
+- Neuron Model: Logistic Unit
+
+  $x = \begin{bmatrix}x_0\\\\x_1\\\\...\\\\x_n\end{bmatrix}$ (Just a Vector of Features.)
+
+  $\theta = \begin{bmatrix}\theta_0\\\\\theta_1\\\\...\\\\\theta_n\end{bmatrix}$
+
+  ![Logistic Unit.jpg](/Logistic%20Unit.jpg)
+
+  In this Picture, $x_0$ is called __the bias unit__ or __the bias neuron.__ And $x_0 \equiv 1$
+
+  There's a __sigmoid(logistic) Activaition Function__ in this Picture 
+
+#### Presentations:
+
+![NN.png](/NN.png)
+
+- $a_i^{(j)}: $ Activation of Unit $i$ in Layer $j$
+
+- $\Theta^{(j)}: $ Matrix of weights controlling function mapping from layer $j$ to layer $j+1$
+
+- If networks has $s_j$ units in layer $j$, $s_{j+1}$ Units in layer $j+1$, then $\Theta^{(j)}$ will be of dimension $s_{j+1} \times (s_j + 1)$
+
+#### Vectorized Implementation & Forward Propagation:
+
+- $x = \begin{bmatrix}x_0\\\\x_1\\\\x_2\\\\x_3\end{bmatrix}$
+
+  $z^{(2)} = \begin{bmatrix}z_1^{(2)}\\\\z_2^{(2)}\\\\z_3^{(2)}\end{bmatrix}$
+
+  $z^{(2)} = \Theta^{(1)}x$
+
+  - We can image Input Layer as $a^{(1)}$. Then we can write in this Form:
+  
+    $z^{(2)} = \Theta^{(1)}a^{(1)}$
+  
+  $a^{(2)} = g(z^{(2)})$ (Here $g$ is the Sigmoid Function.)
+
+  - Add $a_0^{(2)} = 0$
+
+  $z^{(3)} = \Theta^{(2)}a^{(2)}$
+
+  $h_\theta(x) = a^{(3)} = g(z^{(3)})$
+
+- We can through choosing $\theta$ to realize _AND, OR, NOT, XOR, XNOR_...

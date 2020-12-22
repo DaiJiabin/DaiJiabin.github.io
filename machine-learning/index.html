@@ -24,7 +24,7 @@
 <meta name="application-name" content="Jiabin&#39;s Blog">
 <meta name="apple-mobile-web-app-title" content="Jiabin&#39;s Blog"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://daijiabin.github.io/machine-learning/" /><link rel="prev" href="https://daijiabin.github.io/nodejs/" /><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/normalize.css@8.0.1/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.13.0/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.7.2/animate.min.css"><script type="application/ld+json">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://daijiabin.github.io/machine-learning/" /><link rel="prev" href="https://daijiabin.github.io/testdaf-reference/" /><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/normalize.css@8.0.1/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.13.0/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.7.2/animate.min.css"><script type="application/ld+json">
     {
         "@context": "http://schema.org",
         "@type": "BlogPosting",
@@ -33,7 +33,7 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "https:\/\/daijiabin.github.io\/machine-learning\/"
-        },"image": ["https:\/\/daijiabin.github.io\/images\/Apple-Devices-Preview.png"],"genre": "posts","keywords": "AI","wordcount":  1772 ,
+        },"image": ["https:\/\/daijiabin.github.io\/images\/Apple-Devices-Preview.png"],"genre": "posts","keywords": "AI","wordcount":  1963 ,
         "url": "https:\/\/daijiabin.github.io\/machine-learning\/","datePublished": "2020-12-18T19:11:53+01:00","dateModified": "2020-12-21T10:28:52+01:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
             "@type": "Organization",
             "name": "Dai Jiabin","logo": "https:\/\/daijiabin.github.io\/images\/avatar.png"},"author": {
@@ -114,8 +114,8 @@
             <div class="toc-content" id="toc-content-auto"></div>
         </div><article class="page single"><h1 class="single-title animated flipInX">Machine Learning</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="https://www.github.com/DaiJiabin" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw"></i>Dai Jiabin</a></span>&nbsp;<span class="post-category">included in <a href="/categories/learn/"><i class="far fa-folder fa-fw"></i>Learn</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2020-12-18">2020-12-18</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;1772 words&nbsp;
-                <i class="far fa-clock fa-fw"></i>&nbsp;9 minutes&nbsp;</div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2020-12-18">2020-12-18</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;1963 words&nbsp;
+                <i class="far fa-clock fa-fw"></i>&nbsp;10 minutes&nbsp;</div>
         </div><div class="details toc" id="toc-static"  kept="">
                 <div class="details-summary toc-title">
                     <span>Contents</span>
@@ -133,7 +133,7 @@
         <li><a href="#normal-equation">Normal Equation</a></li>
       </ul>
     </li>
-    <li><a href="#week-2-logistic-regression">Week 2 Logistic Regression</a>
+    <li><a href="#week-2-logistic-regression--overfitting--regularization">Week 2 Logistic Regression &amp; Overfitting &amp; Regularization</a>
       <ul>
         <li><a href="#logistic-regression---classification">Logistic Regression - Classification</a></li>
         <li><a href="#deciding-boundary">Deciding Boundary</a></li>
@@ -146,6 +146,16 @@
           <ul>
             <li><a href="#regularized-linear-regression">Regularized Linear Regression</a></li>
             <li><a href="#regularized-logistic-regression">Regularized Logistic Regression</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li><a href="#week-3-non-linear-hypothesis">Week 3 Non-Linear Hypothesis</a>
+      <ul>
+        <li><a href="#neural-network">Neural Network</a>
+          <ul>
+            <li><a href="#presentations">Presentations:</a></li>
+            <li><a href="#vectorized-implementation--forward-propagation">Vectorized Implementation &amp; Forward Propagation:</a></li>
           </ul>
         </li>
       </ul>
@@ -428,7 +438,7 @@
 <p>Too many Features: Just delete some of them, or use <strong>regulization ( discuss later ).</strong></p>
 </li>
 </ul>
-<h2 id="week-2-logistic-regression">Week 2 Logistic Regression</h2>
+<h2 id="week-2-logistic-regression--overfitting--regularization">Week 2 Logistic Regression &amp; Overfitting &amp; Regularization</h2>
 <h3 id="logistic-regression---classification">Logistic Regression - Classification</h3>
 <ul>
 <li>
@@ -527,7 +537,7 @@ $Cost(h_\theta(x), y) = \frac{1}{2}(h_\theta(x) - y)^2$</p>
 <p>$Cost(h_\theta(x), y) = \begin{cases}-log(h_\theta(x))&amp;\text{if y = 1}\\-log(1 - h_\theta(x)) &amp;\text{if y=0}\end{cases}$</p>
 <ul>
 <li>
-<p>$Cost = 0$ if $y = 1, h_\theta(x) = 0$.</p>
+<p>if $y = 1, h_\theta(x) = 1 \rarr Cost = 0$.</p>
 </li>
 <li>
 <p>But as $h_\theta(x) \rarr 0, Cost \rarr \infty$</p>
@@ -776,8 +786,78 @@ $Cost(h_\theta(x), y) = \frac{1}{2}(h_\theta(x) - y)^2$</p>
 </li>
 </ul>
 </li>
+</ul>
+<h2 id="week-3-non-linear-hypothesis">Week 3 Non-Linear Hypothesis</h2>
+<ul>
 <li>
-<p><strong>Normal Equation:</strong></p>
+<p>What should we do when we proceed an Image?</p>
+<ul>
+<li>Transfer it into a grayscale-image. It has only $\frac{1}{3}$ Features that RGB-image has.</li>
+</ul>
+</li>
+</ul>
+<h3 id="neural-network">Neural Network</h3>
+<ul>
+<li>
+<p>Origins: Algorithms that try to mimic the brain.</p>
+</li>
+<li>
+<p>Neuron Model: Logistic Unit</p>
+<p>$x = \begin{bmatrix}x_0\\x_1\\&hellip;\\x_n\end{bmatrix}$ (Just a Vector of Features.)</p>
+<p>$\theta = \begin{bmatrix}\theta_0\\\theta_1\\&hellip;\\\theta_n\end{bmatrix}$</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/Logistic%20Unit.jpg"
+        data-srcset="/Logistic%20Unit.jpg, /Logistic%20Unit.jpg 1.5x, /Logistic%20Unit.jpg 2x"
+        data-sizes="auto"
+        alt="/Logistic%20Unit.jpg"
+        title="Logistic Unit.jpg" /></p>
+<p>In this Picture, $x_0$ is called <strong>the bias unit</strong> or <strong>the bias neuron.</strong> And $x_0 \equiv 1$</p>
+<p>There&rsquo;s a <strong>sigmoid(logistic) Activaition Function</strong> in this Picture</p>
+</li>
+</ul>
+<h4 id="presentations">Presentations:</h4>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/NN.png"
+        data-srcset="/NN.png, /NN.png 1.5x, /NN.png 2x"
+        data-sizes="auto"
+        alt="/NN.png"
+        title="NN.png" /></p>
+<ul>
+<li>
+<p>$a_i^{(j)}: $ Activation of Unit $i$ in Layer $j$</p>
+</li>
+<li>
+<p>$\Theta^{(j)}: $ Matrix of weights controlling function mapping from layer $j$ to layer $j+1$</p>
+</li>
+<li>
+<p>If networks has $s_j$ units in layer $j$, $s_{j+1}$ Units in layer $j+1$, then $\Theta^{(j)}$ will be of dimension $s_{j+1} \times (s_j + 1)$</p>
+</li>
+</ul>
+<h4 id="vectorized-implementation--forward-propagation">Vectorized Implementation &amp; Forward Propagation:</h4>
+<ul>
+<li>
+<p>$x = \begin{bmatrix}x_0\\x_1\\x_2\\x_3\end{bmatrix}$</p>
+<p>$z^{(2)} = \begin{bmatrix}z_1^{(2)}\\z_2^{(2)}\\z_3^{(2)}\end{bmatrix}$</p>
+<p>$z^{(2)} = \Theta^{(1)}x$</p>
+<ul>
+<li>
+<p>We can image Input Layer as $a^{(1)}$. Then we can write in this Form:</p>
+<p>$z^{(2)} = \Theta^{(1)}a^{(1)}$</p>
+</li>
+</ul>
+<p>$a^{(2)} = g(z^{(2)})$ (Here $g$ is the Sigmoid Function.)</p>
+<ul>
+<li>Add $a_0^{(2)} = 0$</li>
+</ul>
+<p>$z^{(3)} = \Theta^{(2)}a^{(2)}$</p>
+<p>$h_\theta(x) = a^{(3)} = g(z^{(3)})$</p>
+</li>
+<li>
+<p>We can through choosing $\theta$ to realize <em>AND, OR, NOT, XOR, XNOR</em>&hellip;</p>
 </li>
 </ul>
 </div><div class="post-footer" id="post-footer">
@@ -806,7 +886,7 @@ $Cost(h_\theta(x), y) = \frac{1}{2}(h_\theta(x) - y)^2$</p>
         </section>
     </div>
 
-    <div class="post-nav"><a href="/nodejs/" class="prev" rel="prev" title="NodeJS"><i class="fas fa-angle-left fa-fw"></i>NodeJS</a></div>
+    <div class="post-nav"><a href="/testdaf-reference/" class="prev" rel="prev" title="TestDaF Arguments ( German / zh-CN )"><i class="fas fa-angle-left fa-fw"></i>TestDaF Arguments ( German / zh-CN )</a></div>
 </div>
 </article></div>
             </main><footer class="footer">
