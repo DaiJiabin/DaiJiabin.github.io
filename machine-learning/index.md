@@ -403,7 +403,8 @@
 
 - $\Theta^{(j)}: $ Matrix of weights controlling function mapping from layer $j$ to layer $j+1$
 
-- :warning: If networks has $s_j$ units in layer $j$, $s_{j+1}$ Units in layer $j+1$, then $\Theta^{(j)}$ will be of dimension $s_{j+1} \times (s_j + 1)$.
+- :warning: If networks has $s_j$ units in layer $j$, $s_{j+1}$ Units in layer $j+1$, then $\Theta^{(j)}$ will be of dimension $s_{j+1} \times (s_j + 1)$. 
+  __And it should be randomly intialized.__
 
 #### Vectorized Implementation & Forward Propagation:
 

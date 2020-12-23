@@ -13,7 +13,7 @@
 <meta property="og:url" content="https://daijiabin.github.io/machine-learning/" />
 <meta property="og:image" content="https://daijiabin.github.io/logo.png"/>
 <meta property="article:published_time" content="2020-12-18T19:11:53+01:00" />
-<meta property="article:modified_time" content="2020-12-23T14:15:43+01:00" />
+<meta property="article:modified_time" content="2020-12-23T16:44:10+01:00" />
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="https://daijiabin.github.io/logo.png"/>
 
@@ -33,8 +33,8 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "https:\/\/daijiabin.github.io\/machine-learning\/"
-        },"image": ["https:\/\/daijiabin.github.io\/images\/Apple-Devices-Preview.png"],"genre": "posts","keywords": "AI","wordcount":  2241 ,
-        "url": "https:\/\/daijiabin.github.io\/machine-learning\/","datePublished": "2020-12-18T19:11:53+01:00","dateModified": "2020-12-23T14:15:43+01:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
+        },"image": ["https:\/\/daijiabin.github.io\/images\/Apple-Devices-Preview.png"],"genre": "posts","keywords": "AI","wordcount":  2247 ,
+        "url": "https:\/\/daijiabin.github.io\/machine-learning\/","datePublished": "2020-12-18T19:11:53+01:00","dateModified": "2020-12-23T16:44:10+01:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
             "@type": "Organization",
             "name": "Dai Jiabin","logo": "https:\/\/daijiabin.github.io\/images\/avatar.png"},"author": {
                 "@type": "Person",
@@ -114,7 +114,7 @@
             <div class="toc-content" id="toc-content-auto"></div>
         </div><article class="page single"><h1 class="single-title animated flipInX">Machine Learning</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="https://www.github.com/DaiJiabin" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw"></i>Dai Jiabin</a></span>&nbsp;<span class="post-category">included in <a href="/categories/learn/"><i class="far fa-folder fa-fw"></i>Learn</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2020-12-18">2020-12-18</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;2241 words&nbsp;
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2020-12-18">2020-12-18</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;2247 words&nbsp;
                 <i class="far fa-clock fa-fw"></i>&nbsp;11 minutes&nbsp;</div>
         </div><div class="details toc" id="toc-static"  kept="">
                 <div class="details-summary toc-title">
@@ -836,7 +836,8 @@ $Cost(h_\theta(x), y) = \frac{1}{2}(h_\theta(x) - y)^2$</p>
 <p>$\Theta^{(j)}: $ Matrix of weights controlling function mapping from layer $j$ to layer $j+1$</p>
 </li>
 <li>
-<p>⚠️ If networks has $s_j$ units in layer $j$, $s_{j+1}$ Units in layer $j+1$, then $\Theta^{(j)}$ will be of dimension $s_{j+1} \times (s_j + 1)$.</p>
+<p>⚠️ If networks has $s_j$ units in layer $j$, $s_{j+1}$ Units in layer $j+1$, then $\Theta^{(j)}$ will be of dimension $s_{j+1} \times (s_j + 1)$.
+__And it should be randomly intialized.__</p>
 </li>
 </ul>
 <h4 id="vectorized-implementation--forward-propagation">Vectorized Implementation &amp; Forward Propagation:</h4>
@@ -982,8 +983,8 @@ $J(\theta) = -\frac{1}{m}\sum_{i=1}^{m}[y^{(i)}log(h_\theta(x^{(i)})) + (1 - y^{
     <div class="post-info">
         <div class="post-info-line">
             <div class="post-info-mod">
-                <span>Updated on 2020-12-23&nbsp;<a class="git-hash" href="https://github.com/dillonzq/LoveIt/commit/aeaa3e2d01ac27e79e7620b5efc4ab9af984c1cd" target="_blank" title="commit by DaiJiabin(kechou.dai@gmail.com) aeaa3e2d01ac27e79e7620b5efc4ab9af984c1cd: Processing Wed 23 Dec 2020 02:15:43 PM CET">
-                                    <i class="fas fa-hashtag fa-fw"></i>aeaa3e2</a></span>
+                <span>Updated on 2020-12-23&nbsp;<a class="git-hash" href="https://github.com/dillonzq/LoveIt/commit/df343deb276bc8d54e348144c3b8f3c43e979538" target="_blank" title="commit by DaiJiabin(kechou.dai@gmail.com) df343deb276bc8d54e348144c3b8f3c43e979538: Processing Wed 23 Dec 2020 04:44:10 PM CET">
+                                    <i class="fas fa-hashtag fa-fw"></i>df343de</a></span>
             </div>
             <div class="post-info-license"></div>
         </div>
