@@ -33,11 +33,11 @@
 
 ### Regression vs. Classification
 
-- Regression: The Value we want to predict is __continious__ instead of discrete. i.g., the Price of a House.
+- Regression: The Value we want to predict is __continious__ instead of discrete. E.g., the Price of a House.
 
     > In a regression problem, we are trying to predict results within a continuous output, meaning that we are trying to map input variables to some continuous function. 
 
-- Classification: As its' name, we want to __devide the input in different classes__. i.g., After training, with the help of the <u>color, weight, outlook and smel</u> ( __Features__ ), we want to predict if the coffee beans we have come from Arabica or Robusta.
+- Classification: As its' name, we want to __devide the input in different classes__. E.g., After training, with the help of the <u>color, weight, outlook and smel</u> ( __Features__ ), we want to predict if the coffee beans we have come from Arabica or Robusta.
 
     > In a classification problem, we are instead trying to predict results in a discrete output. In other words, we are trying to map input variables into discrete categories.
 
@@ -84,7 +84,7 @@
 
 - Vector:
 
-  - A vector is a Matrix with __one Column and many rows.__ i.g., $\begin{bmatrix}x_0 \\\\ x_1 \\\\x_2 \\\\x_3 \end{bmatrix}$
+  - A vector is a Matrix with __one Column and many rows.__ E.g., $\begin{bmatrix}x_0 \\\\ x_1 \\\\x_2 \\\\x_3 \end{bmatrix}$
 
 - Hypothesis:
 
@@ -124,7 +124,7 @@
 
 ### Feature Scaling
 
-- We use this technique __when the range of Features have great Difference.__ i.g., $0 \leq x_1 \leq 2000, 0 \leq x_2 \leq 5$, then we can $x_1 \coloneqq \frac{x_1}{2000}, x_2 \coloneqq \frac{x_2}{5}.$ This helps with the speed up of the Gradient Descent.
+- We use this technique __when the range of Features have great Difference.__ E.g., $0 \leq x_1 \leq 2000, 0 \leq x_2 \leq 5$, then we can $x_1 \coloneqq \frac{x_1}{2000}, x_2 \coloneqq \frac{x_2}{5}.$ This helps with the speed up of the Gradient Descent.
 
 - Andrew Ng advices that scaling all Features __approximately__ into the range __[-1, 1]__.
 
@@ -163,7 +163,7 @@
   
   - Redundant Elements: linear depent.
   
-    i.g., $x_1 = $size in $feet^2$, $x_2$ = size in $m^2$.
+    E.g., $x_1 = $size in $feet^2$, $x_2$ = size in $m^2$.
   
 - Too many Features: Just delete some of them, or use __regulization ( discuss later ).__
 
@@ -281,7 +281,7 @@
 
 ### Multi-class Classification: one-vs-all ( one-vs-rest )
 
-- i.g., Email foldering / tagging: Work, Friends, Family, Hobby ($y=1, y=2, y=3, y=4$)
+- E.g., Email foldering / tagging: Work, Friends, Family, Hobby ($y=1, y=2, y=3, y=4$)
 
 - $h_\theta^{(i)} = P(y = i | x; \theta)$ $(i=1,2,3)$
 
@@ -321,7 +321,7 @@
   
   - Less prone to overfitting
 
-- i.g. Housing:
+- E.g. Housing:
   
   - Features: $x_1, x_2, ..., x_{100}$
   
@@ -373,7 +373,7 @@
   
   - Here $h_\theta(x) = \frac{1}{1 + e^{-\theta^Tx}}$
 
-## Week 3 Non-Linear Hypothesis
+## Week 3 Non-Linear Hypothesis - Neural Networks
 
 - What should we do when we proceed an Image?
 
@@ -426,3 +426,85 @@
   $h_\theta(x) = a^{(3)} = g(z^{(3)})$
 
 - We can through choosing $\theta$ to realize _AND, OR, NOT, XOR, XNOR_...
+
+### Cost Function
+
+- Definitions:
+  
+  - Training Datas: ${(x^{(1)}, y^{(1)}), (x^{(2)}, y^{(2)}), ..., (x^{(m)}, y^{(m)})}$
+  
+  - $L = $ total no. of Layers in network
+  
+  - $s_l = $ no. of units ( not counting bias unit ) in layer $l$.
+  
+- Classification Problems:
+
+|Binary Classification|Multi-class Classification ( K classes ) |
+|:-------------------:|:---------------------------------------:|
+|$y = 0$ or $1$|$y \isin \R^K$, E.g. $\begin{bmatrix}1\\\\0\\\\0\\\\0\end{bmatrix}$, $\begin{bmatrix}0\\\\1\\\\0\\\\0\end{bmatrix}$, $\begin{bmatrix}0\\\\0\\\\1\\\\0\end{bmatrix}$, $\begin{bmatrix}0\\\\0\\\\0\\\\1\end{bmatrix}$|
+|1 output unit|K output units|
+
+- Logistic Regression:
+
+  > Brief Review:  
+  $J(\theta) = -\frac{1}{m}\sum_{i=1}^{m}[y^{(i)}log(h_\theta(x^{(i)})) + (1 - y^{(i)})log(1 - h_\theta(x^{(i)}))] + \frac{\lambda}{2m}\sum_{j=1}^{n}\theta_j^2$
+
+  - Neural Network:
+
+    $h_\Theta(x) \isin \R^K, (h_\Theta(x))_i = i^{th}$ Output
+
+    $J(\Theta) = -\frac{1}{m}[\sum_{i=1}^{m}\sum_{k=1}^{K}y_k^{(i)}log(h_\Theta(x^{(i)}))_k + (1 - y_k^{(i)})log(1 - (h_\Theta(x^{(i)}))_k)] + \frac{\lambda}{2m}\sum_{l = 1}^{L - 1}\sum_{i = 1}^{s_l}\sum_{j = 1}^{s_{l+1}}(\Theta_{ji}^{l})^2$
+
+### Backpropagation Algorithm
+
+- Gradiet Descent, we need to compute:
+  
+  - $J(\Theta)$
+  
+  - $\frac{\partial}{\partial\Theta_{ij}^{(l)}}J(\Theta)$
+
+  > $J(\Theta) = -\frac{1}{m}[\sum_{i=1}^{m}\sum_{k=1}^{K}y_k^{(i)}log(h_\Theta(x^{(i)}))_k + (1 - y_k^{(i)})log(1 - (h_\Theta(x^{(i)}))_k)] + \frac{\lambda}{2m}\sum_{l = 1}^{L - 1}\sum_{i = 1}^{s_l}\sum_{j = 1}^{s_{l+1}}(\Theta_{ji}^{l})^2$
+
+- Intuition:
+
+  - $\delta_j^{(l)}$ = "error" of node $j$ in layer $l$.
+  
+  - For each output Unit ( Layer = 4 ):
+  
+    $\delta_j^{(4)} = a_j^{(4)} - y_j$
+
+    $a_j^{(4)} = (h_\theta(x))_j$
+
+    We have: $\delta^{(4)} = a^{(4)} - y$
+
+  - Then we execute the following Operations:
+
+    $\delta^{(3)} = (\Theta^{(3)})^T\delta^{(4)} .* g'(z^{(3)})$
+
+    $\delta^{(2)} = (\Theta^{(2)})^T\delta^{(3)} .* g'(z^{(2)})$
+
+    Here $g'(z^{(n)}) = a^{(n)} .* (1 - a^{(n)})$
+
+- Specifically:
+
+  - Training Set: ${(x^{(1)}, y^{(1)}), (x^{(2)}, y^{(2)}), ..., (x^{(m)}, y^{(m)})}$
+  
+  - Set $\Delta_{ij}^{(l)} = 0$, for all $i, j, l$
+  
+  - For $i = 1$ to $m$:
+  
+      Set $a^{(1)} = x^{(i)}$
+  
+      Perform forward propagation to compute $a^{(l)}$ for $l = 2, 3, ..., L$
+  
+      Using $y^{(i)}$, compute $\delta^{(L)} = a^{(L)} - y^{(i)}$
+  
+      Compute $\delta^{(L - 1)}, \delta^{(L - 2)}, ..., \delta^{(2)}$
+  
+      $\Delta_{ij}^{(l)}:= \Delta_{ij}^{(l)} + a_j^{(l)}\delta_i^{(l+1)}$
+  
+  - $D_{ij}^{(l)} := \frac{1}{m}\Delta_{ij}^{(l)} + \lambda\Theta_{ij}^{(l)}$ if $j \neq 0$
+  
+  - $D_{ij}^{(l)} := \frac{1}{m}\Delta_{ij}^{(l)}$ if $j = 0$
+
+

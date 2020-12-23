@@ -13,7 +13,7 @@
 <meta property="og:url" content="https://daijiabin.github.io/machine-learning/" />
 <meta property="og:image" content="https://daijiabin.github.io/logo.png"/>
 <meta property="article:published_time" content="2020-12-18T19:11:53+01:00" />
-<meta property="article:modified_time" content="2020-12-22T16:05:21+01:00" />
+<meta property="article:modified_time" content="2020-12-23T14:15:43+01:00" />
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="https://daijiabin.github.io/logo.png"/>
 
@@ -33,8 +33,8 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "https:\/\/daijiabin.github.io\/machine-learning\/"
-        },"image": ["https:\/\/daijiabin.github.io\/images\/Apple-Devices-Preview.png"],"genre": "posts","keywords": "AI","wordcount":  1963 ,
-        "url": "https:\/\/daijiabin.github.io\/machine-learning\/","datePublished": "2020-12-18T19:11:53+01:00","dateModified": "2020-12-22T16:05:21+01:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
+        },"image": ["https:\/\/daijiabin.github.io\/images\/Apple-Devices-Preview.png"],"genre": "posts","keywords": "AI","wordcount":  2240 ,
+        "url": "https:\/\/daijiabin.github.io\/machine-learning\/","datePublished": "2020-12-18T19:11:53+01:00","dateModified": "2020-12-23T14:15:43+01:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
             "@type": "Organization",
             "name": "Dai Jiabin","logo": "https:\/\/daijiabin.github.io\/images\/avatar.png"},"author": {
                 "@type": "Person",
@@ -114,8 +114,8 @@
             <div class="toc-content" id="toc-content-auto"></div>
         </div><article class="page single"><h1 class="single-title animated flipInX">Machine Learning</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="https://www.github.com/DaiJiabin" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw"></i>Dai Jiabin</a></span>&nbsp;<span class="post-category">included in <a href="/categories/learn/"><i class="far fa-folder fa-fw"></i>Learn</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2020-12-18">2020-12-18</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;1963 words&nbsp;
-                <i class="far fa-clock fa-fw"></i>&nbsp;10 minutes&nbsp;</div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2020-12-18">2020-12-18</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;2240 words&nbsp;
+                <i class="far fa-clock fa-fw"></i>&nbsp;11 minutes&nbsp;</div>
         </div><div class="details toc" id="toc-static"  kept="">
                 <div class="details-summary toc-title">
                     <span>Contents</span>
@@ -150,7 +150,7 @@
         </li>
       </ul>
     </li>
-    <li><a href="#week-3-non-linear-hypothesis">Week 3 Non-Linear Hypothesis</a>
+    <li><a href="#week-3-non-linear-hypothesis---neural-networks">Week 3 Non-Linear Hypothesis - Neural Networks</a>
       <ul>
         <li><a href="#neural-network">Neural Network</a>
           <ul>
@@ -158,6 +158,8 @@
             <li><a href="#vectorized-implementation--forward-propagation">Vectorized Implementation &amp; Forward Propagation:</a></li>
           </ul>
         </li>
+        <li><a href="#cost-function-1">Cost Function</a></li>
+        <li><a href="#backpropagation-algorithm">Backpropagation Algorithm</a></li>
       </ul>
     </li>
   </ul>
@@ -262,13 +264,13 @@
 <h3 id="regression-vs-classification">Regression vs. Classification</h3>
 <ul>
 <li>
-<p>Regression: The Value we want to predict is <strong>continious</strong> instead of discrete. i.g., the Price of a House.</p>
+<p>Regression: The Value we want to predict is <strong>continious</strong> instead of discrete. E.g., the Price of a House.</p>
 <blockquote>
 <p>In a regression problem, we are trying to predict results within a continuous output, meaning that we are trying to map input variables to some continuous function.</p>
 </blockquote>
 </li>
 <li>
-<p>Classification: As its' name, we want to <strong>devide the input in different classes</strong>. i.g., After training, with the help of the <u>color, weight, outlook and smel</u> ( <strong>Features</strong> ), we want to predict if the coffee beans we have come from Arabica or Robusta.</p>
+<p>Classification: As its' name, we want to <strong>devide the input in different classes</strong>. E.g., After training, with the help of the <u>color, weight, outlook and smel</u> ( <strong>Features</strong> ), we want to predict if the coffee beans we have come from Arabica or Robusta.</p>
 <blockquote>
 <p>In a classification problem, we are instead trying to predict results in a discrete output. In other words, we are trying to map input variables into discrete categories.</p>
 </blockquote>
@@ -329,7 +331,7 @@
 <li>
 <p>Vector:</p>
 <ul>
-<li>A vector is a Matrix with <strong>one Column and many rows.</strong> i.g., $\begin{bmatrix}x_0 \\ x_1 \\x_2 \\x_3 \end{bmatrix}$</li>
+<li>A vector is a Matrix with <strong>one Column and many rows.</strong> E.g., $\begin{bmatrix}x_0 \\ x_1 \\x_2 \\x_3 \end{bmatrix}$</li>
 </ul>
 </li>
 <li>
@@ -372,7 +374,7 @@
 <h3 id="feature-scaling">Feature Scaling</h3>
 <ul>
 <li>
-<p>We use this technique <strong>when the range of Features have great Difference.</strong> i.g., $0 \leq x_1 \leq 2000, 0 \leq x_2 \leq 5$, then we can $x_1 \coloneqq \frac{x_1}{2000}, x_2 \coloneqq \frac{x_2}{5}.$ This helps with the speed up of the Gradient Descent.</p>
+<p>We use this technique <strong>when the range of Features have great Difference.</strong> E.g., $0 \leq x_1 \leq 2000, 0 \leq x_2 \leq 5$, then we can $x_1 \coloneqq \frac{x_1}{2000}, x_2 \coloneqq \frac{x_2}{5}.$ This helps with the speed up of the Gradient Descent.</p>
 </li>
 <li>
 <p>Andrew Ng advices that scaling all Features <strong>approximately</strong> into the range <strong>[-1, 1]</strong>.</p>
@@ -430,7 +432,7 @@
 <ul>
 <li>
 <p>Redundant Elements: linear depent.</p>
-<p>i.g., $x_1 = $size in $feet^2$, $x_2$ = size in $m^2$.</p>
+<p>E.g., $x_1 = $size in $feet^2$, $x_2$ = size in $m^2$.</p>
 </li>
 </ul>
 </li>
@@ -620,7 +622,7 @@ $Cost(h_\theta(x), y) = \frac{1}{2}(h_\theta(x) - y)^2$</p>
 <h3 id="multi-class-classification-one-vs-all--one-vs-rest-">Multi-class Classification: one-vs-all ( one-vs-rest )</h3>
 <ul>
 <li>
-<p>i.g., Email foldering / tagging: Work, Friends, Family, Hobby ($y=1, y=2, y=3, y=4$)</p>
+<p>E.g., Email foldering / tagging: Work, Friends, Family, Hobby ($y=1, y=2, y=3, y=4$)</p>
 </li>
 <li>
 <p>$h_\theta^{(i)} = P(y = i | x; \theta)$ $(i=1,2,3)$</p>
@@ -703,7 +705,7 @@ $Cost(h_\theta(x), y) = \frac{1}{2}(h_\theta(x) - y)^2$</p>
 </ul>
 </li>
 <li>
-<p>i.g. Housing:</p>
+<p>E.g. Housing:</p>
 <ul>
 <li>
 <p>Features: $x_1, x_2, &hellip;, x_{100}$</p>
@@ -787,7 +789,7 @@ $Cost(h_\theta(x), y) = \frac{1}{2}(h_\theta(x) - y)^2$</p>
 </ul>
 </li>
 </ul>
-<h2 id="week-3-non-linear-hypothesis">Week 3 Non-Linear Hypothesis</h2>
+<h2 id="week-3-non-linear-hypothesis---neural-networks">Week 3 Non-Linear Hypothesis - Neural Networks</h2>
 <ul>
 <li>
 <p>What should we do when we proceed an Image?</p>
@@ -860,12 +862,128 @@ $Cost(h_\theta(x), y) = \frac{1}{2}(h_\theta(x) - y)^2$</p>
 <p>We can through choosing $\theta$ to realize <em>AND, OR, NOT, XOR, XNOR</em>&hellip;</p>
 </li>
 </ul>
+<h3 id="cost-function-1">Cost Function</h3>
+<ul>
+<li>
+<p>Definitions:</p>
+<ul>
+<li>
+<p>Training Datas: ${(x^{(1)}, y^{(1)}), (x^{(2)}, y^{(2)}), &hellip;, (x^{(m)}, y^{(m)})}$</p>
+</li>
+<li>
+<p>$L = $ total no. of Layers in network</p>
+</li>
+<li>
+<p>$s_l = $ no. of units ( not counting bias unit ) in layer $l$.</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Classification Problems:</p>
+</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">Binary Classification</th>
+<th style="text-align:center">Multi-class Classification ( K classes )</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">$y = 0$ or $1$</td>
+<td style="text-align:center">$y \isin \R^K$, E.g. $\begin{bmatrix}1\\0\\0\\0\end{bmatrix}$, $\begin{bmatrix}0\\1\\0\\0\end{bmatrix}$, $\begin{bmatrix}0\\0\\1\\0\end{bmatrix}$, $\begin{bmatrix}0\\0\\0\\1\end{bmatrix}$</td>
+</tr>
+<tr>
+<td style="text-align:center">1 output unit</td>
+<td style="text-align:center">K output units</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>
+<p>Logistic Regression:</p>
+<blockquote>
+<p>Brief Review:<br>
+$J(\theta) = -\frac{1}{m}\sum_{i=1}^{m}[y^{(i)}log(h_\theta(x^{(i)})) + (1 - y^{(i)})log(1 - h_\theta(x^{(i)}))] + \frac{\lambda}{2m}\sum_{j=1}^{n}\theta_j^2$</p>
+</blockquote>
+<ul>
+<li>
+<p>Neural Network:</p>
+<p>$h_\Theta(x) \isin \R^K, (h_\Theta(x))_i = i^{th}$ Output</p>
+<p>$J(\Theta) = -\frac{1}{m}[\sum_{i=1}^{m}\sum_{k=1}^{K}y_k^{(i)}log(h_\Theta(x^{(i)}))_k + (1 - y_k^{(i)})log(1 - (h_\Theta(x^{(i)}))_k)] + \frac{\lambda}{2m}\sum_{l = 1}^{L - 1}\sum_{i = 1}^{s_l}\sum_{j = 1}^{s_{l+1}}(\Theta_{ji}^{l})^2$</p>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="backpropagation-algorithm">Backpropagation Algorithm</h3>
+<ul>
+<li>
+<p>Gradiet Descent, we need to compute:</p>
+<ul>
+<li>
+<p>$J(\Theta)$</p>
+</li>
+<li>
+<p>$\frac{\partial}{\partial\Theta_{ij}^{(l)}}J(\Theta)$</p>
+</li>
+</ul>
+<blockquote>
+<p>$J(\Theta) = -\frac{1}{m}[\sum_{i=1}^{m}\sum_{k=1}^{K}y_k^{(i)}log(h_\Theta(x^{(i)}))_k + (1 - y_k^{(i)})log(1 - (h_\Theta(x^{(i)}))_k)] + \frac{\lambda}{2m}\sum_{l = 1}^{L - 1}\sum_{i = 1}^{s_l}\sum_{j = 1}^{s_{l+1}}(\Theta_{ji}^{l})^2$</p>
+</blockquote>
+</li>
+<li>
+<p>Intuition:</p>
+<ul>
+<li>
+<p>$\delta_j^{(l)}$ = &ldquo;error&rdquo; of node $j$ in layer $l$.</p>
+</li>
+<li>
+<p>For each output Unit ( Layer = 4 ):</p>
+<p>$\delta_j^{(4)} = a_j^{(4)} - y_j$</p>
+<p>$a_j^{(4)} = (h_\theta(x))_j$</p>
+<p>We have: $\delta^{(4)} = a^{(4)} - y$</p>
+</li>
+<li>
+<p>Then we execute the following Operations:</p>
+<p>$\delta^{(3)} = (\Theta^{(3)})^T\delta^{(4)} .* g'(z^{(3)})$</p>
+<p>$\delta^{(2)} = (\Theta^{(2)})^T\delta^{(3)} .* g'(z^{(2)})$</p>
+<p>Here $g'(z^{(n)}) = a^{(n)} .* (1 - a^{(n)})$</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Specifically:</p>
+<ul>
+<li>
+<p>Training Set: ${(x^{(1)}, y^{(1)}), (x^{(2)}, y^{(2)}), &hellip;, (x^{(m)}, y^{(m)})}$</p>
+</li>
+<li>
+<p>Set $\Delta_{ij}^{(l)} = 0$, for all $i, j, l$</p>
+</li>
+<li>
+<p>For $i = 1$ to $m$:</p>
+<p>Set $a^{(1)} = x^{(i)}$</p>
+<p>Perform forward propagation to compute $a^{(l)}$ for $l = 2, 3, &hellip;, L$</p>
+<p>Using $y^{(i)}$, compute $\delta^{(L)} = a^{(L)} - y^{(i)}$</p>
+<p>Compute $\delta^{(L - 1)}, \delta^{(L - 2)}, &hellip;, \delta^{(2)}$</p>
+<p>$\Delta_{ij}^{(l)}:= \Delta_{ij}^{(l)} + a_j^{(l)}\delta_i^{(l+1)}$</p>
+</li>
+<li>
+<p>$D_{ij}^{(l)} := \frac{1}{m}\Delta_{ij}^{(l)} + \lambda\Theta_{ij}^{(l)}$ if $j \neq 0$</p>
+</li>
+<li>
+<p>$D_{ij}^{(l)} := \frac{1}{m}\Delta_{ij}^{(l)}$ if $j = 0$</p>
+</li>
+</ul>
+</li>
+</ul>
 </div><div class="post-footer" id="post-footer">
     <div class="post-info">
         <div class="post-info-line">
             <div class="post-info-mod">
-                <span>Updated on 2020-12-22&nbsp;<a class="git-hash" href="https://github.com/dillonzq/LoveIt/commit/58d0c4674245fc553839317b70923ab0e1b919b3" target="_blank" title="commit by DaiJiabin(kechou.dai@gmail.com) 58d0c4674245fc553839317b70923ab0e1b919b3: Processing Tue 22 Dec 2020 04:05:21 PM CET">
-                                    <i class="fas fa-hashtag fa-fw"></i>58d0c46</a></span>
+                <span>Updated on 2020-12-23&nbsp;<a class="git-hash" href="https://github.com/dillonzq/LoveIt/commit/aeaa3e2d01ac27e79e7620b5efc4ab9af984c1cd" target="_blank" title="commit by DaiJiabin(kechou.dai@gmail.com) aeaa3e2d01ac27e79e7620b5efc4ab9af984c1cd: Processing Wed 23 Dec 2020 02:15:43 PM CET">
+                                    <i class="fas fa-hashtag fa-fw"></i>aeaa3e2</a></span>
             </div>
             <div class="post-info-license"></div>
         </div>
