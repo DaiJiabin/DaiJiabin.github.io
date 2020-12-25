@@ -13,7 +13,7 @@
 <meta property="og:url" content="https://daijiabin.github.io/machine-learning/" />
 <meta property="og:image" content="https://daijiabin.github.io/logo.png"/>
 <meta property="article:published_time" content="2020-12-18T19:11:53+01:00" />
-<meta property="article:modified_time" content="2020-12-23T16:44:10+01:00" />
+<meta property="article:modified_time" content="2020-12-26T00:18:28+01:00" />
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="https://daijiabin.github.io/logo.png"/>
 
@@ -33,8 +33,8 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "https:\/\/daijiabin.github.io\/machine-learning\/"
-        },"image": ["https:\/\/daijiabin.github.io\/images\/Apple-Devices-Preview.png"],"genre": "posts","keywords": "AI","wordcount":  2247 ,
-        "url": "https:\/\/daijiabin.github.io\/machine-learning\/","datePublished": "2020-12-18T19:11:53+01:00","dateModified": "2020-12-23T16:44:10+01:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
+        },"image": ["https:\/\/daijiabin.github.io\/images\/Apple-Devices-Preview.png"],"genre": "posts","keywords": "AI","wordcount":  2941 ,
+        "url": "https:\/\/daijiabin.github.io\/machine-learning\/","datePublished": "2020-12-18T19:11:53+01:00","dateModified": "2020-12-26T00:18:28+01:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
             "@type": "Organization",
             "name": "Dai Jiabin","logo": "https:\/\/daijiabin.github.io\/images\/avatar.png"},"author": {
                 "@type": "Person",
@@ -114,8 +114,8 @@
             <div class="toc-content" id="toc-content-auto"></div>
         </div><article class="page single"><h1 class="single-title animated flipInX">Machine Learning</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="https://www.github.com/DaiJiabin" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw"></i>Dai Jiabin</a></span>&nbsp;<span class="post-category">included in <a href="/categories/learn/"><i class="far fa-folder fa-fw"></i>Learn</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2020-12-18">2020-12-18</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;2247 words&nbsp;
-                <i class="far fa-clock fa-fw"></i>&nbsp;11 minutes&nbsp;</div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2020-12-18">2020-12-18</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;2941 words&nbsp;
+                <i class="far fa-clock fa-fw"></i>&nbsp;14 minutes&nbsp;</div>
         </div><div class="details toc" id="toc-static"  kept="">
                 <div class="details-summary toc-title">
                     <span>Contents</span>
@@ -160,6 +160,17 @@
         </li>
         <li><a href="#cost-function-1">Cost Function</a></li>
         <li><a href="#backpropagation-algorithm">Backpropagation Algorithm</a></li>
+        <li><a href="#evaluating-hypothesis">Evaluating Hypothesis</a></li>
+        <li><a href="#model-selection-training-validation-and-test">Model Selection, Training, Validation and Test</a>
+          <ul>
+            <li><a href="#model-selection">Model Selection</a></li>
+            <li><a href="#train--books---validation--homework---test-error--examination-">Train ( Books ) / Validation ( Homework ) / Test Error ( Examination )</a></li>
+            <li><a href="#diagnosing-bias--too-high---underfit--vs-variance--too-high---overfit-">Diagnosing Bias ( Too high -&gt; underfit ) vs. variance ( Too high -&gt; overfit )</a></li>
+            <li><a href="#regularization-and-bias--variance">Regularization and bias / variance</a></li>
+            <li><a href="#learning-curves">Learning Curves</a></li>
+            <li><a href="#how-to-deal-with-high-bias--high-variance">How to deal with high Bias &amp; high Variance?</a></li>
+          </ul>
+        </li>
       </ul>
     </li>
   </ul>
@@ -979,12 +990,248 @@ $J(\theta) = -\frac{1}{m}\sum_{i=1}^{m}[y^{(i)}log(h_\theta(x^{(i)})) + (1 - y^{
 </ul>
 </li>
 </ul>
+<h3 id="evaluating-hypothesis">Evaluating Hypothesis</h3>
+<ul>
+<li>
+<p>Split the labeled data <strong>randomly</strong> into 2 Parts: Training Set ( 70% ) and Test Set ( 30% ).</p>
+</li>
+<li>
+<p>Learn the parameter $\theta$ from Training data</p>
+</li>
+<li>
+<p>Computing test Set error:</p>
+<ul>
+<li>
+<p>In Linear Regression: $J(\theta) = \frac{1}{2m_{test}}\sum_{i = 1}^{m_{test}}(J(x_{test}^{(i)}) - y_{test}^{(i)})^2$</p>
+</li>
+<li>
+<p>In Logistic Regression: $J(\theta) = =-\frac{1}{m_{test}}\sum_{i = 1}^{m_{test}}[y^{(i)}logh_{\theta}(x^{(i)}_{test}) + (1 - y^{(i)})log(1 - h_{\theta}(x^{(i)}_{test}))]$</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Misclassification error ( 0/1 multiclassification error ):</p>
+<ul>
+<li>$err(h_{\theta}(x), y) = 1$, if $h_{\theta}(x) \leq 0.5, y = 1 | h_{\theta}(x) \geq 0.5, y = 0$</li>
+<li>$Test_{error} = \frac{1}{m_{test}}\sum_{i = 1}^{m_{test}}err(h_{\theta}(x_{test}^{(i)}), y^{(i)})$</li>
+</ul>
+</li>
+</ul>
+<h3 id="model-selection-training-validation-and-test">Model Selection, Training, Validation and Test</h3>
+<h4 id="model-selection">Model Selection</h4>
+<p>1). $h_{\theta}(x) = \theta_0 + \theta_1(x) \rarr \theta^{(1)} \rarr J_{test}(\theta^{(1)})$</p>
+<p>2). $h_{\theta}(x) = \theta_0 + \theta_1(x) + \theta_2^2(x) \rarr \theta^{(2)} \rarr J_{test}(\theta^{(2)})$</p>
+<p>3). $h_{\theta}(x) = \theta_0 + \theta_1(x) + \theta_2^2(x) + \theta_3^3(x) \rarr \theta^{(3)} \rarr J_{test}(\theta^{(3)})$</p>
+<p>&hellip;</p>
+<p>10). $h_{\theta}(x) = \theta_0 + \theta_1(x) + \theta_2^2(x) + \theta_3^3(x) + &hellip; + \theta_{10}^{10}(x) \rarr \theta^{(10)} \rarr J_{test}(\theta^{(10)})$</p>
+<ul>
+<li>
+<p>We should&rsquo;t use the chosen $\theta^{(5)}$ to test how well it fits in our Test Set. Because we become it from Training Set, and the Test Set has the same Dimension as the Training Set. <strong>It lacks of Generalization on New Data Set.</strong></p>
+</li>
+<li>
+<p>Thus, we split the Data Set into 3 pieces: <strong>Training Set ( 60% ), Cross Validation Set ( 20% ), Test Set ( 20% )</strong>.</p>
+</li>
+</ul>
+<h4 id="train--books---validation--homework---test-error--examination-">Train ( Books ) / Validation ( Homework ) / Test Error ( Examination )</h4>
+<ul>
+<li>
+<p>Training Error</p>
+<ul>
+<li>$J_{train}(\theta) = \frac{1}{2m_{train}}\sum_{i = 1}^{m_{train}}(h_{\theta}(x_{train}^{(i)}) - y_{train}^{(i)})^2$</li>
+</ul>
+</li>
+<li>
+<p>Validation Error</p>
+<ul>
+<li>$J_{cv}(\theta) = \frac{1}{2m_{cv}}\sum_{i = 1}^{m_{cv}}(h_{\theta}(x_{cv}^{(i)}) - y_{cv}^{(i)})^2$</li>
+</ul>
+</li>
+<li>
+<p>Test Error</p>
+<ul>
+<li>$J_{test}(\theta) = \frac{1}{2m_{test}}\sum_{i = 1}^{m_{test}}(h_{\theta}(x_{test}^{(i)}) - y_{test}^{(i)})^2$</li>
+</ul>
+<p>1). $h_{\theta}(x) = \theta_0 + \theta_1(x) \rarr \theta^{(1)} \rarr J_{cv}(\theta^{(1)})$</p>
+<p>2). $h_{\theta}(x) = \theta_0 + \theta_1(x) + \theta_2^2(x) \rarr \theta^{(2)} \rarr J_{cv}(\theta^{(2)})$</p>
+<p>3). $h_{\theta}(x) = \theta_0 + \theta_1(x) + \theta_2^2(x) + \theta_3^3(x) \rarr \theta^{(3)} \rarr J_{cv}(\theta^{(3)})$</p>
+<p>&hellip;</p>
+<p>10). $h_{\theta}(x) = \theta_0 + \theta_1(x) + \theta_2^2(x) + \theta_3^3(x) + &hellip; + \theta_{10}^{10}(x) \rarr \theta^{(10)} \rarr J_{cv}(\theta^{(10)})$</p>
+<p>Pick $h_{\theta}(x) = \theta_0 + \theta_1(x) + \theta_2^2(x) + \theta_3^3(x) + \theta_4^4(x)$, Estimate generalization error for test set $J_{test}(\theta^{(4)})$</p>
+</li>
+</ul>
+<h4 id="diagnosing-bias--too-high---underfit--vs-variance--too-high---overfit-">Diagnosing Bias ( Too high -&gt; underfit ) vs. variance ( Too high -&gt; overfit )</h4>
+<ul>
+<li>
+<p>Training Error</p>
+<ul>
+<li>$J_{train}(\theta) = \frac{1}{2m_{train}}\sum_{i = 1}^{m_{train}}(h_{\theta}(x_{train}^{(i)}) - y_{train}^{(i)})^2$</li>
+</ul>
+</li>
+<li>
+<p>Validation Error</p>
+<ul>
+<li>$J_{cv}(\theta) = \frac{1}{2m_{test}}\sum_{i = 1}^{m_{cv}}(h_{\theta}(x_{cv}^{(i)}) - y_{cv}^{(i)})^2$</li>
+</ul>
+</li>
+<li>
+<p>Draw the <strong>&ldquo;Degree of polynomioal d - Error&rdquo; plot.</strong> In this Plot draw the $J_{train}(\theta), J_{cv/test}(\theta)$. Then we can make sure wether it&rsquo;s high bias or high variance.</p>
+</li>
+</ul>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/Bias%20and%20Variance.jpeg"
+        data-srcset="/Bias%20and%20Variance.jpeg, /Bias%20and%20Variance.jpeg 1.5x, /Bias%20and%20Variance.jpeg 2x"
+        data-sizes="auto"
+        alt="/Bias%20and%20Variance.jpeg"
+        title="Bias and Variance" /></p>
+<ul>
+<li>
+<p>Bias ( Underfit, when d too small ):</p>
+<ul>
+<li>
+<p>$J_{train}(\theta)$ will be high</p>
+</li>
+<li>
+<p>$J_{train}(\theta) \approx J_{cv}(\theta)$</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Variance ( Overfit, when d too large ):</p>
+<ul>
+<li>
+<p>$J_{train}(\theta)$ will be low</p>
+</li>
+<li>
+<p>$J_{cv}(\theta) \gg J_{train}(\theta)$</p>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="regularization-and-bias--variance">Regularization and bias / variance</h4>
+<ul>
+<li>
+<p>Linear Regression with Regularization</p>
+<p>Model: $h_{\theta}(x) = \theta_0 + \theta_1x + \theta_2x^2 + \theta_3x^3 + \theta_4x^4$</p>
+<p>Goal: $J(\theta) = \frac{1}{2m}\sum_{i = 1}^m(h_\theta(x^{(i)}) - y^{(i)})^2 + \frac{\lambda}{2m}\sum_{j = 1}^n\theta_j^2$</p>
+<p>$J_{train}(\theta) = \frac{1}{2m_{train}}\sum_{i = 1}^{m_{train}}(h_{\theta}(x_{train}^{(i)}) - y_{train}^{(i)})^2$</p>
+<p>$J_{cv}(\theta) = \frac{1}{2m_{cv}}\sum_{i = 1}^{m_{cv}}(h_{\theta}(x_{cv}^{(i)}) - y_{cv}^{(i)})^2$</p>
+<p>$J_{test}(\theta) = \frac{1}{2m_{test}}\sum_{i = 1}^{m_{test}}(h_{\theta}(x_{test}^{(i)}) - y_{test}^{(i)})^2$</p>
+</li>
+<li>
+<p>Chossing the parameter $\lambda$</p>
+<p>1). Try $\lambda = 0 \rarr minJ(\theta) \rarr \theta^{(1)} \rarr J_{cv}(\theta^{(1)})$</p>
+<p>2). Try $\lambda = 0.01 \rarr minJ(\theta) \rarr \theta^{(2)} \rarr J_{cv}(\theta^{(2)})$</p>
+<p>3). Try $\lambda = 0.02 \rarr minJ(\theta) \rarr \theta^{(3)} \rarr J_{cv}(\theta^{(3)})$</p>
+<p>4). Try $\lambda = 0.04 \rarr minJ(\theta) \rarr \theta^{(4)} \rarr J_{cv}(\theta^{(4)})$</p>
+<p>5). Try $\lambda = 0.08 \rarr minJ(\theta) \rarr \theta^{(5)} \rarr J_{cv}(\theta^{(5)})$</p>
+<p>&hellip;</p>
+<p>10). Try $\lambda = 10 \rarr minJ(\theta) \rarr \theta^{(10)} \rarr J_{cv}(\theta^{(10)})$</p>
+<p>Pick $\theta^{(5)}$, Test Error: $J_{test}(\theta^{(5)})$</p>
+</li>
+<li>
+<p>Draw the <strong>&ldquo;lambda - Error&rdquo; plot.</strong> In this Plot draw the $J_{train}(\theta), J_{cv/test}(\theta)$.</p>
+</li>
+<li>
+<p>When $\lambda$ too large:</p>
+<ul>
+<li>
+<p>$J_{train}(\theta)$ will be high</p>
+</li>
+<li>
+<p>$J_{train}(\theta) \approx J_{cv}(\theta)$</p>
+</li>
+</ul>
+</li>
+<li>
+<p>When $\lambda$ too small:</p>
+<ul>
+<li>
+<p>$J_{train}(\theta)$ will be low</p>
+</li>
+<li>
+<p>$J_{cv}(\theta) \gg J_{train}(\theta)$</p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>The Situation is contrary to the Dimension d.</strong></p>
+</li>
+</ul>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/Bias_lambda.png"
+        data-srcset="/Bias_lambda.png, /Bias_lambda.png 1.5x, /Bias_lambda.png 2x"
+        data-sizes="auto"
+        alt="/Bias_lambda.png"
+        title="Bias_lambda" /></p>
+<h4 id="learning-curves">Learning Curves</h4>
+<ul>
+<li>
+<p>$J_{train}(\theta) = \frac{1}{2m_{train}}\sum_{i = 1}^{m_{train}}(h_{\theta}(x_{train}^{(i)}) - y_{train}^{(i)})^2$</p>
+<p>$J_{cv}(\theta) = \frac{1}{2m_{cv}}\sum_{i = 1}^{m_{cv}}(h_{\theta}(x_{cv}^{(i)}) - y_{cv}^{(i)})^2$</p>
+</li>
+<li>
+<p>Draw the <strong>&ldquo;m ( size of Training Set ) - Error&rdquo; plot.</strong> Reduce $m$ artificially.</p>
+</li>
+<li>
+<p><strong>Training Set Error will increase when m increases, and the Cross Validation Error will decrease on the contrary.</strong></p>
+</li>
+<li>
+<p>High Bias:</p>
+</li>
+</ul>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/high_bias.png"
+        data-srcset="/high_bias.png, /high_bias.png 1.5x, /high_bias.png 2x"
+        data-sizes="auto"
+        alt="/high_bias.png"
+        title="high_bias" /></p>
+<ul>
+<li>High Variance:</li>
+</ul>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/high_variance.png"
+        data-srcset="/high_variance.png, /high_variance.png 1.5x, /high_variance.png 2x"
+        data-sizes="auto"
+        alt="/high_variance.png"
+        title="high_variance" /></p>
+<p><strong>Watch the Gap!</strong> ( Between $J_{train}(\theta), J_{test}(\theta)$)</p>
+<h4 id="how-to-deal-with-high-bias--high-variance">How to deal with high Bias &amp; high Variance?</h4>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">high Bias</th>
+<th style="text-align:center">high Variance</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">Getting additional Features</td>
+<td style="text-align:center">Getting more Training examples</td>
+</tr>
+<tr>
+<td style="text-align:center">Try adding polynomial Features</td>
+<td style="text-align:center">Try smaller sets of Features</td>
+</tr>
+<tr>
+<td style="text-align:center">Try decreasing $\lambda$</td>
+<td style="text-align:center">Try increasing $\lambda$</td>
+</tr>
+</tbody>
+</table>
 </div><div class="post-footer" id="post-footer">
     <div class="post-info">
         <div class="post-info-line">
             <div class="post-info-mod">
-                <span>Updated on 2020-12-23&nbsp;<a class="git-hash" href="https://github.com/dillonzq/LoveIt/commit/df343deb276bc8d54e348144c3b8f3c43e979538" target="_blank" title="commit by DaiJiabin(kechou.dai@gmail.com) df343deb276bc8d54e348144c3b8f3c43e979538: Processing Wed 23 Dec 2020 04:44:10 PM CET">
-                                    <i class="fas fa-hashtag fa-fw"></i>df343de</a></span>
+                <span>Updated on 2020-12-26&nbsp;<a class="git-hash" href="https://github.com/dillonzq/LoveIt/commit/29816b0f4d7b8fd696e0c1184f9665c4b0f9b2e3" target="_blank" title="commit by DaiJiabin(kechou.dai@gmail.com) 29816b0f4d7b8fd696e0c1184f9665c4b0f9b2e3: Processing Sat 26 Dec 2020 12:18:28 AM CET">
+                                    <i class="fas fa-hashtag fa-fw"></i>29816b0</a></span>
             </div>
             <div class="post-info-license"></div>
         </div>

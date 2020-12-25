@@ -508,4 +508,167 @@
   
   - $D_{ij}^{(l)} := \frac{1}{m}\Delta_{ij}^{(l)}$ if $j = 0$
 
+### Evaluating Hypothesis
 
+- Split the labeled data __randomly__ into 2 Parts: Training Set ( 70% ) and Test Set ( 30% ).
+
+- Learn the parameter $\theta$ from Training data
+
+- Computing test Set error:
+  
+  - In Linear Regression: $J(\theta) = \frac{1}{2m_{test}}\sum_{i = 1}^{m_{test}}(J(x_{test}^{(i)}) - y_{test}^{(i)})^2$
+  
+  - In Logistic Regression: $J(\theta) = =-\frac{1}{m_{test}}\sum_{i = 1}^{m_{test}}[y^{(i)}logh_{\theta}(x^{(i)}_{test}) + (1 - y^{(i)})log(1 - h_{\theta}(x^{(i)}_{test}))]$
+
+- Misclassification error ( 0/1 multiclassification error ):
+
+  - $err(h_{\theta}(x), y) = 1$, if $h_{\theta}(x) \leq 0.5, y = 1 | h_{\theta}(x) \geq 0.5, y = 0$
+  - $Test_{error} = \frac{1}{m_{test}}\sum_{i = 1}^{m_{test}}err(h_{\theta}(x_{test}^{(i)}), y^{(i)})$
+
+### Model Selection, Training, Validation and Test
+
+#### Model Selection
+
+  1). $h_{\theta}(x) = \theta_0 + \theta_1(x) \rarr \theta^{(1)} \rarr J_{test}(\theta^{(1)})$
+  
+  2). $h_{\theta}(x) = \theta_0 + \theta_1(x) + \theta_2^2(x) \rarr \theta^{(2)} \rarr J_{test}(\theta^{(2)})$
+  
+  3). $h_{\theta}(x) = \theta_0 + \theta_1(x) + \theta_2^2(x) + \theta_3^3(x) \rarr \theta^{(3)} \rarr J_{test}(\theta^{(3)})$
+  
+  ...
+  
+  10). $h_{\theta}(x) = \theta_0 + \theta_1(x) + \theta_2^2(x) + \theta_3^3(x) + ... + \theta_{10}^{10}(x) \rarr \theta^{(10)} \rarr J_{test}(\theta^{(10)})$
+
+- We should't use the chosen $\theta^{(5)}$ to test how well it fits in our Test Set. Because we become it from Training Set, and the Test Set has the same Dimension as the Training Set. __It lacks of Generalization on New Data Set.__
+
+- Thus, we split the Data Set into 3 pieces: __Training Set ( 60% ), Cross Validation Set ( 20% ), Test Set ( 20% )__.
+
+#### Train ( Books ) / Validation ( Homework ) / Test Error ( Examination )
+
+- Training Error
+  
+  - $J_{train}(\theta) = \frac{1}{2m_{train}}\sum_{i = 1}^{m_{train}}(h_{\theta}(x_{train}^{(i)}) - y_{train}^{(i)})^2$
+
+- Validation Error
+
+  - $J_{cv}(\theta) = \frac{1}{2m_{cv}}\sum_{i = 1}^{m_{cv}}(h_{\theta}(x_{cv}^{(i)}) - y_{cv}^{(i)})^2$
+
+- Test Error
+
+  - $J_{test}(\theta) = \frac{1}{2m_{test}}\sum_{i = 1}^{m_{test}}(h_{\theta}(x_{test}^{(i)}) - y_{test}^{(i)})^2$
+
+  1). $h_{\theta}(x) = \theta_0 + \theta_1(x) \rarr \theta^{(1)} \rarr J_{cv}(\theta^{(1)})$
+  
+  2). $h_{\theta}(x) = \theta_0 + \theta_1(x) + \theta_2^2(x) \rarr \theta^{(2)} \rarr J_{cv}(\theta^{(2)})$
+  
+  3). $h_{\theta}(x) = \theta_0 + \theta_1(x) + \theta_2^2(x) + \theta_3^3(x) \rarr \theta^{(3)} \rarr J_{cv}(\theta^{(3)})$
+  
+  ...
+  
+  10). $h_{\theta}(x) = \theta_0 + \theta_1(x) + \theta_2^2(x) + \theta_3^3(x) + ... + \theta_{10}^{10}(x) \rarr \theta^{(10)} \rarr J_{cv}(\theta^{(10)})$
+
+  Pick $h_{\theta}(x) = \theta_0 + \theta_1(x) + \theta_2^2(x) + \theta_3^3(x) + \theta_4^4(x)$, Estimate generalization error for test set $J_{test}(\theta^{(4)})$
+
+#### Diagnosing Bias ( Too high -> underfit ) vs. variance ( Too high -> overfit )
+
+- Training Error
+
+  - $J_{train}(\theta) = \frac{1}{2m_{train}}\sum_{i = 1}^{m_{train}}(h_{\theta}(x_{train}^{(i)}) - y_{train}^{(i)})^2$
+
+- Validation Error
+
+  - $J_{cv}(\theta) = \frac{1}{2m_{test}}\sum_{i = 1}^{m_{cv}}(h_{\theta}(x_{cv}^{(i)}) - y_{cv}^{(i)})^2$
+
+- Draw the __"Degree of polynomioal d - Error" plot.__ In this Plot draw the $J_{train}(\theta), J_{cv/test}(\theta)$. Then we can make sure wether it's high bias or high variance.
+
+![Bias and Variance](/Bias%20and%20Variance.jpeg)
+
+- Bias ( Underfit, when d too small ):
+  
+  - $J_{train}(\theta)$ will be high
+  
+  - $J_{train}(\theta) \approx J_{cv}(\theta)$
+
+- Variance ( Overfit, when d too large ):
+
+  - $J_{train}(\theta)$ will be low
+  
+  - $J_{cv}(\theta) \gg J_{train}(\theta)$
+
+#### Regularization and bias / variance
+
+- Linear Regression with Regularization
+
+  Model: $h_{\theta}(x) = \theta_0 + \theta_1x + \theta_2x^2 + \theta_3x^3 + \theta_4x^4$
+
+  Goal: $J(\theta) = \frac{1}{2m}\sum_{i = 1}^m(h_\theta(x^{(i)}) - y^{(i)})^2 + \frac{\lambda}{2m}\sum_{j = 1}^n\theta_j^2$
+  
+  $J_{train}(\theta) = \frac{1}{2m_{train}}\sum_{i = 1}^{m_{train}}(h_{\theta}(x_{train}^{(i)}) - y_{train}^{(i)})^2$
+
+  $J_{cv}(\theta) = \frac{1}{2m_{cv}}\sum_{i = 1}^{m_{cv}}(h_{\theta}(x_{cv}^{(i)}) - y_{cv}^{(i)})^2$
+
+  $J_{test}(\theta) = \frac{1}{2m_{test}}\sum_{i = 1}^{m_{test}}(h_{\theta}(x_{test}^{(i)}) - y_{test}^{(i)})^2$
+
+- Chossing the parameter $\lambda$
+
+  1). Try $\lambda = 0 \rarr minJ(\theta) \rarr \theta^{(1)} \rarr J_{cv}(\theta^{(1)})$
+
+  2). Try $\lambda = 0.01 \rarr minJ(\theta) \rarr \theta^{(2)} \rarr J_{cv}(\theta^{(2)})$
+
+  3). Try $\lambda = 0.02 \rarr minJ(\theta) \rarr \theta^{(3)} \rarr J_{cv}(\theta^{(3)})$
+
+  4). Try $\lambda = 0.04 \rarr minJ(\theta) \rarr \theta^{(4)} \rarr J_{cv}(\theta^{(4)})$
+
+  5). Try $\lambda = 0.08 \rarr minJ(\theta) \rarr \theta^{(5)} \rarr J_{cv}(\theta^{(5)})$
+
+  ...
+
+  10). Try $\lambda = 10 \rarr minJ(\theta) \rarr \theta^{(10)} \rarr J_{cv}(\theta^{(10)})$
+
+  Pick $\theta^{(5)}$, Test Error: $J_{test}(\theta^{(5)})$
+
+- Draw the __"lambda - Error" plot.__ In this Plot draw the $J_{train}(\theta), J_{cv/test}(\theta)$.
+
+- When $\lambda$ too large:
+  
+  - $J_{train}(\theta)$ will be high
+  
+  - $J_{train}(\theta) \approx J_{cv}(\theta)$
+
+- When $\lambda$ too small:
+
+  - $J_{train}(\theta)$ will be low
+  
+  - $J_{cv}(\theta) \gg J_{train}(\theta)$
+
+- __The Situation is contrary to the Dimension d.__
+
+![Bias_lambda](/Bias_lambda.png)
+
+#### Learning Curves
+
+- $J_{train}(\theta) = \frac{1}{2m_{train}}\sum_{i = 1}^{m_{train}}(h_{\theta}(x_{train}^{(i)}) - y_{train}^{(i)})^2$
+
+  $J_{cv}(\theta) = \frac{1}{2m_{cv}}\sum_{i = 1}^{m_{cv}}(h_{\theta}(x_{cv}^{(i)}) - y_{cv}^{(i)})^2$
+
+- Draw the __"m ( size of Training Set ) - Error" plot.__ Reduce $m$ artificially.
+
+- __Training Set Error will increase when m increases, and the Cross Validation Error will decrease on the contrary.__
+
+- High Bias:
+
+![high_bias](/high_bias.png)
+
+- High Variance:
+
+![high_variance](/high_variance.png)
+
+  __Watch the Gap!__ ( Between $J_{train}(\theta), J_{test}(\theta)$)
+
+#### How to deal with high Bias & high Variance?
+
+|high Bias|high Variance|
+|:-------:|:-----------:|
+|Getting additional Features|Getting more Training examples|
+|Try adding polynomial Features|Try smaller sets of Features|
+|Try decreasing $\lambda$|Try increasing $\lambda$|
