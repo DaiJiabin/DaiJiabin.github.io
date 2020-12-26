@@ -291,6 +291,8 @@
 
 ### Overfitting
 
+#### Definiation
+
 - If we have too many Features, the learned hypothesis may __fit the training set very well, but fail to generalize to new examples__. $\darr$
 
 ![Overfitting.png](/Overfitting.png)
@@ -299,7 +301,7 @@
 
 ![Overfitting-Logistic.png](/Overfitting-Logistic.png)
 
-- Adressing Overfitting:
+#### Adressing Overfitting:
   
   1. __Reduce number of Features__
      
@@ -430,7 +432,7 @@
 
 ### Cost Function
 
-- Definitions:
+#### Definitions:
   
   - Training Datas: ${(x^{(1)}, y^{(1)}), (x^{(2)}, y^{(2)}), ..., (x^{(m)}, y^{(m)})}$
   
@@ -438,14 +440,14 @@
   
   - $s_l = $ no. of units ( not counting bias unit ) in layer $l$.
   
-- Classification Problems:
+#### Classification Problems:
 
 |Binary Classification|Multi-class Classification ( K classes ) |
 |:-------------------:|:---------------------------------------:|
 |$y = 0$ or $1$|$y \isin \R^K$, E.g. $\begin{bmatrix}1\\\\0\\\\0\\\\0\end{bmatrix}$, $\begin{bmatrix}0\\\\1\\\\0\\\\0\end{bmatrix}$, $\begin{bmatrix}0\\\\0\\\\1\\\\0\end{bmatrix}$, $\begin{bmatrix}0\\\\0\\\\0\\\\1\end{bmatrix}$|
 |1 output unit|K output units|
 
-- Logistic Regression:
+#### Logistic Regression:
 
   > Brief Review:  
   $J(\theta) = -\frac{1}{m}\sum_{i=1}^{m}[y^{(i)}log(h_\theta(x^{(i)})) + (1 - y^{(i)})log(1 - h_\theta(x^{(i)}))] + \frac{\lambda}{2m}\sum_{j=1}^{n}\theta_j^2$
@@ -672,3 +674,76 @@
 |Getting additional Features|Getting more Training examples|
 |Try adding polynomial Features|Try smaller sets of Features|
 |Try decreasing $\lambda$|Try increasing $\lambda$|
+
+## Week 4 Error Analysis
+
+### Recommand Approach
+
+- Start with a simple algorithm that you can implement quickly. Implement it and test it on Cross-Validation Set.
+
+- Plot learning curves to decide if more Data, more Features, etc.
+
+- Error Analysis: Manually examine the examples ( In __Cross Validation Set__ ) that your algorithm made errors on. See if you  spot any systematic trend in what type of examples it is making errors on.
+
+### Error metrics for skewed classes
+
+- Cancer classification example:
+
+  - Train logistic regression model $h_\theta(x). ( $y = 1$ if cancer )
+  
+  - Find you got $1\%$ error on test set
+  
+  - Only $0.50\%$ patients have cancer
+    
+    ```
+    function y = predictCancer(x)
+      y = 0; // ignore x! Because 99.5% Patients don't have cancer!
+    return
+    ```
+#### Precision / Recall
+
+||1|0|
+|:-:|:-:|:---:|
+|1|True positiv|False positiv|
+|0|False Negative|True Negative|
+
+- Precision
+
+  ( Of all patients where we predicted $y = 1$, what fraction actually has cancer? )
+
+  $\frac{True positives}{\#predicted Positive} = \frac{True positives}{True Pos + False Pos}$
+
+- Recall
+
+  ( Of all patients that actually have cancer, what fraction did we corrently detect as having cancer? )
+
+  $\frac{True positives}{\#actual Positives} = \frac{True Positives}{True Pos + False Neg}$
+
+#### Trading off precision and recall
+
+- Logistic Regression: $0 \leq h_\theta(x) \leq 1$
+  Predict 1 if $h_\theta(x) \geq 0.5$
+  Predict 0 if $h_\theta(x) \leq 0.5$
+- Suppose we want to predict $y = 1$ ( cancer ) only if very confident
+
+  $\rarr \text{Higher Precision, lower Recall}$
+
+- Suppose we want to avoid missing too many cases of cancer ( avoid false Negatives )
+
+  $\rarr \text{Higher Recall, lower Precision}$
+
+- More generally, predict 1 if $h_\theta(x) \geq \text{threshold}$
+
+  ![precision-recall](/precision-recall.png)
+
+#### F Score
+
+- How to compare Precision / Recall numbers?
+
+||Precision (P)|Recall (R)|F Score|
+|:-:|:--------:|:--------:|:-----:|
+|Algorithm 1|0.5|0.4|0.444|
+|Algorithm 2|0.7|0.1|0.175|
+|Algorithm 3|0.02|1|0.0392|
+
+- __F Score:__ $2\frac{PR}{P + R}$

@@ -33,7 +33,7 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "https:\/\/daijiabin.github.io\/machine-learning\/"
-        },"image": ["https:\/\/daijiabin.github.io\/images\/Apple-Devices-Preview.png"],"genre": "posts","keywords": "AI","wordcount":  2941 ,
+        },"image": ["https:\/\/daijiabin.github.io\/images\/Apple-Devices-Preview.png"],"genre": "posts","keywords": "AI","wordcount":  3244 ,
         "url": "https:\/\/daijiabin.github.io\/machine-learning\/","datePublished": "2020-12-18T19:11:53+01:00","dateModified": "2020-12-26T00:18:28+01:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
             "@type": "Organization",
             "name": "Dai Jiabin","logo": "https:\/\/daijiabin.github.io\/images\/avatar.png"},"author": {
@@ -114,8 +114,8 @@
             <div class="toc-content" id="toc-content-auto"></div>
         </div><article class="page single"><h1 class="single-title animated flipInX">Machine Learning</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="https://www.github.com/DaiJiabin" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw"></i>Dai Jiabin</a></span>&nbsp;<span class="post-category">included in <a href="/categories/learn/"><i class="far fa-folder fa-fw"></i>Learn</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2020-12-18">2020-12-18</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;2941 words&nbsp;
-                <i class="far fa-clock fa-fw"></i>&nbsp;14 minutes&nbsp;</div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2020-12-18">2020-12-18</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;3244 words&nbsp;
+                <i class="far fa-clock fa-fw"></i>&nbsp;16 minutes&nbsp;</div>
         </div><div class="details toc" id="toc-static"  kept="">
                 <div class="details-summary toc-title">
                     <span>Contents</span>
@@ -141,7 +141,12 @@
         <li><a href="#gradient-descent">Gradient Descent</a></li>
         <li><a href="#anvanced-optimization">Anvanced Optimization</a></li>
         <li><a href="#multi-class-classification-one-vs-all--one-vs-rest-">Multi-class Classification: one-vs-all ( one-vs-rest )</a></li>
-        <li><a href="#overfitting">Overfitting</a></li>
+        <li><a href="#overfitting">Overfitting</a>
+          <ul>
+            <li><a href="#definiation">Definiation</a></li>
+            <li><a href="#adressing-overfitting">Adressing Overfitting:</a></li>
+          </ul>
+        </li>
         <li><a href="#regularization">Regularization</a>
           <ul>
             <li><a href="#regularized-linear-regression">Regularized Linear Regression</a></li>
@@ -158,7 +163,13 @@
             <li><a href="#vectorized-implementation--forward-propagation">Vectorized Implementation &amp; Forward Propagation:</a></li>
           </ul>
         </li>
-        <li><a href="#cost-function-1">Cost Function</a></li>
+        <li><a href="#cost-function-1">Cost Function</a>
+          <ul>
+            <li><a href="#definitions">Definitions:</a></li>
+            <li><a href="#classification-problems">Classification Problems:</a></li>
+            <li><a href="#logistic-regression">Logistic Regression:</a></li>
+          </ul>
+        </li>
         <li><a href="#backpropagation-algorithm">Backpropagation Algorithm</a></li>
         <li><a href="#evaluating-hypothesis">Evaluating Hypothesis</a></li>
         <li><a href="#model-selection-training-validation-and-test">Model Selection, Training, Validation and Test</a>
@@ -169,6 +180,18 @@
             <li><a href="#regularization-and-bias--variance">Regularization and bias / variance</a></li>
             <li><a href="#learning-curves">Learning Curves</a></li>
             <li><a href="#how-to-deal-with-high-bias--high-variance">How to deal with high Bias &amp; high Variance?</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li><a href="#week-4-error-analysis">Week 4 Error Analysis</a>
+      <ul>
+        <li><a href="#recommand-approach">Recommand Approach</a></li>
+        <li><a href="#error-metrics-for-skewed-classes">Error metrics for skewed classes</a>
+          <ul>
+            <li><a href="#precision--recall">Precision / Recall</a></li>
+            <li><a href="#trading-off-precision-and-recall">Trading off precision and recall</a></li>
+            <li><a href="#f-score">F Score</a></li>
           </ul>
         </li>
       </ul>
@@ -651,6 +674,7 @@ $Cost(h_\theta(x), y) = \frac{1}{2}(h_\theta(x) - y)^2$</p>
         alt="/multiclass.png"
         title="multiclass.png" /></p>
 <h3 id="overfitting">Overfitting</h3>
+<h4 id="definiation">Definiation</h4>
 <ul>
 <li>If we have too many Features, the learned hypothesis may <strong>fit the training set very well, but fail to generalize to new examples</strong>. $\darr$</li>
 </ul>
@@ -673,9 +697,7 @@ $Cost(h_\theta(x), y) = \frac{1}{2}(h_\theta(x) - y)^2$</p>
         data-sizes="auto"
         alt="/Overfitting-Logistic.png"
         title="Overfitting-Logistic.png" /></p>
-<ul>
-<li>
-<p>Adressing Overfitting:</p>
+<h4 id="adressing-overfitting">Adressing Overfitting:</h4>
 <ol>
 <li>
 <p><strong>Reduce number of Features</strong></p>
@@ -700,8 +722,6 @@ $Cost(h_\theta(x), y) = \frac{1}{2}(h_\theta(x) - y)^2$</p>
 </ul>
 </li>
 </ol>
-</li>
-</ul>
 <h3 id="regularization">Regularization</h3>
 <ul>
 <li>
@@ -875,9 +895,7 @@ __And it should be randomly intialized.__</p>
 </li>
 </ul>
 <h3 id="cost-function-1">Cost Function</h3>
-<ul>
-<li>
-<p>Definitions:</p>
+<h4 id="definitions">Definitions:</h4>
 <ul>
 <li>
 <p>Training Datas: ${(x^{(1)}, y^{(1)}), (x^{(2)}, y^{(2)}), &hellip;, (x^{(m)}, y^{(m)})}$</p>
@@ -889,11 +907,7 @@ __And it should be randomly intialized.__</p>
 <p>$s_l = $ no. of units ( not counting bias unit ) in layer $l$.</p>
 </li>
 </ul>
-</li>
-<li>
-<p>Classification Problems:</p>
-</li>
-</ul>
+<h4 id="classification-problems">Classification Problems:</h4>
 <table>
 <thead>
 <tr>
@@ -912,9 +926,7 @@ __And it should be randomly intialized.__</p>
 </tr>
 </tbody>
 </table>
-<ul>
-<li>
-<p>Logistic Regression:</p>
+<h4 id="logistic-regression">Logistic Regression:</h4>
 <blockquote>
 <p>Brief Review:<br>
 $J(\theta) = -\frac{1}{m}\sum_{i=1}^{m}[y^{(i)}log(h_\theta(x^{(i)})) + (1 - y^{(i)})log(1 - h_\theta(x^{(i)}))] + \frac{\lambda}{2m}\sum_{j=1}^{n}\theta_j^2$</p>
@@ -924,8 +936,6 @@ $J(\theta) = -\frac{1}{m}\sum_{i=1}^{m}[y^{(i)}log(h_\theta(x^{(i)})) + (1 - y^{
 <p>Neural Network:</p>
 <p>$h_\Theta(x) \isin \R^K, (h_\Theta(x))_i = i^{th}$ Output</p>
 <p>$J(\Theta) = -\frac{1}{m}[\sum_{i=1}^{m}\sum_{k=1}^{K}y_k^{(i)}log(h_\Theta(x^{(i)}))_k + (1 - y_k^{(i)})log(1 - (h_\Theta(x^{(i)}))_k)] + \frac{\lambda}{2m}\sum_{l = 1}^{L - 1}\sum_{i = 1}^{s_l}\sum_{j = 1}^{s_{l+1}}(\Theta_{ji}^{l})^2$</p>
-</li>
-</ul>
 </li>
 </ul>
 <h3 id="backpropagation-algorithm">Backpropagation Algorithm</h3>
@@ -1226,6 +1236,146 @@ $J(\theta) = -\frac{1}{m}\sum_{i=1}^{m}[y^{(i)}log(h_\theta(x^{(i)})) + (1 - y^{
 </tr>
 </tbody>
 </table>
+<h2 id="week-4-error-analysis">Week 4 Error Analysis</h2>
+<h3 id="recommand-approach">Recommand Approach</h3>
+<ul>
+<li>
+<p>Start with a simple algorithm that you can implement quickly. Implement it and test it on Cross-Validation Set.</p>
+</li>
+<li>
+<p>Plot learning curves to decide if more Data, more Features, etc.</p>
+</li>
+<li>
+<p>Error Analysis: Manually examine the examples ( In <strong>Cross Validation Set</strong> ) that your algorithm made errors on. See if you  spot any systematic trend in what type of examples it is making errors on.</p>
+</li>
+</ul>
+<h3 id="error-metrics-for-skewed-classes">Error metrics for skewed classes</h3>
+<ul>
+<li>
+<p>Cancer classification example:</p>
+<ul>
+<li>
+<p>Train logistic regression model $h_\theta(x). ( $y = 1$ if cancer )</p>
+</li>
+<li>
+<p>Find you got $1%$ error on test set</p>
+</li>
+<li>
+<p>Only $0.50%$ patients have cancer</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">function y = predictCancer(x)
+  y = 0; // ignore x! Because 99.5% Patients don&#39;t have cancer!
+return
+</code></pre></td></tr></table>
+</div>
+</div></li>
+</ul>
+</li>
+</ul>
+<h4 id="precision--recall">Precision / Recall</h4>
+<table>
+<thead>
+<tr>
+<th style="text-align:center"></th>
+<th style="text-align:center">1</th>
+<th style="text-align:center">0</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">1</td>
+<td style="text-align:center">True positiv</td>
+<td style="text-align:center">False positiv</td>
+</tr>
+<tr>
+<td style="text-align:center">0</td>
+<td style="text-align:center">False Negative</td>
+<td style="text-align:center">True Negative</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>
+<p>Precision</p>
+<p>( Of all patients where we predicted $y = 1$, what fraction actually has cancer? )</p>
+<p>$\frac{True positives}{#predicted Positive} = \frac{True positives}{True Pos + False Pos}$</p>
+</li>
+<li>
+<p>Recall</p>
+<p>( Of all patients that actually have cancer, what fraction did we corrently detect as having cancer? )</p>
+<p>$\frac{True positives}{#actual Positives} = \frac{True Positives}{True Pos + False Neg}$</p>
+</li>
+</ul>
+<h4 id="trading-off-precision-and-recall">Trading off precision and recall</h4>
+<ul>
+<li>
+<p>Logistic Regression: $0 \leq h_\theta(x) \leq 1$
+Predict 1 if $h_\theta(x) \geq 0.5$
+Predict 0 if $h_\theta(x) \leq 0.5$</p>
+</li>
+<li>
+<p>Suppose we want to predict $y = 1$ ( cancer ) only if very confident</p>
+<p>$\rarr \text{Higher Precision, lower Recall}$</p>
+</li>
+<li>
+<p>Suppose we want to avoid missing too many cases of cancer ( avoid false Negatives )</p>
+<p>$\rarr \text{Higher Recall, lower Precision}$</p>
+</li>
+<li>
+<p>More generally, predict 1 if $h_\theta(x) \geq \text{threshold}$</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/precision-recall.png"
+        data-srcset="/precision-recall.png, /precision-recall.png 1.5x, /precision-recall.png 2x"
+        data-sizes="auto"
+        alt="/precision-recall.png"
+        title="precision-recall" /></p>
+</li>
+</ul>
+<h4 id="f-score">F Score</h4>
+<ul>
+<li>How to compare Precision / Recall numbers?</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th style="text-align:center"></th>
+<th style="text-align:center">Precision (P)</th>
+<th style="text-align:center">Recall (R)</th>
+<th style="text-align:center">F Score</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">Algorithm 1</td>
+<td style="text-align:center">0.5</td>
+<td style="text-align:center">0.4</td>
+<td style="text-align:center">0.444</td>
+</tr>
+<tr>
+<td style="text-align:center">Algorithm 2</td>
+<td style="text-align:center">0.7</td>
+<td style="text-align:center">0.1</td>
+<td style="text-align:center">0.175</td>
+</tr>
+<tr>
+<td style="text-align:center">Algorithm 3</td>
+<td style="text-align:center">0.02</td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">0.0392</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><strong>F Score:</strong> $2\frac{PR}{P + R}$</li>
+</ul>
 </div><div class="post-footer" id="post-footer">
     <div class="post-info">
         <div class="post-info-line">
