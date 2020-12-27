@@ -6,7 +6,7 @@
         <meta name="robots" content="noodp" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
         <title>Machine Learning - Jiabin&#39;s Blog</title><meta name="Description" content="About LoveIt Theme"><meta property="og:title" content="Machine Learning" />
-<meta property="og:description" content="Lecture by Andrew Ng, Coursera Week 1 Basic Concepts &amp; Linear Regression Supervised Learning vs. Unsupervised Learning   Supervised Learning:
+<meta property="og:description" content="Lecture by Andrew Ng, Coursera Basic Concepts &amp; Linear Regression Supervised Learning vs. Unsupervised Learning   Supervised Learning:
  In supervised learning, we are given a data set and already know what our correct output should look like, having the idea that there is a relationship between the input and the output.
    Training Data already has the value, which our Function should predict for a new, strange input." />
 <meta property="og:type" content="article" />
@@ -18,7 +18,7 @@
 <meta name="twitter:image" content="https://daijiabin.github.io/logo.png"/>
 
 <meta name="twitter:title" content="Machine Learning"/>
-<meta name="twitter:description" content="Lecture by Andrew Ng, Coursera Week 1 Basic Concepts &amp; Linear Regression Supervised Learning vs. Unsupervised Learning   Supervised Learning:
+<meta name="twitter:description" content="Lecture by Andrew Ng, Coursera Basic Concepts &amp; Linear Regression Supervised Learning vs. Unsupervised Learning   Supervised Learning:
  In supervised learning, we are given a data set and already know what our correct output should look like, having the idea that there is a relationship between the input and the output.
    Training Data already has the value, which our Function should predict for a new, strange input."/>
 <meta name="application-name" content="Jiabin&#39;s Blog">
@@ -33,7 +33,7 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "https:\/\/daijiabin.github.io\/machine-learning\/"
-        },"image": ["https:\/\/daijiabin.github.io\/images\/Apple-Devices-Preview.png"],"genre": "posts","keywords": "AI","wordcount":  3848 ,
+        },"image": ["https:\/\/daijiabin.github.io\/images\/Apple-Devices-Preview.png"],"genre": "posts","keywords": "AI","wordcount":  4661 ,
         "url": "https:\/\/daijiabin.github.io\/machine-learning\/","datePublished": "2020-12-18T19:11:53+01:00","dateModified": "2020-12-27T10:18:33+01:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
             "@type": "Organization",
             "name": "Dai Jiabin","logo": "https:\/\/daijiabin.github.io\/images\/avatar.png"},"author": {
@@ -114,8 +114,8 @@
             <div class="toc-content" id="toc-content-auto"></div>
         </div><article class="page single"><h1 class="single-title animated flipInX">Machine Learning</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="https://www.github.com/DaiJiabin" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw"></i>Dai Jiabin</a></span>&nbsp;<span class="post-category">included in <a href="/categories/learn/"><i class="far fa-folder fa-fw"></i>Learn</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2020-12-18">2020-12-18</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;3848 words&nbsp;
-                <i class="far fa-clock fa-fw"></i>&nbsp;19 minutes&nbsp;</div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2020-12-18">2020-12-18</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;4661 words&nbsp;
+                <i class="far fa-clock fa-fw"></i>&nbsp;22 minutes&nbsp;</div>
         </div><div class="details toc" id="toc-static"  kept="">
                 <div class="details-summary toc-title">
                     <span>Contents</span>
@@ -123,7 +123,7 @@
                 </div>
                 <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
   <ul>
-    <li><a href="#week-1-basic-concepts--linear-regression">Week 1 Basic Concepts &amp; Linear Regression</a>
+    <li><a href="#basic-concepts--linear-regression">Basic Concepts &amp; Linear Regression</a>
       <ul>
         <li><a href="#supervised-learning-vs-unsupervised-learning">Supervised Learning vs. Unsupervised Learning</a></li>
         <li><a href="#regression-vs-classification">Regression vs. Classification</a></li>
@@ -133,7 +133,7 @@
         <li><a href="#normal-equation">Normal Equation</a></li>
       </ul>
     </li>
-    <li><a href="#week-2-logistic-regression--overfitting--regularization">Week 2 Logistic Regression &amp; Overfitting &amp; Regularization</a>
+    <li><a href="#logistic-regression--overfitting--regularization">Logistic Regression &amp; Overfitting &amp; Regularization</a>
       <ul>
         <li><a href="#logistic-regression---classification">Logistic Regression - Classification</a></li>
         <li><a href="#deciding-boundary">Deciding Boundary</a></li>
@@ -155,7 +155,7 @@
         </li>
       </ul>
     </li>
-    <li><a href="#week-3-non-linear-hypothesis---neural-networks">Week 3 Non-Linear Hypothesis - Neural Networks</a>
+    <li><a href="#non-linear-hypothesis---neural-networks">Non-Linear Hypothesis - Neural Networks</a>
       <ul>
         <li><a href="#neural-network">Neural Network</a>
           <ul>
@@ -184,7 +184,7 @@
         </li>
       </ul>
     </li>
-    <li><a href="#week-4-error-analysis">Week 4 Error Analysis</a>
+    <li><a href="#error-analysis">Error Analysis</a>
       <ul>
         <li><a href="#recommand-approach">Recommand Approach</a></li>
         <li><a href="#error-metrics-for-skewed-classes">Error metrics for skewed classes</a>
@@ -196,7 +196,7 @@
         </li>
       </ul>
     </li>
-    <li><a href="#week-5-support-vector-machines">Week 5 Support Vector Machines</a>
+    <li><a href="#support-vector-machines">Support Vector Machines</a>
       <ul>
         <li><a href="#optimization-objective">Optimization objective</a>
           <ul>
@@ -225,8 +225,33 @@
             <li><a href="#k-mean-algorithm">K-Mean Algorithm</a></li>
             <li><a href="#optimization-objective-of-k-mean-distortion-function">Optimization Objective of K-Mean: Distortion Function</a></li>
             <li><a href="#initialize-k-means">Initialize K-Means</a></li>
+            <li><a href="#choosing-the-number-of-clusters">Choosing the number of clusters</a></li>
           </ul>
         </li>
+      </ul>
+    </li>
+    <li><a href="#dimentionality-reduction">Dimentionality Reduction</a>
+      <ul>
+        <li><a href="#pac-principal-component-analysis">PAC: Principal Component Analysis</a></li>
+        <li><a href="#data-processing">Data Processing</a></li>
+        <li><a href="#pca-algorithm">PCA algorithm</a></li>
+        <li><a href="#choosing-k--number-of-principle-components-">Choosing k ( number of principle components )</a></li>
+        <li><a href="#reconstruction-from-compressed-representation">Reconstruction from compressed representation</a></li>
+        <li><a href="#design-of-ml-system-with-pca">Design of ML system with PCA</a></li>
+      </ul>
+    </li>
+    <li><a href="#anomoly-detection">Anomoly Detection</a>
+      <ul>
+        <li><a href="#example-fraud-detection">Example: Fraud Detection</a></li>
+        <li><a href="#gaussian-distribution">Gaussian Distribution</a></li>
+        <li><a href="#algorithm">Algorithm</a>
+          <ul>
+            <li><a href="#evaluation">Evaluation</a></li>
+          </ul>
+        </li>
+        <li><a href="#anomoly-detection-vs-supervised-learning">Anomoly Detection vs. Supervised Learning</a></li>
+        <li><a href="#error-analysis-for-anomaly-detection">Error Analysis for anomaly detection</a></li>
+        <li><a href="#multivariance-gaussian-distribution">Multivariance Gaussian Distribution</a></li>
       </ul>
     </li>
   </ul>
@@ -240,7 +265,7 @@
         alt="/Machine-Learning.jpg"
         title="Machine-Learning" /></p>
 <h1 id="lecture-by-andrew-ng-courserahttpswwwcourseraorglearnmachine-learning">Lecture by <a href="https://www.coursera.org/learn/machine-learning" target="_blank" rel="noopener noreffer">Andrew Ng, Coursera</a></h1>
-<h2 id="week-1-basic-concepts--linear-regression">Week 1 Basic Concepts &amp; Linear Regression</h2>
+<h2 id="basic-concepts--linear-regression">Basic Concepts &amp; Linear Regression</h2>
 <h3 id="supervised-learning-vs-unsupervised-learning">Supervised Learning vs. Unsupervised Learning</h3>
 <ul>
 <li>
@@ -507,7 +532,7 @@
 <p>Too many Features: Just delete some of them, or use <strong>regulization ( discuss later ).</strong></p>
 </li>
 </ul>
-<h2 id="week-2-logistic-regression--overfitting--regularization">Week 2 Logistic Regression &amp; Overfitting &amp; Regularization</h2>
+<h2 id="logistic-regression--overfitting--regularization">Logistic Regression &amp; Overfitting &amp; Regularization</h2>
 <h3 id="logistic-regression---classification">Logistic Regression - Classification</h3>
 <ul>
 <li>
@@ -853,7 +878,7 @@ $Cost(h_\theta(x), y) = \frac{1}{2}(h_\theta(x) - y)^2$</p>
 </ul>
 </li>
 </ul>
-<h2 id="week-3-non-linear-hypothesis---neural-networks">Week 3 Non-Linear Hypothesis - Neural Networks</h2>
+<h2 id="non-linear-hypothesis---neural-networks">Non-Linear Hypothesis - Neural Networks</h2>
 <ul>
 <li>
 <p>What should we do when we proceed an Image?</p>
@@ -1269,7 +1294,7 @@ $J(\theta) = -\frac{1}{m}\sum_{i=1}^{m}[y^{(i)}log(h_\theta(x^{(i)})) + (1 - y^{
 </tr>
 </tbody>
 </table>
-<h2 id="week-4-error-analysis">Week 4 Error Analysis</h2>
+<h2 id="error-analysis">Error Analysis</h2>
 <h3 id="recommand-approach">Recommand Approach</h3>
 <ul>
 <li>
@@ -1407,7 +1432,7 @@ Predict 0 if $h_\theta(x) \leq 0.5$</p>
 <ul>
 <li><strong>F Score:</strong> $2\frac{PR}{P + R}$</li>
 </ul>
-<h2 id="week-5-support-vector-machines">Week 5 Support Vector Machines</h2>
+<h2 id="support-vector-machines">Support Vector Machines</h2>
 <h3 id="optimization-objective">Optimization objective</h3>
 <blockquote>
 <p>Brief Review of Logistic Regression<br>
@@ -1633,7 +1658,294 @@ $J(\theta) = -\frac{1}{m}\sum_{i = 1}^{m}[y^{(i)}log(h_\theta(x^{(i)})) + (1 - y
 </li>
 <li>
 <p>Set $\mu_1, &hellip;, \mu_k$ equal to these K examples.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">  for i = 1 to 100{
+
+    Randomly initialize K-means
+    Run K-means, Get c^(1), ..., c^(m), mu^(1), ..., , mu^(K)
+    Compute the distortion Function
+  }
+
+  Pick clustering that gave lowest distortion Function value.
+</code></pre></td></tr></table>
+</div>
+</div></li>
+</ul>
+<h4 id="choosing-the-number-of-clusters">Choosing the number of clusters</h4>
+<ul>
+<li>
+<p>Alternative: Draw the &ldquo;K - Distortion Function Value&rdquo; plot. ( Elbow Method )</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/elbow.png"
+        data-srcset="/elbow.png, /elbow.png 1.5x, /elbow.png 2x"
+        data-sizes="auto"
+        alt="/elbow.png"
+        title="Elbow" /></p>
 </li>
+</ul>
+<h2 id="dimentionality-reduction">Dimentionality Reduction</h2>
+<h3 id="pac-principal-component-analysis">PAC: Principal Component Analysis</h3>
+<ul>
+<li>
+<p>Reduce from 2-dimension to 1-dimension: Find a direction ( a vector $\mu^{(1)} \isin \R^n$ ) onto which to project the data so as to minimize the projection error.</p>
+</li>
+<li>
+<p>Reduce from n-dimension to k-dimension: Find k vectors ( vectors $\mu^{(1)}, &hellip;, \mu^{(k)}$ ) onto which to project the data, so as to minimize the projection error.</p>
+</li>
+<li>
+<p>Reduce memory / disk needed to store data</p>
+</li>
+<li>
+<p>Speed up learning algorithm</p>
+</li>
+<li>
+<p><strong>Bad use of PCA: To prevent overfitting. Instead, use regularization.</strong></p>
+</li>
+<li>
+<p><strong>PCA is not Linear Regression!</strong></p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/PCANlinear.png"
+        data-srcset="/PCANlinear.png, /PCANlinear.png 1.5x, /PCANlinear.png 2x"
+        data-sizes="auto"
+        alt="/PCANlinear.png"
+        title="PCANlinear" /></p>
+</li>
+</ul>
+<h3 id="data-processing">Data Processing</h3>
+<ul>
+<li>
+<p>Training Set: $x^{(1)}, x^{(2)}, &hellip;, x^{(m)}$</p>
+</li>
+<li>
+<p>Preprocessing ( Feature Scaling / Mean Normalization )</p>
+<p>$\mu_j = \frac{1}{m}\sum_{i = 1}^mx_j^{(i)}$</p>
+<p>Replace each $x_j^{(i)}$ with $x_j - \mu_j$</p>
+<p>If different features have different scales, scale Features to have comparable range of values $x_j \larr \frac{x_j^{(i)} - \mu_j}{s_j}$</p>
+</li>
+</ul>
+<h3 id="pca-algorithm">PCA algorithm</h3>
+<ul>
+<li>
+<p>Reduce data from n-dimensions to k-dimensions</p>
+</li>
+<li>
+<p>Compute &ldquo;convariance matrix&rdquo;</p>
+<p>$\Sigma = \frac{1}{m}\sum_{i = 1}^{m}(x^{(i)})(x^{(i)})^T, \Sigma \isin \R^{n\times n}$</p>
+</li>
+<li>
+<p>Compute the &ldquo;eigenvectors&rdquo; of $\Sigma$:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">  [U, S, V] = svd( Sigma ) // Singular Value Decomposition;
+  Uredece = U(:, 1:k);
+  z = Ureduce&#39; * x;  
+</code></pre></td></tr></table>
+</div>
+</div><p>From the formular above we get:</p>
+<p>$U = \begin{bmatrix}|&amp;|&amp;&hellip;&amp;|\\u^{(1)}&amp;u^{(2)}&amp;&hellip;&amp;u^{(n)}\\|&amp;|&amp;&hellip;&amp;|\end{bmatrix} \isin \R^{n\times n}$</p>
+<p>Then we use the first k columns in the Matrix:</p>
+<p>$z^{(i)} = U_{reduce}^Tx^{(i)} = \begin{bmatrix}|&amp;|&amp;&hellip;&amp;|\\u^{(1)}&amp;u^{(2)}&amp;&hellip;&amp;u^{(k)}\\|&amp;|&amp;&hellip;&amp;|\end{bmatrix}^Tx^{(i)} = \begin{bmatrix}-&amp;(u^{(1)})^T&amp;-\\&hellip;&amp;&hellip;&amp;&hellip;\\-&amp;(u^{(k)})^T&amp;-\end{bmatrix}x^{(i)} \isin \R^{k\times 1}$</p>
+</li>
+</ul>
+<h3 id="choosing-k--number-of-principle-components-">Choosing k ( number of principle components )</h3>
+<ul>
+<li>
+<p>Average squaied projection error: $\frac{1}{m}\sum_{i = 1}^m||x^{(i)} - x_{approx}^{(i)}||^2$</p>
+</li>
+<li>
+<p>Total variation in the data: $\frac{1}{m}\sum_{i = 1}^{m}||x^{(i)}||^2$</p>
+</li>
+<li>
+<p>Typically, choose k to be smallest value so that:</p>
+<p>$\frac{\frac{1}{m}\sum_{i = 1}^m||x^{(i)} - x^{(i)}_{approx}||^2}{\frac{1}{m}\sum_{i = 1}^{m}||x^{(i)}||^2} \leq 0.01$</p>
+<p>&ldquo;99% of variances is retained&rdquo;</p>
+</li>
+<li>
+<p><strong>Algorithm:</strong></p>
+<ul>
+<li>
+<p>Try PCA with k = 1</p>
+</li>
+<li>
+<p>Compute $U_{reduce}, z^{(1)}, z^{(2)}, &hellip;, z^{(m)}, x_{approx}^{(1)}, &hellip;, x^{(m)}_{approx}$</p>
+</li>
+<li>
+<p>Check if $\frac{\frac{1}{m}\sum_{i = 1}^m||x^{(i)} - x^{(i)}_{approx}||^2}{\frac{1}{m}\sum_{i = 1}^{m}||x^{(i)}||^2} \leq 0.01$</p>
+<p><code>[U, S, V] = svd( Sigma )</code></p>
+<p>For given k, $\frac{\frac{1}{m}\sum_{i = 1}^m||x^{(i)} - x^{(i)}_{approx}||^2}{\frac{1}{m}\sum_{i = 1}^{m}||x^{(i)}||^2} = 1 - \frac{\sum_{i = 1}^ks_{ii}}{\sum_{i = 1}^{n}s_{ii}} \rarr \frac{\sum_{i = 1}^ks_{ii}}{\sum_{i = 1}^{n}s_{ii}} \geq 0.99$</p>
+</li>
+<li>
+<p>Pick k, that satisfies $\frac{\sum_{i = 1}^ks_{ii}}{\sum_{i = 1}^{n}s_{ii}} \geq 0.99$</p>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="reconstruction-from-compressed-representation">Reconstruction from compressed representation</h3>
+<ul>
+<li>$X_{approx} = U_{reduce} \times z$</li>
+</ul>
+<h3 id="design-of-ml-system-with-pca">Design of ML system with PCA</h3>
+<ul>
+<li>
+<p>Get Training Set</p>
+</li>
+<li>
+<p>Run PCA to reduce $x^{(i)}$ in dimension to get $z^{(i)}$</p>
+</li>
+<li>
+<p>Train logistic regression on ${(z^{(1)}, y^{(1)}), &hellip;, (z^{(m)}, y^{(m)})}$</p>
+</li>
+<li>
+<p>Test on test set: Map $x_{test}^{(i)}\ \text{to}\ z_{test}^{(i)}$. Run $h_\theta(z)$ on ${(z_{test}^{(1)}, y_{test}^{(1)}), &hellip;, (z_{test}^{(m)}, y_{test}^{(m)})}$</p>
+</li>
+<li>
+<p>Before implementing PCA, first try running whatever you want to do with original / raw data $x^{(i)}$. Only if that doesn&rsquo;t do what you want, then implement PCA and consider using $z^{(i)}$</p>
+</li>
+</ul>
+<h2 id="anomoly-detection">Anomoly Detection</h2>
+<h3 id="example-fraud-detection">Example: Fraud Detection</h3>
+<ul>
+<li>
+<p>$x^{(i)}$ = features of user i&rsquo;s activities</p>
+</li>
+<li>
+<p>Model $p(x)$ from data</p>
+</li>
+<li>
+<p>Identify unusual users by checking which have $p(x) &lt; \epsilon$</p>
+</li>
+</ul>
+<h3 id="gaussian-distribution">Gaussian Distribution</h3>
+<ul>
+<li>
+<p>Say $x \isin \R$. If x is a disatributed Gaussian with mean $\mu$, variance $\sigma^2$.</p>
+</li>
+<li>
+<p>$p(x; \mu, \sigma^2) = \frac{1}{\sqrt{2\pi}\sigma}exp^{(-\frac{(x - \mu)^2}{2\sigma^2})}$. Here $\sigma$ is the standard deviation.</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/Gaussian.svg"
+        data-srcset="/Gaussian.svg, /Gaussian.svg 1.5x, /Gaussian.svg 2x"
+        data-sizes="auto"
+        alt="/Gaussian.svg"
+        title="Gaussian" /></p>
+</li>
+<li>
+<p>As for &ldquo;Parameter estimation&rdquo;&hellip;</p>
+<ul>
+<li>$\mu = \frac{1}{m}\sum_{i = 1}^mx^{(i)}$</li>
+<li>$\sigma^2 = \frac{1}{m}\sum_{i = 1}^m(x^{(i)} - \mu)^2$</li>
+</ul>
+</li>
+</ul>
+<h3 id="algorithm">Algorithm</h3>
+<ul>
+<li>
+<p>Training Set ${x^{(1)}, &hellip;, x^{(m)}}$</p>
+</li>
+<li>
+<p>Each Example is $x \isin \R^n$</p>
+</li>
+</ul>
+<ol>
+<li>
+<p>Chosse features $x_i$ that you think might be indicative of anomalous examples.</p>
+</li>
+<li>
+<p>Fit parameters $\mu_1, &hellip;, \mu_n, \sigma_1^2, &hellip;, \sigma_n^2$</p>
+<p>$\mu = \frac{1}{m}\sum_{i = 1}^mx^{(i)}$</p>
+<p>$\sigma^2 = \frac{1}{m}\sum_{i = 1}^m(x^{(i)} - \mu)^2$</p>
+</li>
+<li>
+<p>Given new example x, compute $p(x)$</p>
+<p>$p(x) = \prod_{j = 1}^np(x_j;\mu_j, \sigma_j^2) = \prod_{j = 1}^n\frac{1}{\sqrt{2\pi}\sigma}exp^{(-\frac{(x - \mu)^2}{2\sigma^2})}$</p>
+</li>
+</ol>
+<p>Anomaly if $p(x) &lt; \epsilon$</p>
+<h4 id="evaluation">Evaluation</h4>
+<ul>
+<li>
+<p>Fit model $p(x)$ on training set ${x^{(1)}, &hellip;, x^{(m)}}$</p>
+</li>
+<li>
+<p>On a Cross Validation / Test example, predict</p>
+<p>$y = \begin{cases}1,\ p(x) &lt; \epsilon\ \text{(anomaly)}\\0,\ p(x) \geq \epsilon\ \text{(normal)}\end{cases}$</p>
+</li>
+<li>
+<p>Possible evaluation metrics:</p>
+<ul>
+<li>
+<p>True positive, false positive, false negative, true negative</p>
+</li>
+<li>
+<p>Precision / Recall</p>
+</li>
+<li>
+<p>F-Score</p>
+</li>
+</ul>
+<p>Can also use the Cross Validation Set to choose parameter $\epsilon$</p>
+</li>
+</ul>
+<h3 id="anomoly-detection-vs-supervised-learning">Anomoly Detection vs. Supervised Learning</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">Anomoly Detection</th>
+<th style="text-align:center">Supervised Learning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">Very small number of positiv examples but large number of negative examples</td>
+<td style="text-align:center">Large number of positive and negative  examples</td>
+</tr>
+<tr>
+<td style="text-align:center">Many different types of anomalies. Hard for any algorithm to learn from positive examples what the anomalies looks like</td>
+<td style="text-align:center">Enough positive examples for algorithm to get a sense of what positive examples are like</td>
+</tr>
+<tr>
+<td style="text-align:center">Future anomalies may look nothing like any of the anomalous examples we&rsquo;ve seen so far</td>
+<td style="text-align:center">Future positive examples likely to be similar to ones in training set</td>
+</tr>
+</tbody>
+</table>
+<h3 id="error-analysis-for-anomaly-detection">Error Analysis for anomaly detection</h3>
+<ul>
+<li>
+<p>Want $p(x)$ large for normal examples x</p>
+<p>$p(x)$ small for anomalous examples x</p>
+</li>
+<li>
+<p>Most commen Problem:</p>
+<p>$p(x)$ is comparable ( say, both large ) for normal and anomalous examples.</p>
+</li>
+</ul>
+<h3 id="multivariance-gaussian-distribution">Multivariance Gaussian Distribution</h3>
+<ul>
+<li>$x \isin \R^n$, don&rsquo;t model $p(x_1), p(x_2)$, &hellip;, etc. separately. Instead, model $p(x)$ all in one go.</li>
+<li>Parameters: $\mu\isin\R^n, \Sigma \isin \R^{n\times n}$, the &ldquo;convariance matrix&rdquo;</li>
 </ul>
 </div><div class="post-footer" id="post-footer">
     <div class="post-info">

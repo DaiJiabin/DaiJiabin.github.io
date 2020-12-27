@@ -13,9 +13,11 @@
 
 ## Contact
 
-- Mobile ( Germany ): 015221429108
+- Mobile ( Germany ): _TURFMU1qSXhOREk1TVRBNENnPT0K_
 
-- E-Mail: kechou.dai@gmail.com
+- E-Mail: _YTJWamFHOTFMbVJoYVVCbmJXRnBiQzVqYjIwSwo=_
+  
+  - p.S: run `echo <String above> | base 64 -d| base 64 -d` to get the Phone Number and the E-Mail Address.
 
 ## Academic Background
 

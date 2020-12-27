@@ -5,7 +5,7 @@
 
 # Lecture by [Andrew Ng, Coursera](https://www.coursera.org/learn/machine-learning)
 
-## Week 1 Basic Concepts & Linear Regression 
+## Basic Concepts & Linear Regression 
 
 ### Supervised Learning vs. Unsupervised Learning
 
@@ -167,7 +167,7 @@
   
 - Too many Features: Just delete some of them, or use __regulization ( discuss later ).__
 
-## Week 2 Logistic Regression & Overfitting & Regularization 
+## Logistic Regression & Overfitting & Regularization 
 
 ### Logistic Regression - Classification
 
@@ -375,7 +375,7 @@
   
   - Here $h_\theta(x) = \frac{1}{1 + e^{-\theta^Tx}}$
 
-## Week 3 Non-Linear Hypothesis - Neural Networks
+## Non-Linear Hypothesis - Neural Networks
 
 - What should we do when we proceed an Image?
 
@@ -675,7 +675,7 @@
 |Try adding polynomial Features|Try smaller sets of Features|
 |Try decreasing $\lambda$|Try increasing $\lambda$|
 
-## Week 4 Error Analysis
+## Error Analysis
 
 ### Recommand Approach
 
@@ -744,7 +744,7 @@
 
 - __F Score:__ $2\frac{PR}{P + R}$
 
-## Week 5 Support Vector Machines
+## Support Vector Machines
 
 ### Optimization objective
 
@@ -907,3 +907,200 @@
 - Randomly pick K training examples
 
 - Set $\mu_1, ..., \mu_k$ equal to these K examples.
+
+  ```
+    for i = 1 to 100{
+
+      Randomly initialize K-means
+      Run K-means, Get c^(1), ..., c^(m), mu^(1), ..., , mu^(K)
+      Compute the distortion Function
+    }
+
+    Pick clustering that gave lowest distortion Function value.
+  ```
+
+#### Choosing the number of clusters
+
+- Alternative: Draw the "K - Distortion Function Value" plot. ( Elbow Method )
+  
+  ![Elbow](/elbow.png)
+
+## Dimentionality Reduction
+
+### PAC: Principal Component Analysis
+
+- Reduce from 2-dimension to 1-dimension: Find a direction ( a vector $\mu^{(1)} \isin \R^n$ ) onto which to project the data so as to minimize the projection error.
+
+- Reduce from n-dimension to k-dimension: Find k vectors ( vectors $\mu^{(1)}, ..., \mu^{(k)}$ ) onto which to project the data, so as to minimize the projection error.
+
+- Reduce memory / disk needed to store data
+
+- Speed up learning algorithm
+
+- __Bad use of PCA: To prevent overfitting. Instead, use regularization.__
+
+- __PCA is not Linear Regression!__
+
+  ![PCANlinear](/PCANlinear.png)
+
+### Data Processing
+
+- Training Set: $x^{(1)}, x^{(2)}, ..., x^{(m)}$
+
+- Preprocessing ( Feature Scaling / Mean Normalization )
+  
+  $\mu_j = \frac{1}{m}\sum_{i = 1}^mx_j^{(i)}$
+
+  Replace each $x_j^{(i)}$ with $x_j - \mu_j$
+
+  If different features have different scales, scale Features to have comparable range of values $x_j \larr \frac{x_j^{(i)} - \mu_j}{s_j}$
+
+### PCA algorithm
+
+- Reduce data from n-dimensions to k-dimensions
+
+- Compute "convariance matrix"
+
+  $\Sigma = \frac{1}{m}\sum_{i = 1}^{m}(x^{(i)})(x^{(i)})^T, \Sigma \isin \R^{n\times n}$
+
+- Compute the "eigenvectors" of $\Sigma$:
+  
+  ```
+    [U, S, V] = svd( Sigma ) // Singular Value Decomposition;
+    Uredece = U(:, 1:k);
+    z = Ureduce' * x;  
+  ```
+
+  From the formular above we get:
+    
+    $U = \begin{bmatrix}|&|&...&|\\\\u^{(1)}&u^{(2)}&...&u^{(n)}\\\\|&|&...&|\end{bmatrix} \isin \R^{n\times n}$
+
+  Then we use the first k columns in the Matrix:
+
+    $z^{(i)} = U_{reduce}^Tx^{(i)} = \begin{bmatrix}|&|&...&|\\\\u^{(1)}&u^{(2)}&...&u^{(k)}\\\\|&|&...&|\end{bmatrix}^Tx^{(i)} = \begin{bmatrix}-&(u^{(1)})^T&-\\\\...&...&...\\\\-&(u^{(k)})^T&-\end{bmatrix}x^{(i)} \isin \R^{k\times 1}$
+
+### Choosing k ( number of principle components )
+
+- Average squaied projection error: $\frac{1}{m}\sum_{i = 1}^m||x^{(i)} - x_{approx}^{(i)}||^2$
+
+- Total variation in the data: $\frac{1}{m}\sum_{i = 1}^{m}||x^{(i)}||^2$
+
+- Typically, choose k to be smallest value so that:
+
+  $\frac{\frac{1}{m}\sum_{i = 1}^m||x^{(i)} - x^{(i)}_{approx}||^2}{\frac{1}{m}\sum_{i = 1}^{m}||x^{(i)}||^2} \leq 0.01$
+
+  "99% of variances is retained"
+
+- __Algorithm:__
+
+  - Try PCA with k = 1
+  
+  - Compute $U_{reduce}, z^{(1)}, z^{(2)}, ..., z^{(m)}, x_{approx}^{(1)}, ..., x^{(m)}_{approx}$
+  
+  - Check if $\frac{\frac{1}{m}\sum_{i = 1}^m||x^{(i)} - x^{(i)}_{approx}||^2}{\frac{1}{m}\sum_{i = 1}^{m}||x^{(i)}||^2} \leq 0.01$
+
+    `[U, S, V] = svd( Sigma )`
+
+    For given k, $\frac{\frac{1}{m}\sum_{i = 1}^m||x^{(i)} - x^{(i)}_{approx}||^2}{\frac{1}{m}\sum_{i = 1}^{m}||x^{(i)}||^2} = 1 - \frac{\sum_{i = 1}^ks_{ii}}{\sum_{i = 1}^{n}s_{ii}} \rarr \frac{\sum_{i = 1}^ks_{ii}}{\sum_{i = 1}^{n}s_{ii}} \geq 0.99$
+
+  - Pick k, that satisfies $\frac{\sum_{i = 1}^ks_{ii}}{\sum_{i = 1}^{n}s_{ii}} \geq 0.99$
+
+### Reconstruction from compressed representation
+
+- $X_{approx} = U_{reduce} \times z$
+
+### Design of ML system with PCA
+
+- Get Training Set
+
+- Run PCA to reduce $x^{(i)}$ in dimension to get $z^{(i)}$
+
+- Train logistic regression on $\{(z^{(1)}, y^{(1)}), ..., (z^{(m)}, y^{(m)})\}$
+
+- Test on test set: Map $x_{test}^{(i)}\ \text{to}\ z_{test}^{(i)}$. Run $h_\theta(z)$ on $\{(z_{test}^{(1)}, y_{test}^{(1)}), ..., (z_{test}^{(m)}, y_{test}^{(m)})\}$
+
+- Before implementing PCA, first try running whatever you want to do with original / raw data $x^{(i)}$. Only if that doesn't do what you want, then implement PCA and consider using $z^{(i)}$
+
+## Anomoly Detection
+
+### Example: Fraud Detection
+
+- $x^{(i)}$ = features of user i's activities
+
+- Model $p(x)$ from data
+
+- Identify unusual users by checking which have $p(x) < \epsilon$
+
+### Gaussian Distribution
+
+- Say $x \isin \R$. If x is a disatributed Gaussian with mean $\mu$, variance $\sigma^2$.
+
+- $p(x; \mu, \sigma^2) = \frac{1}{\sqrt{2\pi}\sigma}exp^{(-\frac{(x - \mu)^2}{2\sigma^2})}$. Here $\sigma$ is the standard deviation.
+
+  ![Gaussian](/Gaussian.svg)
+
+- As for "Parameter estimation"...
+  
+  - $\mu = \frac{1}{m}\sum_{i = 1}^mx^{(i)}$
+  - $\sigma^2 = \frac{1}{m}\sum_{i = 1}^m(x^{(i)} - \mu)^2$
+
+### Algorithm
+
+- Training Set $\{x^{(1)}, ..., x^{(m)}\}$
+  
+- Each Example is $x \isin \R^n$
+
+1. Chosse features $x_i$ that you think might be indicative of anomalous examples.
+
+2. Fit parameters $\mu_1, ..., \mu_n, \sigma_1^2, ..., \sigma_n^2$
+
+    $\mu = \frac{1}{m}\sum_{i = 1}^mx^{(i)}$
+  
+    $\sigma^2 = \frac{1}{m}\sum_{i = 1}^m(x^{(i)} - \mu)^2$
+
+3. Given new example x, compute $p(x)$
+
+    $p(x) = \prod_{j = 1}^np(x_j;\mu_j, \sigma_j^2) = \prod_{j = 1}^n\frac{1}{\sqrt{2\pi}\sigma}exp^{(-\frac{(x - \mu)^2}{2\sigma^2})}$
+
+  Anomaly if $p(x) < \epsilon$
+
+#### Evaluation
+
+- Fit model $p(x)$ on training set $\{x^{(1)}, ..., x^{(m)}\}$
+
+- On a Cross Validation / Test example, predict
+
+  $y = \begin{cases}1,\ p(x) < \epsilon\ \text{(anomaly)}\\\\0,\ p(x) \geq \epsilon\ \text{(normal)}\end{cases}$
+
+- Possible evaluation metrics:
+  
+  - True positive, false positive, false negative, true negative
+  
+  - Precision / Recall
+  
+  - F-Score
+
+  Can also use the Cross Validation Set to choose parameter $\epsilon$
+
+### Anomoly Detection vs. Supervised Learning
+
+|Anomoly Detection|Supervised Learning|
+|:---------------:|:-----------------:|
+|Very small number of positiv examples but large number of negative examples|Large number of positive and negative  examples|
+|Many different types of anomalies. Hard for any algorithm to learn from positive examples what the anomalies looks like|Enough positive examples for algorithm to get a sense of what positive examples are like|
+|Future anomalies may look nothing like any of the anomalous examples we've seen so far|Future positive examples likely to be similar to ones in training set|
+
+### Error Analysis for anomaly detection
+
+- Want $p(x)$ large for normal examples x
+    
+    $p(x)$ small for anomalous examples x
+
+- Most commen Problem:
+    
+    $p(x)$ is comparable ( say, both large ) for normal and anomalous examples.
+
+### Multivariance Gaussian Distribution
+
+- $x \isin \R^n$, don't model $p(x_1), p(x_2)$, ..., etc. separately. Instead, model $p(x)$ all in one go.
+- Parameters: $\mu\isin\R^n, \Sigma \isin \R^{n\times n}$, the "convariance matrix"
