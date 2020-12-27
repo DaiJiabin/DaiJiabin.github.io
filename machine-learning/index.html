@@ -13,7 +13,7 @@
 <meta property="og:url" content="https://daijiabin.github.io/machine-learning/" />
 <meta property="og:image" content="https://daijiabin.github.io/logo.png"/>
 <meta property="article:published_time" content="2020-12-18T19:11:53+01:00" />
-<meta property="article:modified_time" content="2020-12-26T00:18:28+01:00" />
+<meta property="article:modified_time" content="2020-12-27T10:18:33+01:00" />
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="https://daijiabin.github.io/logo.png"/>
 
@@ -33,8 +33,8 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "https:\/\/daijiabin.github.io\/machine-learning\/"
-        },"image": ["https:\/\/daijiabin.github.io\/images\/Apple-Devices-Preview.png"],"genre": "posts","keywords": "AI","wordcount":  3244 ,
-        "url": "https:\/\/daijiabin.github.io\/machine-learning\/","datePublished": "2020-12-18T19:11:53+01:00","dateModified": "2020-12-26T00:18:28+01:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
+        },"image": ["https:\/\/daijiabin.github.io\/images\/Apple-Devices-Preview.png"],"genre": "posts","keywords": "AI","wordcount":  3848 ,
+        "url": "https:\/\/daijiabin.github.io\/machine-learning\/","datePublished": "2020-12-18T19:11:53+01:00","dateModified": "2020-12-27T10:18:33+01:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
             "@type": "Organization",
             "name": "Dai Jiabin","logo": "https:\/\/daijiabin.github.io\/images\/avatar.png"},"author": {
                 "@type": "Person",
@@ -114,8 +114,8 @@
             <div class="toc-content" id="toc-content-auto"></div>
         </div><article class="page single"><h1 class="single-title animated flipInX">Machine Learning</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="https://www.github.com/DaiJiabin" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw"></i>Dai Jiabin</a></span>&nbsp;<span class="post-category">included in <a href="/categories/learn/"><i class="far fa-folder fa-fw"></i>Learn</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2020-12-18">2020-12-18</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;3244 words&nbsp;
-                <i class="far fa-clock fa-fw"></i>&nbsp;16 minutes&nbsp;</div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2020-12-18">2020-12-18</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;3848 words&nbsp;
+                <i class="far fa-clock fa-fw"></i>&nbsp;19 minutes&nbsp;</div>
         </div><div class="details toc" id="toc-static"  kept="">
                 <div class="details-summary toc-title">
                     <span>Contents</span>
@@ -192,6 +192,39 @@
             <li><a href="#precision--recall">Precision / Recall</a></li>
             <li><a href="#trading-off-precision-and-recall">Trading off precision and recall</a></li>
             <li><a href="#f-score">F Score</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li><a href="#week-5-support-vector-machines">Week 5 Support Vector Machines</a>
+      <ul>
+        <li><a href="#optimization-objective">Optimization objective</a>
+          <ul>
+            <li><a href="#cost-function-2">Cost Function:</a></li>
+            <li><a href="#svm-hypothesis">SVM Hypothesis:</a></li>
+          </ul>
+        </li>
+        <li><a href="#large-margin-intuition">Large Margin Intuition</a>
+          <ul>
+            <li><a href="#svm-decision-boundary">SVM Decision Boundary</a></li>
+          </ul>
+        </li>
+        <li><a href="#kernels">Kernels</a>
+          <ul>
+            <li><a href="#kernel-function">Kernel Function</a></li>
+            <li><a href="#svm-with-kernels">SVM with Kernels</a></li>
+          </ul>
+        </li>
+        <li><a href="#logistic-regression-vs-svms">Logistic Regression vs. SVMs</a></li>
+      </ul>
+    </li>
+    <li><a href="#unsupervised-learning">Unsupervised Learning</a>
+      <ul>
+        <li><a href="#clustering">Clustering</a>
+          <ul>
+            <li><a href="#k-mean-algorithm">K-Mean Algorithm</a></li>
+            <li><a href="#optimization-objective-of-k-mean-distortion-function">Optimization Objective of K-Mean: Distortion Function</a></li>
+            <li><a href="#initialize-k-means">Initialize K-Means</a></li>
           </ul>
         </li>
       </ul>
@@ -1302,13 +1335,11 @@ return
 </table>
 <ul>
 <li>
-<p>Precision</p>
-<p>( Of all patients where we predicted $y = 1$, what fraction actually has cancer? )</p>
+<p>Precision( Of all patients where we predicted $y = 1$, what fraction actually has cancer? )</p>
 <p>$\frac{True positives}{#predicted Positive} = \frac{True positives}{True Pos + False Pos}$</p>
 </li>
 <li>
-<p>Recall</p>
-<p>( Of all patients that actually have cancer, what fraction did we corrently detect as having cancer? )</p>
+<p>Recall( Of all patients that actually have cancer, what fraction did we corrently detect as having cancer? )</p>
 <p>$\frac{True positives}{#actual Positives} = \frac{True Positives}{True Pos + False Neg}$</p>
 </li>
 </ul>
@@ -1376,12 +1407,240 @@ Predict 0 if $h_\theta(x) \leq 0.5$</p>
 <ul>
 <li><strong>F Score:</strong> $2\frac{PR}{P + R}$</li>
 </ul>
+<h2 id="week-5-support-vector-machines">Week 5 Support Vector Machines</h2>
+<h3 id="optimization-objective">Optimization objective</h3>
+<blockquote>
+<p>Brief Review of Logistic Regression<br>
+$h_\theta(x) = \frac{1}{1 + e^{-\theta^Tx}}$<br>
+if $y = 1$, we want $h_\theta(x) \approx 1, \theta^Tx \gg 0$<br>
+if $y = 0$, we want $h_\theta(x) \approx 0, \theta^Tx \ll 0$<br>
+$J(\theta) = -\frac{1}{m}\sum_{i = 1}^{m}[y^{(i)}log(h_\theta(x^{(i)})) + (1 - y^{(i)})log(1 - h_\theta(x^{(i)}))] + \frac{\lambda}{2m}\sum_{j = 1}^{n}\theta_j^2$</p>
+</blockquote>
+<ul>
+<li>
+<p>$-log\frac{1}{1 + e^{-x}} \rarr Cost_1(\theta^Tx^{(i)})$</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/logsigmoid.png"
+        data-srcset="/logsigmoid.png, /logsigmoid.png 1.5x, /logsigmoid.png 2x"
+        data-sizes="auto"
+        alt="/logsigmoid.png"
+        title="logsigmoid" /></p>
+</li>
+<li>
+<p>$-log(1 - \frac{1}{1 + e^{-x}}) \rarr Cost_0(\theta^Tx^{(i)})$</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/-logsigmoid.png"
+        data-srcset="/-logsigmoid.png, /-logsigmoid.png 1.5x, /-logsigmoid.png 2x"
+        data-sizes="auto"
+        alt="/-logsigmoid.png"
+        title="-logsigmoid" /></p>
+</li>
+</ul>
+<h4 id="cost-function-2">Cost Function:</h4>
+<ul>
+<li>
+<p>We use a new function to replace $-log\frac{1}{1 + e^{-x}} \text{and} -log(1 - \frac{1}{1 + e^{-x}})$. We name they as $Cost_1(\theta^Tx^{(i)})\text{and}Cost_0(\theta^Tx^{(i)})$. Then the Cost Function in SVM is:</p>
+<p>$\frac{1}{m}\sum_{i = 1}^{m}[y^{(i)}Cost_1(\theta^Tx^{(i)}) + (1 - y^{(i)})Cost_0(\theta^Tx)] + \frac{\lambda}{2m}\sum_{j = 1}^{n}\theta_j^2$</p>
+<p><strong>The following Plot is the Picture of 2 new Functions:</strong></p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/SVMcost.jpeg"
+        data-srcset="/SVMcost.jpeg, /SVMcost.jpeg 1.5x, /SVMcost.jpeg 2x"
+        data-sizes="auto"
+        alt="/SVMcost.jpeg"
+        title="SVM" /></p>
+<p><strong>Our goal is to minimize the following Function:</strong></p>
+<p>$min_\theta C\sum_{i = 1}^{m}[y^{(i)}Cost_1(\theta^Tx^{(i)}) + (1 - y^{(i)})Cost_0(\theta^Tx)] + \frac{1}{2}\sum_{j = 1}^{n}\theta_j^2$</p>
+</li>
+</ul>
+<h4 id="svm-hypothesis">SVM Hypothesis:</h4>
+<ul>
+<li>$h_\theta(x) = \begin{cases}1, \theta^Tx \geq 0\\0, \theta^Tx &lt; 0\end{cases}$</li>
+</ul>
+<h3 id="large-margin-intuition">Large Margin Intuition</h3>
+<ul>
+<li>Take a look at the Plot of the new Cost Functions:
+<ul>
+<li>if $y = 1$, we want $\theta^Tx \geq 1$</li>
+<li>if $y = 0$, we want $\theta^Tx \leq -1$</li>
+</ul>
+</li>
+</ul>
+<h4 id="svm-decision-boundary">SVM Decision Boundary</h4>
+<ul>
+<li>
+<p>$min_\theta C\sum_{i = 1}^{m}[y^{(i)}Cost_1(\theta^Tx^{(i)}) + (1 - y^{(i)})Cost_0(\theta^Tx^{(i)})] + \frac{1}{2}\sum_{j = 1}^{n}\theta_j^2 ( C = \frac{1}{\lambda} )$</p>
+<ul>
+<li><strong>Large C: lower Bias, higher Variance</strong></li>
+<li><strong>Small C: higher Bias, lower Variance</strong></li>
+</ul>
+</li>
+<li>
+<p>In &ldquo;Large Margin Boundary&rdquo; we know, we just have to optimize the following function:</p>
+<p>$\frac{1}{2}\sum_{j = 1}^{n}\theta_j^2$ ( Because the front part can be 0. )</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/margin.png"
+        data-srcset="/margin.png, /margin.png 1.5x, /margin.png 2x"
+        data-sizes="auto"
+        alt="/margin.png"
+        title="margin" /></p>
+</li>
+</ul>
+<h3 id="kernels">Kernels</h3>
+<h4 id="kernel-function">Kernel Function</h4>
+<ul>
+<li>
+<p>Given x,:</p>
+<p>$f_i = similarity(x, l^{(i)}) = exp(-\frac{||x - l^{(2)}||^2}{2\sigma^2})$</p>
+</li>
+<li>
+<p>Large $\sigma^2$: Features $f_i$ vary very smmothly: <strong>Higher Bias, lower Variance</strong></p>
+</li>
+<li>
+<p>Small $\sigma^2$: Features $f_i$ vary very smmothly: <strong>lower Bias, higher Variance</strong></p>
+</li>
+</ul>
+<h4 id="svm-with-kernels">SVM with Kernels</h4>
+<ul>
+<li>
+<p>Where to get $l^{(1)}, l^{(2)}, l^{(3)} &hellip; ?$</p>
+<ul>
+<li>
+<p>Given $(x^{(1)}, y^{(1)}), (x^{(2)}, y^{(2)}), &hellip;, (x^{(m)}, y^{(m)})$</p>
+</li>
+<li>
+<p>Choose $l^{(1)} = x^{(1)}, l^{(2)} = x^{(2)}, &hellip;, l^{(m)} = x^{(m)}$</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Given $x$:</p>
+<p>$f_1 = similarity(x, l^{(1)})$</p>
+<p>$f_2 = similarity(x, l^{(2)})$</p>
+<p>&hellip;</p>
+<p>$f = \begin{bmatrix}f_0\\f_1\\f_2\\&hellip;\\f_m\end{bmatrix}, f_0 = 1$</p>
+</li>
+<li>
+<p>For Training example $(x^{(i)}, y^{(i)}):$</p>
+<p>$f_1^{(i)} = similarity(x^{(i)}, l^{(1)})$</p>
+<p>$f_2^{(i)} = similarity(x^{(i)}, l^{(2)})$</p>
+<p>$f_3^{(i)} = similarity(x^{(i)}, l^{(3)})$</p>
+<p>&hellip;</p>
+<p>$f_m^{(i)} = similarity(x^{(i)}, l^{(m)})$</p>
+<p>$f^{(x)} = \begin{bmatrix}f_0^{(i)}\\f_1^{(i)}\\&hellip;\\f_m^{(i)}\end{bmatrix}$</p>
+</li>
+<li>
+<p>Predict $y = 1, \text{if } \theta^Tf \geq 0$</p>
+</li>
+<li>
+<p>Training: $min_\theta C\sum_{i = 1}^{m}[y^{(i)}Cost_1(\theta^Tf^{(i)}) + (1 - y^{(i)})Cost_0(\theta^Tf^{(i)})] + \frac{1}{2}\sum_{j = 1}^{n}\theta_j^2$</p>
+</li>
+</ul>
+<h3 id="logistic-regression-vs-svms">Logistic Regression vs. SVMs</h3>
+<ul>
+<li>
+<p>n = number of Features, m = number of Training examples</p>
+</li>
+<li>
+<p>if n is large ( relative to m ):</p>
+<p>Use logistic Regression, or SVM without a kernel</p>
+</li>
+<li>
+<p>if n is small, m is intermediate:</p>
+<p>Use SVM with Gaussian Kernel</p>
+</li>
+<li>
+<p>if n is small, m is large:</p>
+<p>Create / Add more Features, then use logistic regression or SVM without a Kernel</p>
+</li>
+</ul>
+<h2 id="unsupervised-learning">Unsupervised Learning</h2>
+<h3 id="clustering">Clustering</h3>
+<h4 id="k-mean-algorithm">K-Mean Algorithm</h4>
+<ul>
+<li>
+<p>Input:</p>
+<ul>
+<li>
+<p>K ( Number of clusters )</p>
+</li>
+<li>
+<p>Training Set ${x^{(1)}, x^{(2)}, &hellip;, x^{(m)}}$</p>
+</li>
+<li>
+<p>$x^{(i)} \isin \R^n$ ( Drop $x_0 = 1$ convention )</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Randomly initialize K cluster Centroids $\mu_1, \mu_2, &hellip;, \mu_k\isin\R^n$</p>
+</li>
+<li>
+<p>Repeat:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">  // Cluster Assignment
+  for i = 1 to m:
+    c^(i) := index ( from 1 to K ) of Cluster Centroid closest to x^(i) // ||x^(i) - mu_k||
+    
+  // Move Centroid
+  for k = 1 to K:
+    mu_k := average ( mean ) of points asssigned to cluster k // A vector in R^n
+</code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>
+<p>In the code above</p>
+<ul>
+<li>
+<p><em>$c^{(i)}$ means the index of cluster to which example $x^{(i)}$ is currently assigned.</em></p>
+</li>
+<li>
+<p><em>$\mu_k\  \text{means the cluster centroid}\  k (\mu_k \isin\R^n)$</em></p>
+</li>
+<li>
+<p><em>$\mu</em>{c^{(i)}}$ means the cluster centroid of cluster to which example $x^{(i)}$ has been assigned._</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="optimization-objective-of-k-mean-distortion-function">Optimization Objective of K-Mean: Distortion Function</h4>
+<ul>
+<li>$J(c^{(1)}, &hellip;, c^{(m)}, \mu_1, &hellip;, \mu_k) = \frac{1}{m}\sum_{i = 1}^m||x^{(i)} - \mu_{c^{(i)}}||^2$</li>
+</ul>
+<h4 id="initialize-k-means">Initialize K-Means</h4>
+<ul>
+<li>
+<p>Randomly pick K training examples</p>
+</li>
+<li>
+<p>Set $\mu_1, &hellip;, \mu_k$ equal to these K examples.</p>
+</li>
+</ul>
 </div><div class="post-footer" id="post-footer">
     <div class="post-info">
         <div class="post-info-line">
             <div class="post-info-mod">
-                <span>Updated on 2020-12-26&nbsp;<a class="git-hash" href="https://github.com/dillonzq/LoveIt/commit/29816b0f4d7b8fd696e0c1184f9665c4b0f9b2e3" target="_blank" title="commit by DaiJiabin(kechou.dai@gmail.com) 29816b0f4d7b8fd696e0c1184f9665c4b0f9b2e3: Processing Sat 26 Dec 2020 12:18:28 AM CET">
-                                    <i class="fas fa-hashtag fa-fw"></i>29816b0</a></span>
+                <span>Updated on 2020-12-27&nbsp;<a class="git-hash" href="https://github.com/dillonzq/LoveIt/commit/77515a6e8b3b72aeaf98f81f1f8f23e03d200939" target="_blank" title="commit by DaiJiabin(kechou.dai@gmail.com) 77515a6e8b3b72aeaf98f81f1f8f23e03d200939: Processing Sun 27 Dec 2020 10:18:33 AM CET">
+                                    <i class="fas fa-hashtag fa-fw"></i>77515a6</a></span>
             </div>
             <div class="post-info-license"></div>
         </div>

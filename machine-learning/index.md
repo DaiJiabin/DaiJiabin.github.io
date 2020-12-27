@@ -707,16 +707,12 @@
 |1|True positiv|False positiv|
 |0|False Negative|True Negative|
 
-- Precision
-
-  ( Of all patients where we predicted $y = 1$, what fraction actually has cancer? )
-
+- Precision( Of all patients where we predicted $y = 1$, what fraction actually has cancer? )
+  
   $\frac{True positives}{\#predicted Positive} = \frac{True positives}{True Pos + False Pos}$
 
-- Recall
-
-  ( Of all patients that actually have cancer, what fraction did we corrently detect as having cancer? )
-
+- Recall( Of all patients that actually have cancer, what fraction did we corrently detect as having cancer? )
+  
   $\frac{True positives}{\#actual Positives} = \frac{True Positives}{True Pos + False Neg}$
 
 #### Trading off precision and recall
@@ -747,3 +743,167 @@
 |Algorithm 3|0.02|1|0.0392|
 
 - __F Score:__ $2\frac{PR}{P + R}$
+
+## Week 5 Support Vector Machines
+
+### Optimization objective
+
+> Brief Review of Logistic Regression  
+  $h_\theta(x) = \frac{1}{1 + e^{-\theta^Tx}}$  
+  if $y = 1$, we want $h_\theta(x) \approx 1, \theta^Tx \gg 0$  
+  if $y = 0$, we want $h_\theta(x) \approx 0, \theta^Tx \ll 0$  
+  $J(\theta) = -\frac{1}{m}\sum_{i = 1}^{m}[y^{(i)}log(h_\theta(x^{(i)})) + (1 - y^{(i)})log(1 - h_\theta(x^{(i)}))] + \frac{\lambda}{2m}\sum_{j = 1}^{n}\theta_j^2$  
+  
+- $-log\frac{1}{1 + e^{-x}} \rarr Cost_1(\theta^Tx^{(i)})$
+  
+  ![logsigmoid](/logsigmoid.png)
+
+- $-log(1 - \frac{1}{1 + e^{-x}}) \rarr Cost_0(\theta^Tx^{(i)})$
+
+  ![-logsigmoid](/-logsigmoid.png)
+
+#### Cost Function:
+
+- We use a new function to replace $-log\frac{1}{1 + e^{-x}} \text{and} -log(1 - \frac{1}{1 + e^{-x}})$. We name they as $Cost_1(\theta^Tx^{(i)})\text{and}Cost_0(\theta^Tx^{(i)})$. Then the Cost Function in SVM is:
+
+  $\frac{1}{m}\sum_{i = 1}^{m}[y^{(i)}Cost_1(\theta^Tx^{(i)}) + (1 - y^{(i)})Cost_0(\theta^Tx)] + \frac{\lambda}{2m}\sum_{j = 1}^{n}\theta_j^2$  
+
+  __The following Plot is the Picture of 2 new Functions:__
+
+  ![SVM](/SVMcost.jpeg)
+
+  __Our goal is to minimize the following Function:__
+
+  $min_\theta C\sum_{i = 1}^{m}[y^{(i)}Cost_1(\theta^Tx^{(i)}) + (1 - y^{(i)})Cost_0(\theta^Tx)] + \frac{1}{2}\sum_{j = 1}^{n}\theta_j^2$  
+
+#### SVM Hypothesis:
+
+- $h_\theta(x) = \begin{cases}1, \theta^Tx \geq 0\\\\0, \theta^Tx < 0\end{cases}$
+
+### Large Margin Intuition
+
+- Take a look at the Plot of the new Cost Functions:
+  - if $y = 1$, we want $\theta^Tx \geq 1$
+  - if $y = 0$, we want $\theta^Tx \leq -1$
+
+#### SVM Decision Boundary
+
+- $min_\theta C\sum_{i = 1}^{m}[y^{(i)}Cost_1(\theta^Tx^{(i)}) + (1 - y^{(i)})Cost_0(\theta^Tx^{(i)})] + \frac{1}{2}\sum_{j = 1}^{n}\theta_j^2 ( C = \frac{1}{\lambda} )$
+
+  - __Large C: lower Bias, higher Variance__
+  - __Small C: higher Bias, lower Variance__
+
+- In "Large Margin Boundary" we know, we just have to optimize the following function:
+
+  $\frac{1}{2}\sum_{j = 1}^{n}\theta_j^2$ ( Because the front part can be 0. )
+
+  ![margin](/margin.png)
+
+### Kernels
+
+#### Kernel Function
+
+- Given x,:
+  
+  $f_i = similarity(x, l^{(i)}) = exp(-\frac{||x - l^{(2)}||^2}{2\sigma^2})$
+
+- Large $\sigma^2$: Features $f_i$ vary very smmothly: __Higher Bias, lower Variance__
+- Small $\sigma^2$: Features $f_i$ vary very smmothly: __lower Bias, higher Variance__
+
+#### SVM with Kernels
+
+- Where to get $l^{(1)}, l^{(2)}, l^{(3)} ... ?$
+
+  - Given $(x^{(1)}, y^{(1)}), (x^{(2)}, y^{(2)}), ..., (x^{(m)}, y^{(m)})$
+  
+  - Choose $l^{(1)} = x^{(1)}, l^{(2)} = x^{(2)}, ..., l^{(m)} = x^{(m)}$
+
+- Given $x$:
+
+  $f_1 = similarity(x, l^{(1)})$
+
+  $f_2 = similarity(x, l^{(2)})$
+
+    ...
+
+  $f = \begin{bmatrix}f_0\\\\f_1\\\\f_2\\\\...\\\\f_m\end{bmatrix}, f_0 = 1$
+
+- For Training example $(x^{(i)}, y^{(i)}):$
+
+  $f_1^{(i)} = similarity(x^{(i)}, l^{(1)})$
+
+  $f_2^{(i)} = similarity(x^{(i)}, l^{(2)})$
+
+  $f_3^{(i)} = similarity(x^{(i)}, l^{(3)})$
+
+  ...
+
+  $f_m^{(i)} = similarity(x^{(i)}, l^{(m)})$
+
+  $f^{(x)} = \begin{bmatrix}f_0^{(i)}\\\\f_1^{(i)}\\\\...\\\\f_m^{(i)}\end{bmatrix}$
+
+- Predict $y = 1, \text{if } \theta^Tf \geq 0$ 
+
+- Training: $min_\theta C\sum_{i = 1}^{m}[y^{(i)}Cost_1(\theta^Tf^{(i)}) + (1 - y^{(i)})Cost_0(\theta^Tf^{(i)})] + \frac{1}{2}\sum_{j = 1}^{n}\theta_j^2$
+
+### Logistic Regression vs. SVMs
+
+- n = number of Features, m = number of Training examples
+
+- if n is large ( relative to m ):
+
+  Use logistic Regression, or SVM without a kernel
+
+- if n is small, m is intermediate:
+
+  Use SVM with Gaussian Kernel
+
+- if n is small, m is large:
+
+  Create / Add more Features, then use logistic regression or SVM without a Kernel
+
+## Unsupervised Learning
+
+### Clustering
+
+#### K-Mean Algorithm
+
+- Input:
+  
+  - K ( Number of clusters )
+  
+  - Training Set $\{x^{(1)}, x^{(2)}, ..., x^{(m)}\}$
+  
+  - $x^{(i)} \isin \R^n$ ( Drop $x_0 = 1$ convention )
+
+- Randomly initialize K cluster Centroids $\mu_1, \mu_2, ..., \mu_k\isin\R^n$
+
+- Repeat:
+
+  ```
+    // Cluster Assignment
+    for i = 1 to m:
+      c^(i) := index ( from 1 to K ) of Cluster Centroid closest to x^(i) // ||x^(i) - mu_k||
+    
+    // Move Centroid
+    for k = 1 to K:
+      mu_k := average ( mean ) of points asssigned to cluster k // A vector in R^n
+  ```
+
+  - In the code above
+    
+    - _$c^{(i)}$ means the index of cluster to which example $x^{(i)}$ is currently assigned._
+    
+    - _$\mu_k\  \text{means the cluster centroid}\  k (\mu_k \isin\R^n)$_
+    
+    - _$\mu_{c^{(i)}}$ means the cluster centroid of cluster to which example $x^{(i)}$ has been assigned._
+
+#### Optimization Objective of K-Mean: Distortion Function
+
+- $J(c^{(1)}, ..., c^{(m)}, \mu_1, ..., \mu_k) = \frac{1}{m}\sum_{i = 1}^m||x^{(i)} - \mu_{c^{(i)}}||^2$
+
+#### Initialize K-Means
+
+- Randomly pick K training examples
+
+- Set $\mu_1, ..., \mu_k$ equal to these K examples.
