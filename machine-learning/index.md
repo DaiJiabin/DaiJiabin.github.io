@@ -1215,3 +1215,83 @@
     $\theta_k^{(j)}\coloneqq\theta_k^{(j)} - \alpha(\sum_{i:r(i, j) = 1}((\theta^{(j)})^T(x^{(i)} - y^{(i, j)}))\theta_k^{(j)} + \lambda \theta_k^{(j)})$
 
 3. For a user with parameters $\theta$ and a movie with (learned) features $x$, predict a star rating $\theta^Tx$.
+
+#### Vectorization: Low rank matrix factorization
+
+|Movie|Alice(1)|Bob(2)|Carol(3)|Dave(4)|
+|:---:|:------:|:----:|:------:|:-----:|
+|Love at last|5|5|0|0|
+|Romance forever|5|?|?|0|
+|Cute Puppies of love|?|4|0|?|
+|Nonstop car cashes|0|0|5|4|
+|Swords vs. karate|0|0|5|?|
+
+  $Y = \begin{bmatrix}5&5&0&0&?\\\\5&?&?&0&?\\\\?&4&0&?&?\\\\0&0&5&4&?\\\\0&0&5&0&?\end{bmatrix}$
+
+  Predicted ratings ($X\Theta^T, (i, j) = (\theta^{(j)})^T(x^{(i)})$):
+
+  $\begin{bmatrix}(\theta^{(1)})^T(x^{(1)})&(\theta^{(2)})^T(x^{(1)})&...&(\theta^{(n_u)})^T(x^{(1)})\\\\(\theta^{(1)})^T(x^{(2)})&(\theta^{(2)})^T(x^{(2)})&...&(\theta^{(n_u)})^T(x^{(2)})\\\\...&...&...&...&\\\\(\theta^{(1)})^T(x^{(n_m)})&(\theta^{(2)})^T(x^{(n_m)})&...&(\theta^{(n_u)})^T(x^{(n_m)})\end{bmatrix}$
+
+  $X = \begin{bmatrix}-&(x^{(1)})^T&-\\\\-&(x^{(2)})^T&-\\\\...&...&...\\\\-&(x^{(n_m)})^T&-\\\\\end{bmatrix}$
+  $\Theta = \begin{bmatrix}-&(\theta^{(1)})^T&-\\\\-&(\theta^{(2)})^T&-\\\\...&...&...\\\\-&(\theta^{(n_m)})^T&-\\\\\end{bmatrix}$
+
+- Finding related movies
+
+  For each product $i$, we learn a feature vector $x^{(i)}\isin \R^n$.
+
+  How to find movies $j$ related to movie $i$?
+
+    Find movies with the smallest $||x^{(i)} - x^{(j)}||$
+
+#### Mean Normalization
+
+|Movie|Alice(1)|Bob(2)|Carol(3)|Dave(4)|Eve(5)|
+|:---:|:------:|:----:|:------:|:-----:|:----:|
+|Love at last|5|5|0|0|?|
+|Romance forever|5|?|?|0|?|
+|Cute Puppies of love|?|4|0|?|?|
+|Nonstop car cashes|0|0|5|4|?|
+|Swords vs. karate|0|0|5|?|?|
+
+$Y = \begin{bmatrix}5&5&0&0&?\\\\5&?&?&0&?\\\\?&4&0&?&?\\\\0&0&5&4&?\\\\0&0&5&0&?\end{bmatrix}$
+$\mu = \begin{bmatrix}2.5\\\\2.5\\\\2\\\\2.25\\\\1.25\end{bmatrix}\rarr Y = \begin{bmatrix}2.5&2.5&-2.5&-2.5&?\\\\2.5&?&?&-2.5&?\\\\?&2&-2&?&?\\\\-2.25&-2.25&2.75&1.75&?\\\\-1.25&-1.25&3.75&-1.25&?\end{bmatrix}$
+
+$min_{(x^{(1)}, x^{(2)}, ..., x^{(n_m)}, \theta^{(1)}, \theta^{(2)}, ..., \theta^{(n_u)})}\frac{1}{2}\sum_{(i, j):r(i, j) = 1}((\theta^{(j)})^T(x^{(i)} - y^{(i, j)})^2 + \frac{\lambda}{2}\sum_{i = 1}^{n_m}\sum_{k = 1}^{n}(x_k^{(i)})^2 + \frac{\lambda}{2}\sum_{j = 1}^{n_u}\sum_{k = 1}^{n}(\theta_k^{(j)})^2$
+
+For user j, on movie i predict:
+  
+  $\rarr (\theta^{(j)})^T(x^{(i)}) + \mu_i$
+
+User Eve:
+
+  $\theta^{(5)} = \begin{bmatrix}0\\\\0\end{bmatrix}\rarr (\theta^{(5)})^T(x^{(i)}) + \mu_i$
+
+## Learning with large datasets
+
+### Stochastic gradient descent
+
+- $Cost(\theta, (x^{(i)}, y^{(i)}) = \frac{1}{2}(h_\theta(x^{(i)}) - y^{(i)})^2$
+  
+  $J_{train}(\theta) = \frac{1}{m}\sum_{i = 1}^mcost(\theta, (x^{(i)}, y^{(i)})$
+
+- Randomly shuffle training examples, repeat $\theta_j\coloneqq\theta_j - \alpha(h_\theta(x^{(i)}) - y^{(i)})x^{(i)}$
+
+### Mini-batch gradient descent
+
+- Batch gradient descent: Use all m examples in each iteration
+
+- Stochastic gradient descent: Use 1 example in each iteration
+
+- Mini-batch gradient descent: Use b examples in each iteration
+
+### Convergence
+
+- Batch gradient descent
+  
+  Plot $J_{train}(\theta)$ as a function of the number of iterations of gradient descent.
+
+- Stochastic gradient descent:
+
+  During learning, compute $cost(\theta, (x^{(i)}, y^{(i)}))$ before updating $\theta$ using $(x^{(i)}, y^{(i)})$.
+
+  Every 1000 iterations(say), plot $cost(\theta, (x^{(i)}, y^{(i)}))$ averaged over the last 1000 examples processed by algorithm.

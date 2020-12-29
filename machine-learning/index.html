@@ -13,7 +13,7 @@
 <meta property="og:url" content="https://daijiabin.github.io/machine-learning/" />
 <meta property="og:image" content="https://daijiabin.github.io/logo.png"/>
 <meta property="article:published_time" content="2020-12-18T19:11:53+01:00" />
-<meta property="article:modified_time" content="2020-12-29T14:16:52+01:00" />
+<meta property="article:modified_time" content="2020-12-29T17:12:41+01:00" />
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="https://daijiabin.github.io/logo.png"/>
 
@@ -33,8 +33,8 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "https:\/\/daijiabin.github.io\/machine-learning\/"
-        },"image": ["https:\/\/daijiabin.github.io\/images\/Apple-Devices-Preview.png"],"genre": "posts","keywords": "AI","wordcount":  5247 ,
-        "url": "https:\/\/daijiabin.github.io\/machine-learning\/","datePublished": "2020-12-18T19:11:53+01:00","dateModified": "2020-12-29T14:16:52+01:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
+        },"image": ["https:\/\/daijiabin.github.io\/images\/Apple-Devices-Preview.png"],"genre": "posts","keywords": "AI","wordcount":  5553 ,
+        "url": "https:\/\/daijiabin.github.io\/machine-learning\/","datePublished": "2020-12-18T19:11:53+01:00","dateModified": "2020-12-29T17:12:41+01:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
             "@type": "Organization",
             "name": "Dai Jiabin","logo": "https:\/\/daijiabin.github.io\/images\/avatar.png"},"author": {
                 "@type": "Person",
@@ -114,8 +114,8 @@
             <div class="toc-content" id="toc-content-auto"></div>
         </div><article class="page single"><h1 class="single-title animated flipInX">Machine Learning</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="https://www.github.com/DaiJiabin" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw"></i>Dai Jiabin</a></span>&nbsp;<span class="post-category">included in <a href="/categories/learn/"><i class="far fa-folder fa-fw"></i>Learn</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2020-12-18">2020-12-18</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;5247 words&nbsp;
-                <i class="far fa-clock fa-fw"></i>&nbsp;25 minutes&nbsp;</div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2020-12-18">2020-12-18</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;5553 words&nbsp;
+                <i class="far fa-clock fa-fw"></i>&nbsp;27 minutes&nbsp;</div>
         </div><div class="details toc" id="toc-static"  kept="">
                 <div class="details-summary toc-title">
                     <span>Contents</span>
@@ -271,8 +271,17 @@
             <li><a href="#optimization-algorithm-1">Optimization Algorithm</a></li>
             <li><a href="#collaborative-filtering-1">Collaborative Filtering</a></li>
             <li><a href="#collaborative-filtering-algorithm">Collaborative Filtering Algorithm</a></li>
+            <li><a href="#vectorization-low-rank-matrix-factorization">Vectorization: Low rank matrix factorization</a></li>
+            <li><a href="#mean-normalization">Mean Normalization</a></li>
           </ul>
         </li>
+      </ul>
+    </li>
+    <li><a href="#learning-with-large-datasets">Learning with large datasets</a>
+      <ul>
+        <li><a href="#stochastic-gradient-descent">Stochastic gradient descent</a></li>
+        <li><a href="#mini-batch-gradient-descent">Mini-batch gradient descent</a></li>
+        <li><a href="#convergence">Convergence</a></li>
       </ul>
     </li>
   </ul>
@@ -2185,12 +2194,171 @@ $J(\theta) = -\frac{1}{m}\sum_{i = 1}^{m}[y^{(i)}log(h_\theta(x^{(i)})) + (1 - y
 <p>For a user with parameters $\theta$ and a movie with (learned) features $x$, predict a star rating $\theta^Tx$.</p>
 </li>
 </ol>
+<h4 id="vectorization-low-rank-matrix-factorization">Vectorization: Low rank matrix factorization</h4>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">Movie</th>
+<th style="text-align:center">Alice(1)</th>
+<th style="text-align:center">Bob(2)</th>
+<th style="text-align:center">Carol(3)</th>
+<th style="text-align:center">Dave(4)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">Love at last</td>
+<td style="text-align:center">5</td>
+<td style="text-align:center">5</td>
+<td style="text-align:center">0</td>
+<td style="text-align:center">0</td>
+</tr>
+<tr>
+<td style="text-align:center">Romance forever</td>
+<td style="text-align:center">5</td>
+<td style="text-align:center">?</td>
+<td style="text-align:center">?</td>
+<td style="text-align:center">0</td>
+</tr>
+<tr>
+<td style="text-align:center">Cute Puppies of love</td>
+<td style="text-align:center">?</td>
+<td style="text-align:center">4</td>
+<td style="text-align:center">0</td>
+<td style="text-align:center">?</td>
+</tr>
+<tr>
+<td style="text-align:center">Nonstop car cashes</td>
+<td style="text-align:center">0</td>
+<td style="text-align:center">0</td>
+<td style="text-align:center">5</td>
+<td style="text-align:center">4</td>
+</tr>
+<tr>
+<td style="text-align:center">Swords vs. karate</td>
+<td style="text-align:center">0</td>
+<td style="text-align:center">0</td>
+<td style="text-align:center">5</td>
+<td style="text-align:center">?</td>
+</tr>
+</tbody>
+</table>
+<p>$Y = \begin{bmatrix}5&amp;5&amp;0&amp;0&amp;?\\5&amp;?&amp;?&amp;0&amp;?\\?&amp;4&amp;0&amp;?&amp;?\\0&amp;0&amp;5&amp;4&amp;?\\0&amp;0&amp;5&amp;0&amp;?\end{bmatrix}$</p>
+<p>Predicted ratings ($X\Theta^T, (i, j) = (\theta^{(j)})^T(x^{(i)})$):</p>
+<p>$\begin{bmatrix}(\theta^{(1)})^T(x^{(1)})&amp;(\theta^{(2)})^T(x^{(1)})&amp;&hellip;&amp;(\theta^{(n_u)})^T(x^{(1)})\\(\theta^{(1)})^T(x^{(2)})&amp;(\theta^{(2)})^T(x^{(2)})&amp;&hellip;&amp;(\theta^{(n_u)})^T(x^{(2)})\\&hellip;&amp;&hellip;&amp;&hellip;&amp;&hellip;&amp;\\(\theta^{(1)})^T(x^{(n_m)})&amp;(\theta^{(2)})^T(x^{(n_m)})&amp;&hellip;&amp;(\theta^{(n_u)})^T(x^{(n_m)})\end{bmatrix}$</p>
+<p>$X = \begin{bmatrix}-&amp;(x^{(1)})^T&amp;-\\-&amp;(x^{(2)})^T&amp;-\\&hellip;&amp;&hellip;&amp;&hellip;\\-&amp;(x^{(n_m)})^T&amp;-\\\end{bmatrix}$
+$\Theta = \begin{bmatrix}-&amp;(\theta^{(1)})^T&amp;-\\-&amp;(\theta^{(2)})^T&amp;-\\&hellip;&amp;&hellip;&amp;&hellip;\\-&amp;(\theta^{(n_m)})^T&amp;-\\\end{bmatrix}$</p>
+<ul>
+<li>
+<p>Finding related movies</p>
+<p>For each product $i$, we learn a feature vector $x^{(i)}\isin \R^n$.</p>
+<p>How to find movies $j$ related to movie $i$?</p>
+<p>Find movies with the smallest $||x^{(i)} - x^{(j)}||$</p>
+</li>
+</ul>
+<h4 id="mean-normalization">Mean Normalization</h4>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">Movie</th>
+<th style="text-align:center">Alice(1)</th>
+<th style="text-align:center">Bob(2)</th>
+<th style="text-align:center">Carol(3)</th>
+<th style="text-align:center">Dave(4)</th>
+<th style="text-align:center">Eve(5)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">Love at last</td>
+<td style="text-align:center">5</td>
+<td style="text-align:center">5</td>
+<td style="text-align:center">0</td>
+<td style="text-align:center">0</td>
+<td style="text-align:center">?</td>
+</tr>
+<tr>
+<td style="text-align:center">Romance forever</td>
+<td style="text-align:center">5</td>
+<td style="text-align:center">?</td>
+<td style="text-align:center">?</td>
+<td style="text-align:center">0</td>
+<td style="text-align:center">?</td>
+</tr>
+<tr>
+<td style="text-align:center">Cute Puppies of love</td>
+<td style="text-align:center">?</td>
+<td style="text-align:center">4</td>
+<td style="text-align:center">0</td>
+<td style="text-align:center">?</td>
+<td style="text-align:center">?</td>
+</tr>
+<tr>
+<td style="text-align:center">Nonstop car cashes</td>
+<td style="text-align:center">0</td>
+<td style="text-align:center">0</td>
+<td style="text-align:center">5</td>
+<td style="text-align:center">4</td>
+<td style="text-align:center">?</td>
+</tr>
+<tr>
+<td style="text-align:center">Swords vs. karate</td>
+<td style="text-align:center">0</td>
+<td style="text-align:center">0</td>
+<td style="text-align:center">5</td>
+<td style="text-align:center">?</td>
+<td style="text-align:center">?</td>
+</tr>
+</tbody>
+</table>
+<p>$Y = \begin{bmatrix}5&amp;5&amp;0&amp;0&amp;?\\5&amp;?&amp;?&amp;0&amp;?\\?&amp;4&amp;0&amp;?&amp;?\\0&amp;0&amp;5&amp;4&amp;?\\0&amp;0&amp;5&amp;0&amp;?\end{bmatrix}$
+$\mu = \begin{bmatrix}2.5\\2.5\\2\\2.25\\1.25\end{bmatrix}\rarr Y = \begin{bmatrix}2.5&amp;2.5&amp;-2.5&amp;-2.5&amp;?\\2.5&amp;?&amp;?&amp;-2.5&amp;?\\?&amp;2&amp;-2&amp;?&amp;?\\-2.25&amp;-2.25&amp;2.75&amp;1.75&amp;?\\-1.25&amp;-1.25&amp;3.75&amp;-1.25&amp;?\end{bmatrix}$</p>
+<p>$min_{(x^{(1)}, x^{(2)}, &hellip;, x^{(n_m)}, \theta^{(1)}, \theta^{(2)}, &hellip;, \theta^{(n_u)})}\frac{1}{2}\sum_{(i, j):r(i, j) = 1}((\theta^{(j)})^T(x^{(i)} - y^{(i, j)})^2 + \frac{\lambda}{2}\sum_{i = 1}^{n_m}\sum_{k = 1}^{n}(x_k^{(i)})^2 + \frac{\lambda}{2}\sum_{j = 1}^{n_u}\sum_{k = 1}^{n}(\theta_k^{(j)})^2$</p>
+<p>For user j, on movie i predict:</p>
+<p>$\rarr (\theta^{(j)})^T(x^{(i)}) + \mu_i$</p>
+<p>User Eve:</p>
+<p>$\theta^{(5)} = \begin{bmatrix}0\\0\end{bmatrix}\rarr (\theta^{(5)})^T(x^{(i)}) + \mu_i$</p>
+<h2 id="learning-with-large-datasets">Learning with large datasets</h2>
+<h3 id="stochastic-gradient-descent">Stochastic gradient descent</h3>
+<ul>
+<li>
+<p>$Cost(\theta, (x^{(i)}, y^{(i)}) = \frac{1}{2}(h_\theta(x^{(i)}) - y^{(i)})^2$</p>
+<p>$J_{train}(\theta) = \frac{1}{m}\sum_{i = 1}^mcost(\theta, (x^{(i)}, y^{(i)})$</p>
+</li>
+<li>
+<p>Randomly shuffle training examples, repeat $\theta_j\coloneqq\theta_j - \alpha(h_\theta(x^{(i)}) - y^{(i)})x^{(i)}$</p>
+</li>
+</ul>
+<h3 id="mini-batch-gradient-descent">Mini-batch gradient descent</h3>
+<ul>
+<li>
+<p>Batch gradient descent: Use all m examples in each iteration</p>
+</li>
+<li>
+<p>Stochastic gradient descent: Use 1 example in each iteration</p>
+</li>
+<li>
+<p>Mini-batch gradient descent: Use b examples in each iteration</p>
+</li>
+</ul>
+<h3 id="convergence">Convergence</h3>
+<ul>
+<li>
+<p>Batch gradient descent</p>
+<p>Plot $J_{train}(\theta)$ as a function of the number of iterations of gradient descent.</p>
+</li>
+<li>
+<p>Stochastic gradient descent:</p>
+<p>During learning, compute $cost(\theta, (x^{(i)}, y^{(i)}))$ before updating $\theta$ using $(x^{(i)}, y^{(i)})$.</p>
+<p>Every 1000 iterations(say), plot $cost(\theta, (x^{(i)}, y^{(i)}))$ averaged over the last 1000 examples processed by algorithm.</p>
+</li>
+</ul>
 </div><div class="post-footer" id="post-footer">
     <div class="post-info">
         <div class="post-info-line">
             <div class="post-info-mod">
-                <span>Updated on 2020-12-29&nbsp;<a class="git-hash" href="https://github.com/dillonzq/LoveIt/commit/c31beb4007937aafc5fdef9e1f4cc7c3b214395c" target="_blank" title="commit by DaiJiabin(kechou.dai@gmail.com) c31beb4007937aafc5fdef9e1f4cc7c3b214395c: Processing Tue 29 Dec 2020 02:16:52 PM CET">
-                                    <i class="fas fa-hashtag fa-fw"></i>c31beb4</a></span>
+                <span>Updated on 2020-12-29&nbsp;<a class="git-hash" href="https://github.com/dillonzq/LoveIt/commit/2b3692e8a4b67f5c5f2159583857ffdeab5a4cca" target="_blank" title="commit by DaiJiabin(kechou.dai@gmail.com) 2b3692e8a4b67f5c5f2159583857ffdeab5a4cca: Processing Tue 29 Dec 2020 05:12:41 PM CET">
+                                    <i class="fas fa-hashtag fa-fw"></i>2b3692e</a></span>
             </div>
             <div class="post-info-license"></div>
         </div>
