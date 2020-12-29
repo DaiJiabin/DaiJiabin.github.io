@@ -1103,4 +1103,115 @@
 ### Multivariance Gaussian Distribution
 
 - $x \isin \R^n$, don't model $p(x_1), p(x_2)$, ..., etc. separately. Instead, model $p(x)$ all in one go.
+
 - Parameters: $\mu\isin\R^n, \Sigma \isin \R^{n\times n}$, the "convariance matrix"
+
+- $p(x; \mu, \Sigma) = \frac{1}{(2\pi)^{(\frac{n}{2})}|\Sigma|^\frac{1}{2}}exp(=\frac{1}{2}(x - \mu)^T\Sigma^{-1}(x - \mu))$
+
+## Recommander Systems
+
+### Problem Formulation
+
+#### Example: Predicting movie ratings
+
+|Movie|Alice(1)|Bob(2)|Carol(3)|Dave(4)|
+|:---:|:------:|:----:|:------:|:-----:|
+|Love at last|5|5|0|0|
+|Romance forever|5|?|?|0|
+|Cute Puppies of love|?|4|0|?|
+|Nonstop car cashes|0|0|5|4|
+|Swords vs. karate|0|0|5|?|
+
+- $n_u$: no.users
+  
+  $n_m$: no.movies
+  
+  $r(i, j) = 1$: if user $j$ has rated movie $i$
+  
+  $y^{(i,j)} \isin [0,5]$: rating given by user $j$ to movie $i$ ( defined only if $r(i, j) = 1$ )
+
+### Contnet-based recommendations
+
+|Movie|Alice(1)|Bob(2)|Carol(3)|Dave(4)|$x_1$(romance)|$x_2$(action)|
+|:---:|:------:|:----:|:------:|:-----:|:------------:|:-----------:|
+|Love at last|5|5|0|0|0.9|0|
+|Romance forever|5|?|?|0|1.0|0.01|
+|Cute Puppies of love|?|4|0|?|0.99|0|
+|Nonstop car cashes|0|0|5|4|0.1|1.0|
+|Swords vs. karate|0|0|5|?|0|0.9|
+
+- For each user j, learn a parameter $\theta^{(j)} \isin \R^3$. Predict user j as rating movie i with $(\theta^{(j)})^Tx^{(i)}$ stars. ( $x_0 = 1$ )
+
+- $\theta^{(j)} =$ parameter vector for user $j$
+
+  $x^{(i)} =$ feature vector for movie $i$
+
+  For user j, movie i, predicting rating: $(\theta^{(j)})^Tx^{(i)}$
+
+  $m^{(j)} =$ no.of movies rated by user $j$
+
+- To learn $\theta^{(j)}$:
+
+  $min_{\theta^{(j)}}\frac{1}{2m^{(j)}}\sum_{i:r(i, j) = 1}((\theta^{(j)})^T(x^{(i)} - y^{(i, j)})^2 + \frac{\lambda}{2m^{(j)}}\sum_{k = 1}^{n}(\theta_k^{(j)})^2$
+
+  $\rarr min_{\theta^{(j)}}\frac{1}{2}\sum_{i:r(i, j) = 1}((\theta^{(j)})^T(x^{(i)} - y^{(i, j)})^2 + \frac{\lambda}{2}\sum_{k = 1}^{n}(\theta_k^{(j)})^2$
+
+- To learn $\theta^{(1)}, \theta^{(2)}, ..., \theta^{(n_u)}$:
+
+  $min_{\theta^{(1)}, \theta^{(2)}, ..., \theta^{(n_u)}}\frac{1}{2}\sum_{j = 1}^{n_u}\sum_{i:r(i, j) = 1}((\theta^{(j)})^T(x^{(i)} - y^{(i, j)})^2 + \frac{\lambda}{2}\sum_{j = 1}^{n_u}\sum_{k = 1}^{n}(\theta_k^{(j)})^2$
+
+#### Optimization Algorithm
+
+- $min_{\theta^{(1)}, \theta^{(2)}, ..., \theta^{(n_u)}}\frac{1}{2}\sum_{j = 1}^{n_u}\sum_{i:r(i, j) = 1}((\theta^{(j)})^T(x^{(i)} - y^{(i, j)})^2 + \frac{\lambda}{2}\sum_{j = 1}^{n_u}\sum_{k = 1}^{n}(\theta_k^{(j)})^2$
+
+- Gradient Descent update:
+
+  $\theta_k^{(j)} \coloneqq \theta_k^{(j)} - \alpha\sum_{i:r(i, j) = 1}((\theta^{(j)})^Tx^{(i)} - y^{(i, j)})x_k^{(i)}$ ( for $k = 0$ )
+
+  $\theta_k^{(j)} \coloneqq \theta_k^{(j)} - \alpha(\sum_{i:r(i, j) = 1}((\theta^{(j)})^Tx^{(i)} - y^{(i, j)})x_k^{(i)} + \lambda\theta_k^{(j)})$ ( for $k \not = 0$ )
+
+### Collaborative Filtering
+
+#### Optimization Algorithm
+
+- Given $\theta^{(1)}, \theta^{(2)}, ..., \theta^{(n_u)}$, to learn $x^{(i)}$:
+
+    $min_{x^{(i)}}\frac{1}{2}\sum_{j = 1}^{n_u}\sum_{i:r(i, j) = 1}((\theta^{(j)})^T(x^{(i)} - y^{(i, j)})^2 + \frac{\lambda}{2}\sum_{k = 1}^{n}(x_k^{(i)})^2$
+
+- Given $\theta^{(1)}, \theta^{(2)}, ..., \theta^{(n_u)}$, to learn $x^{(1)}, ..., x^{(n_u)}$:
+
+  $min_{x^{(1)}, x^{(2)}, ..., x^{(n_m)}}\frac{1}{2}\sum_{i = 1}^{n_m}\sum_{i:r(i, j) = 1}((\theta^{(j)})^T(x^{(i)} - y^{(i, j)})^2 + \frac{\lambda}{2}\sum_{i = 1}^{n_m}\sum_{k = 1}^{n}(x_k^{(i)})^2$
+
+#### Collaborative Filtering
+
+- Given $x^{(1)}, x^{(2)}, ..., x^{(n_m)}$ (and movie ratings), can estimate $\theta^{(1)}, \theta^{(2)}, ..., \theta^{(n_u)}$
+
+- Given $\theta^{(1)}, \theta^{(2)}, ..., \theta^{(n_u)}$, can estimate $x^{(1)}, x^{(2)}, ..., x^{(n_m)}$
+
+- Guess $\theta \rarr x \rarr \theta \rarr x \rarr \theta \rarr x \rarr ...$
+
+#### Collaborative Filtering Algorithm
+
+- Collaborative flitering optimization objective
+
+  - Given $x^{(1)}, x^{(2)}, ..., x^{(n_m)}$, estimate $\theta^{(1)}, \theta^{(2)}, ..., \theta^{(n_u)}$
+
+    $min_{\theta^{(1)}, \theta^{(2)}, ..., \theta^{(n_u)}}\frac{1}{2}\sum_{j = 1}^{n_u}\sum_{i:r(i, j) = 1}((\theta^{(j)})^T(x^{(i)} - y^{(i, j)})^2 + \frac{\lambda}{2}\sum_{j = 1}^{n_u}\sum_{k = 1}^{n}(\theta_k^{(j)})^2$
+
+  - Given $\theta^{(1)}, \theta^{(2)}, ..., \theta^{(n_u)}$, estimate $x^{(1)}, x^{(2)}, ..., x^{(n_m)}$
+
+    $min_{x^{(1)}, x^{(2)}, ..., x^{(n_m)}}\frac{1}{2}\sum_{i = 1}^{n_m}\sum_{i:r(i, j) = 1}((\theta^{(j)})^T(x^{(i)} - y^{(i, j)})^2 + \frac{\lambda}{2}\sum_{i = 1}^{n_m}\sum_{k = 1}^{n}(x_k^{(i)})^2$
+
+  - $min_{(x^{(1)}, x^{(2)}, ..., x^{(n_m)}, \theta^{(1)}, \theta^{(2)}, ..., \theta^{(n_u)})}\frac{1}{2}\sum_{(i, j):r(i, j) = 1}((\theta^{(j)})^T(x^{(i)} - y^{(i, j)})^2 + \frac{\lambda}{2}\sum_{i = 1}^{n_m}\sum_{k = 1}^{n}(x_k^{(i)})^2 + \frac{\lambda}{2}\sum_{j = 1}^{n_u}\sum_{k = 1}^{n}(\theta_k^{(j)})^2$
+
+- Collaborative flitering Algorithm
+
+1. Initialize $x^{(1)}, x^{(2)}, ..., x^{(n_m)}, \theta^{(1)}, \theta^{(2)}, ..., \theta^{(n_u)}$ to small random values
+
+2. Minimize $J(x^{(1)}, x^{(2)}, ..., x^{(n_m)}, \theta^{(1)}, \theta^{(2)}, ..., \theta^{(n_u)})$ using gradient descent ( or advanced optimization algorithm ). E.g. For every $j = 1, ..., n_u, i = 1, .... n_m:$
+
+    $x_k^{(i)} \coloneqq x_k^{(i)} - \alpha(\sum_{j:r(i, j) = 1}((\theta^{(j)})^T(x^{(i)} - y^{(i, j)}))\theta_k^{(j)} + \lambda x_k^{(i)})$
+
+    $\theta_k^{(j)}\coloneqq\theta_k^{(j)} - \alpha(\sum_{i:r(i, j) = 1}((\theta^{(j)})^T(x^{(i)} - y^{(i, j)}))\theta_k^{(j)} + \lambda \theta_k^{(j)})$
+
+3. For a user with parameters $\theta$ and a movie with (learned) features $x$, predict a star rating $\theta^Tx$.
