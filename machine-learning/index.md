@@ -1295,3 +1295,7 @@ User Eve:
   During learning, compute $cost(\theta, (x^{(i)}, y^{(i)}))$ before updating $\theta$ using $(x^{(i)}, y^{(i)})$.
 
   Every 1000 iterations(say), plot $cost(\theta, (x^{(i)}, y^{(i)}))$ averaged over the last 1000 examples processed by algorithm.
+
+## At the End...
+
+__Thank you, Andrew Ng!__
