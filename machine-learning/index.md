@@ -202,7 +202,9 @@
   - $P(y = 1 | x; \theta) + P(y = 0 | x; \theta) = 1$
 
 ### Deciding Boundary 
-  
+
+- The decision boundary is the line that __separates the area where y = 0 and where y = 1.__ It is created by our hypothesis function.
+
 - Linear
 
   ![Linear](/Linear.png)
@@ -210,6 +212,20 @@
 - Non-Linear
 
   ![Non-Linear](/Non-Linear.png)
+
+- The way our logistic function g behaves is that when its input is greater than or equal to zero, its output is greater than or equal to 0.5:
+  
+  $g(z) \geq 0.5$
+  
+  $\text{when}\ z \geq 0$
+
+  Remeber:
+
+  $z = 0, e^0 = 1\Rightarrow \ g(z) = \frac{1}{2}$
+
+  $z \rarr \infty, e^{-\infty}\rarr \ 0 \Rightarrow \ g(z) = 1$
+
+  $z \rarr -\infty, e^{\infty}\rarr \ \infty \Rightarrow \ g(z) = 0$
 
 ### Cost Function
 

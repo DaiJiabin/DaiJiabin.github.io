@@ -33,7 +33,7 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "https:\/\/daijiabin.github.io\/machine-learning\/"
-        },"image": ["https:\/\/daijiabin.github.io\/images\/Apple-Devices-Preview.png"],"genre": "posts","keywords": "AI","wordcount":  5560 ,
+        },"image": ["https:\/\/daijiabin.github.io\/images\/Apple-Devices-Preview.png"],"genre": "posts","keywords": "AI","wordcount":  5654 ,
         "url": "https:\/\/daijiabin.github.io\/machine-learning\/","datePublished": "2020-12-18T19:11:53+01:00","dateModified": "2020-12-30T08:45:51+01:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
             "@type": "Organization",
             "name": "Dai Jiabin","logo": "https:\/\/daijiabin.github.io\/images\/avatar.png"},"author": {
@@ -114,7 +114,7 @@
             <div class="toc-content" id="toc-content-auto"></div>
         </div><article class="page single"><h1 class="single-title animated flipInX">Machine Learning</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="https://www.github.com/DaiJiabin" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw"></i>Dai Jiabin</a></span>&nbsp;<span class="post-category">included in <a href="/categories/learn/"><i class="far fa-folder fa-fw"></i>Learn</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2020-12-18">2020-12-18</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;5560 words&nbsp;
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2020-12-18">2020-12-18</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;5654 words&nbsp;
                 <i class="far fa-clock fa-fw"></i>&nbsp;27 minutes&nbsp;</div>
         </div><div class="details toc" id="toc-static"  kept="">
                 <div class="details-summary toc-title">
@@ -620,6 +620,9 @@
 <h3 id="deciding-boundary">Deciding Boundary</h3>
 <ul>
 <li>
+<p>The decision boundary is the line that <strong>separates the area where y = 0 and where y = 1.</strong> It is created by our hypothesis function.</p>
+</li>
+<li>
 <p>Linear</p>
 <p><img
         class="lazyload"
@@ -640,6 +643,15 @@
         data-sizes="auto"
         alt="/Non-Linear.png"
         title="Non-Linear" /></p>
+</li>
+<li>
+<p>The way our logistic function g behaves is that when its input is greater than or equal to zero, its output is greater than or equal to 0.5:</p>
+<p>$g(z) \geq 0.5$</p>
+<p>$\text{when}\ z \geq 0$</p>
+<p>Remeber:</p>
+<p>$z = 0, e^0 = 1\Rightarrow \ g(z) = \frac{1}{2}$</p>
+<p>$z \rarr \infty, e^{-\infty}\rarr \ 0 \Rightarrow \ g(z) = 1$</p>
+<p>$z \rarr -\infty, e^{\infty}\rarr \ \infty \Rightarrow \ g(z) = 0$</p>
 </li>
 </ul>
 <h3 id="cost-function">Cost Function</h3>
