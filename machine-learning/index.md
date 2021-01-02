@@ -299,6 +299,23 @@
 
   - More complex
 
+- We can write a single function that returns both of these:
+  
+  ```
+  function [jVal, gradient] = costFunction(theta)
+    jVal = [...code to compute J(theta)...];
+    gradient = [...code to compute derivative of J(theta)...];
+  end
+  ```
+
+- Then we can use octave's "fminunc()" optimization algorithm along with the "optimset()" function that creates an object containing the options we want to send to "fminunc()".
+  
+  ```
+  options = optimset('GradObj', 'on', 'MaxIter', 100);
+  initialTheta = zeros(2,1);
+  [optTheta, functionVal, exitFlag] = fminunc(@costFunction, initialTheta, options);
+  ```
+
 ### Multi-class Classification: one-vs-all ( one-vs-rest )
 
 - E.g., Email foldering / tagging: Work, Friends, Family, Hobby ($y=1, y=2, y=3, y=4$)
