@@ -239,6 +239,8 @@
     $J(\theta) = \frac{1}{m}\sum_{i=1}^m\frac{1}{2}(h_\theta(x^{(i)} - y^{(i)})^2$  
     $Cost(h_\theta(x), y) = \frac{1}{2}(h_\theta(x) - y)^2$
 
+- We cannot use the same cost function that we use for linear regression because the Logistic Function will cause the output to be wavy, __causing many local optima. In other words, it will not be a convex function.__
+
 - $Cost(h_\theta(x), y) = \begin{cases}-log(h_\theta(x))&\text{if y = 1}\\\\-log(1 - h_\theta(x)) &\text{if y=0}\end{cases}$
 
   - if $y = 1, h_\theta(x) = 1 \rarr Cost = 0$.
@@ -271,7 +273,9 @@
     
     - In Logistic Regression is $h_\theta(x) = \frac{1}{1 + e^{-\theta^Tx}}$
 
-- __Try to write it out:__
+- __A vectorized implementation is:__
+
+  $\theta := \theta - \frac{\alpha}{m}X^T(g(X\theta) - y)$
 
 ### Anvanced Optimization
 
