@@ -320,6 +320,8 @@
 
 - E.g., Email foldering / tagging: Work, Friends, Family, Hobby ($y=1, y=2, y=3, y=4$)
 
+- We are basically __choosing one class and then lumping all the others into a single second class.__ We do this repeatedly, applying binary logistic regression to each case, and then use the hypothesis that returned the highest value as our prediction.
+
 - $h_\theta^{(i)} = P(y = i | x; \theta)$ $(i=1,2,3)$
 
 - Train a logistic regression classifier $h_\theta^{(i)}(x)$ for each class $i$ to predict the probability that $y=i$. On a new input $x$, to make a prediction, pick the class $i$ that maximizes $max_ih_\theta^{(i)}(x)$.
@@ -337,6 +339,8 @@
 - On Logistic Regression $\darr$
 
 ![Overfitting-Logistic.png](/Overfitting-Logistic.png)
+
+- __Underfitting, or high bias,__ is when the form of our hypothesis function h maps poorly to the trend of the data. It is usually caused by a function that is too simple or uses too few features. At the other extreme, __overfitting, or high variance,__ is caused by a hypothesis function that fits the available data but does not generalize well to predict new data. It is usually caused by a complicated function that creates a lot of unnecessary curves and angles unrelated to the data.
 
 #### Adressing Overfitting:
   
@@ -368,7 +372,7 @@
   
   - $J(\theta) = \frac{1}{2m}[\sum_{i=1}^m(h_\theta(x^{(i)} - y^{(i)})^2 + \lambda\sum_{j=1}^{n}\theta_j^2]$. We pinelize only $\theta_{i > 0}$
      
-  - $\lambda\sum_{j=1}^{n}\theta_j^2$ is called Regulization Parameter.
+  - $\lambda$ is called Regulization Parameter. It determines how much the costs of our theta parameters are inflated. 
   
   - When the $\lambda$ too large is, $h_\theta(x) = \theta_0$ (Because this can make $\theta_{i > 0} \thickapprox 0$)
 
@@ -396,7 +400,9 @@
 
   - $\theta = (X^TX + \lambda\begin{bmatrix}0 & 0 & 0\\\\0 & 1 &0 \\\\ 0 & 0 & 1\end{bmatrix})^{-1}X^Ty$
     
-    - The Elements in the Matrix next to $\lambda$ looks like: $e_{i = j\not = 0}$
+    - The Elements in the Matrix next to $\lambda[\text{size} = (n + 1)\times (n + 1)]$ looks like: $e_{11} = 0,\ e_{i \not = j} = 0,\ e_{i=j\not = 1} = 1$. (With 0 at the top left and 1's down the diagonal, with 0's everywhere else.)
+
+    - if $\lambda > 0$, the Matrix $(X^TX + \lambda\begin{bmatrix}0 & 0 & 0\\\\0 & 1 &0 \\\\ 0 & 0 & 1\end{bmatrix})$ can always transport.
 
 #### Regularized Logistic Regression
 
