@@ -416,6 +416,8 @@
   
   - $\theta_{j > 0} := \theta_j - \alpha[\frac{1}{m}\sum_{i=1}^m(h_\theta(x^{(i)} - y^{(i)}))x^{(i)} + \frac{\lambda}{m}\theta_j]$
   
+    $\rarr \theta_{j > 0} := \theta_j(1- \alpha\frac{\lambda}{m}) - \alpha\frac{1}{m}\sum_{i=1}^m(h_\theta(x^{(i)} - y^{(i)}))x^{(i)}$
+
   - Here $h_\theta(x) = \frac{1}{1 + e^{-\theta^Tx}}$
 
 ## Non-Linear Hypothesis - Neural Networks
