@@ -442,16 +442,31 @@
 
   There's a __sigmoid(logistic) Activaition Function__ in this Picture 
 
+  $\theta$( "Parameters" ) are called as __"Weights"__ here.
+
 #### Presentations:
 
 ![NN.png](/NN.png)
 
 - $a_i^{(j)}: $ Activation of Unit $i$ in Layer $j$
 
+- Input Layer is the 1st Layer.
+
 - $\Theta^{(j)}: $ Matrix of weights controlling function mapping from layer $j$ to layer $j+1$
 
-- :warning: If networks has $s_j$ units in layer $j$, $s_{j+1}$ Units in layer $j+1$, then $\Theta^{(j)}$ will be of dimension $s_{j+1} \times (s_j + 1)$. 
-  __And it should be randomly intialized.__
+  ![NN_eg](/1609761722633.png)
+
+  - $\theta^{(1)}: 3\times 4$
+
+  - $a_1^{(2)} = g(\Theta_{10}^{(1)}x_0 + \Theta_{11}^{(1)}x_1 + \Theta_{12}^{(1)}x_2 + \Theta_{13}^{(1)}x_3)$
+
+    $a_2^{(2)} = g(\Theta_{20}^{(1)}x_0 + \Theta_{21}^{(1)}x_1 + \Theta_{22}^{(1)}x_2 + \Theta_{23}^{(1)}x_3)$
+
+    $a_1^{(3)} = g(\Theta_{30}^{(1)}x_0 + \Theta_{31}^{(1)}x_1 + \Theta_{32}^{(1)}x_2 + \Theta_{33}^{(1)}x_3)$
+
+    $h_{\Theta}(x) = a_1^{(3)} = g(\Theta_{10}^{(2)}a_0^{(2)} + \Theta_{11}^{(2)}a_1^{(2)} + \Theta_{12}^{(2)}a_2^{(2)} + \Theta_{13}^{(2)}a_3^{(2)})$
+
+- :warning: If networks has $s_j$ units in layer $j$, $s_{j+1}$ Units in layer $j+1$, then $\Theta^{(j)}$ will be of dimension $s_{j+1} \times (s_j + 1)$ ( Because there's a Bias Unit in j+1th Layer ). And it should be randomly intialized.
 
 #### Vectorized Implementation & Forward Propagation:
 
@@ -461,17 +476,25 @@
 
   $z^{(2)} = \Theta^{(1)}x$
 
-  - We can image Input Layer as $a^{(1)}$. Then we can write in this Form:
+  - We define the Input Layer as $a^{(1)}$. Then we can write in this Form:
   
     $z^{(2)} = \Theta^{(1)}a^{(1)}$
   
   $a^{(2)} = g(z^{(2)})$ (Here $g$ is the Sigmoid Function.)
 
-  - Add $a_0^{(2)} = 0$
+  Add $a_0^{(2)} = 0$
 
   $z^{(3)} = \Theta^{(2)}a^{(2)}$
 
   $h_\theta(x) = a^{(3)} = g(z^{(3)})$
+
+- In a word, Setting $x = a^{(1)}$, we can write:
+
+    $z^{(j)} = \Theta^{(j - 1)}a^{(j - 1)}$
+    
+    $a^{(j)} = g(z^{(j)})$
+
+    $h_\Theta(x) = a^{(j + 1)} = g(z^{(j + 1)})$
 
 - We can through choosing $\theta$ to realize _AND, OR, NOT, XOR, XNOR_...
 
