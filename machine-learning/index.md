@@ -584,6 +584,28 @@
   
   - $D_{ij}^{(l)} := \frac{1}{m}\Delta_{ij}^{(l)}$ if $j = 0$
 
+![Intution](/Intution.png)
+
+### Training Neural Network
+
+1. Randomly initialize weights
+
+2. Implement forward propagation to get $h_\Theta(x^{(i)})$ for any $y^{(i)}$
+
+3. Implement code to compute cost function $J(\Theta)$
+
+4. Implement backpropagation to compute partial derivates $\frac{\partial}{\partial\Theta_{jk}^{(l)}} J(\Theta)$
+
+5. Use Gradient Checking to compare $\frac{\partial}{\partial\Theta_{jk}^{(l)}} J(\Theta)$ computed using back propagation vs. using numerical estimate of gradient of $J(\Theta)$, then disable gradient checking code.
+
+6. Use Gradient Descent or advanced optimization method with backpropagation to try to minimize $J(\Theta)$ as a function of parameters $\Theta$
+
+```
+for i = 1:m,
+   Perform forward propagation and backpropagation using example (x(i),y(i))
+   (Get activations a(l) and delta terms d(l) for l = 2,...,L
+```
+
 ### Evaluating Hypothesis
 
 - Split the labeled data __randomly__ into 2 Parts: Training Set ( 70% ) and Test Set ( 30% ).
@@ -594,7 +616,7 @@
   
   - In Linear Regression: $J(\theta) = \frac{1}{2m_{test}}\sum_{i = 1}^{m_{test}}(J(x_{test}^{(i)}) - y_{test}^{(i)})^2$
   
-  - In Logistic Regression: $J(\theta) = =-\frac{1}{m_{test}}\sum_{i = 1}^{m_{test}}[y^{(i)}logh_{\theta}(x^{(i)}_{test}) + (1 - y^{(i)})log(1 - h_{\theta}(x^{(i)}_{test}))]$
+  - In Logistic Regression: $J(\theta) = -\frac{1}{m_{test}}\sum_{i = 1}^{m_{test}}[y^{(i)}logh_{\theta}(x^{(i)}_{test}) + (1 - y^{(i)})log(1 - h_{\theta}(x^{(i)}_{test}))]$
 
 - Misclassification error ( 0/1 multiclassification error ):
 
