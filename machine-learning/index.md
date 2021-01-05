@@ -556,6 +556,8 @@
 
     Here $g'(z^{(n)}) = a^{(n)} .* (1 - a^{(n)})$
 
+    $\delta^{(l)} = ((\Theta^{(l)})^T\delta^{(l + 1)}) .* a^{(l)} .* (1 - a^{(l)})$
+
 - Specifically:
 
   - Training Set: ${(x^{(1)}, y^{(1)}), (x^{(2)}, y^{(2)}), ..., (x^{(m)}, y^{(m)})}$
@@ -573,8 +575,12 @@
       Compute $\delta^{(L - 1)}, \delta^{(L - 2)}, ..., \delta^{(2)}$
   
       $\Delta_{ij}^{(l)}:= \Delta_{ij}^{(l)} + a_j^{(l)}\delta_i^{(l+1)}$
+
+  - Vectorization:
+
+      $\Delta^{(l)} := \Delta^{(l)} + \delta^{(l + 1)}(a^{(l)})^T$
   
-  - $D_{ij}^{(l)} := \frac{1}{m}\Delta_{ij}^{(l)} + \lambda\Theta_{ij}^{(l)}$ if $j \neq 0$
+  - $D_{ij}^{(l)} := \frac{1}{m}(\Delta_{ij}^{(l)} + \lambda\Theta_{ij}^{(l)})$ if $j \neq 0$
   
   - $D_{ij}^{(l)} := \frac{1}{m}\Delta_{ij}^{(l)}$ if $j = 0$
 
