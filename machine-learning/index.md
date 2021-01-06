@@ -679,7 +679,7 @@ for i = 1:m,
 
 - Draw the __"Degree of polynomioal d - Error" plot.__ In this Plot draw the $J_{train}(\theta), J_{cv/test}(\theta)$. Then we can make sure wether it's high bias or high variance.
 
-![Bias and Variance](/Bias%20and%20Variance.jpeg)
+![Bias and Variance](/I4dRkz_pEeeHpAqQsW8qwg_bed7efdd48c13e8f75624c817fb39684_fixed.png)
 
 - Bias ( Underfit, when d too small ):
   
@@ -743,6 +743,8 @@ for i = 1:m,
 
 ![Bias_lambda](/Bias_lambda.png)
 
+- Think in this way: when $\lambda$ is too large, it penalizes $\theta$ strongly, $J(\theta)$ is just a straight line, this causes underfitting. When too small ( i.g. 0 ), it causes overfitting ( what $lambda$ aims to overcoming ). 
+
 #### Learning Curves
 
 - $J_{train}(\theta) = \frac{1}{2m_{train}}\sum_{i = 1}^{m_{train}}(h_{\theta}(x_{train}^{(i)}) - y_{train}^{(i)})^2$
@@ -751,7 +753,7 @@ for i = 1:m,
 
 - Draw the __"m ( size of Training Set ) - Error" plot.__ Reduce $m$ artificially.
 
-- __Training Set Error will increase when m increases, and the Cross Validation Error will decrease on the contrary.__
+- __Training Set Error will increase when m increases (if m very small, we can predict it perfectly, but getting harder if m grows ), and the Cross Validation Error will decrease on the contrary ( Because we optimize the parameters ).__
 
 - High Bias:
 
@@ -761,7 +763,9 @@ for i = 1:m,
 
 ![high_variance](/high_variance.png)
 
-  __Watch the Gap!__ ( Between $J_{train}(\theta), J_{test}(\theta)$)
+- __Overfitting for large m is very hard. There's a large gap between 2 curves.__ ( $J_{train}(\theta), J_{test}(\theta)$)
+
+- __In "high Variance" Situation, it helps to get more training examples.__
 
 #### How to deal with high Bias & high Variance?
 
