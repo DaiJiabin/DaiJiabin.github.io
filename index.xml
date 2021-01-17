@@ -3,9 +3,16 @@
         <title>Jiabin&#39;s Blog</title>
         <link>https://daijiabin.github.io/</link>
         <description>About LoveIt Theme</description>
-        <generator>Hugo -- gohugo.io</generator><language>en</language><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Fri, 18 Dec 2020 19:11:53 &#43;0100</lastBuildDate>
+        <generator>Hugo -- gohugo.io</generator><language>en</language><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Sun, 17 Jan 2021 16:51:37 &#43;0100</lastBuildDate>
             <atom:link href="https://daijiabin.github.io/index.xml" rel="self" type="application/rss+xml" />
         <item>
+    <title>Algorithms -- Recursion</title>
+    <link>https://daijiabin.github.io/algorithms/</link>
+    <pubDate>Sun, 17 Jan 2021 16:51:37 &#43;0100</pubDate>
+    <author>Author</author>
+    <guid>https://daijiabin.github.io/algorithms/</guid>
+    <description><![CDATA[Ideas Recursion 1. Recursion in List 1.1. Reverse a complete-List  What important is, NEVER JUMP INTO RECURSION: TRUST IT, INSTEAD.  1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19  listNode* reverse(ListNode* head){ /*Base-Case, with wich we can jump out from the recursion*/ if(head -&gt; next == NULL) return head; // With Nothing to do, because it&#39;s a single-element List.]]></description>
+</item><item>
     <title>Machine Learning</title>
     <link>https://daijiabin.github.io/machine-learning/</link>
     <pubDate>Fri, 18 Dec 2020 19:11:53 &#43;0100</pubDate>
