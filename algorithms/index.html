@@ -6,17 +6,25 @@
         <meta name="robots" content="noodp" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
         <title>Algorithms -- Recursion - Jiabin&#39;s Blog</title><meta name="Description" content="About LoveIt Theme"><meta property="og:title" content="Algorithms -- Recursion" />
-<meta property="og:description" content="Ideas Recursion 1. Recursion in List 1.1. Reverse a complete-List  What important is, NEVER JUMP INTO RECURSION: TRUST IT, INSTEAD.  1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19  listNode* reverse(ListNode* head){ /*Base-Case, with wich we can jump out from the recursion*/ if(head -&gt; next == NULL) return head; // With Nothing to do, because it&#39;s a single-element List." />
+<meta property="og:description" content="Ideas Recursion  What important is, NEVER JUMP INTO RECURSION.  1. Recursion in List   Figure out what does your Function proceedure with, what kind of value will it return.
+  Consider about the Base-Case, with which we can end the recursion
+  Deal with the rest part ( beyond the Base-Case ) recursively by using your Function.
+  Proceedure the Details of Base-Case.
+  1." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://daijiabin.github.io/algorithms/" />
 <meta property="og:image" content="https://daijiabin.github.io/logo.png"/>
 <meta property="article:published_time" content="2021-01-17T16:51:37+01:00" />
-<meta property="article:modified_time" content="2021-01-17T16:51:37+01:00" />
+<meta property="article:modified_time" content="2021-01-18T15:59:42+01:00" />
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="https://daijiabin.github.io/logo.png"/>
 
 <meta name="twitter:title" content="Algorithms -- Recursion"/>
-<meta name="twitter:description" content="Ideas Recursion 1. Recursion in List 1.1. Reverse a complete-List  What important is, NEVER JUMP INTO RECURSION: TRUST IT, INSTEAD.  1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19  listNode* reverse(ListNode* head){ /*Base-Case, with wich we can jump out from the recursion*/ if(head -&gt; next == NULL) return head; // With Nothing to do, because it&#39;s a single-element List."/>
+<meta name="twitter:description" content="Ideas Recursion  What important is, NEVER JUMP INTO RECURSION.  1. Recursion in List   Figure out what does your Function proceedure with, what kind of value will it return.
+  Consider about the Base-Case, with which we can end the recursion
+  Deal with the rest part ( beyond the Base-Case ) recursively by using your Function.
+  Proceedure the Details of Base-Case.
+  1."/>
 <meta name="application-name" content="Jiabin&#39;s Blog">
 <meta name="apple-mobile-web-app-title" content="Jiabin&#39;s Blog"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
@@ -29,8 +37,8 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "https:\/\/daijiabin.github.io\/algorithms\/"
-        },"image": ["https:\/\/daijiabin.github.io\/images\/Apple-Devices-Preview.png"],"genre": "posts","wordcount":  314 ,
-        "url": "https:\/\/daijiabin.github.io\/algorithms\/","datePublished": "2021-01-17T16:51:37+01:00","dateModified": "2021-01-17T16:51:37+01:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
+        },"image": ["https:\/\/daijiabin.github.io\/images\/Apple-Devices-Preview.png"],"genre": "posts","wordcount":  438 ,
+        "url": "https:\/\/daijiabin.github.io\/algorithms\/","datePublished": "2021-01-17T16:51:37+01:00","dateModified": "2021-01-18T15:59:42+01:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
             "@type": "Organization",
             "name": "Dai Jiabin","logo": "https:\/\/daijiabin.github.io\/images\/avatar.png"},"author": {
                 "@type": "Person",
@@ -110,8 +118,8 @@
             <div class="toc-content" id="toc-content-auto"></div>
         </div><article class="page single"><h1 class="single-title animated flipInX">Algorithms -- Recursion</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="https://www.github.com/DaiJiabin" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw"></i>Dai Jiabin</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2021-01-17">2021-01-17</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;314 words&nbsp;
-                <i class="far fa-clock fa-fw"></i>&nbsp;2 minutes&nbsp;</div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2021-01-17">2021-01-17</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;438 words&nbsp;
+                <i class="far fa-clock fa-fw"></i>&nbsp;3 minutes&nbsp;</div>
         </div><div class="details toc" id="toc-static"  kept="">
                 <div class="details-summary toc-title">
                     <span>Contents</span>
@@ -135,11 +143,25 @@
 </nav></div>
             </div><div class="content" id="content"><h1 id="ideas">Ideas</h1>
 <h2 id="recursion">Recursion</h2>
-<h3 id="1-recursion-in-list">1. Recursion in List</h3>
-<h4 id="11-reverse-a-complete-list">1.1. Reverse a complete-List</h4>
 <ul>
-<li><a href="https://medium.com/@daniel.oliver.king/getting-started-with-recursion-f89f57c5b60e" target="_blank" rel="noopener noreffer">What important is, <strong>NEVER JUMP INTO RECURSION: TRUST IT, INSTEAD.</strong></a></li>
+<li><a href="https://medium.com/@daniel.oliver.king/getting-started-with-recursion-f89f57c5b60e" target="_blank" rel="noopener noreffer">What important is, <strong>NEVER JUMP INTO RECURSION.</strong></a></li>
 </ul>
+<h3 id="1-recursion-in-list">1. Recursion in List</h3>
+<ol>
+<li>
+<p><strong>Figure out what does your Function proceedure with, what kind of value will it return.</strong></p>
+</li>
+<li>
+<p>Consider about the <strong>Base-Case</strong>, with which we can end the recursion</p>
+</li>
+<li>
+<p>Deal with the rest part ( beyond the Base-Case ) recursively by using your Function.</p>
+</li>
+<li>
+<p>Proceedure the Details of Base-Case.</p>
+</li>
+</ol>
+<h4 id="11-reverse-a-complete-list">1.1. Reverse a complete-List</h4>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code><span class="lnt"> 1
@@ -166,14 +188,14 @@
 <pre class="chroma"><code class="language-C++" data-lang="C++">
 <span class="n">listNode</span><span class="o">*</span> <span class="nf">reverse</span><span class="p">(</span><span class="n">ListNode</span><span class="o">*</span> <span class="n">head</span><span class="p">){</span>
 
-    <span class="cm">/*Base-Case, with wich we can jump out from the recursion*/</span>
+<span class="c1">// Base-Case 
+</span><span class="c1"></span>
     <span class="k">if</span><span class="p">(</span><span class="n">head</span> <span class="o">-&gt;</span> <span class="n">next</span> <span class="o">==</span> <span class="nb">NULL</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">head</span><span class="p">;</span> <span class="c1">// With Nothing to do, because it&#39;s a single-element List.
 </span><span class="c1"></span>    
-    <span class="cm">/*Deal with the rest part recursively.*/</span>
+
     <span class="n">listNode</span><span class="o">*</span> <span class="n">last</span> <span class="o">=</span> <span class="n">reverse</span><span class="p">(</span><span class="n">head</span> <span class="o">-&gt;</span> <span class="n">next</span><span class="p">);</span>
 
-    <span class="cm">/*After the Process of the rest part, we have to proceed with the Begining-Case*/</span>
     <span class="n">head</span> <span class="o">-&gt;</span> <span class="n">next</span> <span class="o">-&gt;</span> <span class="n">next</span> <span class="o">=</span> <span class="n">head</span><span class="p">;</span>
     <span class="n">head</span> <span class="o">-&gt;</span> <span class="n">next</span> <span class="o">=</span> <span class="nb">NULL</span><span class="p">;</span>
 
@@ -245,6 +267,7 @@
 </span><span class="lnt">13
 </span><span class="lnt">14
 </span><span class="lnt">15
+</span><span class="lnt">16
 </span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-C++" data-lang="C++">
@@ -252,11 +275,12 @@
     
     <span class="k">if</span><span class="p">(</span><span class="n">m</span> <span class="o">==</span> <span class="mi">1</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">reverseN</span><span class="p">(</span><span class="n">head</span><span class="p">,</span> <span class="n">n</span><span class="p">);</span>
+
     <span class="cm">/*
-</span><span class="cm">    如果 m != 1 怎么办？如果我们把 head 的索引视为 1，那么我们是想从第 m 个元素开始反转对吧；
-</span><span class="cm">    如果把 head.next 的索引视为 1 呢？那么相对于 head.next，反转的区间应该是从第 m - 1 个元素开始的；
-</span><span class="cm">    那么对于 head.next.next 呢……
+</span><span class="cm">    Here we consider about the Situation by sub-List([head-&gt;next, end]).
+</span><span class="cm">    For this sub-List we begin with m-1, the length we need to proceedure is n - 1.
 </span><span class="cm">    */</span>
+
     <span class="n">head</span> <span class="o">-&gt;</span> <span class="n">next</span> <span class="o">=</span> <span class="n">reverseMN</span><span class="p">(</span><span class="n">head</span> <span class="o">-&gt;</span> <span class="n">next</span><span class="p">,</span> <span class="n">m</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="p">);</span>
 
     <span class="k">return</span> <span class="n">head</span><span class="p">;</span>
@@ -265,9 +289,9 @@
 </code></pre></td></tr></table>
 </div>
 </div><h4 id="14-reverse-a-list-in-k-elements-group">1.4 Reverse a List in K-elements Group</h4>
-<ul>
+<ol>
 <li>Reverse a List in Iteration:</li>
-</ul>
+</ol>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code><span class="lnt"> 1
@@ -286,22 +310,93 @@
 </span><span class="lnt">14
 </span><span class="lnt">15
 </span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
 </span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-C++" data-lang="C++">
 <span class="n">listNode</span><span class="o">*</span> <span class="nf">reverse_Iteration</span><span class="p">(</span><span class="n">listNode</span><span class="o">*</span> <span class="n">head</span><span class="p">){</span>
     
-    <span class="n">listNode</span><span class="o">*</span> <span class="n">prev</span><span class="p">,</span> <span class="n">cur</span><span class="p">;</span>
-    <span class="n">cur</span> <span class="o">=</span> <span class="n">head</span><span class="p">;</span>
+    <span class="n">listNode</span><span class="o">*</span> <span class="n">prev</span><span class="p">,</span> <span class="n">cur</span><span class="p">,</span> <span class="n">nxt</span><span class="p">;</span>
+    <span class="n">cur</span> <span class="o">=</span> <span class="n">nxt</span> <span class="o">=</span> <span class="n">head</span><span class="p">;</span>
     <span class="n">prev</span> <span class="o">=</span> <span class="nb">NULL</span><span class="p">;</span>
 
     <span class="k">while</span><span class="p">(</span><span class="n">cur</span> <span class="o">!=</span> <span class="nb">NULL</span><span class="p">){</span>
+        
+    <span class="c1">// For given-Node case, we modify the loop:
+</span><span class="c1"></span>    <span class="c1">// while(cur != givenNode)
+</span><span class="c1"></span>
+        <span class="n">nxt</span> <span class="o">=</span> <span class="n">cur</span> <span class="o">-&gt;</span> <span class="n">next</span><span class="p">;</span>
         <span class="n">cur</span> <span class="o">-&gt;</span> <span class="n">next</span> <span class="o">=</span> <span class="n">prev</span><span class="p">;</span>
         <span class="n">prev</span> <span class="o">=</span> <span class="n">cur</span><span class="p">;</span>
-        <span class="n">cur</span> <span class="o">=</span> <span class="n">cur</span><span class="p">.</span><span class="n">next</span><span class="p">;</span>
+        <span class="n">cur</span> <span class="o">=</span> <span class="n">nxt</span><span class="p">;</span>
+
     <span class="p">}</span>
 
     <span class="k">return</span> <span class="n">prev</span><span class="p">;</span>
+<span class="p">}</span>
+
+</code></pre></td></tr></table>
+</div>
+</div><ol start="2">
+<li>Reverse a List in K-elements Group</li>
+</ol>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-C++" data-lang="C++">
+<span class="n">listNode</span><span class="o">*</span> <span class="nf">reverseKGroup</span><span class="p">(</span><span class="n">listNode</span><span class="o">*</span> <span class="n">head</span><span class="p">,</span> <span class="kt">int</span> <span class="n">k</span><span class="p">){</span>
+
+    <span class="k">if</span><span class="p">(</span><span class="n">head</span> <span class="o">==</span> <span class="nb">NULL</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">head</span><span class="p">;</span>
+
+    <span class="n">listNode</span><span class="o">*</span> <span class="n">b</span><span class="p">;</span>
+    <span class="n">b</span> <span class="o">=</span> <span class="n">head</span><span class="p">;</span>
+
+    <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">k</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">){</span>
+        
+        <span class="k">if</span><span class="p">(</span><span class="n">b</span> <span class="o">==</span> <span class="nb">NULL</span><span class="p">)</span>
+            <span class="k">return</span> <span class="n">head</span><span class="p">;</span>    
+        
+        <span class="n">b</span> <span class="o">=</span> <span class="n">b</span> <span class="o">-&gt;</span> <span class="n">next</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="n">listNode</span><span class="o">*</span> <span class="n">newHead</span> <span class="o">=</span> <span class="n">reverse_givenNode</span><span class="p">(</span><span class="n">head</span><span class="p">,</span> <span class="n">b</span><span class="p">);</span>
+    
+    <span class="n">head</span> <span class="o">-&gt;</span> <span class="n">next</span> <span class="o">=</span> <span class="n">reverseKGroup</span><span class="p">(</span><span class="n">b</span><span class="p">,</span> <span class="n">k</span><span class="p">);</span>
+
+    <span class="k">return</span> <span class="n">newHead</span><span class="p">;</span>
+
 <span class="p">}</span>
 
 </code></pre></td></tr></table>
@@ -310,7 +405,8 @@
     <div class="post-info">
         <div class="post-info-line">
             <div class="post-info-mod">
-                <span>Updated on 2021-01-17</span>
+                <span>Updated on 2021-01-18&nbsp;<a class="git-hash" href="https://github.com/dillonzq/LoveIt/commit/937c9dc3603243b9df4771b67934748c6c490064" target="_blank" title="commit by DaiJiabin(kechou.dai@gmail.com) 937c9dc3603243b9df4771b67934748c6c490064: Processing Mon 18 Jan 2021 03:59:42 PM CET">
+                                    <i class="fas fa-hashtag fa-fw"></i>937c9dc</a></span>
             </div>
             <div class="post-info-license"></div>
         </div>

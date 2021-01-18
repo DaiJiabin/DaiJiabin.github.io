@@ -5,24 +5,33 @@
 
 ## Recursion
 
+- [What important is, __NEVER JUMP INTO RECURSION.__](https://medium.com/@daniel.oliver.king/getting-started-with-recursion-f89f57c5b60e)
+
 ### 1. Recursion in List
 
-#### 1.1. Reverse a complete-List
+1. __Figure out what does your Function proceedure with, what kind of value will it return.__
 
-- [What important is, __NEVER JUMP INTO RECURSION: TRUST IT, INSTEAD.__](https://medium.com/@daniel.oliver.king/getting-started-with-recursion-f89f57c5b60e)
+2. Consider about the __Base-Case__, with which we can end the recursion
+
+3. Deal with the rest part ( beyond the Base-Case ) recursively by using your Function.
+
+4. Proceedure the Details of Base-Case.
+
+
+#### 1.1. Reverse a complete-List
 
 ```C++
 
 listNode* reverse(ListNode* head){
 
-    /*Base-Case, with wich we can jump out from the recursion*/
+// Base-Case 
+
     if(head -> next == NULL)
         return head; // With Nothing to do, because it's a single-element List.
     
-    /*Deal with the rest part recursively.*/
+
     listNode* last = reverse(head -> next);
 
-    /*After the Process of the rest part, we have to proceed with the Begining-Case*/
     head -> next -> next = head;
     head -> next = NULL;
 
@@ -64,11 +73,12 @@ listNode* reverseMN(listNode *head, int m, int n){
     
     if(m == 1)
         return reverseN(head, n);
+
     /*
-    如果 m != 1 怎么办？如果我们把 head 的索引视为 1，那么我们是想从第 m 个元素开始反转对吧；
-    如果把 head.next 的索引视为 1 呢？那么相对于 head.next，反转的区间应该是从第 m - 1 个元素开始的；
-    那么对于 head.next.next 呢……
+    Here we consider about the Situation by sub-List([head->next, end]).
+    For this sub-List we begin with m-1, the length we need to proceedure is n - 1.
     */
+
     head -> next = reverseMN(head -> next, m - 1, n - 1);
 
     return head;
@@ -78,23 +88,59 @@ listNode* reverseMN(listNode *head, int m, int n){
 
 #### 1.4 Reverse a List in K-elements Group
 
-- Reverse a List in Iteration:
+1. Reverse a List in Iteration:
 
 ```C++
 
 listNode* reverse_Iteration(listNode* head){
     
-    listNode* prev, cur;
-    cur = head;
+    listNode* prev, cur, nxt;
+    cur = nxt = head;
     prev = NULL;
 
     while(cur != NULL){
+        
+    // For given-Node case, we modify the loop:
+    // while(cur != givenNode)
+
+        nxt = cur -> next;
         cur -> next = prev;
         prev = cur;
-        cur = cur.next;
+        cur = nxt;
+
     }
 
     return prev;
+}
+
+```
+
+2. Reverse a List in K-elements Group
+
+```C++
+
+listNode* reverseKGroup(listNode* head, int k){
+
+    if(head == NULL)
+        return head;
+
+    listNode* b;
+    b = head;
+
+    for(int i = 0; i < k; i++){
+        
+        if(b == NULL)
+            return head;    
+        
+        b = b -> next;
+    }
+
+    listNode* newHead = reverse_givenNode(head, b);
+    
+    head -> next = reverseKGroup(b, k);
+
+    return newHead;
+
 }
 
 ```

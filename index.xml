@@ -11,7 +11,11 @@
     <pubDate>Sun, 17 Jan 2021 16:51:37 &#43;0100</pubDate>
     <author>Author</author>
     <guid>https://daijiabin.github.io/algorithms/</guid>
-    <description><![CDATA[Ideas Recursion 1. Recursion in List 1.1. Reverse a complete-List  What important is, NEVER JUMP INTO RECURSION: TRUST IT, INSTEAD.  1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19  listNode* reverse(ListNode* head){ /*Base-Case, with wich we can jump out from the recursion*/ if(head -&gt; next == NULL) return head; // With Nothing to do, because it&#39;s a single-element List.]]></description>
+    <description><![CDATA[Ideas Recursion  What important is, NEVER JUMP INTO RECURSION.  1. Recursion in List   Figure out what does your Function proceedure with, what kind of value will it return.
+  Consider about the Base-Case, with which we can end the recursion
+  Deal with the rest part ( beyond the Base-Case ) recursively by using your Function.
+  Proceedure the Details of Base-Case.
+  1.]]></description>
 </item><item>
     <title>Machine Learning</title>
     <link>https://daijiabin.github.io/machine-learning/</link>
