@@ -1,6 +1,8 @@
 # Algorithms -- Recursion
 
 
+![Recursion](/recursion.png)
+
 # Ideas
 
 ## Recursion

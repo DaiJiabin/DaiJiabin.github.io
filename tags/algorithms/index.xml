@@ -1,0 +1,18 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>Algorithms - Tag - Jiabin&#39;s Blog</title>
+        <link>https://daijiabin.github.io/tags/algorithms/</link>
+        <description>Algorithms - Tag - Jiabin&#39;s Blog</description>
+        <generator>Hugo -- gohugo.io</generator><language>en</language><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Sun, 17 Jan 2021 16:51:37 &#43;0100</lastBuildDate><atom:link href="https://daijiabin.github.io/tags/algorithms/" rel="self" type="application/rss+xml" /><item>
+    <title>Algorithms -- Recursion</title>
+    <link>https://daijiabin.github.io/algorithms/</link>
+    <pubDate>Sun, 17 Jan 2021 16:51:37 &#43;0100</pubDate>
+    <author>Author</author>
+    <guid>https://daijiabin.github.io/algorithms/</guid>
+    <description><![CDATA[Ideas Recursion  What important is, NEVER JUMP INTO RECURSION.  1. Recursion in List   Figure out what does your Function proceedure with, what kind of value will it return.
+  Consider about the Base-Case, with which we can end the recursion
+  Deal with the rest part ( beyond the Base-Case ) recursively by using your Function.
+  Proceedure the Details of Base-Case.
+  1.]]></description>
+</item></channel>
+</rss>
