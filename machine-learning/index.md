@@ -789,7 +789,7 @@ for i = 1:m,
 
 - Cancer classification example:
 
-  - Train logistic regression model $h_\theta(x). ( $y = 1$ if cancer )
+  - Train logistic regression model $h_\theta(x). ( y = 1 if cancer )
   
   - Find you got $1\%$ error on test set
   
@@ -807,13 +807,13 @@ for i = 1:m,
 |1|True positiv|False positiv|
 |0|False Negative|True Negative|
 
-- Precision( Of all patients where we predicted $y = 1$, what fraction actually has cancer? )
+- Precision: Of all patients where we predicted $y = 1$, what fraction actually has cancer?
   
-  $\frac{True positives}{\#predicted Positive} = \frac{True positives}{True Pos + False Pos}$
+  True positives / predicted Positive = True positives / (True Pos + False Pos)
 
 - Recall( Of all patients that actually have cancer, what fraction did we corrently detect as having cancer? )
   
-  $\frac{True positives}{\#actual Positives} = \frac{True Positives}{True Pos + False Neg}$
+  True positives / actual Positives = True Positives / (True Pos + False Neg)
 
 #### Trading off precision and recall
 
