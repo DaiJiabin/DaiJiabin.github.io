@@ -1,0 +1,18 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>LeetCode - Tag - Jiabin&#39;s Blog</title>
+        <link>https://daijiabin.github.io/tags/leetcode/</link>
+        <description>LeetCode - Tag - Jiabin&#39;s Blog</description>
+        <generator>Hugo -- gohugo.io</generator><language>en</language><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Mon, 25 Jan 2021 12:30:06 &#43;0100</lastBuildDate><atom:link href="https://daijiabin.github.io/tags/leetcode/" rel="self" type="application/rss+xml" /><item>
+    <title>LeetCode</title>
+    <link>https://daijiabin.github.io/leetcode/</link>
+    <pubDate>Mon, 25 Jan 2021 12:30:06 &#43;0100</pubDate>
+    <author>Author</author>
+    <guid>https://daijiabin.github.io/leetcode/</guid>
+    <description><![CDATA[Go Through LeetCode Recursion / Binary Tree 112. Path Sum - simple recursion   Discription:
+  Given the root of a binary tree and an integer targetSum, return true if the tree has a root-to-leaf path such that adding up all the values along the path equals targetSum.
+  A leaf is a node with no children.
+    Idea:
+  What kind of traverse should we use?]]></description>
+</item></channel>
+</rss>

@@ -3,9 +3,20 @@
         <title>Jiabin&#39;s Blog</title>
         <link>https://daijiabin.github.io/</link>
         <description>About LoveIt Theme</description>
-        <generator>Hugo -- gohugo.io</generator><language>en</language><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Sun, 17 Jan 2021 16:51:37 &#43;0100</lastBuildDate>
+        <generator>Hugo -- gohugo.io</generator><language>en</language><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Mon, 25 Jan 2021 12:30:06 &#43;0100</lastBuildDate>
             <atom:link href="https://daijiabin.github.io/index.xml" rel="self" type="application/rss+xml" />
         <item>
+    <title>LeetCode</title>
+    <link>https://daijiabin.github.io/leetcode/</link>
+    <pubDate>Mon, 25 Jan 2021 12:30:06 &#43;0100</pubDate>
+    <author>Author</author>
+    <guid>https://daijiabin.github.io/leetcode/</guid>
+    <description><![CDATA[Go Through LeetCode Recursion / Binary Tree 112. Path Sum - simple recursion   Discription:
+  Given the root of a binary tree and an integer targetSum, return true if the tree has a root-to-leaf path such that adding up all the values along the path equals targetSum.
+  A leaf is a node with no children.
+    Idea:
+  What kind of traverse should we use?]]></description>
+</item><item>
     <title>Algorithms -- Recursion</title>
     <link>https://daijiabin.github.io/algorithms/</link>
     <pubDate>Sun, 17 Jan 2021 16:51:37 &#43;0100</pubDate>
