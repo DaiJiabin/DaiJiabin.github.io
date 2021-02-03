@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+        <title>Java Learning - Jiabin&#39;s Blog</title><meta name="Description" content="About LoveIt Theme"><meta property="og:title" content="Java Learning" />
+<meta property="og:description" content="Java Learning ( Data Structures, mostly ) &hellip; And the greatest reason I learn it, is that I LOVE COFFEE ☕ its DS are fuxxing easy to use.
+Classes in Java Math &amp; Nums   Short, Integer, Long, Float, Double, Boolean, Character, Byte.
+  Methods of Classes above: click here
+  P.S. Nums.toString(): transfer a Number to String
+  String   Mostly used Methods:
+ char charAt(int index): returns the Character at the Index." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://daijiabin.github.io/java-learning/" />
+<meta property="og:image" content="https://daijiabin.github.io/logo.png"/>
+<meta property="article:published_time" content="2021-02-03T19:14:56+01:00" />
+<meta property="article:modified_time" content="2021-02-03T20:31:07+01:00" />
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://daijiabin.github.io/logo.png"/>
+
+<meta name="twitter:title" content="Java Learning"/>
+<meta name="twitter:description" content="Java Learning ( Data Structures, mostly ) &hellip; And the greatest reason I learn it, is that I LOVE COFFEE ☕ its DS are fuxxing easy to use.
+Classes in Java Math &amp; Nums   Short, Integer, Long, Float, Double, Boolean, Character, Byte.
+  Methods of Classes above: click here
+  P.S. Nums.toString(): transfer a Number to String
+  String   Mostly used Methods:
+ char charAt(int index): returns the Character at the Index."/>
+<meta name="application-name" content="Jiabin&#39;s Blog">
+<meta name="apple-mobile-web-app-title" content="Jiabin&#39;s Blog"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://daijiabin.github.io/java-learning/" /><link rel="prev" href="https://daijiabin.github.io/leetcode/" /><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/normalize.css@8.0.1/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.13.0/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.7.2/animate.min.css"><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "Java Learning",
+        "inLanguage": "en",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https:\/\/daijiabin.github.io\/java-learning\/"
+        },"image": ["https:\/\/daijiabin.github.io\/images\/Apple-Devices-Preview.png"],"genre": "posts","keywords": "Languages","wordcount":  490 ,
+        "url": "https:\/\/daijiabin.github.io\/java-learning\/","datePublished": "2021-02-03T19:14:56+01:00","dateModified": "2021-02-03T20:31:07+01:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
+            "@type": "Organization",
+            "name": "Dai Jiabin","logo": "https:\/\/daijiabin.github.io\/images\/avatar.png"},"author": {
+                "@type": "Person",
+                "name": "Dai Jiabin"
+            },"description": ""
+    }
+    </script></head>
+    <body header-desktop="fixed" header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title="Jiabin&#39;s Blog"><span class="header-title-pre"><i class='fas fa-user-secret fa-fw'></i></span><span id="id-1" class="typeit"></span></a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/posts/"> Posts </a><a class="menu-item" href="/tags/"> Tags </a><a class="menu-item" href="/categories/"> Categories </a><a class="menu-item" href="/about/"> About </a><span class="menu-item delimiter"></span><a href="javascript:void(0);" class="menu-item language" title="Select Language">English<i class="fas fa-chevron-right fa-fw"></i>
+                        <select class="language-select" id="language-select-desktop" onchange="location = this.value;"><option value="/java-learning/" selected>English</option></select>
+                    </a><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="Search titles or contents..." id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="Search">
+                            <i class="fas fa-search fa-fw"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="Clear">
+                            <i class="fas fa-times-circle fa-fw"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin"></i>
+                        </span>
+                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                    <i class="fas fa-adjust fa-fw"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="Jiabin&#39;s Blog"><span class="header-title-pre"><i class='fas fa-user-secret fa-fw'></i></span><span id="id-2" class="typeit"></span></a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="Search titles or contents..." id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="Search">
+                            <i class="fas fa-search fa-fw"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="Clear">
+                            <i class="fas fa-times-circle fa-fw"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin"></i>
+                        </span>
+                    </div>
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                        Cancel
+                    </a>
+                </div><a class="menu-item" href="/posts/" title="">Posts</a><a class="menu-item" href="/tags/" title="">Tags</a><a class="menu-item" href="/categories/" title="">Categories</a><a class="menu-item" href="/about/" title="">About</a><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                <i class="fas fa-adjust fa-fw"></i>
+            </a><a href="javascript:void(0);" class="menu-item" title="Select Language">English<i class="fas fa-chevron-right fa-fw"></i>
+                    <select class="language-select" onchange="location = this.value;"><option value="/java-learning/" selected>English</option></select>
+                </a></div>
+    </div>
+</header>
+<div class="search-dropdown desktop">
+    <div id="search-dropdown-desktop"></div>
+</div>
+<div class="search-dropdown mobile">
+    <div id="search-dropdown-mobile"></div>
+</div>
+<main class="main">
+                <div class="container"><div class="toc" id="toc-auto">
+            <h2 class="toc-title">Contents</h2>
+            <div class="toc-content" id="toc-content-auto"></div>
+        </div><article class="page single"><h1 class="single-title animated flipInX">Java Learning</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="https://www.github.com/DaiJiabin" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw"></i>Dai Jiabin</a></span>&nbsp;<span class="post-category">included in <a href="/categories/learn/"><i class="far fa-folder fa-fw"></i>Learn</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2021-02-03">2021-02-03</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;490 words&nbsp;
+                <i class="far fa-clock fa-fw"></i>&nbsp;3 minutes&nbsp;</div>
+        </div><div class="details toc" id="toc-static"  kept="">
+                <div class="details-summary toc-title">
+                    <span>Contents</span>
+                    <span><i class="details-icon fas fa-angle-right"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#classes-in-java">Classes in Java</a>
+      <ul>
+        <li><a href="#math--nums">Math &amp; Nums</a></li>
+        <li><a href="#string">String</a></li>
+      </ul>
+    </li>
+    <li><a href="#data-structures">Data Structures</a>
+      <ul>
+        <li><a href="#queue--stack--bag">Queue &amp; Stack &amp; Bag</a></li>
+        <li><a href="#arraylist">ArrayList</a></li>
+        <li><a href="#linkedlist">LinkedList</a></li>
+        <li><a href="#hashmap">HashMap</a></li>
+        <li><a href="#hashset">HashSet</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><h1 id="java-learning--data-structures-mostly-">Java Learning ( Data Structures, mostly )</h1>
+<p>&hellip; And the greatest reason I learn it, is that <del>I LOVE COFFEE ☕</del> its DS are fuxxing easy to use.</p>
+<h2 id="classes-in-java">Classes in Java</h2>
+<h3 id="math--nums">Math &amp; Nums</h3>
+<ul>
+<li>
+<p><strong>Short, Integer, Long, Float, Double, Boolean,</strong> Character, Byte.</p>
+</li>
+<li>
+<p>Methods of Classes above: <a href="https://www.runoob.com/java/java-number.html" target="_blank" rel="noopener noreffer">click here</a></p>
+</li>
+<li>
+<p>P.S. <strong>Nums.toString()</strong>: transfer a Number to String</p>
+</li>
+</ul>
+<h3 id="string">String</h3>
+<ul>
+<li>
+<p>Mostly used Methods:</p>
+<ul>
+<li><strong>char charAt(int index)</strong>: returns the Character at the Index.</li>
+<li><strong>int length()</strong>: returns the Length of the String.</li>
+<li><strong>int parseInt()</strong>: transfer the String into an Integer.</li>
+<li><strong>char[] toCharArray()</strong>: transfer the String into an Character-Array.</li>
+<li><strong>boolean isEmpty()</strong>: if the String is empty.</li>
+<li><strong>int hashCode()</strong>: returns the HashCode of the String.</li>
+<li><strong>int indexOf(char ch(,int fromIndex))</strong>: returns the Index of the Character ch the first time it appears( after the fromIndex).</li>
+</ul>
+</li>
+<li>
+<p>Other Methods of String: <a href="https://www.runoob.com/java/java-string.html" target="_blank" rel="noopener noreffer">click here</a></p>
+</li>
+<li>
+<p>The <strong>DataType</strong> above is often used to initialize a DataStructure ( See below ).</p>
+</li>
+</ul>
+<h2 id="data-structures">Data Structures</h2>
+<h3 id="queue--stack--bag">Queue &amp; Stack &amp; Bag</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">Initialization</th>
+<th style="text-align:center">Queue</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">Initialization</td>
+<td style="text-align:center">Queue&lt;<strong>DataType</strong>&gt; queue_name = new Queue&lt;<strong>DataType</strong>&gt;()</td>
+</tr>
+<tr>
+<td style="text-align:center">int size()</td>
+<td style="text-align:center">returns the size of the Queue</td>
+</tr>
+<tr>
+<td style="text-align:center">boolean isEmpty()</td>
+<td style="text-align:center">judge if the Queue is empty</td>
+</tr>
+<tr>
+<td style="text-align:center">enqueue(<strong>DataType</strong> Item)</td>
+<td style="text-align:center">enqueue an Item into a Queue</td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>DataType</strong> dequeue()</td>
+<td style="text-align:center">dequeue the first-in Item</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">Options</th>
+<th style="text-align:center">Stack</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">Initialization</td>
+<td style="text-align:center">Stack&lt;<strong>DataType</strong>&gt; stack_name = new Stack&lt;<strong>DataType</strong>&gt;()</td>
+</tr>
+<tr>
+<td style="text-align:center">int size()</td>
+<td style="text-align:center">returns the size of the Stack</td>
+</tr>
+<tr>
+<td style="text-align:center">boolean isEmpty()</td>
+<td style="text-align:center">judge if the Stack is empty</td>
+</tr>
+<tr>
+<td style="text-align:center">push(<strong>DataType</strong> item)</td>
+<td style="text-align:center">push a new element into a Stack</td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>DataType</strong> pop()</td>
+<td style="text-align:center">returns the last-in Item</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">Options</th>
+<th style="text-align:center">Bag</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">Initialization</td>
+<td style="text-align:center">Bag&lt;<strong>DataType</strong>&gt; bag_name = new Bag&lt;<strong>DataType</strong>&gt;()</td>
+</tr>
+<tr>
+<td style="text-align:center">int size()</td>
+<td style="text-align:center">returns the size of the Bag</td>
+</tr>
+<tr>
+<td style="text-align:center">add(<strong>DataType</strong> Item)</td>
+<td style="text-align:center">add an Item into the Bag</td>
+</tr>
+</tbody>
+</table>
+<h3 id="arraylist">ArrayList</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">Options</th>
+<th style="text-align:center">ArrayList</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">Initialization</td>
+<td style="text-align:center">ArrayList&lt;<strong>DataType</strong>&gt; arraylist_name = new ArrayList&lt;<strong>DataType</strong>&gt;()</td>
+</tr>
+<tr>
+<td style="text-align:center">int size()</td>
+<td style="text-align:center">returns the Size of the ArrayList</td>
+</tr>
+<tr>
+<td style="text-align:center">add(int Index, _<strong>DataType</strong> Item)</td>
+<td style="text-align:center">add an Item into index</td>
+</tr>
+<tr>
+<td style="text-align:center">contains(<strong>DataType</strong> Item)</td>
+<td style="text-align:center">if the ArrayList contains the Item</td>
+</tr>
+<tr>
+<td style="text-align:center">get(int index)</td>
+<td style="text-align:center">get the Item through index</td>
+</tr>
+<tr>
+<td style="text-align:center">int indexOf(<strong>DataType</strong> Item)</td>
+<td style="text-align:center">returns the Index of the Item</td>
+</tr>
+<tr>
+<td style="text-align:center">sort()</td>
+<td style="text-align:center">sort the ArrayList</td>
+</tr>
+<tr>
+<td style="text-align:center">toArray()</td>
+<td style="text-align:center">transfer the ArrayList into an Array</td>
+</tr>
+<tr>
+<td style="text-align:center">toString()</td>
+<td style="text-align:center">transfer the ArrayList into a String</td>
+</tr>
+</tbody>
+</table>
+<p>P.S. For more Options, <a href="https://www.runoob.com/manual/jdk11api/java.base/java/util/ArrayList.html" target="_blank" rel="noopener noreffer">click here</a>.</p>
+<h3 id="linkedlist">LinkedList</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">Options</th>
+<th style="text-align:center">LinkedList</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">Initialization</td>
+<td style="text-align:center">LinkedList&lt;<strong>DataType</strong>&gt; list = new LinkedList&lt;<strong>DataType</strong>&gt;()</td>
+</tr>
+<tr>
+<td style="text-align:center">int size()</td>
+<td style="text-align:center">returns the Size of the LinkedList</td>
+</tr>
+<tr>
+<td style="text-align:center">add((int index, )<strong>DataType</strong> Item)</td>
+<td style="text-align:center">add an Item at the end of the LinkedList / index</td>
+</tr>
+<tr>
+<td style="text-align:center">remove(int index)</td>
+<td style="text-align:center">remove the index-th Item of the LinkedList</td>
+</tr>
+<tr>
+<td style="text-align:center">get(int index)</td>
+<td style="text-align:center">get the index-th Item of the LinkedList</td>
+</tr>
+<tr>
+<td style="text-align:center">Object[] toArray()</td>
+<td style="text-align:center">returns an Array composed by the Items of LinkedList</td>
+</tr>
+</tbody>
+</table>
+<p>P.S. For more Options, <a href="https://www.runoob.com/manual/jdk11api/java.base/java/util/LinkedList.html" target="_blank" rel="noopener noreffer">click here</a>.</p>
+<h3 id="hashmap">HashMap</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">Options</th>
+<th style="text-align:center">HashMap</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">Initialization</td>
+<td style="text-align:center">HashMap&lt;<strong>DataType</strong> Key, <strong>DataType</strong> Value&gt; sites = new HashMap&lt;<strong>DataType</strong> Key, <strong>DataType</strong> Value&gt;()</td>
+</tr>
+<tr>
+<td style="text-align:center">int size()</td>
+<td style="text-align:center">returns the size of the HashMap</td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>value&rsquo;s DataType</strong> get(<strong>DataType</strong> Key)</td>
+<td style="text-align:center">returns the value of Key</td>
+</tr>
+<tr>
+<td style="text-align:center">boolean containsKey(<strong>DataType</strong> Key)</td>
+<td style="text-align:center">if the HashMap contains the Key-Value</td>
+</tr>
+<tr>
+<td style="text-align:center">remove(<strong>DataType</strong> Key)</td>
+<td style="text-align:center">remove the Item of the HashMap</td>
+</tr>
+</tbody>
+</table>
+<p>P.S. For more Options, <a href="https://www.runoob.com/manual/jdk11api/java.base/java/util/HashMap.html" target="_blank" rel="noopener noreffer">click here</a>.</p>
+<h3 id="hashset">HashSet</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">Options</th>
+<th style="text-align:center">HashSet</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">Initialization</td>
+<td style="text-align:center">HashSet&lt;<strong>DataType</strong>&gt; sites = new HashSet&lt;<strong>DataType</strong>&gt;()</td>
+</tr>
+<tr>
+<td style="text-align:center">int size()</td>
+<td style="text-align:center">returns the size of the HashSet</td>
+</tr>
+<tr>
+<td style="text-align:center">boolean contains(<strong>DataType</strong> Item)</td>
+<td style="text-align:center">if the HashSet contains the Item</td>
+</tr>
+<tr>
+<td style="text-align:center">remove(<strong>DataType</strong> Item)</td>
+<td style="text-align:center">remove the Item of the HashSet</td>
+</tr>
+</tbody>
+</table>
+<p>P.S. For more Options, <a href="https://www.runoob.com/manual/jdk11api/java.base/java/util/HashSet.html" target="_blank" rel="noopener noreffer">click here</a>.</p>
+</div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>Updated on 2021-02-03&nbsp;<a class="git-hash" href="https://github.com/dillonzq/LoveIt/commit/a553642290c416816e148f096f02dc96b3196ccc" target="_blank" title="commit by DaiJiabin(kechou.dai@gmail.com) a553642290c416816e148f096f02dc96b3196ccc: Processing Wed 03 Feb 2021 08:31:07 PM CET">
+                                    <i class="fas fa-hashtag fa-fw"></i>a553642</a></span>
+            </div>
+            <div class="post-info-license"></div>
+        </div>
+        <div class="post-info-line">
+            <div class="post-info-md"><span>
+                            <a class="link-to-markdown" href="/java-learning/index.md" target="_blank">Read Markdown</a>
+                        </span></div>
+            <div class="post-info-share">
+                <span><a href="javascript:void(0);" title="Share on Twitter" data-sharer="twitter" data-url="https://daijiabin.github.io/java-learning/" data-title="Java Learning" data-hashtags="Languages"><i class="fab fa-twitter fa-fw"></i></a><a href="javascript:void(0);" title="Share on Facebook" data-sharer="facebook" data-url="https://daijiabin.github.io/java-learning/" data-hashtag="Languages"><i class="fab fa-facebook-square fa-fw"></i></a><a href="javascript:void(0);" title="Share on Linkedin" data-sharer="linkedin" data-url="https://daijiabin.github.io/java-learning/"><i class="fab fa-linkedin fa-fw"></i></a><a href="javascript:void(0);" title="Share on WhatsApp" data-sharer="whatsapp" data-url="https://daijiabin.github.io/java-learning/" data-title="Java Learning" data-web><i class="fab fa-whatsapp fa-fw"></i></a><a href="javascript:void(0);" title="Share on 微博" data-sharer="weibo" data-url="https://daijiabin.github.io/java-learning/" data-title="Java Learning"><i class="fab fa-weibo fa-fw"></i></a></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/tags/languages/">Languages</a></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">Back</a></span>&nbsp;|&nbsp;<span><a href="/">Home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/leetcode/" class="prev" rel="prev" title="LeetCode"><i class="fas fa-angle-left fa-fw"></i>LeetCode</a></div>
+</div>
+</article></div>
+            </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line">
+                </div><div class="footer-line"><i class="far fa-copyright fa-fw"></i><span itemprop="copyrightYear">2020 - 2021</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="https://www.github.com/DaiJiabin" target="_blank">Dai Jiabin</a></span></div>
+        </div>
+    </footer></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="Back to Top">
+                <i class="fas fa-arrow-up fa-fw"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="View Comments">
+                <i class="fas fa-comment fa-fw"></i>
+            </a>
+        </div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/copy-tex.min.css"><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/smooth-scroll@16.1.3/dist/smooth-scroll.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/autocomplete.js@0.37.1/dist/autocomplete.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/algoliasearch@4.2.0/dist/algoliasearch-lite.umd.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lazysizes@5.2.2/lazysizes.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sharer.js@0.4.0/sharer.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/typeit@7.0.4/dist/typeit.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/auto-render.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/copy-tex.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/mhchem.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"Copy to clipboard","maxShownLines":10},"comment":{},"data":{"id-1":"BE AWESOME!","id-2":"BE AWESOME!"},"math":{"delimiters":[{"display":true,"left":"$$","right":"$$"},{"display":true,"left":"\\[","right":"\\]"},{"display":false,"left":"$","right":"$"},{"display":false,"left":"\\(","right":"\\)"}],"strict":false},"search":{"algoliaAppID":"PASDMWALPK","algoliaIndex":"index.en","algoliaSearchKey":"b42948e51daaa93df92381c8e2ac0f93","highlightTag":"em","maxResultLength":10,"noResultsFound":"No results found","snippetLength":30,"type":"algolia"},"typeit":{"cursorChar":"|","cursorSpeed":1000,"data":{"id-1":["id-1"],"id-2":["id-2"]},"duration":-1,"speed":100}};</script><script type="text/javascript" src="/js/theme.min.js"></script></body>
+</html>
