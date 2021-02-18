@@ -9,6 +9,10 @@
 
 - [What important is, __NEVER JUMP INTO RECURSION.__](https://medium.com/@daniel.oliver.king/getting-started-with-recursion-f89f57c5b60e)
 
+- Actually... If it's possible, you can jump into it... (Well... You can take a try:) )
+
+- In a Word, what the Blog above says, is that you must make sure that you know the very Defination of your Recursion Function, and trust that it can finish its Work perfectly.
+
 ### 1. Recursion in List
 
 1. __Figure out what does your Function proceedure with, what kind of value will it return.__
@@ -18,7 +22,6 @@
 3. Deal with the rest part ( beyond the Base-Case ) recursively by using your Function.
 
 4. Proceedure the Details of Base-Case.
-
 
 #### 1.1. Reverse a complete-List
 
@@ -117,7 +120,7 @@ listNode* reverse_Iteration(listNode* head){
 
 ```
 
-2. Reverse a List in K-elements Group
+#### 1.5 Reverse a List in K-elements Group
 
 ```C++
 
@@ -145,4 +148,24 @@ listNode* reverseKGroup(listNode* head, int k){
 
 }
 
+```
+
+### 2. Recursion in Binary Tree
+
+- __What kind of order should be used, must know.__
+
+#### 2.1 Traverse - preorder, inorder, postorder
+
+```C++
+void traverse(TreeNode* root){
+    // Base-case
+    if(root == NULL)
+        return;
+
+    cout << root -> val; // Preorder
+    traverse(root -> left);
+    cout << root -> val; // Inorder
+    traverse(root -> right);
+    cout << root -> val; // Postorder
+}
 ```

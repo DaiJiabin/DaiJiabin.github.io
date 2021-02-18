@@ -9,10 +9,9 @@
     <pubDate>Sun, 17 Jan 2021 16:51:37 &#43;0100</pubDate>
     <author>Author</author>
     <guid>https://daijiabin.github.io/algorithms/</guid>
-    <description><![CDATA[Ideas Recursion  What important is, NEVER JUMP INTO RECURSION.  1. Recursion in List   Figure out what does your Function proceedure with, what kind of value will it return.
-  Consider about the Base-Case, with which we can end the recursion
-  Deal with the rest part ( beyond the Base-Case ) recursively by using your Function.
-  Proceedure the Details of Base-Case.
-  1.]]></description>
+    <description><![CDATA[Ideas Recursion   What important is, NEVER JUMP INTO RECURSION.
+  Actually&hellip; If it&rsquo;s possible, you can jump into it&hellip; (Well&hellip; You can take a try:) )
+  In a Word, what the Blog above says, is that you must make sure that you know the very Defination of your Recursion Function, and trust that it can finish its Work perfectly.
+  1. Recursion in List   Figure out what does your Function proceedure with, what kind of value will it return.]]></description>
 </item></channel>
 </rss>
