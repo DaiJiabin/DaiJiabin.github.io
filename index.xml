@@ -12,11 +12,8 @@
     <author>Author</author>
     <guid>https://daijiabin.github.io/java-learning/</guid>
     <description><![CDATA[Java Learning ( Data Structures, mostly ) &hellip; And the greatest reason I learn it, is that I LOVE COFFEE ☕ its DS are fuxxing easy to use.
-Classes in Java Math &amp; Nums   Short, Integer, Long, Float, Double, Boolean, Character, Byte.
-  Methods of Classes above: click here
-  P.S. Nums.toString(): transfer a Number to String
-  String   Mostly used Methods:
- char charAt(int index): returns the Character at the Index.]]></description>
+Basic Using in Java Way to write   A .java File can be compiled through javac into .class File. .java File is called Source Code, after Compling it can be deleted.
+  After Compiling, execute java class_name in Terminal to run Functions in a specific class.]]></description>
 </item><item>
     <title>LeetCode</title>
     <link>https://daijiabin.github.io/leetcode/</link>

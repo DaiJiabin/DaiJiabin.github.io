@@ -5,6 +5,57 @@
 
 ... And the greatest reason I learn it, is that ~~I LOVE COFFEE :coffee:~~ its DS are fuxxing easy to use.
 
+## Basic Using in Java
+
+### Way to write
+
+- A __.java__ File can be compiled through __javac__ into __.class__ File. .java File is called Source Code, after Compling it can be deleted.
+
+- After Compiling, execute __java class_name__ in Terminal to run Functions in a specific class.
+
+- A .java File can contain multipule class, __but only 1 public class__. Besides, the name of the public class must be same as the .java file.
+
+```java
+// C.java
+class A{
+    public static void main(String[] args){
+        //Codes here
+    }
+}
+
+class B{
+    public static void main(String[] args){
+        //Codes here
+    }
+}
+
+public class C{
+    public static void main(String[] args){
+        //Codes here
+    }
+}
+```
+
+- In every class, there is only 1 main Method. The way to write it is always this:
+
+```java
+public class C{
+    public static void main(String[] args){
+        //Codes here
+    }
+}
+```
+
+- At the end, like old Style, say "Hello world!":)
+
+```java
+public class HelloWorld {
+    public static void main(String[] args){
+        System.out.println("Hello World!");
+    }
+}
+```
+
 ## Classes in Java
 
 ### Math & Nums
