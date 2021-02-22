@@ -3,9 +3,38 @@
         <title>Jiabin&#39;s Blog</title>
         <link>https://daijiabin.github.io/</link>
         <description>About LoveIt Theme</description>
-        <generator>Hugo -- gohugo.io</generator><language>en</language><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Wed, 03 Feb 2021 19:14:56 &#43;0100</lastBuildDate>
+        <generator>Hugo -- gohugo.io</generator><language>en</language><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Mon, 22 Feb 2021 10:57:41 &#43;0100</lastBuildDate>
             <atom:link href="https://daijiabin.github.io/index.xml" rel="self" type="application/rss+xml" />
         <item>
+    <title>Operating System</title>
+    <link>https://daijiabin.github.io/operating-system/</link>
+    <pubDate>Mon, 22 Feb 2021 10:57:41 &#43;0100</pubDate>
+    <author>Author</author>
+    <guid>https://daijiabin.github.io/operating-system/</guid>
+    <description><![CDATA[Operating System ]]></description>
+</item><item>
+    <title>Computer Networks</title>
+    <link>https://daijiabin.github.io/computer-networks/</link>
+    <pubDate>Mon, 22 Feb 2021 10:50:46 &#43;0100</pubDate>
+    <author>Author</author>
+    <guid>https://daijiabin.github.io/computer-networks/</guid>
+    <description><![CDATA[Computer Networks   Foreword:
+References:
+ Videos: 2021王道计算机网络 on YouTube eBook: Google Drive Link here (Chinese)  Power Point: Google Drive Link here (Chinese)     Ch 01. System&rsquo;s Structure of Computer Networks   Definition:
+A System that connects distributed and independent Computer Systems through Devices and Cables, therefore the Resources-Sharing and Information-Transportation are realized. It&rsquo;s a Combination of connected and independent Computers.
+  Functions:]]></description>
+</item><item>
+    <title>Spring</title>
+    <link>https://daijiabin.github.io/spring/</link>
+    <pubDate>Fri, 19 Feb 2021 20:14:05 &#43;0100</pubDate>
+    <author>Author</author>
+    <guid>https://daijiabin.github.io/spring/</guid>
+    <description><![CDATA[Spring Notes Day 01. Basic Concepts  Kernel Techs: IoC(Inversion of Control) and aop. Loose the Relationships between Modules.  IoC ( Inversion of Control )   Creation, Value-Given and Management belong to the Containers beyond Codes.
+  Management:
+Creation, Attributes-Given and Management of the Relationships of Objects.
+  Inversion:
+Transfer the Rights of Management, Creation of Objects to the Containers ( here: Spring ) beyond Codes.]]></description>
+</item><item>
     <title>Java Learning</title>
     <link>https://daijiabin.github.io/java-learning/</link>
     <pubDate>Wed, 03 Feb 2021 19:14:56 &#43;0100</pubDate>

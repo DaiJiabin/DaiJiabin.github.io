@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+        <title>Computer Networks - Jiabin&#39;s Blog</title><meta name="Description" content="About LoveIt Theme"><meta property="og:title" content="Computer Networks" />
+<meta property="og:description" content="Computer Networks   Foreword:
+References:
+ Videos: 2021王道计算机网络 on YouTube eBook: Google Drive Link here (Chinese)  Power Point: Google Drive Link here (Chinese)     Ch 01. System&rsquo;s Structure of Computer Networks   Definition:
+A System that connects distributed and independent Computer Systems through Devices and Cables, therefore the Resources-Sharing and Information-Transportation are realized. It&rsquo;s a Combination of connected and independent Computers.
+  Functions:" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://daijiabin.github.io/computer-networks/" />
+<meta property="og:image" content="https://daijiabin.github.io/logo.png"/>
+<meta property="article:published_time" content="2021-02-22T10:50:46+01:00" />
+<meta property="article:modified_time" content="2021-02-22T10:50:46+01:00" />
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://daijiabin.github.io/logo.png"/>
+
+<meta name="twitter:title" content="Computer Networks"/>
+<meta name="twitter:description" content="Computer Networks   Foreword:
+References:
+ Videos: 2021王道计算机网络 on YouTube eBook: Google Drive Link here (Chinese)  Power Point: Google Drive Link here (Chinese)     Ch 01. System&rsquo;s Structure of Computer Networks   Definition:
+A System that connects distributed and independent Computer Systems through Devices and Cables, therefore the Resources-Sharing and Information-Transportation are realized. It&rsquo;s a Combination of connected and independent Computers.
+  Functions:"/>
+<meta name="application-name" content="Jiabin&#39;s Blog">
+<meta name="apple-mobile-web-app-title" content="Jiabin&#39;s Blog"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://daijiabin.github.io/computer-networks/" /><link rel="prev" href="https://daijiabin.github.io/spring/" /><link rel="next" href="https://daijiabin.github.io/operating-system/" /><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/normalize.css@8.0.1/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.13.0/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.7.2/animate.min.css"><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "Computer Networks",
+        "inLanguage": "en",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https:\/\/daijiabin.github.io\/computer-networks\/"
+        },"image": ["https:\/\/daijiabin.github.io\/images\/Apple-Devices-Preview.png"],"genre": "posts","keywords": "Basic of CS","wordcount":  518 ,
+        "url": "https:\/\/daijiabin.github.io\/computer-networks\/","datePublished": "2021-02-22T10:50:46+01:00","dateModified": "2021-02-22T10:50:46+01:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
+            "@type": "Organization",
+            "name": "Dai Jiabin","logo": "https:\/\/daijiabin.github.io\/images\/avatar.png"},"author": {
+                "@type": "Person",
+                "name": "Dai Jiabin"
+            },"description": ""
+    }
+    </script></head>
+    <body header-desktop="fixed" header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title="Jiabin&#39;s Blog"><span class="header-title-pre"><i class='fas fa-user-secret fa-fw'></i></span><span id="id-1" class="typeit"></span></a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/posts/"> Posts </a><a class="menu-item" href="/tags/"> Tags </a><a class="menu-item" href="/categories/"> Categories </a><a class="menu-item" href="/about/"> About </a><span class="menu-item delimiter"></span><a href="javascript:void(0);" class="menu-item language" title="Select Language">English<i class="fas fa-chevron-right fa-fw"></i>
+                        <select class="language-select" id="language-select-desktop" onchange="location = this.value;"><option value="/computer-networks/" selected>English</option></select>
+                    </a><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="Search titles or contents..." id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="Search">
+                            <i class="fas fa-search fa-fw"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="Clear">
+                            <i class="fas fa-times-circle fa-fw"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin"></i>
+                        </span>
+                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                    <i class="fas fa-adjust fa-fw"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="Jiabin&#39;s Blog"><span class="header-title-pre"><i class='fas fa-user-secret fa-fw'></i></span><span id="id-2" class="typeit"></span></a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="Search titles or contents..." id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="Search">
+                            <i class="fas fa-search fa-fw"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="Clear">
+                            <i class="fas fa-times-circle fa-fw"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin"></i>
+                        </span>
+                    </div>
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                        Cancel
+                    </a>
+                </div><a class="menu-item" href="/posts/" title="">Posts</a><a class="menu-item" href="/tags/" title="">Tags</a><a class="menu-item" href="/categories/" title="">Categories</a><a class="menu-item" href="/about/" title="">About</a><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                <i class="fas fa-adjust fa-fw"></i>
+            </a><a href="javascript:void(0);" class="menu-item" title="Select Language">English<i class="fas fa-chevron-right fa-fw"></i>
+                    <select class="language-select" onchange="location = this.value;"><option value="/computer-networks/" selected>English</option></select>
+                </a></div>
+    </div>
+</header>
+<div class="search-dropdown desktop">
+    <div id="search-dropdown-desktop"></div>
+</div>
+<div class="search-dropdown mobile">
+    <div id="search-dropdown-mobile"></div>
+</div>
+<main class="main">
+                <div class="container"><div class="toc" id="toc-auto">
+            <h2 class="toc-title">Contents</h2>
+            <div class="toc-content" id="toc-content-auto"></div>
+        </div><article class="page single"><h1 class="single-title animated flipInX">Computer Networks</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="https://www.github.com/DaiJiabin" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw"></i>Dai Jiabin</a></span>&nbsp;<span class="post-category">included in <a href="/categories/learn/"><i class="far fa-folder fa-fw"></i>Learn</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2021-02-22">2021-02-22</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;518 words&nbsp;
+                <i class="far fa-clock fa-fw"></i>&nbsp;3 minutes&nbsp;</div>
+        </div><div class="details toc" id="toc-static"  kept="">
+                <div class="details-summary toc-title">
+                    <span>Contents</span>
+                    <span><i class="details-icon fas fa-angle-right"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#ch-01-systems-structure-of-computer-networks">Ch 01. System&rsquo;s Structure of Computer Networks</a>
+      <ul>
+        <li><a href="#__performance-indicators__"><strong>Performance Indicators</strong></a></li>
+        <li><a href="#__osi-reference-module__"><strong>OSI Reference Module</strong></a></li>
+      </ul>
+    </li>
+    <li><a href="#ch-02-physical-layer">Ch 02. Physical Layer</a>
+      <ul>
+        <li><a href="#basic-concepts">Basic Concepts</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><h1 id="computer-networks">Computer Networks</h1>
+<ul>
+<li>
+<p>Foreword:</p>
+<p>References:</p>
+<ol>
+<li>Videos: <a href="https://www.youtube.com/watch?v=GOQInimk1Xc&amp;list=PLuolGRW5AOPxEa0A2GNVIeFW9z0J-EIMe" target="_blank" rel="noopener noreffer">2021王道计算机网络 on YouTube</a></li>
+<li>eBook: <a href="https://drive.google.com/file/d/1us0gQd7kkpIUF4DMEHh93aFiRIYEi_IV/view?usp=sharing" target="_blank" rel="noopener noreffer">Google Drive Link here (Chinese) </a></li>
+<li>Power Point: <a href="https://drive.google.com/drive/folders/1Mo-IynolgR-Js2qHV4k_0TX1HJZVbge6?usp=sharing" target="_blank" rel="noopener noreffer">Google Drive Link here (Chinese) </a></li>
+</ol>
+</li>
+</ul>
+<h2 id="ch-01-systems-structure-of-computer-networks">Ch 01. System&rsquo;s Structure of Computer Networks</h2>
+<ul>
+<li>
+<p>Definition:</p>
+<p>A System that connects distributed and independent Computer Systems through Devices and Cables, therefore the Resources-Sharing and Information-Transportation are realized. It&rsquo;s a Combination of connected and independent Computers.</p>
+</li>
+<li>
+<p>Functions:</p>
+<ol>
+<li>
+<p>Data Communication</p>
+</li>
+<li>
+<p>Resources-Sharing</p>
+</li>
+<li>
+<p>Process distributly</p>
+</li>
+<li>
+<p>Improve the Reliability</p>
+</li>
+<li>
+<p>Balance the Load</p>
+</li>
+</ol>
+</li>
+<li>
+<p>Development:</p>
+<p>APARnet -&gt; internet -&gt; Internet</p>
+</li>
+<li>
+<p>3-Structures Internet:</p>
+<p>Bottom layer network -&gt; middle layer network -&gt; backbone network</p>
+</li>
+<li>
+<p>Some Terminologys:</p>
+<ol>
+<li>
+<p>ISP - Internet Service Provider</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src=""
+        data-srcset=",  1.5x,  2x"
+        data-sizes="auto"
+        alt=""
+        title="ISP" /></p>
+</li>
+<li>
+<p>IXP - Internet Exchange Point</p>
+</li>
+<li>
+<p>PCI ( Protocol Control Information ) + SDU ( Service Data Unit ) = PDU ( Protocol Data Unit, Unit between same-level Transportation )</p>
+</li>
+</ol>
+</li>
+<li>
+<p>Standards</p>
+<ol>
+<li>
+<p>OSI, TCP/IP</p>
+</li>
+<li>
+<p>RFC ( Request For Comments ):</p>
+<ul>
+<li>Internet Draft</li>
+<li>Proposed Standard</li>
+<li>Draft Standard</li>
+<li>Internet Standard</li>
+</ul>
+</li>
+</ol>
+</li>
+</ul>
+<h3 id="__performance-indicators__"><strong>Performance Indicators</strong></h3>
+<ol>
+<li>
+<p>Speed:</p>
+<ul>
+<li>
+<p>Transportation&rsquo;s Speed:
+<strong>b/s ( $\times10^3$ ) $\rarr$ kb/s ( $\times10^3$ ) $\rarr$Mb/s ( $\times10^3$ ) $\rarr$Gb/s ( $\times10^3$ ) $\rarr$Tb/s&hellip;</strong></p>
+</li>
+<li>
+<p><strong>Difference in Storage:</strong> 1Byte = 8bit, 1KB = $2^{10}$ B = 1024B = 1024 $\times$ 8b</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Band-Width:</p>
+<ul>
+<li>The Capacity of the Transportation of the Cable. Normally it refers to the highest Speed from one Point to another Point in Internet in Element-Time. Unit see above.</li>
+</ul>
+</li>
+<li>
+<p>Throughput:</p>
+<ul>
+<li>
+<p>The Amount of Data that go through the Internet in Unit-Time. Unit see above.</p>
+</li>
+<li>
+<p>It&rsquo;s limited by Band-Width.</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Delay:</p>
+<ul>
+<li>
+<p>Sending-Delay:</p>
+<p>$\text{S-Delay} = \frac{\text{Length of Data}}{\text{Band-width}}$</p>
+</li>
+<li>
+<p>Transportation-Delay:</p>
+<p>$\text{T-Delay} = \frac{\text{Length of Band}}{\text{Electromagnetic wave speed}}$</p>
+</li>
+<li>
+<p>Pending-Delay:</p>
+<p>Wait for the Usage of I/O Route</p>
+</li>
+<li>
+<p>Process-Delay:</p>
+<p>Procedure with the Data</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Time delay bandwidth product:</p>
+<ul>
+<li>
+<p>$\text{Time delay bandwidth product} = \text{Transportation-Delay} \times \text{Band-width}$</p>
+</li>
+<li>
+<p>It talks about the Capacity of the Pipe.</p>
+</li>
+</ul>
+</li>
+<li>
+<p>RTT:</p>
+<ul>
+<li>
+<p>Delay between Sending and the Receive-Confirmation</p>
+</li>
+<li>
+<p>Includes Transportation-Delay * 2 + Process-Time</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Utilization rate</p>
+<ol>
+<li>Band Utilization Rate: $\frac{\text{Time, when Data pass}}{\text{Time, when Data pass and not pass}}$</li>
+</ol>
+</li>
+</ol>
+<h3 id="__osi-reference-module__"><strong>OSI Reference Module</strong></h3>
+<ol>
+<li>
+<p>Structure:</p>
+<p>Physic Layer $\rarr$ Data Link Layer $\rarr$ Network Layer $\rarr$ Transportation Layer ($\rarr$ Session Layer $\rarr$ Representation Layer) $\rarr$ Uasge Layer</p>
+</li>
+<li>
+<p>Functions of <strong>Representation Layer</strong></p>
+<ul>
+<li>Transform the Data Format</li>
+<li>Encrypt / Decrypt the Data</li>
+<li>Compress and Decompress the Data</li>
+</ul>
+</li>
+<li>
+<p>Functions of <strong>Session Layer</strong></p>
+<ul>
+<li>Creates, manage and terminites the Session</li>
+<li>Restore the Communication through Checkpoint when something wrong goes with the Communication ( SYN ).</li>
+</ul>
+</li>
+<li>
+<p>Functions of <strong>Transportation Layer</strong></p>
+<p>p.S. Responsible for the Communications between 2 Processes ( P2P )</p>
+<ul>
+<li>Reliable / Unreliable Transportation</li>
+<li>Control of Errors</li>
+<li>Control of Flow</li>
+<li>Multiplexing and splitting</li>
+</ul>
+</li>
+<li>
+<p>Functions of <strong>Network Layer</strong></p>
+<p>p.S. Transport the Groups from Source to the End, provide the Communication Service for the Groups to swap different Hosts.</p>
+<ul>
+<li>Select the Route</li>
+<li>Control of Flow</li>
+<li>Control of Errors</li>
+<li>Control of Congestion</li>
+</ul>
+</li>
+<li>
+<p>Functions of <strong>Data Link Layer</strong></p>
+<ul>
+<li>Define the Begin and the End of the Frame</li>
+<li>Control of Errors ( Frame Error, Bit Error )</li>
+<li>Control of Flow</li>
+<li>Control of Access</li>
+</ul>
+</li>
+<li>
+<p>Functions of <strong>Physic Layer</strong></p>
+<ul>
+<li>Define the Features of Interface</li>
+<li>Define the Transportation Mode</li>
+<li>Define the Transportation Speed</li>
+<li>Synchronization the Bits</li>
+<li>Encode the Bits</li>
+</ul>
+</li>
+</ol>
+<h2 id="ch-02-physical-layer">Ch 02. Physical Layer</h2>
+<h3 id="basic-concepts">Basic Concepts</h3>
+<ul>
+<li>
+<p>Physical Layer solves how to transport Data Bit Flow on the Transportation Media on Hosts.</p>
+</li>
+<li>
+<p>Contains Mechanical Features, Electronic Features, Functional Features and Process Features.</p>
+</li>
+</ul>
+</div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>Updated on 2021-02-22</span>
+            </div>
+            <div class="post-info-license"></div>
+        </div>
+        <div class="post-info-line">
+            <div class="post-info-md"><span>
+                            <a class="link-to-markdown" href="/computer-networks/index.md" target="_blank">Read Markdown</a>
+                        </span></div>
+            <div class="post-info-share">
+                <span><a href="javascript:void(0);" title="Share on Twitter" data-sharer="twitter" data-url="https://daijiabin.github.io/computer-networks/" data-title="Computer Networks" data-hashtags="Basic of CS"><i class="fab fa-twitter fa-fw"></i></a><a href="javascript:void(0);" title="Share on Facebook" data-sharer="facebook" data-url="https://daijiabin.github.io/computer-networks/" data-hashtag="Basic of CS"><i class="fab fa-facebook-square fa-fw"></i></a><a href="javascript:void(0);" title="Share on Linkedin" data-sharer="linkedin" data-url="https://daijiabin.github.io/computer-networks/"><i class="fab fa-linkedin fa-fw"></i></a><a href="javascript:void(0);" title="Share on WhatsApp" data-sharer="whatsapp" data-url="https://daijiabin.github.io/computer-networks/" data-title="Computer Networks" data-web><i class="fab fa-whatsapp fa-fw"></i></a><a href="javascript:void(0);" title="Share on 微博" data-sharer="weibo" data-url="https://daijiabin.github.io/computer-networks/" data-title="Computer Networks"><i class="fab fa-weibo fa-fw"></i></a></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/tags/basic-of-cs/">Basic of CS</a></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">Back</a></span>&nbsp;|&nbsp;<span><a href="/">Home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/spring/" class="prev" rel="prev" title="Spring"><i class="fas fa-angle-left fa-fw"></i>Spring</a>
+            <a href="/operating-system/" class="next" rel="next" title="Operating System">Operating System<i class="fas fa-angle-right fa-fw"></i></a></div>
+</div>
+</article></div>
+            </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line">
+                </div><div class="footer-line"><i class="far fa-copyright fa-fw"></i><span itemprop="copyrightYear">2020 - 2021</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="https://www.github.com/DaiJiabin" target="_blank">Dai Jiabin</a></span></div>
+        </div>
+    </footer></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="Back to Top">
+                <i class="fas fa-arrow-up fa-fw"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="View Comments">
+                <i class="fas fa-comment fa-fw"></i>
+            </a>
+        </div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/copy-tex.min.css"><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/smooth-scroll@16.1.3/dist/smooth-scroll.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/autocomplete.js@0.37.1/dist/autocomplete.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/algoliasearch@4.2.0/dist/algoliasearch-lite.umd.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lazysizes@5.2.2/lazysizes.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sharer.js@0.4.0/sharer.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/typeit@7.0.4/dist/typeit.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/auto-render.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/copy-tex.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/mhchem.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"Copy to clipboard","maxShownLines":10},"comment":{},"data":{"id-1":"BE AWESOME!","id-2":"BE AWESOME!"},"math":{"delimiters":[{"display":true,"left":"$$","right":"$$"},{"display":true,"left":"\\[","right":"\\]"},{"display":false,"left":"$","right":"$"},{"display":false,"left":"\\(","right":"\\)"}],"strict":false},"search":{"algoliaAppID":"PASDMWALPK","algoliaIndex":"index.en","algoliaSearchKey":"b42948e51daaa93df92381c8e2ac0f93","highlightTag":"em","maxResultLength":10,"noResultsFound":"No results found","snippetLength":30,"type":"algolia"},"typeit":{"cursorChar":"|","cursorSpeed":1000,"data":{"id-1":["id-1"],"id-2":["id-2"]},"duration":-1,"speed":100}};</script><script type="text/javascript" src="/js/theme.min.js"></script></body>
+</html>
