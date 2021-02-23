@@ -55,6 +55,19 @@ public class HelloWorld {
     }
 }
 ```
+## Transformation of DataTypes in Java
+
+- Except `boolean`, other DataType can be transformed into another.
+
+- Low Capacity Data to High Capacity Data is called __Auto Transformation__. Capacity from low to high:
+  
+    __byte < short / char < int < long < float < double__
+
+- High Capacity Data to Low Capacity Data is called __Forced Transformation__. This can cause __The Loss of Accurity__.
+
+- Miss-Calculation among `byte, short, char`, they transform into `int` firstly.
+
+- __Mix-Calculation among mix-DataTypes, they transform into the DataType with largest Capacity among them firstly.__
 
 ## Classes in Java
 
