@@ -44,6 +44,8 @@ public class C{
 public class C{
     public static void main(String[] args){
         // Codes here
+        // Attribute(s)
+        // Method(s)
     }
 }
 ```
