@@ -205,7 +205,7 @@ Code above will automatically select which `mySum` will be used.
 
 3. Object Oriented Programming (OOP)
 
-### Class / Object in Java
+### Class / Object ( Instance ) in Java
 
 1. Class: 
    
