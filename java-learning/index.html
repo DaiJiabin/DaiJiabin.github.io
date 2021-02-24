@@ -7,8 +7,8 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
         <title>Java Learning - Jiabin&#39;s Blog</title><meta name="Description" content="About LoveIt Theme"><meta property="og:title" content="Java Learning" />
 <meta property="og:description" content="Java Learning ( Data Structures, mostly ) &hellip; And the greatest reason I learn it, is that I LOVE COFFEE ☕ its DS are fuxxing easy to use.
-Basic Using in Java Way to write   A .java File can be compiled through javac into .class File. .java File is called Source Code, after Compling it can be deleted.
-  After Compiling, execute java class_name in Terminal to run Functions in a specific class." />
+01. Basic Using in Java Way to write   A .java File can be compiled through javac into .class File. .java File is called Source Code, after Compling it can be deleted.
+  In every .java File can multiple Class be written." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://daijiabin.github.io/java-learning/" />
 <meta property="og:image" content="https://daijiabin.github.io/logo.png"/>
@@ -19,8 +19,8 @@ Basic Using in Java Way to write   A .java File can be compiled through javac in
 
 <meta name="twitter:title" content="Java Learning"/>
 <meta name="twitter:description" content="Java Learning ( Data Structures, mostly ) &hellip; And the greatest reason I learn it, is that I LOVE COFFEE ☕ its DS are fuxxing easy to use.
-Basic Using in Java Way to write   A .java File can be compiled through javac into .class File. .java File is called Source Code, after Compling it can be deleted.
-  After Compiling, execute java class_name in Terminal to run Functions in a specific class."/>
+01. Basic Using in Java Way to write   A .java File can be compiled through javac into .class File. .java File is called Source Code, after Compling it can be deleted.
+  In every .java File can multiple Class be written."/>
 <meta name="application-name" content="Jiabin&#39;s Blog">
 <meta name="apple-mobile-web-app-title" content="Jiabin&#39;s Blog"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
@@ -33,7 +33,7 @@ Basic Using in Java Way to write   A .java File can be compiled through javac in
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "https:\/\/daijiabin.github.io\/java-learning\/"
-        },"image": ["https:\/\/daijiabin.github.io\/images\/Apple-Devices-Preview.png"],"genre": "posts","keywords": "Languages","wordcount":  760 ,
+        },"image": ["https:\/\/daijiabin.github.io\/images\/Apple-Devices-Preview.png"],"genre": "posts","keywords": "Languages","wordcount":  1256 ,
         "url": "https:\/\/daijiabin.github.io\/java-learning\/","datePublished": "2021-02-03T19:14:56+01:00","dateModified": "2021-02-23T15:52:31+01:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
             "@type": "Organization",
             "name": "Dai Jiabin","logo": "https:\/\/daijiabin.github.io\/images\/avatar.png"},"author": {
@@ -114,8 +114,8 @@ Basic Using in Java Way to write   A .java File can be compiled through javac in
             <div class="toc-content" id="toc-content-auto"></div>
         </div><article class="page single"><h1 class="single-title animated flipInX">Java Learning</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="https://www.github.com/DaiJiabin" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw"></i>Dai Jiabin</a></span>&nbsp;<span class="post-category">included in <a href="/categories/learn/"><i class="far fa-folder fa-fw"></i>Learn</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2021-02-03">2021-02-03</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;760 words&nbsp;
-                <i class="far fa-clock fa-fw"></i>&nbsp;4 minutes&nbsp;</div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2021-02-03">2021-02-03</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;1256 words&nbsp;
+                <i class="far fa-clock fa-fw"></i>&nbsp;6 minutes&nbsp;</div>
         </div><div class="details toc" id="toc-static"  kept="">
                 <div class="details-summary toc-title">
                     <span>Contents</span>
@@ -123,20 +123,36 @@ Basic Using in Java Way to write   A .java File can be compiled through javac in
                 </div>
                 <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
   <ul>
-    <li><a href="#basic-using-in-java">Basic Using in Java</a>
+    <li><a href="#01-basic-using-in-java">01. Basic Using in Java</a>
       <ul>
         <li><a href="#way-to-write">Way to write</a></li>
       </ul>
     </li>
-    <li><a href="#transformation-of-datatypes-in-java">Transformation of DataTypes in Java</a></li>
-    <li><a href="#classes-in-java">Classes in Java</a>
+    <li><a href="#02-transformation-of-datatypes-in-java">02. Transformation of DataTypes in Java</a></li>
+    <li><a href="#03-methods-in-class">03. Methods in Class</a>
+      <ul>
+        <li><a href="#what-is-methods">What is Methods</a></li>
+        <li><a href="#format">Format</a></li>
+        <li><a href="#usage">Usage</a></li>
+        <li><a href="#overload-methods-with-same-names-finisch-similar-functions">Overload: Methods with same Names finisch similar Functions.</a></li>
+      </ul>
+    </li>
+    <li><a href="#04-jvm">04. JVM</a>
+      <ul>
+        <li><a href="#3-primary-memory-spaces-in-jvm">3 primary Memory Spaces in JVM</a></li>
+      </ul>
+    </li>
+    <li><a href="#05-object-oriented">05. Object-oriented</a>
+      <ul>
+        <li><a href="#3-features">3 Features</a></li>
+        <li><a href="#in-the-life-circle">In the Life Circle:</a></li>
+        <li><a href="#class--object-in-java">Class / Object in Java</a></li>
+      </ul>
+    </li>
+    <li><a href="#06-data-structure">06. Data Structure</a>
       <ul>
         <li><a href="#math--nums">Math &amp; Nums</a></li>
         <li><a href="#string">String</a></li>
-      </ul>
-    </li>
-    <li><a href="#data-structures">Data Structures</a>
-      <ul>
         <li><a href="#queue--stack--bag">Queue &amp; Stack &amp; Bag</a></li>
         <li><a href="#arraylist">ArrayList</a></li>
         <li><a href="#linkedlist">LinkedList</a></li>
@@ -148,17 +164,20 @@ Basic Using in Java Way to write   A .java File can be compiled through javac in
 </nav></div>
             </div><div class="content" id="content"><h1 id="java-learning--data-structures-mostly-">Java Learning ( Data Structures, mostly )</h1>
 <p>&hellip; And the greatest reason I learn it, is that <del>I LOVE COFFEE ☕</del> its DS are fuxxing easy to use.</p>
-<h2 id="basic-using-in-java">Basic Using in Java</h2>
+<h2 id="01-basic-using-in-java">01. Basic Using in Java</h2>
 <h3 id="way-to-write">Way to write</h3>
 <ul>
 <li>
-<p>A <strong>.java</strong> File can be compiled through <strong>javac</strong> into <strong>.class</strong> File. .java File is called Source Code, after Compling it can be deleted.</p>
+<p>A <code>.java</code> File can be compiled through <code>javac</code> into <code>.class</code> File. <code>.java</code> File is called Source Code, after Compling it can be deleted.</p>
 </li>
 <li>
-<p>After Compiling, execute <strong>java class_name</strong> in Terminal to run Functions in a specific class.</p>
+<p>In every <code>.java</code> File can multiple <code>Class</code> be written. In every <code>Class</code> can multiple <code>Methods</code> be written.</p>
 </li>
 <li>
-<p>A .java File can contain multipule class, <strong>but only 1 public class</strong>. Besides, the name of the public class must be same as the .java file.</p>
+<p>After Compiling, execute <code>java class_name</code> in Terminal to run Functions in a specific class.</p>
+</li>
+<li>
+<p>A .java File can contain multipule class, <strong>but only 1 public class</strong>. Besides, the name of the public class must be same as the <code>.java</code> file.</p>
 </li>
 </ul>
 <div class="highlight"><div class="chroma">
@@ -192,13 +211,13 @@ Basic Using in Java Way to write   A .java File can be compiled through javac in
 
 <span class="kd">class</span> <span class="nc">B</span><span class="o">{</span>
     <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">){</span>
-        <span class="c1">//Codes here
+        <span class="c1">// Codes here
 </span><span class="c1"></span>    <span class="o">}</span>
 <span class="o">}</span>
 
 <span class="kd">public</span> <span class="kd">class</span> <span class="nc">C</span><span class="o">{</span>
     <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">){</span>
-        <span class="c1">//Codes here
+        <span class="c1">// Codes here
 </span><span class="c1"></span>    <span class="o">}</span>
 <span class="o">}</span>
 </code></pre></td></tr></table>
@@ -217,7 +236,7 @@ Basic Using in Java Way to write   A .java File can be compiled through javac in
 <td class="lntd">
 <pre class="chroma"><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">C</span><span class="o">{</span>
     <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">){</span>
-        <span class="c1">//Codes here
+        <span class="c1">// Codes here
 </span><span class="c1"></span>    <span class="o">}</span>
 <span class="o">}</span>
 </code></pre></td></tr></table>
@@ -232,23 +251,25 @@ Basic Using in Java Way to write   A .java File can be compiled through javac in
 </span><span class="lnt">3
 </span><span class="lnt">4
 </span><span class="lnt">5
+</span><span class="lnt">6
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">HelloWorld</span> <span class="o">{</span>
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="c1">// HelloWorld.java
+</span><span class="c1"></span><span class="kd">public</span> <span class="kd">class</span> <span class="nc">HelloWorld</span> <span class="o">{</span>
     <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">){</span>
         <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&#34;Hello World!&#34;</span><span class="o">);</span>
     <span class="o">}</span>
 <span class="o">}</span>
 </code></pre></td></tr></table>
 </div>
-</div><h2 id="transformation-of-datatypes-in-java">Transformation of DataTypes in Java</h2>
+</div><h2 id="02-transformation-of-datatypes-in-java">02. Transformation of DataTypes in Java</h2>
 <ul>
 <li>
 <p>Except <code>boolean</code>, other DataType can be transformed into another.</p>
 </li>
 <li>
 <p>Low Capacity Data to High Capacity Data is called <strong>Auto Transformation</strong>. Capacity from low to high:</p>
-<p><strong>byte &lt; short / char &lt; int &lt; long &lt; float &lt; double</strong></p>
+<p><strong><code>byte &lt; short / char &lt; int &lt; long &lt; float &lt; double</code></strong></p>
 </li>
 <li>
 <p>High Capacity Data to Low Capacity Data is called <strong>Forced Transformation</strong>. This can cause <strong>The Loss of Accurity</strong>.</p>
@@ -260,7 +281,265 @@ Basic Using in Java Way to write   A .java File can be compiled through javac in
 <p><strong>Mix-Calculation among mix-DataTypes, they transform into the DataType with largest Capacity among them firstly.</strong></p>
 </li>
 </ul>
-<h2 id="classes-in-java">Classes in Java</h2>
+<h2 id="03-methods-in-class">03. Methods in Class</h2>
+<h3 id="what-is-methods">What is Methods</h3>
+<ul>
+<li>Methods are a Piece of Code, they can handle with specific Problems and are written in Class ( <strong>Method in Method is not possible!</strong> ), and the Sequence of Methods have no Influence on Code.</li>
+</ul>
+<h3 id="format">Format</h3>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/methods-in-java.png"
+        data-srcset="/methods-in-java.png, /methods-in-java.png 1.5x, /methods-in-java.png 2x"
+        data-sizes="auto"
+        alt="/methods-in-java.png"
+        title="Methods" /></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="o">[</span><span class="n">Modifier</span> <span class="n">List</span><span class="o">]</span> <span class="k">return</span><span class="o">-</span><span class="n">Type</span> <span class="n">Method</span><span class="o">-</span><span class="n">Name</span><span class="o">(</span><span class="n">Parameters</span><span class="o">){</span>
+    <span class="n">Codes</span> <span class="n">that</span> <span class="n">handle</span> <span class="n">with</span> <span class="n">Problems</span><span class="o">;</span>
+<span class="o">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="usage">Usage</h3>
+<ul>
+<li>
+<p>You can define Methods, but you must not use them.</p>
+</li>
+<li>
+<p>In Class, type: <code>Class-Name.Method-Name(Parameters)</code></p>
+</li>
+<li>
+<p>If <code>static</code> is in <code>[Modifier List]</code><em><a href="https://www.runoob.com/java/java-modifier-types.html" target="_blank" rel="noopener noreffer">(Reference here)</a></em> or <strong>the Methods are with the Calling-Code in the same Class</strong>, <code>Class-Name</code> can be ignored.</p>
+</li>
+<li>
+<p>Methods in other Class, must be <code>Class-Name.Method-Name(Parameters)</code>.</p>
+</li>
+</ul>
+<h3 id="overload-methods-with-same-names-finisch-similar-functions">Overload: Methods with same Names finisch similar Functions.</h3>
+<ul>
+<li>See Code below:</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="kd">class</span> <span class="nf">OverloadTest</span><span class="o">(){</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">){</span>
+        
+        <span class="kt">int</span> <span class="n">result1</span> <span class="o">=</span> <span class="n">sumInt</span><span class="o">(</span><span class="n">1</span><span class="o">,</span><span class="n">2</span><span class="o">);</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">result1</span><span class="o">);</span>
+        
+        <span class="kt">double</span> <span class="n">result2</span> <span class="o">=</span> <span class="n">sumDouble</span><span class="o">(</span><span class="n">1</span><span class="o">.</span><span class="na">0</span><span class="o">,</span> <span class="n">2</span><span class="o">.</span><span class="na">0</span><span class="o">);</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">result2</span><span class="o">);</span>
+
+        <span class="kt">long</span> <span class="n">result3</span> <span class="o">=</span> <span class="n">sunLong</span><span class="o">(</span><span class="n">1L</span><span class="o">,</span> <span class="n">2L</span><span class="o">);</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">result3</span><span class="o">);</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">int</span> <span class="nf">sumInt</span><span class="o">(</span><span class="kt">int</span> <span class="n">a</span><span class="o">,</span> <span class="kt">int</span> <span class="n">b</span><span class="o">){</span>
+        <span class="k">return</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">double</span> <span class="nf">sumDouble</span><span class="o">(</span><span class="kt">double</span> <span class="n">a</span><span class="o">,</span> <span class="kt">double</span> <span class="n">b</span><span class="o">){</span>
+        <span class="k">return</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">long</span> <span class="nf">sumLong</span><span class="o">(</span><span class="kt">long</span> <span class="n">a</span><span class="o">,</span> <span class="kt">long</span> <span class="n">b</span><span class="o">){</span>
+        <span class="k">return</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span><span class="o">;</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>Though Functions <code>sumInt(), sumDouble(), sumLong()</code> are different, but they are similar.</p>
+<ul>
+<li>Overload see below:</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="kd">class</span> <span class="nf">OverloadTest</span><span class="o">(){</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">){</span>
+        
+        <span class="kt">int</span> <span class="n">result1</span> <span class="o">=</span> <span class="n">mySum</span><span class="o">(</span><span class="n">1</span><span class="o">,</span><span class="n">2</span><span class="o">);</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">result1</span><span class="o">);</span>
+        
+        <span class="kt">double</span> <span class="n">result2</span> <span class="o">=</span> <span class="n">mySum</span><span class="o">(</span><span class="n">1</span><span class="o">.</span><span class="na">0</span><span class="o">,</span> <span class="n">2</span><span class="o">.</span><span class="na">0</span><span class="o">);</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">result2</span><span class="o">);</span>
+
+        <span class="kt">long</span> <span class="n">result3</span> <span class="o">=</span> <span class="n">mySum</span><span class="o">(</span><span class="n">1L</span><span class="o">,</span> <span class="n">2L</span><span class="o">);</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">result3</span><span class="o">);</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">int</span> <span class="nf">mySum</span><span class="o">(</span><span class="kt">int</span> <span class="n">a</span><span class="o">,</span> <span class="kt">int</span> <span class="n">b</span><span class="o">){</span>
+        <span class="k">return</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">int</span> <span class="nf">mySum</span><span class="o">(</span><span class="kt">double</span> <span class="n">a</span><span class="o">,</span> <span class="kt">double</span> <span class="n">b</span><span class="o">){</span>
+        <span class="k">return</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">int</span> <span class="nf">mySum</span><span class="o">(</span><span class="kt">long</span> <span class="n">a</span><span class="o">,</span> <span class="kt">long</span> <span class="n">b</span><span class="o">){</span>
+        <span class="k">return</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span><span class="o">;</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>Code above will automatically select which <code>mySum</code> will be used.</p>
+<ul>
+<li>When will Overload occur, <strong>it goes with Parameters only</strong>&hellip;</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">Case</th>
+<th style="text-align:center">Examples</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">in same <code>Class</code></td>
+<td style="text-align:center">Basic 1</td>
+</tr>
+<tr>
+<td style="text-align:center">with the same Method Name</td>
+<td style="text-align:center">Basic 2</td>
+</tr>
+<tr>
+<td style="text-align:center">Parameters in different amount</td>
+<td style="text-align:center"><code>public static void m1(); public static void m1(int a)</code></td>
+</tr>
+<tr>
+<td style="text-align:center">Parameters in different Sequence</td>
+<td style="text-align:center"><code>public static void m2(int a, double b); public static void m2(double a, int b)</code></td>
+</tr>
+<tr>
+<td style="text-align:center">Paramaters in different Types</td>
+<td style="text-align:center"><code>public static void m3(int a); public static void m3(double a)</code></td>
+</tr>
+</tbody>
+</table>
+<h2 id="04-jvm">04. JVM</h2>
+<h3 id="3-primary-memory-spaces-in-jvm">3 primary Memory Spaces in JVM</h3>
+<ol>
+<li>
+<p>Method Areas: storage the Codes of Methods</p>
+</li>
+<li>
+<p>Heap</p>
+</li>
+<li>
+<p><strong>Stacks: when Methods are used, assign Room here, Stack-push. when Methods are finished, Stack-pop. on Running-Phase local Parameters are storaged here.</strong></p>
+</li>
+</ol>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/jvm-3.jpg"
+        data-srcset="/jvm-3.jpg, /jvm-3.jpg 1.5x, /jvm-3.jpg 2x"
+        data-sizes="auto"
+        alt="/jvm-3.jpg"
+        title="JVM" /></p>
+<h2 id="05-object-oriented">05. Object-oriented</h2>
+<h3 id="3-features">3 Features</h3>
+<ol>
+<li>
+<p>Encapsulation</p>
+</li>
+<li>
+<p>Inheritance</p>
+</li>
+<li>
+<p>Polymorphism</p>
+</li>
+</ol>
+<h3 id="in-the-life-circle">In the Life Circle:</h3>
+<ol>
+<li>
+<p>Object Oriented Analysis (OOA)</p>
+</li>
+<li>
+<p>Object Oriented Design (OOD)</p>
+</li>
+<li>
+<p>Object Oriented Programming (OOP)</p>
+</li>
+</ol>
+<h3 id="class--object-in-java">Class / Object in Java</h3>
+<ol>
+<li>
+<p>Class:</p>
+<ul>
+<li>
+<p>A Template, a Concept, doesn&rsquo;t exist in the real World, an abstract Result after Thought.</p>
+</li>
+<li>
+<p>describes mostly Status (<strong>Attributes</strong>) and Actions (<strong>Methods</strong>).</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Object: Individual in the real World.</p>
+</li>
+</ol>
+<h2 id="06-data-structure">06. Data Structure</h2>
 <h3 id="math--nums">Math &amp; Nums</h3>
 <ul>
 <li>
@@ -294,7 +573,6 @@ Basic Using in Java Way to write   A .java File can be compiled through javac in
 <p>The <strong>DataType</strong> above is often used to initialize a DataStructure ( See below ).</p>
 </li>
 </ul>
-<h2 id="data-structures">Data Structures</h2>
 <h3 id="queue--stack--bag">Queue &amp; Stack &amp; Bag</h3>
 <table>
 <thead>
