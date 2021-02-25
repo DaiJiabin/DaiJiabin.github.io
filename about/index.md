@@ -33,7 +33,7 @@
 
   __Language ( German ) Learning__ in Germany, lectures provided by __[TUDIAS](https://www.tudias.de/)__
 
-- <u>10.2020 - 10.20203 ( assumed )</u>
+- <u>10.2020 - 04.2023</u>
 
   __Master__ in __[Dresden University of Technology](https://en.wikipedia.org/wiki/TU_Dresden),__ Germany, majored in [Informatik](https://tu-dresden.de/ing/informatik/forschung#)
 
@@ -72,6 +72,8 @@
   2. Applications & Enviroments:
   
   3. Certificates on __[Coursera](https://www.coursera.org/):__
+
+    ![IT-Fundamental](/IT-Fundamental.jpg)
   
   4. Programm written by myself
    

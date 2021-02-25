@@ -60,7 +60,7 @@ public class HelloWorld {
     }
 }
 ```
-## 02. Transformation of DataTypes in Java
+## 02. Transformation of DataTypes （ Basic (and Reference) ） in Java
 
 - Except `boolean`, other DataType can be transformed into another.
 
@@ -179,15 +179,48 @@ Code above will automatically select which `mySum` will be used.
 
 ## 04. JVM
 
-### 3 primary Memory Spaces in JVM
+### 3 primary Memory Spaces in JVM [Ref here](https://www.baeldung.com/java-stack-heap)
 
-1. Method Areas: storage the Codes of Methods
+1. __Method Areas: <u>Codes and static Variables</u>__
 
-2. Heap
+2. __Heap: storage Instance Variables. This Memory are handeled by Trash cycle Programm.__
 
-3. __Stacks: when Methods are used, assign Room here, Stack-push. when Methods are finished, Stack-pop. on Running-Phase local Parameters are storaged here.__
+3. __Stacks: when Methods are used, assign Room here, Stack-push. when Methods are finished, Stack-pop. on Running-Phase <u>local Parameters</u> are storaged here. This Memory are mostly used.__
 
 ![JVM](/jvm-3.jpg)
+
+### p.S.
+
+- Variables / Attributes beyond Methods in Class are called __Member / Instant Variables ( It's accessble only through Object ).__
+
+```java
+class Student{
+    //Member Variables below
+    int stu_No; 
+    String name;
+    int age;
+    String address;
+    ...
+    // Member Variables without `static` are called Instance Variables;
+    // instead, Member Variables with `static` are called static Variables.
+}    
+
+public class myClass{
+    public static void main(String[] args){
+        
+        int i = 10;
+        Student s = new Student();
+        // s maps the Address of the Instance, 
+        // Instance / Object is storaged in Heap in JVM
+        // s and i are storaged in Stack in JVM
+        // s have Member Variables.
+    }
+}
+```
+
+In the Code above, __i and s called local Variable ( in Stack )__, s' Attributes like __stu_No, age, etc. are called Instant Variables ( in Heap ).__
+
+![Memory-Variables](/JVM-Memory.png)
 
 ## 05. Object-oriented
 
