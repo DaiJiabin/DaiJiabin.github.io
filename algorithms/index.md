@@ -169,3 +169,60 @@ void traverse(TreeNode* root){
     cout << root -> val; // Postorder
 }
 ```
+
+## Sort Algorithms
+
+### Merge-Sort
+
+- Ideas:
+
+- Code:
+
+```java
+public class mergeSort{
+    
+    public static void main(String[] args){
+        int[] nums = {9,8,7,6,5,4,3,2,1};
+        sort(nums);
+        /*
+        for(int i = 0; i < nums.length; i++)
+            System.out.print(nums[i]);
+        */
+    }
+
+    private static int[] aux;
+
+    private static void merge(int[] a, int lo, int mid, int hi){
+
+        int i = lo;
+        int j = mid + 1;
+
+        for(int k = i; k <= hi; k++)
+            aux[k] = a[k];
+
+        for(int k = lo; k <= hi; k++){
+            if(i > mid) a[k] = aux[j++];
+            else if(j > hi) a[k] = aux[i++];
+            else if(aux[j] <= aux[i]) a[k] = aux[j++];
+            else a[k] = aux[i++];
+        }
+
+    }
+
+    private static void sort(int[] nums, int lo, int hi){
+        if(hi <= lo)
+            return;
+        
+        int mid = lo + (hi - lo) / 2;
+        sort(nums, lo, mid);
+        sort(nums, mid + 1, hi);
+        merge(nums, lo, mid, hi);
+
+    }
+
+    private static void sort(int[] a){
+        aux = new int[a.length];
+        sort(a, 0, a.length - 1);
+    }
+}
+```

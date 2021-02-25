@@ -189,7 +189,7 @@ Code above will automatically select which `mySum` will be used.
 
 ![JVM](/jvm-3.jpg)
 
-### p.S.
+### where are the Variables?
 
 - Variables / Attributes beyond Methods in Class are called __Member / Instant Variables ( It's accessble only through Object ).__
 
