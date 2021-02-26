@@ -33,7 +33,7 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "https:\/\/daijiabin.github.io\/java-learning\/"
-        },"image": ["https:\/\/daijiabin.github.io\/images\/Apple-Devices-Preview.png"],"genre": "posts","keywords": "Languages","wordcount":  1447 ,
+        },"image": ["https:\/\/daijiabin.github.io\/images\/Apple-Devices-Preview.png"],"genre": "posts","keywords": "Languages","wordcount":  2287 ,
         "url": "https:\/\/daijiabin.github.io\/java-learning\/","datePublished": "2021-02-03T19:14:56+01:00","dateModified": "2021-02-25T12:15:23+01:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
             "@type": "Organization",
             "name": "Dai Jiabin","logo": "https:\/\/daijiabin.github.io\/images\/avatar.png"},"author": {
@@ -114,8 +114,8 @@
             <div class="toc-content" id="toc-content-auto"></div>
         </div><article class="page single"><h1 class="single-title animated flipInX">Java Learning</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="https://www.github.com/DaiJiabin" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw"></i>Dai Jiabin</a></span>&nbsp;<span class="post-category">included in <a href="/categories/learn/"><i class="far fa-folder fa-fw"></i>Learn</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2021-02-03">2021-02-03</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;1447 words&nbsp;
-                <i class="far fa-clock fa-fw"></i>&nbsp;7 minutes&nbsp;</div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2021-02-03">2021-02-03</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;2287 words&nbsp;
+                <i class="far fa-clock fa-fw"></i>&nbsp;11 minutes&nbsp;</div>
         </div><div class="details toc" id="toc-static"  kept="">
                 <div class="details-summary toc-title">
                     <span>Contents</span>
@@ -128,13 +128,14 @@
         <li><a href="#way-to-write">Way to write</a></li>
       </ul>
     </li>
-    <li><a href="#02-transformation-of-datatypes--basic-and-reference--in-java">02. Transformation of DataTypes （ Basic (and Reference) ） in Java</a></li>
+    <li><a href="#02-transformation-of-datatypes-in-java">02. Transformation of DataTypes in Java</a></li>
     <li><a href="#03-methods-in-class">03. Methods in Class</a>
       <ul>
         <li><a href="#what-is-methods">What is Methods</a></li>
         <li><a href="#format">Format</a></li>
+        <li><a href="#static-or-not"><code>static</code> or NOT?</a></li>
         <li><a href="#usage">Usage</a></li>
-        <li><a href="#overload-methods-with-same-names-finisch-similar-functions">Overload: Methods with same Names finisch similar Functions.</a></li>
+        <li><a href="#overload-methods-with-same-names-and-finish-similar-functions">Overload: Methods with same Names and finish similar Functions.</a></li>
       </ul>
     </li>
     <li><a href="#04-jvm">04. JVM</a>
@@ -148,6 +149,11 @@
         <li><a href="#3-features">3 Features</a></li>
         <li><a href="#in-the-life-circle">In the Life Circle:</a></li>
         <li><a href="#class--object--instance--in-java">Class / Object ( Instance ) in Java</a></li>
+        <li><a href="#constructor">Constructor</a></li>
+        <li><a href="#this-key-word"><code>this</code> Key Word</a></li>
+        <li><a href="#static"><code>static</code></a></li>
+        <li><a href="#override"><code>Override</code></a></li>
+        <li><a href="#heading"></a></li>
       </ul>
     </li>
     <li><a href="#06-data-structure">06. Data Structure</a>
@@ -267,7 +273,7 @@
 <span class="o">}</span>
 </code></pre></td></tr></table>
 </div>
-</div><h2 id="02-transformation-of-datatypes--basic-and-reference--in-java">02. Transformation of DataTypes （ Basic (and Reference) ） in Java</h2>
+</div><h2 id="02-transformation-of-datatypes-in-java">02. Transformation of DataTypes in Java</h2>
 <ul>
 <li>
 <p>Except <code>boolean</code>, other DataType can be transformed into another.</p>
@@ -312,6 +318,60 @@
 <span class="o">}</span>
 </code></pre></td></tr></table>
 </div>
+</div><h3 id="static-or-not"><code>static</code> or NOT?</h3>
+<ul>
+<li>
+<p><code>Methods</code> without <code>static</code> can be used only through an <code>Object</code>. They are called as <strong><code>Instance Methods</code></strong>.</p>
+</li>
+<li>
+<p>if a Move needs Object to take part in, DONOT use <code>static</code>.</p>
+</li>
+<li>
+<p><code>Methods</code> with <code>static</code> donot need <code>Object</code> to take part in. To access, <code>Class_Name.Method()</code></p>
+</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="kd">class</span> <span class="nc">Method</span><span class="o">{</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">doSome</span><span class="o">(){</span>
+        <span class="c1">// Codes
+</span><span class="c1"></span>    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">doOther</span><span class="o">(){</span>
+        <span class="c1">// Codes
+</span><span class="c1"></span>    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">){</span>
+        <span class="n">Student</span> <span class="n">s</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Student</span><span class="o">();</span>
+        <span class="n">Method</span><span class="o">.</span><span class="na">doSome</span><span class="o">();</span>
+        <span class="c1">// doSome();
+</span><span class="c1"></span>        <span class="n">Method</span> <span class="n">m</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Method</span><span class="o">();</span>
+        <span class="n">m</span><span class="o">.</span><span class="na">doOther</span><span class="o">();</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></td></tr></table>
+</div>
 </div><h3 id="usage">Usage</h3>
 <ul>
 <li>
@@ -327,7 +387,7 @@
 <p>Methods in other Class, must be <code>Class-Name.Method-Name(Parameters)</code>.</p>
 </li>
 </ul>
-<h3 id="overload-methods-with-same-names-finisch-similar-functions">Overload: Methods with same Names finisch similar Functions.</h3>
+<h3 id="overload-methods-with-same-names-and-finish-similar-functions">Overload: Methods with same Names and finish similar Functions.</h3>
 <ul>
 <li>See Code below:</li>
 </ul>
@@ -485,13 +545,13 @@
 <h3 id="3-primary-memory-spaces-in-jvm-ref-herehttpswwwbaeldungcomjava-stack-heap">3 primary Memory Spaces in JVM <a href="https://www.baeldung.com/java-stack-heap" target="_blank" rel="noopener noreffer">Ref here</a></h3>
 <ol>
 <li>
-<p><strong>Method Areas: <u>Codes and static Variables</u></strong></p>
+<p><strong>Method Areas: <u>Codes and static Variables ( <code>Instance Variables</code> )</u></strong></p>
 </li>
 <li>
-<p><strong>Heap: storage Instance Variables. This Memory are handeled by Trash cycle Programm.</strong></p>
+<p><strong>Heap: storage <u>Instance Variables</u>. This Memory are handeled by Trash cycle Programm.</strong></p>
 </li>
 <li>
-<p><strong>Stacks: when Methods are used, assign Room here, Stack-push. when Methods are finished, Stack-pop. on Running-Phase <u>local Parameters</u> are storaged here. This Memory are mostly used.</strong></p>
+<p><strong>Stacks: when Methods are used, assign Room here, Stack-push. when Methods are finished, Stack-pop. on Running-Phase <u>local Variables</u> are storaged here. This Memory are mostly used.</strong></p>
 </li>
 </ol>
 <p><img
@@ -504,7 +564,7 @@
         title="JVM" /></p>
 <h3 id="where-are-the-variables">where are the Variables?</h3>
 <ul>
-<li>Variables / Attributes beyond Methods in Class are called <strong>Member / Instant Variables ( It&rsquo;s accessble only through Object ).</strong></li>
+<li>Variables / Attributes beyond Methods in Class are called <strong>Member Variables ( It&rsquo;s accessble only through Object ).</strong></li>
 </ul>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -557,6 +617,9 @@
 </code></pre></td></tr></table>
 </div>
 </div><p>In the Code above, <strong>i and s called local Variable ( in Stack )</strong>, s' Attributes like <strong>stu_No, age, etc. are called Instant Variables ( in Heap ).</strong></p>
+<ul>
+<li><code>Member Variables</code> contain <code>static Variables</code> and <code>Instance Variables</code>.</li>
+</ul>
 <p><img
         class="lazyload"
         src="/svg/loading.min.svg"
@@ -565,20 +628,172 @@
         data-sizes="auto"
         alt="/JVM-Memory.png"
         title="Memory-Variables" /></p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">Modifier</th>
+<th style="text-align:center">Function</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><code>public</code></td>
+<td style="text-align:center">accessible anywhere</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>static</code></td>
+<td style="text-align:center">accessible without <code>Object</code></td>
+</tr>
+</tbody>
+</table>
 <h2 id="05-object-oriented">05. Object-oriented</h2>
 <h3 id="3-features">3 Features</h3>
 <ol>
 <li>
-<p>Encapsulation</p>
+<p>Encapsulation ( Attributions )</p>
+<ul>
+<li>
+<p>simplify, offer simple Interfaces for Users. ( i.e, Camera )</p>
 </li>
 <li>
+<p>after Encapsulation there is Object</p>
+</li>
+<li>
+<p>after Encapsulation the Programms becomes resuable</p>
+</li>
+<li>
+<p>improve the Security</p>
+</li>
+<li>
+<p><code>private</code> Attributions $\rarr$ write Interfaces ( <code>set</code> and <code>get</code>. <strong>These 2 Methods have no Modifier <code>static</code></strong>)</p>
+</li>
+</ul>
+</li>
+</ol>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="kd">class</span> <span class="nc">Student</span><span class="o">{</span>
+    <span class="kd">private</span> <span class="n">String</span> <span class="n">name</span><span class="o">;</span>
+    <span class="kd">private</span> <span class="kt">int</span> <span class="n">age</span><span class="o">;</span>
+    <span class="kd">private</span> <span class="n">String</span> <span class="n">addr</span><span class="o">;</span>
+
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">setName</span><span class="o">(</span><span class="n">String</span> <span class="n">myName</span><span class="o">){</span>
+        <span class="n">name</span> <span class="o">=</span> <span class="n">myName</span><span class="o">;</span>
+        <span class="c1">// Code that determins the Legality
+</span><span class="c1"></span>    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="n">String</span> <span class="nf">getName</span><span class="o">(){</span>
+        <span class="k">return</span> <span class="n">name</span><span class="o">;</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><ol start="2">
+<li>
 <p>Inheritance</p>
+<ul>
+<li>Ancestor: <code>java.lang.Object</code></li>
+<li><code>[Modifiers] class subclass extands superclass{}</code></li>
+<li>Basic: Reusablility of Codes;</li>
+<li>Advanced: Base Stone of the <strong>Overload</strong> and <strong>the Polymorphism</strong></li>
+<li><code>superclass</code> and <code>subclass</code></li>
+<li><strong>private, Constructors</strong> are not inheritance.</li>
+</ul>
 </li>
 <li>
 <p>Polymorphism</p>
+<ul>
+<li>upcasting: <code>subclass</code> $\rarr$ <code>superclass</code> ( automatic )</li>
+<li>downcasting: <code>superclass</code> $\rarr$ <code>subclass</code> ( forced ) when specific <code>Methods</code> are only in <code>Subclass</code></li>
+<li><strong>There must be extend-Relationship by upcasting and downcastint</strong></li>
+</ul>
 </li>
 </ol>
-<h3 id="in-the-life-circle">In the Life Circle:</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Animal</span><span class="o">{</span>
+    <span class="kd">protected</span> <span class="kt">void</span> <span class="nf">move</span><span class="o">(){</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&#34;Moving&#34;</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Bird</span> <span class="kd">extends</span> <span class="n">Animal</span><span class="o">{</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">move</span><span class="o">(){</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&#34;Flying&#34;</span><span class="o">);</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">sing</span><span class="o">(){</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&#34;Singing&#34;</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">poly</span><span class="o">(){</span>
+    <span class="n">Animal</span> <span class="n">a</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Bird</span><span class="o">();</span> 
+    <span class="n">a</span><span class="o">.</span><span class="na">move</span><span class="o">();</span>
+    <span class="c1">//Bird to Animal, upcasting
+</span><span class="c1"></span>    <span class="c1">// a.move() -&gt; Flying
+</span><span class="c1"></span>    <span class="c1">// a.sing() -&gt; cannot Compile
+</span><span class="c1"></span>    <span class="c1">// Compile: check a&#39;s Class, Animal. Animal cannot sing.
+</span><span class="c1"></span>    <span class="c1">// Run: run Methods in Bird
+</span><span class="c1"></span>
+    <span class="n">Bird</span> <span class="n">b</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Animal</span><span class="o">();</span>
+    <span class="n">b</span><span class="o">.</span><span class="na">sing</span><span class="o">();</span>
+    <span class="c1">//Animal to Bird, downcasting
+</span><span class="c1"></span>    <span class="c1">//b.move() -&gt; Moving
+</span><span class="c1"></span>    <span class="c1">//b.sing() -&gt; Singing
+</span><span class="c1"></span><span class="o">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="in-the-life-circle">In the Life Circle:</h3>
 <ol>
 <li>
 <p>Object Oriented Analysis (OOA)</p>
@@ -607,6 +822,252 @@
 <p>Object: Individual in the real World.</p>
 </li>
 </ol>
+<h3 id="constructor">Constructor</h3>
+<ol>
+<li>Differences between <code>Methods</code> and <code>Constructor</code> ( <strong>has <code>return-Type</code> or not</strong> )</li>
+</ol>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java">
+<span class="o">[</span><span class="n">Modifier</span> <span class="n">List</span><span class="o">]</span> <span class="n">Constructor</span><span class="o">-</span><span class="n">Name</span><span class="o">(</span><span class="n">parameters</span><span class="o">){</span>
+    <span class="c1">//Codes
+</span><span class="c1"></span><span class="o">}</span>
+
+<span class="o">[</span><span class="n">Modifier</span> <span class="n">List</span><span class="o">]</span> <span class="k">return</span><span class="o">-</span><span class="n">Type</span> <span class="n">Method</span><span class="o">-</span><span class="n">Name</span><span class="o">(</span><span class="n">Parameters</span><span class="o">){</span>
+    <span class="c1">//Codes
+</span><span class="c1"></span><span class="o">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><ol start="2">
+<li><strong>Constructor-Name must be same as Class-Name.</strong></li>
+</ol>
+<h3 id="this-key-word"><code>this</code> Key Word</h3>
+<ul>
+<li>
+<p><code>this</code> points at the Object itself. It&rsquo;s saved in <strong>Heap</strong>.</p>
+</li>
+<li>
+<p><code>this</code> appears in <code>Instance Methods</code> ( Methods without <code>static</code> )</p>
+</li>
+<li>
+<p><code>this</code> can also appear in <code>Constructors</code>, using other <code>Constructors</code> at the meanwhile.</p>
+</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Customer</span><span class="o">{</span>
+    
+    <span class="n">String</span> <span class="n">name</span><span class="o">;</span>
+
+    <span class="kd">public</span> <span class="nf">Customer</span><span class="o">(){</span>
+        <span class="c1">// this.name = &#34;NULL&#34;;
+</span><span class="c1"></span>        <span class="k">this</span><span class="o">(</span><span class="n">name</span><span class="o">);</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="nf">Customer</span><span class="o">(</span><span class="n">String</span> <span class="n">name</span><span class="o">){</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">name</span> <span class="o">=</span> <span class="n">name</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">shopping</span><span class="o">(){</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="k">this</span><span class="o">.</span><span class="na">name</span> <span class="o">+</span> <span class="s">&#34;is shopping!&#34;</span><span class="o">);</span>
+    <span class="o">}</span>
+
+<span class="o">}</span>
+
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="static"><code>static</code></h3>
+<ul>
+<li>an Example:</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Customer</span> <span class="o">{</span>
+	<span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">shopping</span><span class="o">()</span> <span class="o">{</span>
+		<span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&#34;In shopping!&#34;</span><span class="o">);</span>
+	<span class="o">}</span>
+	
+	<span class="kd">public</span> <span class="kt">void</span> <span class="nf">running</span><span class="o">()</span> <span class="o">{</span>
+		<span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&#34;On running!&#34;</span><span class="o">);</span>
+	<span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">){</span>
+        <span class="n">Customer</span> <span class="n">c1</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Customer</span><span class="o">();</span>
+        <span class="c1">// Method &#34;running()&#34; is only through an Object accessible.
+</span><span class="c1"></span>        <span class="n">c1</span><span class="o">.</span><span class="na">running</span><span class="o">();</span>
+
+        <span class="c1">// The following Codes output without Nullpointer Error.
+</span><span class="c1"></span>        <span class="c1">// There&#39;s Warning. static Methods are accessible through object, too.
+</span><span class="c1"></span>        <span class="c1">// BUT, Advice is, use it through &#34;Class.static_Method()&#34;.
+</span><span class="c1"></span>        <span class="n">c1</span> <span class="o">=</span> <span class="kc">null</span><span class="o">;</span>
+        <span class="n">c1</span><span class="o">.</span><span class="na">shopping</span><span class="o">();</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+
+</code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>
+<p>when <code>static</code> Variables?</p>
+<ul>
+<li>
+<p>Same Attribute(s) in Objects</p>
+</li>
+<li>
+<p><code>static</code> Variables are storaged during the Load of Class in <strong>&ldquo;Method Area&rdquo;</strong></p>
+</li>
+<li>
+<p><code>static</code> Variables have Nothing to do with Objects.</p>
+</li>
+<li>
+<p><code>static Code Block</code> will be executed during the Load of Class from up to down and only once.</p>
+</li>
+<li>
+<p><code>static Code Block</code> can be used to record when the Class are loaded. ( Log )</p>
+</li>
+<li>
+<p>p.S. <code>Instance Code Block</code> can be used to record when the Object are created.</p>
+</li>
+</ul>
+</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Chinese</span><span class="o">{</span>
+    <span class="kd">private</span> <span class="n">String</span> <span class="n">name</span><span class="o">;</span>
+    <span class="kd">private</span> <span class="n">String</span> <span class="n">id</span><span class="o">;</span>
+    <span class="c1">// the Variable &#34;country&#34; here are same: China.
+</span><span class="c1"></span>    <span class="c1">// private String country;
+</span><span class="c1"></span>
+    <span class="c1">// So we write it in this Way
+</span><span class="c1"></span>    <span class="kd">static</span> <span class="n">String</span> <span class="n">country</span> <span class="o">=</span> <span class="s">&#34;China&#34;</span><span class="o">;</span>
+    <span class="c1">// By writing in this way the Variable &#34;country&#34; is saved in &#34;Method Area&#34; instead of in &#34;Heap&#34;
+</span><span class="c1"></span>    
+    <span class="c1">// It&#39;s accessible by:
+</span><span class="c1"></span>    <span class="c1">// zhangsan.country;
+</span><span class="c1"></span>    <span class="c1">// Chinese.country;
+</span><span class="c1"></span><span class="o">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>In <code>static</code> there&rsquo;s no <code>this</code>. It cannot visit <code>Instance Variables</code> and <code>Instance Methods</code> directly ( must through an Object ).</li>
+</ul>
+<h3 id="override"><code>Override</code></h3>
+<ul>
+<li>
+<p>when <code>Override</code>?</p>
+<ul>
+<li><code>Methods</code> in <code>Superclass</code> cannot feed the Need of <code>Subclass</code></li>
+<li><strong>Override Methods have same Modifier, returnType and Parameters</strong></li>
+<li><strong>The Access Right must be same or higher</strong></li>
+<li><strong>The Number of Errors must be same or less</strong></li>
+<li>Deals with only <code>Methods</code> ( except <code>static Methods</code> )</li>
+<li>Override the Methods in the <strong>closet Superclass</strong></li>
+</ul>
+</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Animal</span><span class="o">{</span>
+    <span class="kd">protected</span> <span class="kt">void</span> <span class="nf">move</span><span class="o">(){</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&#34;Moving&#34;</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Bird</span> <span class="kd">extends</span> <span class="n">Animal</span><span class="o">{</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">move</span><span class="o">(){</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&#34;Flying&#34;</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="heading"></h3>
 <h2 id="06-data-structure">06. Data Structure</h2>
 <h3 id="math--nums">Math &amp; Nums</h3>
 <ul>

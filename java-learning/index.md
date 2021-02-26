@@ -60,7 +60,7 @@ public class HelloWorld {
     }
 }
 ```
-## 02. Transformation of DataTypes （ Basic (and Reference) ） in Java
+## 02. Transformation of DataTypes in Java
 
 - Except `boolean`, other DataType can be transformed into another.
 
@@ -90,6 +90,35 @@ public class HelloWorld {
 }
 ```
 
+### `static` or NOT?
+
+- `Methods` without `static` can be used only through an `Object`. They are called as __`Instance Methods`__.
+
+- if a Move needs Object to take part in, DONOT use `static`.
+
+- `Methods` with `static` donot need `Object` to take part in. To access, `Class_Name.Method()`
+
+```java
+class Method{
+
+    public static void doSome(){
+        // Codes
+    }
+
+    public void doOther(){
+        // Codes
+    }
+
+    public static void main(String[] args){
+        Student s = new Student();
+        Method.doSome();
+        // doSome();
+        Method m = new Method();
+        m.doOther();
+    }
+}
+```
+
 ### Usage
 
 - You can define Methods, but you must not use them.
@@ -100,7 +129,7 @@ public class HelloWorld {
 
 - Methods in other Class, must be `Class-Name.Method-Name(Parameters)`.
 
-### Overload: Methods with same Names finisch similar Functions.
+### Overload: Methods with same Names and finish similar Functions.
 
 - See Code below:
 
@@ -181,17 +210,17 @@ Code above will automatically select which `mySum` will be used.
 
 ### 3 primary Memory Spaces in JVM [Ref here](https://www.baeldung.com/java-stack-heap)
 
-1. __Method Areas: <u>Codes and static Variables</u>__
+1. __Method Areas: <u>Codes and static Variables ( `Instance Variables` )</u>__
 
-2. __Heap: storage Instance Variables. This Memory are handeled by Trash cycle Programm.__
+2. __Heap: storage <u>Instance Variables</u>. This Memory are handeled by Trash cycle Programm.__
 
-3. __Stacks: when Methods are used, assign Room here, Stack-push. when Methods are finished, Stack-pop. on Running-Phase <u>local Parameters</u> are storaged here. This Memory are mostly used.__
+3. __Stacks: when Methods are used, assign Room here, Stack-push. when Methods are finished, Stack-pop. on Running-Phase <u>local Variables</u> are storaged here. This Memory are mostly used.__
 
 ![JVM](/jvm-3.jpg)
 
 ### where are the Variables?
 
-- Variables / Attributes beyond Methods in Class are called __Member / Instant Variables ( It's accessble only through Object ).__
+- Variables / Attributes beyond Methods in Class are called __Member Variables ( It's accessble only through Object ).__
 
 ```java
 class Student{
@@ -220,17 +249,96 @@ public class myClass{
 
 In the Code above, __i and s called local Variable ( in Stack )__, s' Attributes like __stu_No, age, etc. are called Instant Variables ( in Heap ).__
 
+- `Member Variables` contain `static Variables` and `Instance Variables`.
+
 ![Memory-Variables](/JVM-Memory.png)
+
+| Modifier |          Function           |
+| :------: | :-------------------------: |
+| `public` |     accessible anywhere     |
+| `static` | accessible without `Object` |
 
 ## 05. Object-oriented
 
 ### 3 Features
 
-1. Encapsulation
+1. Encapsulation ( Attributions )
+
+    - simplify, offer simple Interfaces for Users. ( i.e, Camera )
+
+    - after Encapsulation there is Object
+
+    - after Encapsulation the Programms becomes resuable
+
+    - improve the Security
+
+    - `private` Attributions $\rarr$ write Interfaces ( `set` and `get`. __These 2 Methods have no Modifier `static`__)
+
+```java
+class Student{
+    private String name;
+    private int age;
+    private String addr;
+
+    public void setName(String myName){
+        name = myName;
+        // Code that determins the Legality
+    }
+
+    public String getName(){
+        return name;
+    }
+}
+```
 
 2. Inheritance
 
+    - Ancestor: `java.lang.Object`
+    - `[Modifiers] class subclass extands superclass{}`
+    - Basic: Reusablility of Codes;
+    - Advanced: Base Stone of the __Overload__ and __the Polymorphism__
+    - `superclass` and `subclass`
+    - __private, Constructors__ are not inheritance.
+
 3. Polymorphism
+
+    - upcasting: `subclass` $\rarr$ `superclass` ( automatic )
+    - downcasting: `superclass` $\rarr$ `subclass` ( forced ) when specific `Methods` are only in `Subclass`
+    - __There must be extend-Relationship by upcasting and downcastint__
+
+```java
+public class Animal{
+    protected void move(){
+        System.out.println("Moving");
+    }
+}
+
+public class Bird extends Animal{
+    public void move(){
+        System.out.println("Flying");
+    }
+
+    public void sing(){
+        System.out.println("Singing");
+    }
+}
+
+public void poly(){
+    Animal a = new Bird(); 
+    a.move();
+    //Bird to Animal, upcasting
+    // a.move() -> Flying
+    // a.sing() -> cannot Compile
+    // Compile: check a's Class, Animal. Animal cannot sing.
+    // Run: run Methods in Bird
+
+    Bird b = new Animal();
+    b.sing();
+    //Animal to Bird, downcasting
+    //b.move() -> Moving
+    //b.sing() -> Singing
+}
+```
 
 ### In the Life Circle:
 
@@ -249,6 +357,143 @@ In the Code above, __i and s called local Variable ( in Stack )__, s' Attributes
    - describes mostly Status (__Attributes__) and Actions (__Methods__).
 
 2. Object: Individual in the real World.
+
+### Constructor
+
+1. Differences between `Methods` and `Constructor` ( __has `return-Type` or not__ )
+
+```java
+
+[Modifier List] Constructor-Name(parameters){
+    //Codes
+}
+
+[Modifier List] return-Type Method-Name(Parameters){
+    //Codes
+}
+```
+
+2. __Constructor-Name must be same as Class-Name.__
+
+### `this` Key Word
+
+- `this` points at the Object itself. It's saved in __Heap__.
+
+- `this` appears in `Instance Methods` ( Methods without `static` )
+
+- `this` can also appear in `Constructors`, using other `Constructors` at the meanwhile.
+
+```java
+public class Customer{
+    
+    String name;
+
+    public Customer(){
+        // this.name = "NULL";
+        this(name);
+    }
+
+    public Customer(String name){
+        this.name = name;
+    }
+
+    public void shopping(){
+        System.out.println(this.name + "is shopping!");
+    }
+
+}
+
+```
+
+### `static`
+
+- an Example:
+
+```java
+public class Customer {
+	public static void shopping() {
+		System.out.println("In shopping!");
+	}
+	
+	public void running() {
+		System.out.println("On running!");
+	}
+
+    public static void main(String[] args){
+        Customer c1 = new Customer();
+        // Method "running()" is only through an Object accessible.
+        c1.running();
+
+        // The following Codes output without Nullpointer Error.
+        // There's Warning. static Methods are accessible through object, too.
+        // BUT, Advice is, use it through "Class.static_Method()".
+        c1 = null;
+        c1.shopping();
+    }
+}
+
+```
+
+- when `static` Variables?
+
+    - Same Attribute(s) in Objects
+
+    - `static` Variables are storaged during the Load of Class in __"Method Area"__
+
+    - `static` Variables have Nothing to do with Objects.
+
+    - `static Code Block` will be executed during the Load of Class from up to down and only once.
+
+    - `static Code Block` can be used to record when the Class are loaded. ( Log )
+
+    - p.S. `Instance Code Block` can be used to record when the Object are created.
+  
+```java
+public class Chinese{
+    private String name;
+    private String id;
+    // the Variable "country" here are same: China.
+    // private String country;
+
+    // So we write it in this Way
+    static String country = "China";
+    // By writing in this way the Variable "country" is saved in "Method Area" instead of in "Heap"
+    
+    // It's accessible by:
+    // zhangsan.country;
+    // Chinese.country;
+}
+```
+
+- In `static` there's no `this`. It cannot visit `Instance Variables` and `Instance Methods` directly ( must through an Object ).
+
+### `Override`
+
+- when `Override`?
+
+    - `Methods` in `Superclass` cannot feed the Need of `Subclass`
+    - __Override Methods have same Modifier, returnType and Parameters__
+    - __The Access Right must be same or higher__
+    - __The Number of Errors must be same or less__
+    - Deals with only `Methods` ( except `static Methods` )
+    - Override the Methods in the __closet Superclass__
+
+```java
+public class Animal{
+    protected void move(){
+        System.out.println("Moving");
+    }
+}
+
+public class Bird extends Animal{
+    public void move(){
+        System.out.println("Flying");
+    }
+}
+
+```
+
+### 
 
 ## 06. Data Structure
 
