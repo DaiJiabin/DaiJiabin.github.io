@@ -5,7 +5,7 @@
 
 ... And the greatest reason I learn it, is that ~~I LOVE COFFEE :coffee:~~ its DS are fuxxing easy to use.
 
-## 01. Basic Using in Java
+## 01. Basic Usage in Java
 
 ### Way to write
 
@@ -17,49 +17,49 @@
 
 - A .java File can contain multipule class, __but only 1 public class__. Besides, the name of the public class must be same as the `.java` file.
 
-```java
-// C.java
-class A{
-    public static void main(String[] args){
-        //Codes here
+    ```java
+    // C.java
+    class A{
+        public static void main(String[] args){
+            //Codes here
+        }
     }
-}
 
-class B{
-    public static void main(String[] args){
-        // Codes here
+    class B{
+        public static void main(String[] args){
+            // Codes here
+        }
     }
-}
 
-public class C{
-    public static void main(String[] args){
-        // Codes here
+    public class C{
+        public static void main(String[] args){
+            // Codes here
+        }
     }
-}
-```
+    ```
 
 - In every class, there is only 1 main Method. The way to write it is always this:
 
-```java
-public class C{
-    public static void main(String[] args){
-        // Codes here
-        // Attribute(s)
-        // Method(s)
+    ```java
+    public class C{
+        public static void main(String[] args){
+            // Codes here
+            // Attribute(s)
+            // Method(s)
+        }
     }
-}
-```
+    ```
 
 - At the end, like old Style, say "Hello world!":)
 
-```java
-// HelloWorld.java
-public class HelloWorld {
-    public static void main(String[] args){
-        System.out.println("Hello World!");
+    ```java
+    // HelloWorld.java
+    public class HelloWorld {
+        public static void main(String[] args){
+            System.out.println("Hello World!");
+        }
     }
-}
-```
+    ```
 ## 02. Transformation of DataTypes in Java
 
 - Except `boolean`, other DataType can be transformed into another.
@@ -98,26 +98,26 @@ public class HelloWorld {
 
 - `Methods` with `static` donot need `Object` to take part in. To access, `Class_Name.Method()`
 
-```java
-class Method{
+    ```java
+    class Method{
 
-    public static void doSome(){
-        // Codes
-    }
+        public static void doSome(){
+            // Codes
+        }
 
-    public void doOther(){
-        // Codes
-    }
+        public void doOther(){
+            // Codes
+        }
 
-    public static void main(String[] args){
-        Student s = new Student();
-        Method.doSome();
-        // doSome();
-        Method m = new Method();
-        m.doOther();
+        public static void main(String[] args){
+            Student s = new Student();
+            Method.doSome();
+            // doSome();
+            Method m = new Method();
+            m.doOther();
+        }
     }
-}
-```
+    ```
 
 ### Usage
 
@@ -133,65 +133,65 @@ class Method{
 
 - See Code below:
 
-```java
-public class OverloadTest(){
-    public static void main(String[] args){
-        
-        int result1 = sumInt(1,2);
-        System.out.println(result1);
-        
-        double result2 = sumDouble(1.0, 2.0);
-        System.out.println(result2);
+    ```java
+    public class OverloadTest(){
+        public static void main(String[] args){
+            
+            int result1 = sumInt(1,2);
+            System.out.println(result1);
+            
+            double result2 = sumDouble(1.0, 2.0);
+            System.out.println(result2);
 
-        long result3 = sunLong(1L, 2L);
-        System.out.println(result3);
-    }
+            long result3 = sunLong(1L, 2L);
+            System.out.println(result3);
+        }
 
-    public static int sumInt(int a, int b){
-        return a + b;
-    }
+        public static int sumInt(int a, int b){
+            return a + b;
+        }
 
-    public static double sumDouble(double a, double b){
-        return a + b;
-    }
+        public static double sumDouble(double a, double b){
+            return a + b;
+        }
 
-    public static long sumLong(long a, long b){
-        return a + b;
+        public static long sumLong(long a, long b){
+            return a + b;
+        }
     }
-}
-```
+    ```
 
 Though Functions `sumInt(), sumDouble(), sumLong()` are different, but they are similar.
 
 - Overload see below:
 
-```java
-public class OverloadTest(){
-    public static void main(String[] args){
-        
-        int result1 = mySum(1,2);
-        System.out.println(result1);
-        
-        double result2 = mySum(1.0, 2.0);
-        System.out.println(result2);
+    ```java
+    public class OverloadTest(){
+        public static void main(String[] args){
+            
+            int result1 = mySum(1,2);
+            System.out.println(result1);
+            
+            double result2 = mySum(1.0, 2.0);
+            System.out.println(result2);
 
-        long result3 = mySum(1L, 2L);
-        System.out.println(result3);
-    }
+            long result3 = mySum(1L, 2L);
+            System.out.println(result3);
+        }
 
-    public static int mySum(int a, int b){
-        return a + b;
-    }
+        public static int mySum(int a, int b){
+            return a + b;
+        }
 
-    public static int mySum(double a, double b){
-        return a + b;
-    }
+        public static int mySum(double a, double b){
+            return a + b;
+        }
 
-    public static int mySum(long a, long b){
-        return a + b;
+        public static int mySum(long a, long b){
+            return a + b;
+        }
     }
-}
-```
+    ```
 
 Code above will automatically select which `mySum` will be used.
 
@@ -222,30 +222,30 @@ Code above will automatically select which `mySum` will be used.
 
 - Variables / Attributes beyond Methods in Class are called __Member Variables ( It's accessble only through Object ).__
 
-```java
-class Student{
-    //Member Variables below
-    int stu_No; 
-    String name;
-    int age;
-    String address;
-    ...
-    // Member Variables without `static` are called Instance Variables;
-    // instead, Member Variables with `static` are called static Variables.
-}    
+    ```java
+    class Student{
+        //Member Variables below
+        int stu_No; 
+        String name;
+        int age;
+        String address;
+        ...
+        // Member Variables without `static` are called Instance Variables;
+        // instead, Member Variables with `static` are called static Variables.
+    }    
 
-public class myClass{
-    public static void main(String[] args){
-        
-        int i = 10;
-        Student s = new Student();
-        // s maps the Address of the Instance, 
-        // Instance / Object is storaged in Heap in JVM
-        // s and i are storaged in Stack in JVM
-        // s have Member Variables.
+    public class myClass{
+        public static void main(String[] args){
+            
+            int i = 10;
+            Student s = new Student();
+            // s maps the Address of the Instance, 
+            // Instance / Object is storaged in Heap in JVM
+            // s and i are storaged in Stack in JVM
+            // s have Member Variables.
+        }
     }
-}
-```
+    ```
 
 In the Code above, __i and s called local Variable ( in Stack )__, s' Attributes like __stu_No, age, etc. are called Instant Variables ( in Heap ).__
 
@@ -274,71 +274,137 @@ In the Code above, __i and s called local Variable ( in Stack )__, s' Attributes
 
     - `private` Attributions $\rarr$ write Interfaces ( `set` and `get`. __These 2 Methods have no Modifier `static`__)
 
-```java
-class Student{
-    private String name;
-    private int age;
-    private String addr;
+    ```java
+    class Student{
+        private String name;
+        private int age;
+        private String addr;
 
-    public void setName(String myName){
-        name = myName;
-        // Code that determins the Legality
-    }
+        public void setName(String myName){
+            name = myName;
+            // Code that determins the Legality
+        }
 
-    public String getName(){
-        return name;
+        public String getName(){
+            return name;
+        }
     }
-}
-```
+    ```
 
 2. Inheritance
 
     - Ancestor: `java.lang.Object`
+    
     - `[Modifiers] class subclass extands superclass{}`
+    
     - Basic: Reusablility of Codes;
+    
     - Advanced: Base Stone of the __Overload__ and __the Polymorphism__
+    
     - `superclass` and `subclass`
+    
     - __private, Constructors__ are not inheritance.
 
 3. Polymorphism
 
     - upcasting: `subclass` $\rarr$ `superclass` ( automatic )
+    
     - downcasting: `superclass` $\rarr$ `subclass` ( forced ) when specific `Methods` are only in `Subclass`
-    - __There must be extend-Relationship by upcasting and downcastint__
+    
+    - __There must be extend-Relationship by upcasting and downcasting__
 
-```java
-public class Animal{
-    protected void move(){
-        System.out.println("Moving");
+    ```java
+    public class Animal{
+        public void move(){
+            System.out.println("Animal Moving!");
+        }
+
+        public static void main(String[] args){
+            Animal a = new Bird(); 
+            a.move();
+            //Bird to Animal, upcasting
+            // a.move() -> Bird Flying!
+            // a.sing() -> CANNOT compile. In Class Animal there's no Method called "sing()"
+            // In other Word: Compile check a's Class, Animal. But Animal cannot sing.
+            // Run: run Methods in Bird. Because we have a Bird() Object "newed".
+
+            // when we want Animal a to sing, we can transform its' DataType
+            Bird b = (Bird) a;//Animal to Bird, downcasting
+            b.move(); //Bird Fying!
+            b.sing(); // Bird Singing!
+            
+            Cat c = (Cat) a;
+        }
     }
-}
 
-public class Bird extends Animal{
-    public void move(){
-        System.out.println("Flying");
+    class Bird extends Animal{
+        public void move(){
+            System.out.println("Bird Flying!");
+        }
+
+        public void sing(){
+            System.out.println("Bird Singing!");
+        }
     }
 
-    public void sing(){
-        System.out.println("Singing");
+    class Cat extends Animal{
+        public void move(){
+            System.out.println("Cat Jumoing!");
+        }
+
+        public void catchMouse(){
+            System.out.println("Cat catches Mouse!");
+        }
     }
-}
+    ```
 
-public void poly(){
-    Animal a = new Bird(); 
-    a.move();
-    //Bird to Animal, upcasting
-    // a.move() -> Flying
-    // a.sing() -> cannot Compile
-    // Compile: check a's Class, Animal. Animal cannot sing.
-    // Run: run Methods in Bird
+   - `java.lang.ClassCastException` It happens in `downcasting`.
 
-    Bird b = new Animal();
-    b.sing();
-    //Animal to Bird, downcasting
-    //b.move() -> Moving
-    //b.sing() -> Singing
-}
-```
+    ```java
+    /*
+    Codes below can compile.
+    */
+    public class Animal{
+        public void move(){
+            System.out.println("Animal Moving!");
+        }
+
+        public static void main(String[] args){
+            Animal a = new Bird(); // We created a Bird Object, store its' Address in a with Animal.
+            Cat c = (Cat) a;
+            // Bird and Cat have no Inheritance Relationship. It cannot run.
+            // But in Compile, while a's Type is Animal, Animal and Cat have Inheritance Relationship, compile works.
+        }
+    }
+    ```
+
+    - how to avoid `java.lang.ClassCastException` $\rarr$ `instanceof`
+
+        - `Reference instanceof Data-Type`
+        
+        - returns `boolean`
+
+    ```java
+    public class Animal{
+        public void move(){
+            System.out.println("Animal Moving!");
+        }
+
+        public static void main(String[] args){
+            Animal a = new Bird(); 
+            // We created a Bird Object, store its' Address in a with Animal.
+            // a is an Instance of Bird, but Reference is Animal.
+            if(a instanceof Cat){
+                Cat c = (Cat) a;
+                c.catchMouse();
+            }
+            else if(a instanceof Bird){
+                Bird b = (Bird) a;
+                b.sing();
+            }
+        }
+    }
+    ```
 
 ### In the Life Circle:
 
@@ -362,16 +428,16 @@ public void poly(){
 
 1. Differences between `Methods` and `Constructor` ( __has `return-Type` or not__ )
 
-```java
+    ```java
 
-[Modifier List] Constructor-Name(parameters){
-    //Codes
-}
+    [Modifier List] Constructor-Name(parameters){
+        //Codes
+    }
 
-[Modifier List] return-Type Method-Name(Parameters){
-    //Codes
-}
-```
+    [Modifier List] return-Type Method-Name(Parameters){
+        //Codes
+    }
+    ```
 
 2. __Constructor-Name must be same as Class-Name.__
 
@@ -383,56 +449,56 @@ public void poly(){
 
 - `this` can also appear in `Constructors`, using other `Constructors` at the meanwhile.
 
-```java
-public class Customer{
-    
-    String name;
+    ```java
+    public class Customer{
+        
+        String name;
 
-    public Customer(){
-        // this.name = "NULL";
-        this(name);
+        public Customer(){
+            // this.name = "NULL";
+            this(name);
+        }
+
+        public Customer(String name){
+            this.name = name;
+        }
+
+        public void shopping(){
+            System.out.println(this.name + "is shopping!");
+        }
+
     }
 
-    public Customer(String name){
-        this.name = name;
-    }
-
-    public void shopping(){
-        System.out.println(this.name + "is shopping!");
-    }
-
-}
-
-```
+    ```
 
 ### `static`
 
 - an Example:
 
-```java
-public class Customer {
-	public static void shopping() {
-		System.out.println("In shopping!");
-	}
-	
-	public void running() {
-		System.out.println("On running!");
-	}
+    ```java
+    public class Customer {
+        public static void shopping() {
+            System.out.println("In shopping!");
+        }
+        
+        public void running() {
+            System.out.println("On running!");
+        }
 
-    public static void main(String[] args){
-        Customer c1 = new Customer();
-        // Method "running()" is only through an Object accessible.
-        c1.running();
+        public static void main(String[] args){
+            Customer c1 = new Customer();
+            // Method "running()" is only through an Object accessible.
+            c1.running();
 
-        // The following Codes output without Nullpointer Error.
-        // There's Warning. static Methods are accessible through object, too.
-        // BUT, Advice is, use it through "Class.static_Method()".
-        c1 = null;
-        c1.shopping();
+            // The following Codes output without Nullpointer Error.
+            // There's Warning. static Methods are accessible through object, too.
+            // BUT, Advice is, use it through "Class.static_Method()".
+            c1 = null;
+            c1.shopping();
+        }
     }
-}
 
-```
+    ```
 
 - when `static` Variables?
 
@@ -448,22 +514,22 @@ public class Customer {
 
     - p.S. `Instance Code Block` can be used to record when the Object are created.
   
-```java
-public class Chinese{
-    private String name;
-    private String id;
-    // the Variable "country" here are same: China.
-    // private String country;
+    ```java
+    public class Chinese{
+        private String name;
+        private String id;
+        // the Variable "country" here are same: China.
+        // private String country;
 
-    // So we write it in this Way
-    static String country = "China";
-    // By writing in this way the Variable "country" is saved in "Method Area" instead of in "Heap"
-    
-    // It's accessible by:
-    // zhangsan.country;
-    // Chinese.country;
-}
-```
+        // So we write it in this Way
+        static String country = "China";
+        // By writing in this way the Variable "country" is saved in "Method Area" instead of in "Heap"
+        
+        // It's accessible by:
+        // zhangsan.country;
+        // Chinese.country;
+    }
+    ```
 
 - In `static` there's no `this`. It cannot visit `Instance Variables` and `Instance Methods` directly ( must through an Object ).
 
@@ -472,29 +538,100 @@ public class Chinese{
 - when `Override`?
 
     - `Methods` in `Superclass` cannot feed the Need of `Subclass`
+    
     - __Override Methods have same Modifier, returnType and Parameters__
+    
     - __The Access Right must be same or higher__
+    
     - __The Number of Errors must be same or less__
+    
     - Deals with only `Methods` ( except `static Methods` )
+    
     - Override the Methods in the __closet Superclass__
 
-```java
-public class Animal{
-    protected void move(){
-        System.out.println("Moving");
+    ```java
+    public class Animal{
+        protected void move(){
+            System.out.println("Moving");
+        }
     }
-}
 
-public class Bird extends Animal{
-    public void move(){
-        System.out.println("Flying");
+    public class Bird extends Animal{
+        public void move(){
+            System.out.println("Flying");
+        }
     }
-}
 
-```
+    ```
 
-### 
+### `final`
 
+- `final Class` cannot be inheritaged
+
+- `final Methods` cannot be override
+
+- `final Variables` cannot be changed after Value given
+
+- `final Variable` must be Value given __manually__
+
+- `final static Variable` is called `Constant` ( e.g., `final static double PI = 3.1415926`, `Constant` write in __UPPERCASE__ )
+
+    ```java
+    public class Test{
+        final int age = 24;
+        // Variable age here must be a Value given.
+        // And it cannot be given Value again.
+    }
+    ```
+
+    ```java
+    public class Test{
+        final int age;
+
+        public Test(){
+            this.age = 24;
+        }
+        // Variable age here must be a Value given.
+        // And it cannot be given Value again.
+    }
+    ```
+
+
+    ```java
+    public class Test{
+        public static void main(String[] args){
+            
+            User u = new User(100);
+            // Variable u above watiting to be handeled by Trash Recycling.
+            Usre u = new User(200);
+        }
+    }
+    class User{
+        int credit;
+        public User(int credit){
+            this.credit = credit;
+        }
+    }
+    ```
+
+    ```java
+    public class Test{
+        public static void main(String[] args){
+            
+            final User u = new User(100);
+            // Variable u above CANNOT be handeled by Trash Recycling. 
+            // And we are noot allowed to new a new User Object
+            u.credit = 10000;
+            // But Variables in u can be modified.
+        }
+    }
+    class User{
+        int credit;
+        public User(int credit){
+            this.credit = credit;
+        }
+    }
+    ```
 ## 06. Data Structure
 
 ### Math & Nums

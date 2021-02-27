@@ -10,7 +10,7 @@
     <author>Author</author>
     <guid>https://daijiabin.github.io/java-learning/</guid>
     <description><![CDATA[Java Learning ( Data Structures, mostly ) &hellip; And the greatest reason I learn it, is that I LOVE COFFEE ☕ its DS are fuxxing easy to use.
-01. Basic Using in Java Way to write   A .java File can be compiled through javac into .class File. .java File is called Source Code, after Compling it can be deleted.
+01. Basic Usage in Java Way to write   A .java File can be compiled through javac into .class File. .java File is called Source Code, after Compling it can be deleted.
   In every .java File can multiple Class be written.]]></description>
 </item></channel>
 </rss>
