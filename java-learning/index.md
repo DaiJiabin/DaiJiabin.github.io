@@ -253,10 +253,12 @@ In the Code above, __i and s called local Variable ( in Stack )__, s' Attributes
 
 ![Memory-Variables](/JVM-Memory.png)
 
-| Modifier |          Function           |
-| :------: | :-------------------------: |
-| `public` |     accessible anywhere     |
-| `static` | accessible without `Object` |
+|  Modifier   |                  Function                   |
+| :---------: | :-----------------------------------------: |
+|  `public`   |             accessible anywhere             |
+|  `static`   |         accessible without `Object`         |
+| `protacted` | accesible in the same Package, and Subclass |
+|    None     |       accessible in the same Package        |
 
 ## 05. Object-oriented
 
@@ -574,7 +576,7 @@ In the Code above, __i and s called local Variable ( in Stack )__, s' Attributes
 
 - `final Variable` must be Value given __manually__
 
-- `final static Variable` is called `Constant` ( e.g., `final static double PI = 3.1415926`, `Constant` write in __UPPERCASE__ )
+- `final static Variable` is called `Constant` ( e.g., `final static double PI = 3.1415926`, `Constant` should be written in __UPPERCASE__ )
 
     ```java
     public class Test{
@@ -632,7 +634,23 @@ In the Code above, __i and s called local Variable ( in Stack )__, s' Attributes
         }
     }
     ```
-## 06. Data Structure
+
+## 06. packages
+
+1. `package <Package_Name>`
+
+2. Template of Package Name
+   
+   - `Reverse of the Company's Host + Project_Name + Module_Name + Function_Name`
+
+   - Write in Lowercase ( i.e., `package org.apache.tomcat.core'` )
+
+   - a `package` maps a Directory
+   
+   - after using `package`, `Class` has changed into `package_Name + Class_Name`
+
+
+## 07. Data Structure
 
 ### Math & Nums
 

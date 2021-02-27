@@ -13,7 +13,7 @@
 <meta property="og:url" content="https://daijiabin.github.io/java-learning/" />
 <meta property="og:image" content="https://daijiabin.github.io/logo.png"/>
 <meta property="article:published_time" content="2021-02-03T19:14:56+01:00" />
-<meta property="article:modified_time" content="2021-02-27T00:24:33+01:00" />
+<meta property="article:modified_time" content="2021-02-27T13:30:23+01:00" />
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="https://daijiabin.github.io/logo.png"/>
 
@@ -33,8 +33,8 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "https:\/\/daijiabin.github.io\/java-learning\/"
-        },"image": ["https:\/\/daijiabin.github.io\/images\/Apple-Devices-Preview.png"],"genre": "posts","keywords": "Languages","wordcount":  2795 ,
-        "url": "https:\/\/daijiabin.github.io\/java-learning\/","datePublished": "2021-02-03T19:14:56+01:00","dateModified": "2021-02-27T00:24:33+01:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
+        },"image": ["https:\/\/daijiabin.github.io\/images\/Apple-Devices-Preview.png"],"genre": "posts","keywords": "Languages","wordcount":  2853 ,
+        "url": "https:\/\/daijiabin.github.io\/java-learning\/","datePublished": "2021-02-03T19:14:56+01:00","dateModified": "2021-02-27T13:30:23+01:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
             "@type": "Organization",
             "name": "Dai Jiabin","logo": "https:\/\/daijiabin.github.io\/images\/avatar.png"},"author": {
                 "@type": "Person",
@@ -114,7 +114,7 @@
             <div class="toc-content" id="toc-content-auto"></div>
         </div><article class="page single"><h1 class="single-title animated flipInX">Java Learning</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="https://www.github.com/DaiJiabin" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw"></i>Dai Jiabin</a></span>&nbsp;<span class="post-category">included in <a href="/categories/learn/"><i class="far fa-folder fa-fw"></i>Learn</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2021-02-03">2021-02-03</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;2795 words&nbsp;
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2021-02-03">2021-02-03</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;2853 words&nbsp;
                 <i class="far fa-clock fa-fw"></i>&nbsp;14 minutes&nbsp;</div>
         </div><div class="details toc" id="toc-static"  kept="">
                 <div class="details-summary toc-title">
@@ -156,7 +156,8 @@
         <li><a href="#final"><code>final</code></a></li>
       </ul>
     </li>
-    <li><a href="#06-data-structure">06. Data Structure</a>
+    <li><a href="#06-packages">06. packages</a></li>
+    <li><a href="#07-data-structure">07. Data Structure</a>
       <ul>
         <li><a href="#math--nums">Math &amp; Nums</a></li>
         <li><a href="#string">String</a></li>
@@ -649,6 +650,14 @@
 <tr>
 <td style="text-align:center"><code>static</code></td>
 <td style="text-align:center">accessible without <code>Object</code></td>
+</tr>
+<tr>
+<td style="text-align:center"><code>protacted</code></td>
+<td style="text-align:center">accesible in the same Package, and Subclass</td>
+</tr>
+<tr>
+<td style="text-align:center">None</td>
+<td style="text-align:center">accessible in the same Package</td>
 </tr>
 </tbody>
 </table>
@@ -1236,7 +1245,7 @@
 <p><code>final Variable</code> must be Value given <strong>manually</strong></p>
 </li>
 <li>
-<p><code>final static Variable</code> is called <code>Constant</code> ( e.g., <code>final static double PI = 3.1415926</code>, <code>Constant</code> write in <strong>UPPERCASE</strong> )</p>
+<p><code>final static Variable</code> is called <code>Constant</code> ( e.g., <code>final static double PI = 3.1415926</code>, <code>Constant</code> should be written in <strong>UPPERCASE</strong> )</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code><span class="lnt">1
@@ -1351,7 +1360,30 @@
 </div>
 </div></li>
 </ul>
-<h2 id="06-data-structure">06. Data Structure</h2>
+<h2 id="06-packages">06. packages</h2>
+<ol>
+<li>
+<p><code>package &lt;Package_Name&gt;</code></p>
+</li>
+<li>
+<p>Template of Package Name</p>
+<ul>
+<li>
+<p><code>Reverse of the Company's Host + Project_Name + Module_Name + Function_Name</code></p>
+</li>
+<li>
+<p>Write in Lowercase ( i.e., <code>package org.apache.tomcat.core'</code> )</p>
+</li>
+<li>
+<p>a <code>package</code> maps a Directory</p>
+</li>
+<li>
+<p>after using <code>package</code>, <code>Class</code> has changed into <code>package_Name + Class_Name</code></p>
+</li>
+</ul>
+</li>
+</ol>
+<h2 id="07-data-structure">07. Data Structure</h2>
 <h3 id="math--nums">Math &amp; Nums</h3>
 <ul>
 <li>
@@ -1616,8 +1648,8 @@
     <div class="post-info">
         <div class="post-info-line">
             <div class="post-info-mod">
-                <span>Updated on 2021-02-27&nbsp;<a class="git-hash" href="https://github.com/dillonzq/LoveIt/commit/c93b0395d66ce6c39c5849d9ac8a9a94e40e9979" target="_blank" title="commit by DaiJiabin(kechou.dai@gmail.com) c93b0395d66ce6c39c5849d9ac8a9a94e40e9979: Processing 2021年 02月 27日 星期六 00:24:33 CET">
-                                    <i class="fas fa-hashtag fa-fw"></i>c93b039</a></span>
+                <span>Updated on 2021-02-27&nbsp;<a class="git-hash" href="https://github.com/dillonzq/LoveIt/commit/2f38d9003af1ec47903a62fe692cd7128d135c4e" target="_blank" title="commit by DaiJiabin(kechou.dai@gmail.com) 2f38d9003af1ec47903a62fe692cd7128d135c4e: Processing 2021年 02月 27日 星期六 13:30:23 CET">
+                                    <i class="fas fa-hashtag fa-fw"></i>2f38d90</a></span>
             </div>
             <div class="post-info-license"></div>
         </div>
