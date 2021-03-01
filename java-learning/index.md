@@ -449,6 +449,8 @@ In the Code above, __i and s called local Variable ( in Stack )__, s' Attributes
 
 ### `this` Key Word
 
+- Appears in `Constructor` and `Methods`, cannot appear in `static Method`
+
 - `this` points at the Object itself. It's saved in __Heap__.
 
 - `this` appears in `Instance Methods` ( Methods without `static` )
@@ -638,6 +640,82 @@ In the Code above, __i and s called local Variable ( in Stack )__, s' Attributes
         }
     }
     ```
+
+### `super`
+
+- __Father first, then Child.__
+
+    ```java
+    public class A{
+        public A(){
+            System.out.println("Constructor without Parameters in A!");
+        }
+        
+        public static void main(String[] args) {
+            A a = new A();
+            System.out.println("------------------------------------");
+            B b = new B();
+        }
+    }
+
+    class B extends A{
+        public B(){
+            System.out.println("Constructor without Parameters in B!");
+        }
+    }
+
+    // output
+
+    Constructor without Parameters in A!
+    ------------------------------------
+    Constructor without Parameters in A!
+    Constructor without Parameters in B!
+
+    ```
+    ```java
+    public class A {
+        public A() {
+            System.out.println("Constructor without Parameters in A!"); // -> 1. Father First
+        }
+
+        public static void main(String[] args) {
+            A a = new A();
+            System.out.println("------------------------------------");
+            B b = new B();
+            b.getName();
+        }
+    }
+
+    class B extends A {
+        private String name;
+
+        public B() {
+            this("zhangsan"); // -> 2. Constructor with String
+            System.out.println("Constructor without Parameters in B!"); // -> 3. syso
+            System.out.println();
+        }
+
+        public B(String name) {
+            this.name = name;
+            System.out.println("Constructor with String in B!"); // -> 2. Constructor with String
+        }
+        
+        public void getName() {
+            System.out.println(this.name);
+        }
+    }
+
+    // output
+
+    Constructor without Parameters in A!
+    ------------------------------------
+    Constructor without Parameters in A! // -> 1. Father First
+    Constructor with String in B! // -> 2. Constructor with String
+    Constructor without Parameters in B! // -> 3. syso
+
+    zhangsan
+    ```
+
 
 ## 06. packages
 

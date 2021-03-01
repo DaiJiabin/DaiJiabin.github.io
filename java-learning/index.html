@@ -5,6 +5,14 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="robots" content="noodp" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+        
+        <link rel="apple-touch-icon" sizes="180x180" href="../../../../static/apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="../../../../static/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="../../../../static/favicon-16x16.png">
+        <link rel="manifest" href="/site.webmanifest">
+        <meta name="msapplication-TileColor" content="#da532c">
+        <meta name="theme-color" content="#ffffff">
+        
         <title>Java Learning - Jiabin&#39;s Blog</title><meta name="Description" content="About LoveIt Theme"><meta property="og:title" content="Java Learning" />
 <meta property="og:description" content="Java Learning ( Data Structures, mostly ) &hellip; And the greatest reason I learn it, is that I LOVE COFFEE ☕ its DS are fuxxing easy to use.
 01. Basic Usage in Java Way to write   A .java File can be compiled through javac into .class File. .java File is called Source Code, after Compling it can be deleted.
@@ -13,7 +21,7 @@
 <meta property="og:url" content="https://daijiabin.github.io/java-learning/" />
 <meta property="og:image" content="https://daijiabin.github.io/logo.png"/>
 <meta property="article:published_time" content="2021-02-03T19:14:56+01:00" />
-<meta property="article:modified_time" content="2021-02-27T16:24:57+01:00" />
+<meta property="article:modified_time" content="2021-03-01T09:41:11+01:00" />
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="https://daijiabin.github.io/logo.png"/>
 
@@ -33,8 +41,8 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "https:\/\/daijiabin.github.io\/java-learning\/"
-        },"image": ["https:\/\/daijiabin.github.io\/images\/Apple-Devices-Preview.png"],"genre": "posts","keywords": "Languages","wordcount":  2855 ,
-        "url": "https:\/\/daijiabin.github.io\/java-learning\/","datePublished": "2021-02-03T19:14:56+01:00","dateModified": "2021-02-27T16:24:57+01:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
+        },"image": ["https:\/\/daijiabin.github.io\/images\/Apple-Devices-Preview.png"],"genre": "posts","keywords": "Languages","wordcount":  3129 ,
+        "url": "https:\/\/daijiabin.github.io\/java-learning\/","datePublished": "2021-02-03T19:14:56+01:00","dateModified": "2021-03-01T09:41:11+01:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
             "@type": "Organization",
             "name": "Dai Jiabin","logo": "https:\/\/daijiabin.github.io\/images\/avatar.png"},"author": {
                 "@type": "Person",
@@ -114,8 +122,8 @@
             <div class="toc-content" id="toc-content-auto"></div>
         </div><article class="page single"><h1 class="single-title animated flipInX">Java Learning</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="https://www.github.com/DaiJiabin" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw"></i>Dai Jiabin</a></span>&nbsp;<span class="post-category">included in <a href="/categories/learn/"><i class="far fa-folder fa-fw"></i>Learn</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2021-02-03">2021-02-03</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;2855 words&nbsp;
-                <i class="far fa-clock fa-fw"></i>&nbsp;14 minutes&nbsp;</div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2021-02-03">2021-02-03</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;3129 words&nbsp;
+                <i class="far fa-clock fa-fw"></i>&nbsp;15 minutes&nbsp;</div>
         </div><div class="details toc" id="toc-static"  kept="">
                 <div class="details-summary toc-title">
                     <span>Contents</span>
@@ -154,6 +162,7 @@
         <li><a href="#static"><code>static</code></a></li>
         <li><a href="#override"><code>Override</code></a></li>
         <li><a href="#final"><code>final</code></a></li>
+        <li><a href="#super"><code>super</code></a></li>
       </ul>
     </li>
     <li><a href="#06-packages">06. packages</a></li>
@@ -1011,6 +1020,9 @@
 <h3 id="this-key-word"><code>this</code> Key Word</h3>
 <ul>
 <li>
+<p>Appears in <code>Constructor</code> and <code>Methods</code>, cannot appear in <code>static Method</code></p>
+</li>
+<li>
 <p><code>this</code> points at the Object itself. It&rsquo;s saved in <strong>Heap</strong>.</p>
 </li>
 <li>
@@ -1366,6 +1378,156 @@
 </div>
 </div></li>
 </ul>
+<h3 id="super"><code>super</code></h3>
+<ul>
+<li>
+<p><strong>Father first, then Child.</strong></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">A</span><span class="o">{</span>
+    <span class="kd">public</span> <span class="nf">A</span><span class="o">(){</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&#34;Constructor without Parameters in A!&#34;</span><span class="o">);</span>
+    <span class="o">}</span>
+      
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">A</span> <span class="n">a</span> <span class="o">=</span> <span class="k">new</span> <span class="n">A</span><span class="o">();</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&#34;------------------------------------&#34;</span><span class="o">);</span>
+        <span class="n">B</span> <span class="n">b</span> <span class="o">=</span> <span class="k">new</span> <span class="n">B</span><span class="o">();</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+
+<span class="kd">class</span> <span class="nc">B</span> <span class="kd">extends</span> <span class="n">A</span><span class="o">{</span>
+    <span class="kd">public</span> <span class="nf">B</span><span class="o">(){</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&#34;Constructor without Parameters in B!&#34;</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+
+<span class="c1">// output
+</span><span class="c1"></span>
+<span class="n">Constructor</span> <span class="n">without</span> <span class="n">Parameters</span> <span class="n">in</span> <span class="n">A</span><span class="o">!</span>
+<span class="o">------------------------------------</span>
+<span class="n">Constructor</span> <span class="n">without</span> <span class="n">Parameters</span> <span class="n">in</span> <span class="n">A</span><span class="o">!</span>
+<span class="n">Constructor</span> <span class="n">without</span> <span class="n">Parameters</span> <span class="n">in</span> <span class="n">B</span><span class="o">!</span>
+
+</code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">A</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="nf">A</span><span class="o">()</span> <span class="o">{</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&#34;Constructor without Parameters in A!&#34;</span><span class="o">);</span> <span class="c1">// -&gt; 1. Father First
+</span><span class="c1"></span>    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">A</span> <span class="n">a</span> <span class="o">=</span> <span class="k">new</span> <span class="n">A</span><span class="o">();</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&#34;------------------------------------&#34;</span><span class="o">);</span>
+        <span class="n">B</span> <span class="n">b</span> <span class="o">=</span> <span class="k">new</span> <span class="n">B</span><span class="o">();</span>
+        <span class="n">b</span><span class="o">.</span><span class="na">getName</span><span class="o">();</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+
+<span class="kd">class</span> <span class="nc">B</span> <span class="kd">extends</span> <span class="n">A</span> <span class="o">{</span>
+    <span class="kd">private</span> <span class="n">String</span> <span class="n">name</span><span class="o">;</span>
+
+    <span class="kd">public</span> <span class="nf">B</span><span class="o">()</span> <span class="o">{</span>
+        <span class="k">this</span><span class="o">(</span><span class="s">&#34;zhangsan&#34;</span><span class="o">);</span> <span class="c1">// -&gt; 2. Constructor with String
+</span><span class="c1"></span>        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&#34;Constructor without Parameters in B!&#34;</span><span class="o">);</span> <span class="c1">// -&gt; 3. syso
+</span><span class="c1"></span>        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">();</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="nf">B</span><span class="o">(</span><span class="n">String</span> <span class="n">name</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">name</span> <span class="o">=</span> <span class="n">name</span><span class="o">;</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&#34;Constructor with String in B!&#34;</span><span class="o">);</span> <span class="c1">// -&gt; 2. Constructor with String
+</span><span class="c1"></span>    <span class="o">}</span>
+      
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">getName</span><span class="o">()</span> <span class="o">{</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="k">this</span><span class="o">.</span><span class="na">name</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+
+<span class="c1">// output
+</span><span class="c1"></span>
+<span class="n">Constructor</span> <span class="n">without</span> <span class="n">Parameters</span> <span class="n">in</span> <span class="n">A</span><span class="o">!</span>
+<span class="o">------------------------------------</span>
+<span class="n">Constructor</span> <span class="n">without</span> <span class="n">Parameters</span> <span class="n">in</span> <span class="n">A</span><span class="o">!</span> <span class="c1">// -&gt; 1. Father First
+</span><span class="c1"></span><span class="n">Constructor</span> <span class="n">with</span> <span class="n">String</span> <span class="n">in</span> <span class="n">B</span><span class="o">!</span> <span class="c1">// -&gt; 2. Constructor with String
+</span><span class="c1"></span><span class="n">Constructor</span> <span class="n">without</span> <span class="n">Parameters</span> <span class="n">in</span> <span class="n">B</span><span class="o">!</span> <span class="c1">// -&gt; 3. syso
+</span><span class="c1"></span>
+<span class="n">zhangsan</span>
+</code></pre></td></tr></table>
+</div>
+</div></li>
+</ul>
 <h2 id="06-packages">06. packages</h2>
 <ol>
 <li>
@@ -1654,8 +1816,8 @@
     <div class="post-info">
         <div class="post-info-line">
             <div class="post-info-mod">
-                <span>Updated on 2021-02-27&nbsp;<a class="git-hash" href="https://github.com/dillonzq/LoveIt/commit/28c382dd91bcb85d3505708b77061a1e61cc8267" target="_blank" title="commit by DaiJiabin(kechou.dai@gmail.com) 28c382dd91bcb85d3505708b77061a1e61cc8267: Processing 2021年 02月 27日 星期六 16:24:57 CET">
-                                    <i class="fas fa-hashtag fa-fw"></i>28c382d</a></span>
+                <span>Updated on 2021-03-01&nbsp;<a class="git-hash" href="https://github.com/dillonzq/LoveIt/commit/153a1da1a55322b11174b54b049461ec3bdbeaf3" target="_blank" title="commit by DaiJiabin(kechou.dai@gmail.com) 153a1da1a55322b11174b54b049461ec3bdbeaf3: Processing Mo 1. Mär 09:41:11 CET 2021">
+                                    <i class="fas fa-hashtag fa-fw"></i>153a1da</a></span>
             </div>
             <div class="post-info-license"></div>
         </div>
