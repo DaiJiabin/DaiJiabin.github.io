@@ -108,7 +108,7 @@ window.onload = function() {
     if(document.hidden) {
       $('[rel="icon"]').attr('href', "/Death_Star.ico");
       $('[rel="shortcut icon"]').attr('href', "/Death_Star.ico");
-      document.title = 'QAQ Don\'t leave me! ';
+      document.title = 'WAITING...';
       clearTimeout(titleTime);
     } else {
       $('[rel="icon"]').attr('href', "/favicon-32x32.png");
