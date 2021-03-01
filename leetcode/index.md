@@ -228,3 +228,181 @@ public:
 
 
 ```
+## Linked List
+
+### 19. Remove Nth Node From End of List ( Middle )
+
+```java
+/**
+ * Definition for singly-linked list.
+ * public class ListNode {
+ *     int val;
+ *     ListNode next;
+ *     ListNode() {}
+ *     ListNode(int val) { this.val = val; }
+ *     ListNode(int val, ListNode next) { this.val = val; this.next = next; }
+ * }
+ */
+class Solution {
+    
+    private ListNode myFunc(ListNode head, int n){
+        
+        ListNode slow = head, fast = head;
+        
+        while(n > 0){
+            fast = fast.next;
+            n--;
+        }
+        
+        if(fast == null)
+            return head.next;
+        
+        while(fast.next != null){
+            slow = slow .next;
+            fast = fast.next;
+        }
+        
+        slow.next = slow.next.next;
+        return head;
+    }
+    
+    public ListNode removeNthFromEnd(ListNode head, int n) {
+        if(head == null)
+            return head;
+        head = myFunc(head, n);
+        return head;
+    }
+}
+```
+
+### 141. Linked List Cycle ( Easy ) ( -> HashSet? ) 
+
+```java
+/**
+ * Definition for singly-linked list.
+ * class ListNode {
+ *     int val;
+ *     ListNode next;
+ *     ListNode(int x) {
+ *         val = x;
+ *         next = null;
+ *     }
+ * }
+ */
+public class Solution {
+    public boolean hasCycle(ListNode head) {
+        
+        if(head == null || head.next == null)
+            return false;
+        
+        ListNode slow = head, fast = head;
+        
+        while(fast != null && fast.next != null){
+            slow = slow.next;
+            fast = fast.next.next;
+            if(slow == fast)
+                return true;
+        }
+        
+        return false;
+        
+    }
+}
+```
+
+### 149. Reorder List ( Middle )
+
+```java
+/**
+ * Definition for singly-linked list.
+ * public class ListNode {
+ *     int val;
+ *     ListNode next;
+ *     ListNode() {}
+ *     ListNode(int val) { this.val = val; }
+ *     ListNode(int val, ListNode next) { this.val = val; this.next = next; }
+ * }
+ */
+class Solution {
+    
+    private ListNode reverse(ListNode head){
+        // Reverse a List.
+        if(head == null || head.next == null)
+            return head;
+        
+        ListNode retNode = null;
+        
+        while(head != null){
+            ListNode nxt = head.next;
+            head.next = retNode;
+            retNode = head;
+            head = nxt;
+        }
+        
+        return retNode;
+    }
+    
+    
+    private ListNode findMid(ListNode head){
+        // Find the Middle Node of a List ( slow - fast )
+        ListNode slow = head, fast = head.next;
+        
+        while(fast != null && fast.next != null){
+            slow = slow.next;
+            fast = fast.next.next;
+        }
+        
+        return slow;
+    }
+    
+    private ListNode merge(ListNode left, ListNode right){
+        // Merge 2 List. Here we use "index" to decide which List-Node to be chosen.
+        // When we merge a list ascend, we can compare the Values of Nodes.
+        ListNode retNode = new ListNode(-1);
+        ListNode temp = retNode;
+        int index = 0;
+        
+        while(left != null && right != null){
+            
+            if(index % 2 == 0){
+                temp.next = left;
+                left = left.next;
+            }
+            else if(index % 2 == 1){
+                temp.next = right;
+                right = right.next;
+            }
+            
+            temp = temp.next;
+            index++;
+            
+        }
+        
+        
+        if(left != null)
+            temp.next = left;
+        else
+            temp.next = right;
+        
+        return retNode.next;
+        
+    }
+    
+    public void reorderList(ListNode head) {
+        
+        if(head == null || head.next == null)
+            return;
+        
+        ListNode midNode = findMid(head);
+        
+        ListNode left = head;
+        ListNode right = reverse(midNode.next);
+        midNode.next = null;
+        
+        ListNode retNode = merge(left, right);
+        
+        head = retNode;
+        return;
+    }
+}
+```
