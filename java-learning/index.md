@@ -3,7 +3,7 @@
 
 # Java Learning ( Data Structures, mostly )
 
-... And the greatest reason I learn it, is that ~~I LOVE COFFEE :coffee:~~ its DS are fuxxing easy to use.
+... And the greatest reason I learn it, is that ~~I LOVE COFFEE :coffee:~~ its DS are soooooooooooo smoooooooth.
 
 ## 01. Basic Usage in Java
 
