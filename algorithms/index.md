@@ -176,6 +176,12 @@ void traverse(TreeNode* root){
 
 - Ideas:
 
+    1. sort On-Place. We need an `aux` Array.
+
+    2. devide and conquer: devide Array into 2 Parts ( based on `mid` ) until the `Base-Case`, then we merge them.
+
+    3. how to merge: copy the Elements to `aux` Array. 
+
 - Code:
 
 ```java
@@ -197,6 +203,7 @@ public class mergeSort{
         int i = lo;
         int j = mid + 1;
 
+        // copy original Array to Aux[]: sort on Place.
         for(int k = i; k <= hi; k++)
             aux[k] = a[k];
 
@@ -224,5 +231,68 @@ public class mergeSort{
         aux = new int[a.length];
         sort(a, 0, a.length - 1);
     }
+}
+```
+
+### Quick Sort
+
+- Ideas:
+
+    1. devide and conquer: select a `Standard`, move it to the proper Position, then devide the Array into 2 Parts, sort them.
+    
+    2. how to move the Standard to the proper Position: a `while - Loop`. __The left Side of the `Standard` should no greater than the `Standard`, the right Side should no less than it.__
+    
+    3. sort the left Side and the right Side.
+
+    ![Quick_Sort](/Sorting_quicksort_anim.gif)
+
+- Code:
+
+```java
+public class quickSort {
+
+	public static void main(int[] nums) {
+		// TODO Auto-generated method stub
+		sort(nums, 0, nums.length - 1);
+	}
+	
+	private static void sort(int[] a, int lo, int hi) {
+		
+		if(hi <= lo)
+			return;
+		
+		int j = partition(a, lo, hi);
+		sort(a, lo, j - 1);
+		sort(a, j + 1, hi);
+		
+	}
+
+	private static int partition(int[] a, int lo, int hi) {
+		
+		int i = lo, j = hi + 1;
+		int v = a[lo];
+		
+		while(true) {
+			while(a[++i] < v) {
+				if(i == hi)
+					break;
+			}
+			while(v < a[--j]) {
+				if(j == lo)
+					break;
+			}
+			if(i >= j)
+				break;
+			swap(a, i, j);	
+		}
+		swap(a, lo, j);
+		return j;
+	}
+	
+	private static void swap(int[] a, int i, int j) {
+		int temp = a[i];
+		a[i] = a[j];
+		a[j] = temp;
+	}
 }
 ```

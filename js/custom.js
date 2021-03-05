@@ -62,10 +62,10 @@ jQuery(document).ready(function($) {
 /* 轮播背景图片 */
 $(function () {
 	$.backstretch([
-		  "/images/background/1.jpg",
-		  "/images/background/2.jpg",
-		  "/images/background/3.png",
-          "/images/background/4.png"
+		  "/images/loli/1.png",
+		  "/images/loli/2.png",
+		  "/images/loli/3.png",
+          "/images/loli/4.png"
 	], { duration: 60000, fade: 1500 });
 });
 

@@ -276,22 +276,22 @@ In the Code above, __i and s called local Variable ( in Stack )__, s' Attributes
 
     - `private` Attributions $\rarr$ write Interfaces ( `set` and `get`. __These 2 Methods have no Modifier `static`__)
 
-    ```java
-    class Student{
-        private String name;
-        private int age;
-        private String addr;
+        ```java
+        class Student{
+            private String name;
+            private int age;
+            private String addr;
 
-        public void setName(String myName){
-            name = myName;
-            // Code that determins the Legality
-        }
+            public void setName(String myName){
+                name = myName;
+                // Code that determins the Legality
+            }
 
-        public String getName(){
-            return name;
+            public String getName(){
+                return name;
+            }
         }
-    }
-    ```
+        ```
 
 2. Inheritance
 
@@ -319,70 +319,70 @@ In the Code above, __i and s called local Variable ( in Stack )__, s' Attributes
     
     - _那么终于一将功成万骨枯，打仗旗开得胜了，花木兰告别了战争生活。有一天，遇到了自己心爱的男人，这时候爱情的力量将父类对象的引用（花弧这个名字）强制转换为子类对象本来的引用（花木兰这个名字），那么花木兰又从新成为了她自己，这时候她完全是她自己了。名字是花木兰，年龄是28，性别是女，打仗依然那样生猛女汉子，自我介绍则堂堂正正地告诉别人我叫花木兰。OMG！终于，终于可以使用自己特有的成员方法‘涂脂抹粉’了。从此，花木兰完全回到了替父从军前的那个花木兰了。并且和自己心爱的男人幸福的过完了一生。_
 
-    ```java
-    public class Animal{
-        public void move(){
-            System.out.println("Animal Moving!");
+        ```java
+        public class Animal{
+            public void move(){
+                System.out.println("Animal Moving!");
+            }
+
+            public static void main(String[] args){
+                Animal a = new Bird(); 
+                a.move();
+                //Bird to Animal, upcasting
+                // a.move() -> Bird Flying!
+                // a.sing() -> CANNOT compile. In Class Animal there's no Method called "sing()"
+                // In other Word: Compile check a's Class, Animal. But Animal cannot sing.
+                // Run: run Methods in Bird. Because we have a Bird() Object "newed".
+
+                // when we want Animal a to sing, we can transform its' DataType
+                Bird b = (Bird) a;//Animal to Bird, downcasting
+                b.move(); //Bird Fying!
+                b.sing(); // Bird Singing!
+                
+                Cat c = (Cat) a;
+            }
         }
 
-        public static void main(String[] args){
-            Animal a = new Bird(); 
-            a.move();
-            //Bird to Animal, upcasting
-            // a.move() -> Bird Flying!
-            // a.sing() -> CANNOT compile. In Class Animal there's no Method called "sing()"
-            // In other Word: Compile check a's Class, Animal. But Animal cannot sing.
-            // Run: run Methods in Bird. Because we have a Bird() Object "newed".
+        class Bird extends Animal{
+            public void move(){
+                System.out.println("Bird Flying!");
+            }
 
-            // when we want Animal a to sing, we can transform its' DataType
-            Bird b = (Bird) a;//Animal to Bird, downcasting
-            b.move(); //Bird Fying!
-            b.sing(); // Bird Singing!
-            
-            Cat c = (Cat) a;
-        }
-    }
-
-    class Bird extends Animal{
-        public void move(){
-            System.out.println("Bird Flying!");
+            public void sing(){
+                System.out.println("Bird Singing!");
+            }
         }
 
-        public void sing(){
-            System.out.println("Bird Singing!");
-        }
-    }
+        class Cat extends Animal{
+            public void move(){
+                System.out.println("Cat Jumoing!");
+            }
 
-    class Cat extends Animal{
-        public void move(){
-            System.out.println("Cat Jumoing!");
+            public void catchMouse(){
+                System.out.println("Cat catches Mouse!");
+            }
         }
-
-        public void catchMouse(){
-            System.out.println("Cat catches Mouse!");
-        }
-    }
-    ```
+        ```
 
    - `java.lang.ClassCastException` It happens in `downcasting`.
 
-    ```java
-    /*
-    Codes below can compile.
-    */
-    public class Animal{
-        public void move(){
-            System.out.println("Animal Moving!");
-        }
+        ```java
+        /*
+        Codes below can compile.
+        */
+        public class Animal{
+            public void move(){
+                System.out.println("Animal Moving!");
+            }
 
-        public static void main(String[] args){
-            Animal a = new Bird(); // We created a Bird Object, store its' Address in a with Animal.
-            Cat c = (Cat) a;
-            // Bird and Cat have no Inheritance Relationship. It cannot run.
-            // But in Compile, while a's Type is Animal, Animal and Cat have Inheritance Relationship, compile works.
+            public static void main(String[] args){
+                Animal a = new Bird(); // We created a Bird Object, store its' Address in a with Animal.
+                Cat c = (Cat) a;
+                // Bird and Cat have no Inheritance Relationship. It cannot run.
+                // But in Compile, while a's Type is Animal, Animal and Cat have Inheritance Relationship, compile works.
+            }
         }
-    }
-    ```
+        ```
 
     - how to avoid `java.lang.ClassCastException` $\rarr$ `instanceof`
 
@@ -390,27 +390,63 @@ In the Code above, __i and s called local Variable ( in Stack )__, s' Attributes
         
         - returns `boolean`
 
-    ```java
-    public class Animal{
-        public void move(){
-            System.out.println("Animal Moving!");
+        ```java
+        public class Animal{
+            public void move(){
+                System.out.println("Animal Moving!");
+            }
+
+            public static void main(String[] args){
+                Animal a = new Bird(); 
+                // We created a Bird Object, store its' Address in a with Animal.
+                // a is an Instance of Bird, but Reference is Animal.
+                if(a instanceof Cat){
+                    Cat c = (Cat) a;
+                    c.catchMouse();
+                }
+                else if(a instanceof Bird){
+                    Bird b = (Bird) a;
+                    b.sing();
+                }
+            }
+        }
+        ```
+
+    - classic Polymorphism Codes
+
+        ```java
+        public class Test{
+            public static void main(String[] args){
+                Master m = new Master(); // Parentclass oriented Programming
+                Pet p = new Cat();
+                m.feed(p); // Cat eating
+            }
         }
 
-        public static void main(String[] args){
-            Animal a = new Bird(); 
-            // We created a Bird Object, store its' Address in a with Animal.
-            // a is an Instance of Bird, but Reference is Animal.
-            if(a instanceof Cat){
-                Cat c = (Cat) a;
-                c.catchMouse();
-            }
-            else if(a instanceof Bird){
-                Bird b = (Bird) a;
-                b.sing();
+        class Master{
+            public void feed(Pet p){
+                p.eat();
             }
         }
-    }
-    ```
+
+        class Pet{
+            public void eat(){
+                System.out.println("Pet eating");
+            }
+        }
+
+        class Cat extends Pet{
+            public void eat(){
+                System.out.println("Cat eating");
+            }
+        }
+
+        class Dog extends Pet{
+            public void eat(){
+                System.out.println("Dog eating");
+            }
+        }
+        ```
 
 ### In the Life Circle:
 
@@ -715,6 +751,318 @@ In the Code above, __i and s called local Variable ( in Stack )__, s' Attributes
 
     zhangsan
     ```
+
+### `abstract class`
+
+1. Definition
+
+    - Class and Class have commen Features. These Features become `abstract class`. 
+
+    - __`abstract class` cannot have Instance. But it can have Constructors -> used by `Subclass`__
+
+    - __`abstract class` are used to be inherited.__
+
+    - the `Subclas`s of `abstract class` can also be `abstract class`.
+
+    - __`final` and `abstract` cannot be together.__
+
+2. Howto
+
+    ```java
+    [modifier] abstract class class_Name{
+        //Codes
+    }
+    ```
+
+3. `abstract Methods` -> ( half abstract )
+
+    ```java
+    public abstract void doSome();
+    // No Function Body ( no '{}' ), end  with ;
+    ```
+
+    __`abstract class` may not have `abstract Methods`, but `abstract Methods` must show up in `abstract class`.__
+
+    __when there's a `Subclass` ( Non-abstract ), it must rewrite the `abstract Mehtods` in its' `Parent Class`.__
+
+    ```java
+    public abstract Animal{
+        public abstract void move();
+    }
+
+    class Bird extends Animal{
+        public void move(){
+
+        }
+        // if there's no rewirte of this Method, compile error.
+    }
+    ```
+
+### `interface` -> ( total abstract )
+
+1. Howto
+
+    ```java
+    [Modifier] interface interface_Name{
+        //Codes
+    }
+    ```
+
+2. `interface` supports `( multy ) Inheritage`
+
+3. `interface` has only 2 Parts: __`( public static final ) Const` and `( public abstract ) Methods`.__
+
+4. __Everthing in `interface` are `public`. `public abstract` before `Methods` can be ignored.__
+
+    ```java
+    interface A{
+
+    }
+
+    interface B{
+
+    }
+
+    interface myMath extends A, B{
+        double PI = 3.1415926; 
+        //public static final double PI = 3.1415926;
+        int sum(int a, int b);
+        //public abstract int sum(int a, int b);
+    }
+    ```
+
+5. when an `unabstract class` __`implements`__ an `interface`, every `( public abstract ) Methods` in `interface` must be rewritten. `[Modifier]` must have `public`.
+
+    ```java
+    public class interface_Test {
+        public static void main(String[] args) {
+            myMath m1 = new myMathImpl();
+            System.out.println(m1.sub(2,1));
+            System.out.println(m1.sum(3,4));
+        }
+    }
+
+    interface myMath{
+        double PI = 3.1415926;
+        int sum(int a, int b);
+        int sub(int a, int b);
+    }
+
+    class myMathImpl implements myMath{
+        public int sum(int a, int b){
+            return a + b;
+        }
+        public int sub(int a, int b){
+            return a - b;
+        }
+    }
+    ```
+
+6. one `class` can implement multiple `interface`. __`interface` can transform into other `interface` without Inheritage.__
+ 
+    different from `class`, `upcasting` and `downcasting` in `class` must have Inheritage.
+
+    ```java
+    public class multi_implements {
+        public static void main(String[] args) {
+            A a = new D();
+            B b = new D();
+            C c = new D();
+            B b1 = (B) a; //interface can transform into other interface
+
+            // better way to write:
+
+            if(a instanceof B)
+                B b1 = (B) a;
+            b1.m2();
+        }
+    }
+
+    interface A{
+        void m1();
+    }
+
+    interface B{
+        void m2();
+    }
+
+    interface C{
+        void m3();
+    }
+
+    class D implements A, B, C{
+        @Override
+        public void m1(){
+            System.out.println("m1...");
+        }
+
+        @Override
+        public void m2() {
+            System.out.println("m2...");
+        }
+
+        @Override
+        public void m3() {
+            System.out.println("m3...");
+        }
+    }
+    ```
+    __This completes, that in Java `class` can extend only one single `class`.__
+ 
+7. when `implements` and `extends` exist together: `class_Name extends parent_Class_Name implements interface_Name`
+
+    ```java
+    public class test04 {
+        public static void main(String[] args) {
+            flyable f = new Cat();
+            f.Fly();
+
+            flyable f1 = new Pig();
+            f1.Fly(); //Polymorphism
+        }
+    }
+
+    interface flyable{
+        void Fly();
+    }
+
+    class Animal{
+
+    }
+
+    class Cat extends Animal implements flyable{
+        public void Fly(){
+            System.out.println("Cat! Fly me to the Moon!");
+        }
+    }
+
+    class Pig extends Animal implements flyable{
+        public void Fly(){
+            System.out.println("Flying Pig! FFFFFFFF!");
+        }
+    }
+
+    // output
+    // Cat! Fly me to the Moon!
+    // Flying Pig! FFFFFFFF!
+    ```
+
+### In a Word..
+
+- `is a` -> `extends`
+
+    ```java
+    class Cat extends Animal{
+        //Codes
+    }
+    ```
+
+- `has a` -> `Attributes`
+
+    ```java
+    class Cat extends Animal{
+        private boolean Tail;
+    }
+    ```
+
+- `is like a` -> `implements`
+
+    ```java
+    interface Menu{
+        void Steak();
+    }
+
+    class Cooker implements Menu{
+        public void Steak(){
+            System.out.println("cooking Steak...");
+        }
+    }
+    ```
+
+### An Example
+
+```java
+// Menu.java
+public interface Menu {
+    void Steak();
+    void Pasta();
+}
+```
+
+```java
+// Customer.java
+public class Customer {
+
+    private Menu foodmenu;
+
+    public Customer() {
+
+    }
+
+    public Customer(Menu foodmenu) {
+        this.foodmenu = foodmenu;
+    }
+
+    public Menu getFoodmenu() {
+        return this.foodmenu;
+    }
+
+    public void order() {
+        foodmenu.Pasta();
+        foodmenu.Steak();
+    }
+}
+```
+
+```java
+// AmericanCooker.java
+public class AmericanCooker implements Menu {
+    @Override
+    public void Pasta() {
+        System.out.println("Pasta with Pfeffer Minz!");
+    }
+
+    @Override
+    public void Steak() {
+        System.out.println("Steak with Butter!");
+    }
+}
+```
+
+```java
+// ChineseCooker.java
+public class ChineseCooker implements Menu{
+    @Override
+    public void Steak() {
+        System.out.println("Steak with chinese Oil!");
+    }
+
+    @Override
+    public void Pasta() {
+        System.out.println("Pasta with chinese Tomatoes!");
+    }
+}
+```
+
+```java
+// menu_Test.java
+public class menu_Test {
+    public static void main(String[] args) {
+        Menu cooker1 = new ChineseCooker();
+        Customer customer = new Customer(cooker1);
+        customer.order();
+    }
+}
+```
+
+### Differences between `interface` and `abstract class`
+
+|             `interface`             |                                 `abstract class`                                  |
+| :---------------------------------: | :-------------------------------------------------------------------------------: |
+|           total abstract            |                                   half abstract                                   |
+|        without `Constructor`        |                                with `Constructor`                                 |
+|        multiple Inheritance         |                                single Inheritance                                 |
+| only `Const` and `abstract Methods` | a `class` can `implements` multiple `interface`, but only 1 `class` to inheritage |
 
 
 ## 06. packages
