@@ -113,7 +113,7 @@ window.onload = function() {
     } else {
       $('[rel="icon"]').attr('href', "/favicon-32x32.png");
       $('[rel="shortcut icon"]').attr('href', "/favicon-32x32.png");
-      document.title = 'Peace & Love!';
+      document.title = 'Welcome Back!';
       titleTime = setTimeout(function() {
         document.title = OriginTitile;
       }, 2000);

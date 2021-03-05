@@ -1,0 +1,21 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>Tool - Category - Jiabin&#39;s Blog</title>
+        <link>https://daijiabin.github.io/categories/tool/</link>
+        <description>Tool - Category - Jiabin&#39;s Blog</description>
+        <generator>Hugo -- gohugo.io</generator><language>en</language><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Fri, 05 Mar 2021 07:20:12 &#43;0100</lastBuildDate><atom:link href="https://daijiabin.github.io/categories/tool/" rel="self" type="application/rss+xml" /><item>
+    <title>Idea Tools</title>
+    <link>https://daijiabin.github.io/idea-tools/</link>
+    <pubDate>Fri, 05 Mar 2021 07:20:12 &#43;0100</pubDate>
+    <author>Author</author>
+    <guid>https://daijiabin.github.io/idea-tools/</guid>
+    <description><![CDATA[Idea Tools - IntelliJ ShortCuts   psvm $\rarr$ public static void main(String[] args){}
+  sout $\rarr$ System.out.println()
+  CTRL + y $\rarr$ delete a row
+  ALT + Insert $\rarr$ add Something new
+  CTRL + SHIFT + F12 $\rarr$ close Side-Window
+  ALT +  $\rarr$ || $\larr$ change the Tab
+  ALT + \text{number} change Windows
+  CTRL + p remind Parameters in Functions]]></description>
+</item></channel>
+</rss>
