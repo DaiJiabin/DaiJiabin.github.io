@@ -1,0 +1,22 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>Kurse - Tag - Jiabin&#39;s Blog</title>
+        <link>https://daijiabin.github.io/tags/kurse/</link>
+        <description>Kurse - Tag - Jiabin&#39;s Blog</description>
+        <generator>Hugo -- gohugo.io</generator><language>en</language><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Sat, 06 Mar 2021 13:24:13 &#43;0100</lastBuildDate><atom:link href="https://daijiabin.github.io/tags/kurse/" rel="self" type="application/rss+xml" /><item>
+    <title>2021 Sose</title>
+    <link>https://daijiabin.github.io/2021-sose/</link>
+    <pubDate>Sat, 06 Mar 2021 13:24:13 &#43;0100</pubDate>
+    <author>Author</author>
+    <guid>https://daijiabin.github.io/2021-sose/</guid>
+    <description><![CDATA[Kurs Katalog Sommersemester 2021 INF-BAS3 Software- und Web-Engineering   Component-based Software Engineering (2/2/0)
+  Internet and Web Applications (2/2/0)
+  Software Fault Tolerance (2/2/0)
+  Softwaremanagement (2/2/0)
+  Spatiotemporal Modeling and Simulation of Biological Systems (2/2/0)
+  INF-BAS4 Systemarchitektur   Internet and Web Applications (2/2/0)
+  Software Fault Tolerance (2/2/0)
+  Distributed Operating Systems (2/1/0)
+  Wireless Sensor Networks (2/2/0)]]></description>
+</item></channel>
+</rss>

@@ -3,9 +3,24 @@
         <title>Jiabin&#39;s Blog</title>
         <link>https://daijiabin.github.io/</link>
         <description>About LoveIt Theme</description>
-        <generator>Hugo -- gohugo.io</generator><language>en</language><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Fri, 05 Mar 2021 07:20:12 &#43;0100</lastBuildDate>
+        <generator>Hugo -- gohugo.io</generator><language>en</language><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Sat, 06 Mar 2021 13:24:13 &#43;0100</lastBuildDate>
             <atom:link href="https://daijiabin.github.io/index.xml" rel="self" type="application/rss+xml" />
         <item>
+    <title>2021 Sose</title>
+    <link>https://daijiabin.github.io/2021-sose/</link>
+    <pubDate>Sat, 06 Mar 2021 13:24:13 &#43;0100</pubDate>
+    <author>Author</author>
+    <guid>https://daijiabin.github.io/2021-sose/</guid>
+    <description><![CDATA[Kurs Katalog Sommersemester 2021 INF-BAS3 Software- und Web-Engineering   Component-based Software Engineering (2/2/0)
+  Internet and Web Applications (2/2/0)
+  Software Fault Tolerance (2/2/0)
+  Softwaremanagement (2/2/0)
+  Spatiotemporal Modeling and Simulation of Biological Systems (2/2/0)
+  INF-BAS4 Systemarchitektur   Internet and Web Applications (2/2/0)
+  Software Fault Tolerance (2/2/0)
+  Distributed Operating Systems (2/1/0)
+  Wireless Sensor Networks (2/2/0)]]></description>
+</item><item>
     <title>Idea Tools</title>
     <link>https://daijiabin.github.io/idea-tools/</link>
     <pubDate>Fri, 05 Mar 2021 07:20:12 &#43;0100</pubDate>
@@ -94,17 +109,5 @@ Transfer the Rights of Management, Creation of Objects to the Containers ( here:
     <description><![CDATA[Lecture by Andrew Ng, Coursera Basic Concepts &amp; Linear Regression Supervised Learning vs. Unsupervised Learning   Supervised Learning:
  In supervised learning, we are given a data set and already know what our correct output should look like, having the idea that there is a relationship between the input and the output.
    Training Data already has the value, which our Function should predict for a new, strange input.]]></description>
-</item><item>
-    <title>NodeJS</title>
-    <link>https://daijiabin.github.io/nodejs/</link>
-    <pubDate>Fri, 18 Dec 2020 13:30:23 &#43;0100</pubDate>
-    <author>Author</author>
-    <guid>https://daijiabin.github.io/nodejs/</guid>
-    <description><![CDATA[Lecture 1 What is NodeJS?   Node.js is a JavaScript runtime built on Chrome&rsquo;s V8
-  Node.js uses an event-driven, non-blocking I/O model
-  Blocking: When I/O processing, process waits until I/O finishes.
-  Non-blocking: When I/o processing, process doesn&rsquo;t wait.
-  Event-driven: i.g., Click event.
-    Advantages of NodeJS  Deals well with High Concurrency and I/O intensiv  CPU Intensiv vs.]]></description>
 </item></channel>
 </rss>
