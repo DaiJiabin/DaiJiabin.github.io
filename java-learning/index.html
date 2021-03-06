@@ -33,7 +33,7 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "https:\/\/daijiabin.github.io\/java-learning\/"
-        },"image": ["https:\/\/daijiabin.github.io\/images\/Apple-Devices-Preview.png"],"genre": "posts","keywords": "Languages","wordcount":  4173 ,
+        },"image": ["https:\/\/daijiabin.github.io\/images\/Apple-Devices-Preview.png"],"genre": "posts","keywords": "Languages","wordcount":  4495 ,
         "url": "https:\/\/daijiabin.github.io\/java-learning\/","datePublished": "2021-02-03T19:14:56+01:00","dateModified": "2021-03-05T10:57:41+01:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
             "@type": "Organization",
             "name": "Dai Jiabin","logo": "https:\/\/daijiabin.github.io\/images\/avatar.png"},"author": {
@@ -89,8 +89,8 @@
             <div class="toc-content" id="toc-content-auto"></div>
         </div><article class="page single"><h1 class="single-title animated flipInX">Java Learning</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="https://www.github.com/DaiJiabin" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw"></i>Dai Jiabin</a></span>&nbsp;<span class="post-category">included in <a href="/categories/learn/"><i class="far fa-folder fa-fw"></i>Learn</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2021-02-03">2021-02-03</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;4173 words&nbsp;
-                <i class="far fa-clock fa-fw"></i>&nbsp;20 minutes&nbsp;</div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2021-02-03">2021-02-03</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;4495 words&nbsp;
+                <i class="far fa-clock fa-fw"></i>&nbsp;22 minutes&nbsp;</div>
         </div><div class="details toc" id="toc-static"  kept="">
                 <div class="details-summary toc-title">
                     <span>Contents</span>
@@ -137,8 +137,15 @@
         <li><a href="#differences-between-interface-and-abstract-class">Differences between <code>interface</code> and <code>abstract class</code></a></li>
       </ul>
     </li>
-    <li><a href="#06-packages">06. packages</a></li>
-    <li><a href="#07-data-structure">07. Data Structure</a>
+    <li><a href="#06-package-and-import">06. <code>package</code> and <code>import</code></a>
+      <ul>
+        <li><a href="#an-example-1">an Example</a></li>
+        <li><a href="#when-import">when <code>import</code></a></li>
+      </ul>
+    </li>
+    <li><a href="#07-access-control--modifiers-">07. Access Control ( <code>[Modifiers]</code> )</a></li>
+    <li><a href="#08-typical-methods-in-class-object">08. typical Methods in Class <code>Object</code></a></li>
+    <li><a href="#08-data-structure">08. Data Structure</a>
       <ul>
         <li><a href="#math--nums">Math &amp; Nums</a></li>
         <li><a href="#string">String</a></li>
@@ -2170,10 +2177,10 @@
 </tr>
 </tbody>
 </table>
-<h2 id="06-packages">06. packages</h2>
+<h2 id="06-package-and-import">06. <code>package</code> and <code>import</code></h2>
 <ol>
 <li>
-<p><code>package &lt;Package_Name&gt;</code></p>
+<p><code>package &lt;Package_Name&gt;;</code></p>
 </li>
 <li>
 <p>Template of Package Name</p>
@@ -2192,8 +2199,186 @@
 </li>
 </ul>
 </li>
+<li>
+<p>how to compile</p>
+<ul>
+<li>
+<p><code>javac -d . XXX.java</code></p>
+</li>
+<li>
+<p>the Command above creates multiple Directories, that splits <code>package_Name</code> into Direstories.</p>
+</li>
+</ul>
+</li>
+<li>
+<p>how to run <code>.class</code></p>
+<ul>
+<li>
+<p>run Command <code>java package_Name.XXX</code> under the same Directory of <code>XXX.java</code> File.</p>
+</li>
+<li>
+<p>that is to say, the <code>class_Name</code> of <code>xxx.java</code> becomes <code>package_Name.XXX</code></p>
+</li>
+</ul>
+</li>
 </ol>
-<h2 id="07-data-structure">07. Data Structure</h2>
+<h3 id="an-example-1">an Example</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="c1">// HelloWorld.java
+</span><span class="c1"></span><span class="kn">package</span> <span class="nn">self.study</span><span class="o">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">HelloWorld</span><span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">){</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&#34;package test!&#34;</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="c1">// Test.java
+</span><span class="c1"></span><span class="kn">package</span> <span class="nn">self</span><span class="o">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Test</span><span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">){</span>
+        <span class="n">self</span><span class="o">.</span><span class="na">study</span><span class="o">.</span><span class="na">HelloWorld</span> <span class="n">hw</span> <span class="o">=</span> <span class="k">new</span> <span class="n">self</span><span class="o">.</span><span class="na">study</span><span class="o">.</span><span class="na">HelloWorld</span><span class="o">();</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&#34;In Test!&#34;</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>
+<p><code>HelloWorld.java</code> and <code>Test.java</code> locate at the same Dirtectory. <code>HelloWorld.class</code> locates in <code>./self/study</code>, <code>Test.class</code> locates in <code>./self</code>. when we <code>new</code> an Object of <code>HelloWorld.class</code>, we have to write it in <code>self.study.HelloWorld hw = new self.study.HelloWorld()</code> without <code>import</code>.</p>
+</li>
+<li>
+<p>with <code>import</code>, we rewrite <code>Test.java</code>, and import the <code>class</code> we need.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="c1">// Test.java
+</span><span class="c1"></span><span class="kn">package</span> <span class="nn">self</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">self.study.HelloWorld</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Test</span><span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">){</span>
+        <span class="n">HelloWorld</span> <span class="n">hw</span> <span class="o">=</span> <span class="k">new</span> <span class="n">HelloWorld</span><span class="o">();</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&#34;In Test!&#34;</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></td></tr></table>
+</div>
+</div></li>
+</ul>
+<h3 id="when-import">when <code>import</code></h3>
+<ul>
+<li>
+<p><code>class A</code> and <code>class B</code> locate in same <code>package</code>, we donot need to <code>import</code></p>
+</li>
+<li>
+<p><code>class A</code> and <code>class B</code> locate in different <code>package</code>, we need to <code>import</code></p>
+</li>
+<li>
+<p><code>import</code> locates under <code>package &lt;package_Name&gt;;</code> above <code>[Modifiers] class &lt;class_Name&gt;</code></p>
+</li>
+<li>
+<p>an often-used Case: <code>import java.util.Scanner</code> Here <code>java.util</code> is a package_Name.</p>
+</li>
+<li>
+<p><code>java.lang</code> package will be automatically imported.</p>
+</li>
+</ul>
+<h2 id="07-access-control--modifiers-">07. Access Control ( <code>[Modifiers]</code> )</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">private</th>
+<th style="text-align:center">protected</th>
+<th style="text-align:center">public</th>
+<th style="text-align:center">-</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">same Class</td>
+<td style="text-align:center">same Class, same Package and Subclass</td>
+<td style="text-align:center">Anywhere</td>
+<td style="text-align:center">same Class and Package</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><code>public</code> &gt; <code>protected</code> &gt; <code>-</code> &gt; <code>private</code></li>
+</ul>
+<h2 id="08-typical-methods-in-class-object">08. typical Methods in Class <code>Object</code></h2>
+<ol>
+<li><code>toString()</code></li>
+</ol>
+<ul>
+<li>
+<p>It&rsquo;s recommanded, that <code>toString()</code> should be rewritten.</p>
+</li>
+<li>
+<p>when a Ref / Instance is output, <code>toString()</code> will be aumomatically used.</p>
+</li>
+</ul>
+<ol start="2">
+<li>
+<p><code>equals()</code></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">equals</span><span class="o">(</span><span class="n">Object</span> <span class="n">obj</span><span class="o">){</span>
+    <span class="k">return</span> <span class="k">this</span> <span class="o">==</span> <span class="n">obj</span><span class="o">;</span>
+<span class="o">}</span>
+</code></pre></td></tr></table>
+</div>
+</div></li>
+</ol>
+<ul>
+<li>
+<p>to decide, wether 2 <code>Objects</code> are same - comparing their <strong>Memory Addresses</strong>.</p>
+</li>
+<li>
+<p>It&rsquo;s recommanded, that <code>equals()</code> should be rewritten.</p>
+</li>
+</ul>
+<h2 id="08-data-structure">08. Data Structure</h2>
 <h3 id="math--nums">Math &amp; Nums</h3>
 <ul>
 <li>

@@ -1065,9 +1065,9 @@ public class menu_Test {
 | only `Const` and `abstract Methods` | a `class` can `implements` multiple `interface`, but only 1 `class` to inheritage |
 
 
-## 06. packages
+## 06. `package` and `import`
 
-1. `package <Package_Name>`
+1. `package <Package_Name>;`
 
 2. Template of Package Name
    
@@ -1079,8 +1079,99 @@ public class menu_Test {
    
    - after using `package`, `Class` has changed into `package_Name + Class_Name`
 
+3. how to compile
 
-## 07. Data Structure
+    - `javac -d . XXX.java`
+
+    - the Command above creates multiple Directories, that splits `package_Name` into Direstories.
+
+4. how to run `.class`
+
+    - run Command `java package_Name.XXX` under the same Directory of `XXX.java` File.
+
+    - that is to say, the `class_Name` of `xxx.java` becomes `package_Name.XXX`
+
+### an Example
+
+```java
+// HelloWorld.java
+package self.study;
+
+public class HelloWorld{
+    public static void main(String[] args){
+        System.out.println("package test!");
+    }
+}
+```
+
+```java
+// Test.java
+package self;
+
+public class Test{
+    public static void main(String[] args){
+        self.study.HelloWorld hw = new self.study.HelloWorld();
+        System.out.println("In Test!");
+    }
+}
+```
+- `HelloWorld.java` and `Test.java` locate at the same Dirtectory. `HelloWorld.class` locates in `./self/study`, `Test.class` locates in `./self`. when we `new` an Object of `HelloWorld.class`, we have to write it in `self.study.HelloWorld hw = new self.study.HelloWorld()` without `import`.
+
+- with `import`, we rewrite `Test.java`, and import the `class` we need.
+
+    ```java
+    // Test.java
+    package self;
+    import self.study.HelloWorld
+    public class Test{
+        public static void main(String[] args){
+            HelloWorld hw = new HelloWorld();
+            System.out.println("In Test!");
+        }
+    }
+    ```
+
+### when `import`
+
+- `class A` and `class B` locate in same `package`, we donot need to `import`
+
+- `class A` and `class B` locate in different `package`, we need to `import`
+
+- `import` locates under `package <package_Name>;` above `[Modifiers] class <class_Name>`
+
+- an often-used Case: `import java.util.Scanner` Here `java.util` is a package_Name.
+
+- `java.lang` package will be automatically imported.
+
+## 07. Access Control ( `[Modifiers]` )
+
+|  private   |               protected               |  public  |           -            |
+| :--------: | :-----------------------------------: | :------: | :--------------------: |
+| same Class | same Class, same Package and Subclass | Anywhere | same Class and Package |
+
+- `public` > `protected` > `-` > `private`
+
+## 08. typical Methods in Class `Object`
+
+1. `toString()`
+
+- It's recommanded, that `toString()` should be rewritten.
+
+- when a Ref / Instance is output, `toString()` will be aumomatically used.
+
+2. `equals()`
+
+    ```java
+    public boolean equals(Object obj){
+        return this == obj;
+    }
+    ```
+
+- to decide, wether 2 `Objects` are same - comparing their __Memory Addresses__.
+
+- It's recommanded, that `equals()` should be rewritten.
+
+## 08. Data Structure
 
 ### Math & Nums
 
