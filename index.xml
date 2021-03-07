@@ -3,9 +3,24 @@
         <title>Jiabin&#39;s Blog</title>
         <link>https://daijiabin.github.io/</link>
         <description>About LoveIt Theme</description>
-        <generator>Hugo -- gohugo.io</generator><language>en</language><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Sat, 06 Mar 2021 13:24:13 &#43;0100</lastBuildDate>
+        <generator>Hugo -- gohugo.io</generator><language>en</language><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Sun, 07 Mar 2021 08:57:20 &#43;0100</lastBuildDate>
             <atom:link href="https://daijiabin.github.io/index.xml" rel="self" type="application/rss+xml" />
         <item>
+    <title>Algorithms: Binary Search</title>
+    <link>https://daijiabin.github.io/algorithms-binary-search/</link>
+    <pubDate>Sun, 07 Mar 2021 08:57:20 &#43;0100</pubDate>
+    <author>Author</author>
+    <guid>https://daijiabin.github.io/algorithms-binary-search/</guid>
+    <description><![CDATA[Algorithms: Binary Search Highlight of BS  with the Judge-setence if we can transform a Problem from O(n) to O(n / 2)  find any / first / last Position of the searching-Element  The Thought is to shrank Array nums into 2 Numbers.  Find the First Position   end to mid, if possible, return start
+1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25  class Solution{ public int BinarySearch(int[] nums, int target){ if(nums == null || nums.]]></description>
+</item><item>
+    <title>Algorithms: DP</title>
+    <link>https://daijiabin.github.io/algorithm-dp/</link>
+    <pubDate>Sun, 07 Mar 2021 08:35:40 &#43;0100</pubDate>
+    <author>Author</author>
+    <guid>https://daijiabin.github.io/algorithm-dp/</guid>
+    <description><![CDATA[Algorithms: DP ]]></description>
+</item><item>
     <title>2021 Sose</title>
     <link>https://daijiabin.github.io/2021-sose/</link>
     <pubDate>Sat, 06 Mar 2021 13:24:13 &#43;0100</pubDate>
@@ -90,24 +105,5 @@ Transfer the Rights of Management, Creation of Objects to the Containers ( here:
   A leaf is a node with no children.
     Idea:
   What kind of traverse should we use?]]></description>
-</item><item>
-    <title>Algorithms -- Recursion</title>
-    <link>https://daijiabin.github.io/algorithms/</link>
-    <pubDate>Sun, 17 Jan 2021 16:51:37 &#43;0100</pubDate>
-    <author>Author</author>
-    <guid>https://daijiabin.github.io/algorithms/</guid>
-    <description><![CDATA[Ideas Recursion   What important is, NEVER JUMP INTO RECURSION.
-  Actually&hellip; If it&rsquo;s possible, you can jump into it&hellip; (Well&hellip; You can take a try:) )
-  In a Word, what the Blog above says, is that you must make sure that you know the very Defination of your Recursion Function, and trust that it can finish its Work perfectly.
-  1. Recursion in List   Figure out what does your Function proceedure with, what kind of value will it return.]]></description>
-</item><item>
-    <title>Machine Learning</title>
-    <link>https://daijiabin.github.io/machine-learning/</link>
-    <pubDate>Fri, 18 Dec 2020 19:11:53 &#43;0100</pubDate>
-    <author>Author</author>
-    <guid>https://daijiabin.github.io/machine-learning/</guid>
-    <description><![CDATA[Lecture by Andrew Ng, Coursera Basic Concepts &amp; Linear Regression Supervised Learning vs. Unsupervised Learning   Supervised Learning:
- In supervised learning, we are given a data set and already know what our correct output should look like, having the idea that there is a relationship between the input and the output.
-   Training Data already has the value, which our Function should predict for a new, strange input.]]></description>
 </item></channel>
 </rss>
