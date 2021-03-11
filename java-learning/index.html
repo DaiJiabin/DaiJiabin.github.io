@@ -33,7 +33,7 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "https:\/\/daijiabin.github.io\/java-learning\/"
-        },"image": ["https:\/\/daijiabin.github.io\/images\/Apple-Devices-Preview.png"],"genre": "posts","keywords": "Languages","wordcount":  4495 ,
+        },"image": ["https:\/\/daijiabin.github.io\/images\/Apple-Devices-Preview.png"],"genre": "posts","keywords": "Languages","wordcount":  4913 ,
         "url": "https:\/\/daijiabin.github.io\/java-learning\/","datePublished": "2021-02-03T19:14:56+01:00","dateModified": "2021-03-06T11:01:03+01:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
             "@type": "Organization",
             "name": "Dai Jiabin","logo": "https:\/\/daijiabin.github.io\/images\/avatar.png"},"author": {
@@ -89,8 +89,8 @@
             <div class="toc-content" id="toc-content-auto"></div>
         </div><article class="page single"><h1 class="single-title animated flipInX">Java Learning</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="https://www.github.com/DaiJiabin" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw"></i>Dai Jiabin</a></span>&nbsp;<span class="post-category">included in <a href="/categories/learn/"><i class="far fa-folder fa-fw"></i>Learn</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2021-02-03">2021-02-03</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;4495 words&nbsp;
-                <i class="far fa-clock fa-fw"></i>&nbsp;22 minutes&nbsp;</div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2021-02-03">2021-02-03</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;4913 words&nbsp;
+                <i class="far fa-clock fa-fw"></i>&nbsp;24 minutes&nbsp;</div>
         </div><div class="details toc" id="toc-static"  kept="">
                 <div class="details-summary toc-title">
                     <span>Contents</span>
@@ -133,13 +133,13 @@
         <li><a href="#abstract-class"><code>abstract class</code></a></li>
         <li><a href="#interface----total-abstract-"><code>interface</code> -&gt; ( total abstract )</a></li>
         <li><a href="#in-a-word">In a Word..</a></li>
-        <li><a href="#an-example">An Example</a></li>
+        <li><a href="#an-example-of-interface">An Example of <code>interface</code></a></li>
         <li><a href="#differences-between-interface-and-abstract-class">Differences between <code>interface</code> and <code>abstract class</code></a></li>
       </ul>
     </li>
     <li><a href="#06-package-and-import">06. <code>package</code> and <code>import</code></a>
       <ul>
-        <li><a href="#an-example-1">an Example</a></li>
+        <li><a href="#an-example">an Example</a></li>
         <li><a href="#when-import">when <code>import</code></a></li>
       </ul>
     </li>
@@ -150,6 +150,7 @@
         <li><a href="#math--nums">Math &amp; Nums</a></li>
         <li><a href="#string">String</a></li>
         <li><a href="#queue--stack--bag">Queue &amp; Stack &amp; Bag</a></li>
+        <li><a href="#array">Array</a></li>
         <li><a href="#arraylist">ArrayList</a></li>
         <li><a href="#linkedlist">LinkedList</a></li>
         <li><a href="#hashmap">HashMap</a></li>
@@ -1033,6 +1034,59 @@
 <li>
 <p>Object: Individual in the real World.</p>
 </li>
+<li>
+<p>Inner Class:</p>
+<ul>
+<li>
+<p>Class in Class</p>
+</li>
+<li>
+<p><code>static</code>, <code>instance</code>, <code>local</code> inner Class</p>
+</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="kd">class</span> <span class="nc">Test</span><span class="o">{</span>
+       
+    <span class="kd">static</span> <span class="kd">class</span> <span class="nc">Inner1</span><span class="o">{</span>
+
+    <span class="o">}</span> <span class="c1">// static Class Inner1
+</span><span class="c1"></span>       
+    <span class="kd">class</span> <span class="nc">Inner2</span><span class="o">{</span>
+
+    <span class="o">}</span> <span class="c1">// Instance Class Inner2
+</span><span class="c1"></span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">doSome</span><span class="o">(){</span>
+        <span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="n">100</span><span class="o">;</span>
+        <span class="kd">class</span> <span class="nc">Inner3</span><span class="o">{</span>
+
+        <span class="o">}</span><span class="c1">// local Class Inner3, accessible only in doSome()
+</span><span class="c1"></span>    <span class="o">}</span>
+
+<span class="o">}</span>
+</code></pre></td></tr></table>
+</div>
+</div></li>
 </ol>
 <h3 id="constructor">Constructor</h3>
 <ol>
@@ -2001,7 +2055,7 @@
 </div>
 </div></li>
 </ul>
-<h3 id="an-example">An Example</h3>
+<h3 id="an-example-of-interface">An Example of <code>interface</code></h3>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code><span class="lnt">1
@@ -2222,7 +2276,7 @@
 </ul>
 </li>
 </ol>
-<h3 id="an-example-1">an Example</h3>
+<h3 id="an-example">an Example</h3>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code><span class="lnt">1
@@ -2347,11 +2401,55 @@
 </ol>
 <ul>
 <li>
-<p>It&rsquo;s recommanded, that <code>toString()</code> should be rewritten.</p>
+<p><strong>It&rsquo;s recommanded, that <code>toString()</code> should be rewritten.</strong></p>
 </li>
 <li>
 <p>when a Ref / Instance is output, <code>toString()</code> will be aumomatically used.</p>
-</li>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="kd">class</span> <span class="nc">Customer</span><span class="o">{</span>
+    <span class="kd">private</span> <span class="n">String</span> <span class="n">Name</span><span class="o">;</span>
+    <span class="kd">private</span> <span class="kt">int</span> <span class="n">Age</span><span class="o">;</span>
+    <span class="kd">private</span> <span class="n">String</span> <span class="n">IDnumber</span><span class="o">;</span>
+
+    <span class="kd">public</span> <span class="nf">Customer</span><span class="o">(){</span>
+
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="nf">Customer</span><span class="o">(</span><span class="n">String</span> <span class="n">Name</span><span class="o">,</span> <span class="kt">int</span> <span class="n">Age</span><span class="o">,</span> <span class="n">String</span> <span class="n">IDnumber</span><span class="o">){</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">Name</span> <span class="o">=</span> <span class="n">Name</span><span class="o">;</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">Age</span> <span class="o">=</span> <span class="n">Age</span><span class="o">;</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">IDnumber</span> <span class="o">=</span> <span class="n">IDnumber</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="n">String</span> <span class="nf">toString</span><span class="o">(){</span>
+        <span class="k">return</span> <span class="s">&#34;Name: &#34;</span> <span class="o">+</span> <span class="k">this</span><span class="o">.</span><span class="na">Name</span> <span class="o">+</span> <span class="s">&#34; Age: &#34;</span> <span class="o">+</span> <span class="k">this</span><span class="o">.</span><span class="na">Name</span><span class="o">.</span><span class="na">toString</span><span class="o">()</span> <span class="o">+</span> <span class="s">&#34; IDnumber: &#34;</span> <span class="o">+</span> <span class="k">this</span><span class="o">.</span><span class="na">IDnumber</span><span class="o">;</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></td></tr></table>
+</div>
+</div></li>
 </ul>
 <ol start="2">
 <li>
@@ -2372,10 +2470,53 @@
 </ol>
 <ul>
 <li>
-<p>to decide, wether 2 <code>Objects</code> are same - comparing their <strong>Memory Addresses</strong>.</p>
+<p>to decide, wether 2 <code>Objects</code> are same - comparing their <strong>Memory Addresses</strong>. ( fast can be simplified as <code>==</code> )</p>
 </li>
 <li>
-<p>It&rsquo;s recommanded, that <code>equals()</code> should be rewritten.</p>
+<p><strong>It&rsquo;s recommanded, that <code>equals()</code> should be rewritten.</strong></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="kd">class</span> <span class="nc">Customer</span><span class="o">{</span>
+    <span class="kd">private</span> <span class="n">String</span> <span class="n">Name</span><span class="o">;</span>
+    <span class="kd">private</span> <span class="n">String</span> <span class="n">IDnumber</span><span class="o">;</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">boolean</span> <span class="nf">equals</span><span class="o">(</span><span class="n">Object</span> <span class="n">obj</span><span class="o">){</span>
+        <span class="k">if</span><span class="o">(</span><span class="n">obj</span> <span class="o">==</span> <span class="kc">null</span><span class="o">)</span>
+            <span class="k">return</span> <span class="kc">false</span><span class="o">;</span>
+        <span class="n">Customer</span> <span class="n">objtemp</span> <span class="o">=</span> <span class="o">(</span><span class="n">Customer</span><span class="o">)</span> <span class="n">obj</span><span class="o">;</span>
+        <span class="k">return</span> <span class="n">objtemp</span><span class="o">.</span><span class="na">Name</span> <span class="o">==</span> <span class="k">this</span><span class="o">.</span><span class="na">Name</span> <span class="o">&amp;&amp;</span> <span class="n">objtemp</span><span class="o">.</span><span class="na">IDnumber</span> <span class="o">==</span> <span class="k">this</span><span class="o">.</span><span class="na">IDnumber</span><span class="o">;</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+<span class="c1">// when 2 Customer Objects with same Name and IDnumber, they should be same. 
+</span><span class="c1">// if we dont&#39;t rewrite equals(), their Memory Addresses are not same.
+</span></code></pre></td></tr></table>
+</div>
+</div></li>
+</ul>
+<ol start="3">
+<li><code>hashCode()</code></li>
+</ol>
+<ul>
+<li>
+<p><code>public native int hashCode();</code></p>
+</li>
+<li>
+<p>This Method transforms the Memory Address into an unique HashCode.</p>
 </li>
 </ul>
 <h2 id="08-data-structure">08. Data Structure</h2>
@@ -2495,6 +2636,70 @@
 </tr>
 </tbody>
 </table>
+<h3 id="array">Array</h3>
+<ul>
+<li>
+<p><code>&lt;DataType&gt;[] &lt;Array_Name&gt; = new &lt;DataType&gt;[&lt;Array_Size&gt;];</code></p>
+<p>( dynamic Initialization, <code>for( ; ; ) Array[i] = ...;</code> )</p>
+</li>
+<li>
+<p><code>&lt;DataType&gt;[] &lt;Array_Name&gt; = {&lt;DataType&gt;obj1, ...};</code> ( static Initialization )</p>
+</li>
+<li>
+<p>storaged in <strong>Heap-Memory</strong> ( <code>Object</code> )</p>
+</li>
+<li>
+<p><code>length</code> Attribute is contained in every <code>Array</code></p>
+</li>
+<li>
+<p>the Elements in <code>Array</code> are storaged continuely in Space ( Memory Address, one by one )</p>
+</li>
+<li>
+<p><strong>the Address of the first Element is the Memory Address of the whole <code>Array</code></strong></p>
+</li>
+<li>
+<p>how to use <code>Array</code> as Parameter in a Method</p>
+<ul>
+<li>
+<p><code>Method_Name(Array_Name)</code></p>
+</li>
+<li>
+<p><code>Method_Name(new &lt;DataType&gt;[] {&lt;DataType&gt;obj1, ...})</code></p>
+</li>
+<li>
+<p>Elements in <code>String[] args</code> in <code>public static void main(String[] args)</code> are prepared for Users. Users provide Parameters, split by <code>Space</code>, when they run Command <code>java xxx &lt;Parameters&gt;</code></p>
+</li>
+</ul>
+</li>
+<li>
+<p>copy an <code>Array</code></p>
+<ul>
+<li>
+<p><code>System.arraycopy(Object src, int srcPos, Object dest, int destPos, int length)</code></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="kt">int</span><span class="o">[]</span> <span class="n">src</span> <span class="o">=</span> <span class="o">{</span><span class="n">1</span><span class="o">,</span><span class="n">2</span><span class="o">,</span><span class="n">3</span><span class="o">,</span><span class="n">4</span><span class="o">,</span><span class="n">5</span><span class="o">};</span>
+<span class="kt">int</span><span class="o">[]</span> <span class="n">dest</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">int</span><span class="o">[</span><span class="n">100</span><span class="o">];</span>
+<span class="n">System</span><span class="o">.</span><span class="na">arraycopy</span><span class="o">(</span><span class="n">src</span><span class="o">,</span> <span class="n">1</span><span class="o">,</span> <span class="n">dest</span><span class="o">,</span> <span class="n">0</span><span class="o">,</span> <span class="n">2</span><span class="o">);</span>
+<span class="c1">// cioy start from the index with 1 in src
+</span><span class="c1">// the copy Length is 2
+</span><span class="c1">// we can find the Elements that&#39;re copied start from the index with 0 in dest
+</span><span class="c1">// dest = {2, 3, 0, 0, ..., 0}
+</span></code></pre></td></tr></table>
+</div>
+</div></li>
+</ul>
+</li>
+</ul>
 <h3 id="arraylist">ArrayList</h3>
 <table>
 <thead>

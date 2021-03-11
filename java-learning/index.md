@@ -466,6 +466,33 @@ In the Code above, __i and s called local Variable ( in Stack )__, s' Attributes
 
 2. Object: Individual in the real World.
 
+3. Inner Class: 
+
+    - Class in Class
+
+    - `static`, `instance`, `local` inner Class
+
+    ```java
+    class Test{
+        
+        static class Inner1{
+
+        } // static Class Inner1
+        
+        class Inner2{
+
+        } // Instance Class Inner2
+
+        public void doSome(){
+            int i = 100;
+            class Inner3{
+
+            }// local Class Inner3, accessible only in doSome()
+        }
+
+    }
+    ```
+
 ### Constructor
 
 1. Differences between `Methods` and `Constructor` ( __has `return-Type` or not__ )
@@ -979,7 +1006,7 @@ In the Code above, __i and s called local Variable ( in Stack )__, s' Attributes
     }
     ```
 
-### An Example
+### An Example of `interface`
 
 ```java
 // Menu.java
@@ -1155,9 +1182,31 @@ public class Test{
 
 1. `toString()`
 
-- It's recommanded, that `toString()` should be rewritten.
+- __It's recommanded, that `toString()` should be rewritten.__
 
 - when a Ref / Instance is output, `toString()` will be aumomatically used.
+
+    ```java
+    class Customer{
+        private String Name;
+        private int Age;
+        private String IDnumber;
+
+        public Customer(){
+
+        }
+
+        public Customer(String Name, int Age, String IDnumber){
+            this.Name = Name;
+            this.Age = Age;
+            this.IDnumber = IDnumber;
+        }
+
+        public String toString(){
+            return "Name: " + this.Name + " Age: " + this.Name.toString() + " IDnumber: " + this.IDnumber;
+        }
+    }
+    ```
 
 2. `equals()`
 
@@ -1167,9 +1216,31 @@ public class Test{
     }
     ```
 
-- to decide, wether 2 `Objects` are same - comparing their __Memory Addresses__.
+- to decide, wether 2 `Objects` are same - comparing their __Memory Addresses__. ( fast can be simplified as `==` )
 
-- It's recommanded, that `equals()` should be rewritten.
+- __It's recommanded, that `equals()` should be rewritten.__
+
+    ```java
+    class Customer{
+        private String Name;
+        private String IDnumber;
+
+        public static boolean equals(Object obj){
+            if(obj == null)
+                return false;
+            Customer objtemp = (Customer) obj;
+            return objtemp.Name == this.Name && objtemp.IDnumber == this.IDnumber;
+        }
+    }
+    // when 2 Customer Objects with same Name and IDnumber, they should be same. 
+    // if we dont't rewrite equals(), their Memory Addresses are not same.
+    ```
+
+3. `hashCode()`
+
+- `public native int hashCode();`
+
+- This Method transforms the Memory Address into an unique HashCode.
 
 ## 08. Data Structure
 
@@ -1222,6 +1293,45 @@ public class Test{
 |     Initialization     | Bag<__DataType__> bag_name = new Bag<__DataType__>() |
 |       int size()       |             returns the size of the Bag              |
 | add(__DataType__ Item) |               add an Item into the Bag               |
+
+### Array
+
+- `<DataType>[] <Array_Name> = new <DataType>[<Array_Size>];`
+  
+  ( dynamic Initialization, `for( ; ; ) Array[i] = ...;` )
+
+- `<DataType>[] <Array_Name> = {<DataType>obj1, ...};` ( static Initialization )
+
+- storaged in __Heap-Memory__ ( `Object` )
+
+- `length` Attribute is contained in every `Array`
+
+- the Elements in `Array` are storaged continuely in Space ( Memory Address, one by one )
+
+- __the Address of the first Element is the Memory Address of the whole `Array`__
+
+- how to use `Array` as Parameter in a Method
+
+    - `Method_Name(Array_Name)`
+
+    - `Method_Name(new <DataType>[] {<DataType>obj1, ...})`
+
+    - Elements in `String[] args` in `public static void main(String[] args)` are prepared for Users. Users provide Parameters, split by `Space`, when they run Command `java xxx <Parameters>` 
+
+- copy an `Array`
+
+    - `System.arraycopy(Object src, int srcPos, Object dest, int destPos, int length)`
+
+        ```java
+        int[] src = {1,2,3,4,5};
+        int[] dest = new int[100];
+        System.arraycopy(src, 1, dest, 0, 2);
+        // cioy start from the index with 1 in src
+        // the copy Length is 2
+        // we can find the Elements that're copied start from the index with 0 in dest
+        // dest = {2, 3, 0, 0, ..., 0}
+        ```
+
 
 ### ArrayList
 
