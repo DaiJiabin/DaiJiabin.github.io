@@ -11,8 +11,9 @@
     <pubDate>Sun, 07 Mar 2021 08:57:20 &#43;0100</pubDate>
     <author>Author</author>
     <guid>https://daijiabin.github.io/algorithms-binary-search/</guid>
-    <description><![CDATA[Algorithms: Binary Search Highlight of BS  with the Judge-setence if we can transform a Problem from O(n) to O(n / 2)  find any / first / last Position of the searching-Element  The Thought is to shrank Array nums into 2 Numbers.  Find the First Position   end to mid, if possible, return start
-1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25  class Solution{ public int BinarySearch(int[] nums, int target){ if(nums == null || nums.]]></description>
+    <description><![CDATA[Algorithms: Binary Search Highlight of BS  with the Judge-setence if we can transform a Problem from O(n) to O(n / 2)  4 Points   The Thought is to shrank Array nums into 2 Numbers -&gt; while-loop with start + 1 &lt; end
+  update mid -&gt; mid = start + (end - start) / 2
+  don&rsquo;t be lazy: 3 case -&gt; ==, &lt; , &gt;]]></description>
 </item><item>
     <title>Algorithms: DP</title>
     <link>https://daijiabin.github.io/algorithm-dp/</link>
