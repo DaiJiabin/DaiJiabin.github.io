@@ -161,9 +161,9 @@
             while(start + 1 < end){
                 int mid = start + (end - start) / 2;
                 if(nums[mid] < nums[mid + 1]) //case 1
-                    end = mid;
-                else if(nums[mid] < nums[mid - 1]) //case 2
                     start = mid;
+                else if(nums[mid] < nums[mid - 1]) //case 2
+                    end = mid;
                 else if(nums[mid] > nums[mid - 1] && nums[mid] > nums[mid + 1]) //case 3
                     return mid;
                 else //case 4
