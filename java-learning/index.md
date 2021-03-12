@@ -1253,21 +1253,92 @@ public class Test{
 - P.S. __Nums.toString()__: transfer a Number to String
 
 
-### String
+### String ( `java.lang.String` )
 
-- Mostly used Methods:
+#### `java.lang.StringBuffer` & `java.lang.StringBuilder`
 
-    - __char charAt(int index)__: returns the Character at the Index.
-    - __int length()__: returns the Length of the String.
-    - __int parseInt()__: transfer the String into an Integer.
-    - __char[] toCharArray()__: transfer the String into an Character-Array.
-    - __boolean isEmpty()__: if the String is empty.
-    - __int hashCode()__: returns the HashCode of the String.
-    - __int indexOf(char ch(,int fromIndex))__: returns the Index of the Character ch the first time it appears( after the fromIndex).
+- [Source Code of `StringBuffer`](http://developer.classpath.org/doc/java/lang/StringBuffer-source.html)
+
+- [SourceCode of `StringBuilder`](http://developer.classpath.org/doc/java/lang/StringBuilder-source.html)
+
+- `StringBuffer` is modified by `synchronized`, it's __multy-Thread safe__.
+
+```java
+StringBuffer sb1 = new StringBuffer();
+// on Initialization, we should give a relative great Capacity
+sb1.append("abc");
+// Method append() to add Elements
+
+StringBuilder sb2 = new StringBuilder();
+sb2.append("abc");
+```
+
+#### Mostly used Methods
+
+|                         Name                         |                                                              Function                                                              |
+| :--------------------------------------------------: | :--------------------------------------------------------------------------------------------------------------------------------: |
+|                __byte[] getBytes()__                 |                                          transform Characters in String into a Byte-Array                                          |
+|               __char[] toCharArray()__               |                                            transfer the String into an Character-Array                                             |
+|              __char charAt(int index)__              |                                                returns the Character at the Index.                                                 |
+|                   __int length()__                   |                                                  returns the Length of the String                                                  |
+|                  __int parseInt()__                  |                                                transfer the String into an Integer                                                 |
+|                  __int hashCode()__                  |                                                 returns the HashCode of the String                                                 |
+|             __int compareTo(String s)__              |                           returns 0 if 2 Strings are same, returns negative if String < s, else positive                           |
+|             __int indexOf(SubString s)__             |                          returns the index of the Substring when it appears in String for the first time                           |
+|           __int lastIndexOf(SubString s)__           |                           returns the index of the Substring when it appears in String for the last time                           |
+|       __int indexOf(char ch(,int fromIndex))__       |                       returns the Index of the Character ch the first time it appears( after the fromIndex)                        |
+|                __boolean isEmpty()__                 |                                                       if the String is empty                                                       |
+|        __boolean startsWith(CharSequence s)__        |                                           judge if String starts with the CharSequence s                                           |
+|         __boolean contains(CharSequence s)__         |                                            judge if String contains the CharSequence s                                             |
+|         __boolean endsWith(CharSequence s)__         |                                            judge if String ends with the CharSequence s                                            |
+|        __boolean equalsIgnoreCase(String s)__        |                                      judge if 2 Strings are same, ignore Lower- or Uppercase                                       |
+|           __String[] split(String regex)__           |                                                     split the String by regex                                                      |
+|                  __String trim()__                   |                                             delete the space before / after the String                                             |
+|             __static String valueOf()__              | transform Something, which doesn't belong to String, into String (if `toString()` isn't rewritten in Object, then Memory Address ) |
+|               __String toLowerCase()__               |                                                transform the String into Lowercase                                                 |
+|               __String toUpperCase()__               |                                                transform the String into Uppercase                                                 |
+|    __String replace(char oldChar, char newChar)__    |                                                     replace oldChar by newChar                                                     |
+| __String subString(int startIndex(, int endIndex))__ |          returns the subString that starts from the startIndex ( till the endIndex ) of the String [startIndex, endIndex)          |
 
 - Other Methods of String: [click here](https://www.runoob.com/java/java-string.html)
 
 - The __DataType__ above is often used to initialize a DataStructure ( See below ).
+
+- __`length` is an `Attribute` of `Array` but a `Method` of `String`__
+
+#### How `String` is storaged
+
+- `String` is storaged in the `String-Const-Pool` of the `Method Area`
+
+    ```java
+    String s1 = "xyz";
+    String s2 = "abcd" + "xs";
+    /* 
+        we get s1 and s2 in Stack,
+        which point at "xyz", "abcdxs" 
+        in the String-Const-Pool of the Method Area
+        String-Const-Pool has "xyz", "abcd", "xs"
+    */
+    String s3 = new String("ab");
+    /* 
+        we get s3 in Stack, a String Object in Heap,
+        which points at "xy" in the String-Const-Pool
+        of the Method Area
+    */
+    ```
+
+- `Const` and `Object`
+
+    ```java
+    String s1 = "abs";
+    String s2 = "abs";
+    // s1 = s2
+    String s3 = new String("xyz");
+    String s4 = new String("xyz");
+    // s3 != s4
+    // BUT, s3.equals(s4) = true
+    // So use equals() Method, instead of ==
+    ```
 
 ### Queue & Stack & Bag
 
@@ -1294,11 +1365,13 @@ public class Test{
 |       int size()       |             returns the size of the Bag              |
 | add(__DataType__ Item) |               add an Item into the Bag               |
 
-### Array
+### Arrays -> `java.util.Arrays`
 
 - `<DataType>[] <Array_Name> = new <DataType>[<Array_Size>];`
   
   ( dynamic Initialization, `for( ; ; ) Array[i] = ...;` )
+
+- `Object[] <Array_Name>` can storage any `Ref-Type`
 
 - `<DataType>[] <Array_Name> = {<DataType>obj1, ...};` ( static Initialization )
 
@@ -1331,6 +1404,14 @@ public class Test{
         // we can find the Elements that're copied start from the index with 0 in dest
         // dest = {2, 3, 0, 0, ..., 0}
         ```
+
+- `java.util.Arrays` Methods ( static )
+
+  - `import java.util.Arrays;`
+  
+  - `Arrays.sort(<Array_Name>);` 
+
+  - `Arrays.binarySearch(<Array_Name>, key);` ( returns index )
 
 
 ### ArrayList
