@@ -1,7 +1,7 @@
 # Algorithms: Binary Search
 
 
-# Algorithms: Binary Search
+# Algorithms 01
 
 ![BS](/BS.jpeg)
 

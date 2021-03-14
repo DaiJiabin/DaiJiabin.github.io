@@ -1,7 +1,7 @@
 # Algorithms Devide and Conquer
 
 
-# Algorithms: Devide and Conquer
+# Algorithms 02
 
 ![DC](/dinive-conquer-algorithm-1-638.jpg)
 

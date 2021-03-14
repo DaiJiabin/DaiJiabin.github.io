@@ -11,7 +11,7 @@
     <pubDate>Mon, 08 Mar 2021 08:13:23 &#43;0100</pubDate>
     <author>Author</author>
     <guid>https://daijiabin.github.io/algorithms-devide-and-conquer/</guid>
-    <description><![CDATA[Algorithms: Devide and Conquer Traverse vs. Divide &amp; Conquer   both Recursive
+    <description><![CDATA[Algorithms 02 Traverse vs. Divide &amp; Conquer   both Recursive
   Result in Parameter vs. Result in return Value
   Top-down vs. Bottom-up
   Basic Usage   Merge Sort / Quick Sort
@@ -25,7 +25,7 @@
     <pubDate>Sun, 07 Mar 2021 08:57:20 &#43;0100</pubDate>
     <author>Author</author>
     <guid>https://daijiabin.github.io/algorithms-binary-search/</guid>
-    <description><![CDATA[Algorithms: Binary Search Highlight of BS  with the Judge-setence if we can transform a Problem from O(n) to O(n / 2)  4 Points   The Thought is to shrank Array nums into 2 Numbers -&gt; while-loop with start + 1 &lt; end
+    <description><![CDATA[Algorithms 01 Highlight of BS  with the Judge-setence if we can transform a Problem from O(n) to O(n / 2)  4 Points   The Thought is to shrank Array nums into 2 Numbers -&gt; while-loop with start + 1 &lt; end
   update mid -&gt; mid = start + (end - start) / 2
   don&rsquo;t be lazy: 3 case -&gt; ==, &lt; , &gt;]]></description>
 </item><item>
