@@ -96,6 +96,8 @@
     }
     ```
 
+    ![search_in_sorted_rotated_Array](/search_in_sorted_rotated_Array.png)
+
 - [LeetCode 35. Search Insert Position](https://leetcode.com/problems/search-insert-position/submissions/)
 
     ```java
