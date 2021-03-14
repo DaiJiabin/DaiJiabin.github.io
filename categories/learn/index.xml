@@ -3,7 +3,14 @@
         <title>Learn - Category - Jiabin&#39;s Blog</title>
         <link>https://daijiabin.github.io/categories/learn/</link>
         <description>Learn - Category - Jiabin&#39;s Blog</description>
-        <generator>Hugo -- gohugo.io</generator><language>en</language><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Sun, 07 Mar 2021 08:57:20 &#43;0100</lastBuildDate><atom:link href="https://daijiabin.github.io/categories/learn/" rel="self" type="application/rss+xml" /><item>
+        <generator>Hugo -- gohugo.io</generator><language>en</language><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Mon, 08 Mar 2021 08:13:23 &#43;0100</lastBuildDate><atom:link href="https://daijiabin.github.io/categories/learn/" rel="self" type="application/rss+xml" /><item>
+    <title>Algorithms Devide and Conquer</title>
+    <link>https://daijiabin.github.io/algorithms-devide-and-conquer/</link>
+    <pubDate>Mon, 08 Mar 2021 08:13:23 &#43;0100</pubDate>
+    <author>Author</author>
+    <guid>https://daijiabin.github.io/algorithms-devide-and-conquer/</guid>
+    <description><![CDATA[Algorithms: Devide and Conquer ]]></description>
+</item><item>
     <title>Algorithms: Binary Search</title>
     <link>https://daijiabin.github.io/algorithms-binary-search/</link>
     <pubDate>Sun, 07 Mar 2021 08:57:20 &#43;0100</pubDate>
@@ -85,14 +92,5 @@ Transfer the Rights of Management, Creation of Objects to the Containers ( here:
   Actually&hellip; If it&rsquo;s possible, you can jump into it&hellip; (Well&hellip; You can take a try:) )
   In a Word, what the Blog above says, is that you must make sure that you know the very Defination of your Recursion Function, and trust that it can finish its Work perfectly.
   1. Recursion in List   Figure out what does your Function proceedure with, what kind of value will it return.]]></description>
-</item><item>
-    <title>Machine Learning</title>
-    <link>https://daijiabin.github.io/machine-learning/</link>
-    <pubDate>Fri, 18 Dec 2020 19:11:53 &#43;0100</pubDate>
-    <author>Author</author>
-    <guid>https://daijiabin.github.io/machine-learning/</guid>
-    <description><![CDATA[Lecture by Andrew Ng, Coursera Basic Concepts &amp; Linear Regression Supervised Learning vs. Unsupervised Learning   Supervised Learning:
- In supervised learning, we are given a data set and already know what our correct output should look like, having the idea that there is a relationship between the input and the output.
-   Training Data already has the value, which our Function should predict for a new, strange input.]]></description>
 </item></channel>
 </rss>

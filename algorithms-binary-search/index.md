@@ -154,7 +154,41 @@
         }
     }
     ```
+    
     ![Rotated_Array](/Roatated_Array.png)
+
+- [LeetCode 154. Find Minimum in Rotated Sorted Array II](https://leetcode.com/problems/find-minimum-in-rotated-sorted-array-ii/)
+
+    ```java
+    class Solution {
+        public int findMin(int[] nums) {
+            if(nums == null || nums.length == 0)
+                return -1;
+            int start = 0, end = nums.length - 1;
+            while(start + 1 < end){
+                int mid = start + (end - start) / 2;
+                if(nums[mid] > nums[end])
+                    start = mid;
+                else if(nums[mid] < nums[end])
+                    end = mid;
+                else if(nums[mid] == nums[end]){
+                    // Here we minimize the Boundary, but why?
+                    // In this Case, we cannot determine
+                    // start = mid or end = mid
+                    end--;
+                    // Here we cannot use start++;
+                    // e.g., [1,3,3]
+                }
+            }
+            
+            if(nums[start] <= nums[end])
+                return nums[start];
+            return nums[end];
+        }
+    }
+    ```
+
+    ![rotated_minimum_II](/rotated_minimum_II.png)
 
 - [LeetCode 162. Find Peak Element](https://leetcode.com/problems/find-peak-element/)
 

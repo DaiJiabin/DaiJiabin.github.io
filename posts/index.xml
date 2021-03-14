@@ -3,7 +3,14 @@
         <title>All Posts - Jiabin&#39;s Blog</title>
         <link>https://daijiabin.github.io/posts/</link>
         <description>All Posts | Jiabin&#39;s Blog</description>
-        <generator>Hugo -- gohugo.io</generator><language>en</language><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Sun, 07 Mar 2021 08:57:20 &#43;0100</lastBuildDate><atom:link href="https://daijiabin.github.io/posts/" rel="self" type="application/rss+xml" /><item>
+        <generator>Hugo -- gohugo.io</generator><language>en</language><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Mon, 08 Mar 2021 08:13:23 &#43;0100</lastBuildDate><atom:link href="https://daijiabin.github.io/posts/" rel="self" type="application/rss+xml" /><item>
+    <title>Algorithms Devide and Conquer</title>
+    <link>https://daijiabin.github.io/algorithms-devide-and-conquer/</link>
+    <pubDate>Mon, 08 Mar 2021 08:13:23 &#43;0100</pubDate>
+    <author>Author</author>
+    <guid>https://daijiabin.github.io/algorithms-devide-and-conquer/</guid>
+    <description><![CDATA[Algorithms: Devide and Conquer ]]></description>
+</item><item>
     <title>Algorithms: Binary Search</title>
     <link>https://daijiabin.github.io/algorithms-binary-search/</link>
     <pubDate>Sun, 07 Mar 2021 08:57:20 &#43;0100</pubDate>
@@ -93,16 +100,5 @@ Transfer the Rights of Management, Creation of Objects to the Containers ( here:
     <description><![CDATA[Java Learning ( Data Structures, mostly ) &hellip; And the greatest reason I learn it, is that I LOVE COFFEE ☕ its DS are soooooooooooo smoooooooth.
 01. Basic Usage in Java Way to write   A .java File can be compiled through javac into .class File. .java File is called Source Code, after Compling it can be deleted.
   In every .java File can multiple Class be written. In every Class can multiple Methods be written.]]></description>
-</item><item>
-    <title>LeetCode</title>
-    <link>https://daijiabin.github.io/leetcode/</link>
-    <pubDate>Mon, 25 Jan 2021 12:30:06 &#43;0100</pubDate>
-    <author>Author</author>
-    <guid>https://daijiabin.github.io/leetcode/</guid>
-    <description><![CDATA[Go Through LeetCode Recursion / Binary Tree 112. Path Sum - simple recursion   Discription:
-  Given the root of a binary tree and an integer targetSum, return true if the tree has a root-to-leaf path such that adding up all the values along the path equals targetSum.
-  A leaf is a node with no children.
-    Idea:
-  What kind of traverse should we use?]]></description>
 </item></channel>
 </rss>

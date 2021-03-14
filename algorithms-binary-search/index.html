@@ -13,7 +13,7 @@
 <meta property="og:url" content="https://daijiabin.github.io/algorithms-binary-search/" />
 <meta property="og:image" content="https://daijiabin.github.io/logo.png"/>
 <meta property="article:published_time" content="2021-03-07T08:57:20+01:00" />
-<meta property="article:modified_time" content="2021-03-14T11:05:50+01:00" />
+<meta property="article:modified_time" content="2021-03-14T19:35:53+01:00" />
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="https://daijiabin.github.io/logo.png"/>
 
@@ -24,7 +24,7 @@
 <meta name="application-name" content="Jiabin&#39;s Blog">
 <meta name="apple-mobile-web-app-title" content="Jiabin&#39;s Blog"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://daijiabin.github.io/algorithms-binary-search/" /><link rel="prev" href="https://daijiabin.github.io/algorithm-dp/" /><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/normalize.css@8.0.1/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.13.0/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.7.2/animate.min.css"><script type="application/ld+json">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://daijiabin.github.io/algorithms-binary-search/" /><link rel="prev" href="https://daijiabin.github.io/algorithm-dp/" /><link rel="next" href="https://daijiabin.github.io/algorithms-devide-and-conquer/" /><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/normalize.css@8.0.1/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.13.0/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.7.2/animate.min.css"><script type="application/ld+json">
     {
         "@context": "http://schema.org",
         "@type": "BlogPosting",
@@ -33,8 +33,8 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "https:\/\/daijiabin.github.io\/algorithms-binary-search\/"
-        },"image": ["https:\/\/daijiabin.github.io\/images\/Apple-Devices-Preview.png"],"genre": "posts","keywords": "Algorithms","wordcount":  1390 ,
-        "url": "https:\/\/daijiabin.github.io\/algorithms-binary-search\/","datePublished": "2021-03-07T08:57:20+01:00","dateModified": "2021-03-14T11:05:50+01:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
+        },"image": ["https:\/\/daijiabin.github.io\/images\/Apple-Devices-Preview.png"],"genre": "posts","keywords": "Algorithms","wordcount":  1527 ,
+        "url": "https:\/\/daijiabin.github.io\/algorithms-binary-search\/","datePublished": "2021-03-07T08:57:20+01:00","dateModified": "2021-03-14T19:35:53+01:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
             "@type": "Organization",
             "name": "Dai Jiabin","logo": "https:\/\/daijiabin.github.io\/images\/avatar.png"},"author": {
                 "@type": "Person",
@@ -87,8 +87,8 @@
             <div class="toc-content" id="toc-content-auto"></div>
         </div><article class="page single"><h1 class="single-title animated flipInX">Algorithms: Binary Search</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="https://www.github.com/DaiJiabin" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw"></i>Dai Jiabin</a></span>&nbsp;<span class="post-category">included in <a href="/categories/learn/"><i class="far fa-folder fa-fw"></i>Learn</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2021-03-07">2021-03-07</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;1390 words&nbsp;
-                <i class="far fa-clock fa-fw"></i>&nbsp;7 minutes&nbsp;</div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2021-03-07">2021-03-07</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;1527 words&nbsp;
+                <i class="far fa-clock fa-fw"></i>&nbsp;8 minutes&nbsp;</div>
         </div><div class="details toc" id="toc-static"  kept="">
                 <div class="details-summary toc-title">
                     <span>Contents</span>
@@ -407,6 +407,75 @@
         data-sizes="auto"
         alt="/Roatated_Array.png"
         title="Rotated_Array" /></p>
+</li>
+<li>
+<p><a href="https://leetcode.com/problems/find-minimum-in-rotated-sorted-array-ii/" target="_blank" rel="noopener noreffer">LeetCode 154. Find Minimum in Rotated Sorted Array II</a></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="kd">class</span> <span class="nc">Solution</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kt">int</span> <span class="nf">findMin</span><span class="o">(</span><span class="kt">int</span><span class="o">[]</span> <span class="n">nums</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">if</span><span class="o">(</span><span class="n">nums</span> <span class="o">==</span> <span class="kc">null</span> <span class="o">||</span> <span class="n">nums</span><span class="o">.</span><span class="na">length</span> <span class="o">==</span> <span class="n">0</span><span class="o">)</span>
+            <span class="k">return</span> <span class="o">-</span><span class="n">1</span><span class="o">;</span>
+        <span class="kt">int</span> <span class="n">start</span> <span class="o">=</span> <span class="n">0</span><span class="o">,</span> <span class="n">end</span> <span class="o">=</span> <span class="n">nums</span><span class="o">.</span><span class="na">length</span> <span class="o">-</span> <span class="n">1</span><span class="o">;</span>
+        <span class="k">while</span><span class="o">(</span><span class="n">start</span> <span class="o">+</span> <span class="n">1</span> <span class="o">&lt;</span> <span class="n">end</span><span class="o">){</span>
+            <span class="kt">int</span> <span class="n">mid</span> <span class="o">=</span> <span class="n">start</span> <span class="o">+</span> <span class="o">(</span><span class="n">end</span> <span class="o">-</span> <span class="n">start</span><span class="o">)</span> <span class="o">/</span> <span class="n">2</span><span class="o">;</span>
+            <span class="k">if</span><span class="o">(</span><span class="n">nums</span><span class="o">[</span><span class="n">mid</span><span class="o">]</span> <span class="o">&gt;</span> <span class="n">nums</span><span class="o">[</span><span class="n">end</span><span class="o">])</span>
+                <span class="n">start</span> <span class="o">=</span> <span class="n">mid</span><span class="o">;</span>
+            <span class="k">else</span> <span class="k">if</span><span class="o">(</span><span class="n">nums</span><span class="o">[</span><span class="n">mid</span><span class="o">]</span> <span class="o">&lt;</span> <span class="n">nums</span><span class="o">[</span><span class="n">end</span><span class="o">])</span>
+                <span class="n">end</span> <span class="o">=</span> <span class="n">mid</span><span class="o">;</span>
+            <span class="k">else</span> <span class="k">if</span><span class="o">(</span><span class="n">nums</span><span class="o">[</span><span class="n">mid</span><span class="o">]</span> <span class="o">==</span> <span class="n">nums</span><span class="o">[</span><span class="n">end</span><span class="o">]){</span>
+                <span class="c1">// Here we minimize the Boundary, but why?
+</span><span class="c1"></span>                <span class="c1">// In this Case, we cannot determine
+</span><span class="c1"></span>                <span class="c1">// start = mid or end = mid
+</span><span class="c1"></span>                <span class="n">end</span><span class="o">--;</span>
+                <span class="c1">// Here we cannot use start++;
+</span><span class="c1"></span>                <span class="c1">// e.g., [1,3,3]
+</span><span class="c1"></span>            <span class="o">}</span>
+        <span class="o">}</span>
+          
+        <span class="k">if</span><span class="o">(</span><span class="n">nums</span><span class="o">[</span><span class="n">start</span><span class="o">]</span> <span class="o">&lt;=</span> <span class="n">nums</span><span class="o">[</span><span class="n">end</span><span class="o">])</span>
+            <span class="k">return</span> <span class="n">nums</span><span class="o">[</span><span class="n">start</span><span class="o">];</span>
+        <span class="k">return</span> <span class="n">nums</span><span class="o">[</span><span class="n">end</span><span class="o">];</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/rotated_minimum_II.png"
+        data-srcset="/rotated_minimum_II.png, /rotated_minimum_II.png 1.5x, /rotated_minimum_II.png 2x"
+        data-sizes="auto"
+        alt="/rotated_minimum_II.png"
+        title="rotated_minimum_II" /></p>
 </li>
 <li>
 <p><a href="https://leetcode.com/problems/find-peak-element/" target="_blank" rel="noopener noreffer">LeetCode 162. Find Peak Element</a></p>
@@ -804,8 +873,8 @@
     <div class="post-info">
         <div class="post-info-line">
             <div class="post-info-mod">
-                <span>Updated on 2021-03-14&nbsp;<a class="git-hash" href="https://github.com/dillonzq/LoveIt/commit/e73955f8fb5c80c6c3a82c24e921f71cef6a6c7e" target="_blank" title="commit by DaiJiabin(kechou.dai@gmail.com) e73955f8fb5c80c6c3a82c24e921f71cef6a6c7e: Processing So 14. Mär 11:05:50 CET 2021">
-                                    <i class="fas fa-hashtag fa-fw"></i>e73955f</a></span>
+                <span>Updated on 2021-03-14&nbsp;<a class="git-hash" href="https://github.com/dillonzq/LoveIt/commit/c2530374970446212825b67bbeb254384741d7bd" target="_blank" title="commit by DaiJiabin(kechou.dai@gmail.com) c2530374970446212825b67bbeb254384741d7bd: Processing 2021年 03月 14日 星期日 19:35:53 CET">
+                                    <i class="fas fa-hashtag fa-fw"></i>c253037</a></span>
             </div>
             <div class="post-info-license"></div>
         </div>
@@ -824,7 +893,8 @@
         </section>
     </div>
 
-    <div class="post-nav"><a href="/algorithm-dp/" class="prev" rel="prev" title="Algorithms: DP"><i class="fas fa-angle-left fa-fw"></i>Algorithms: DP</a></div>
+    <div class="post-nav"><a href="/algorithm-dp/" class="prev" rel="prev" title="Algorithms: DP"><i class="fas fa-angle-left fa-fw"></i>Algorithms: DP</a>
+            <a href="/algorithms-devide-and-conquer/" class="next" rel="next" title="Algorithms Devide and Conquer">Algorithms Devide and Conquer<i class="fas fa-angle-right fa-fw"></i></a></div>
 </div>
 </article></div>
             </main>
