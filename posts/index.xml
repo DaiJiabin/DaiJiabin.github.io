@@ -9,7 +9,14 @@
     <pubDate>Mon, 08 Mar 2021 08:13:23 &#43;0100</pubDate>
     <author>Author</author>
     <guid>https://daijiabin.github.io/algorithms-devide-and-conquer/</guid>
-    <description><![CDATA[Algorithms: Devide and Conquer ]]></description>
+    <description><![CDATA[Algorithms: Devide and Conquer Traverse vs. Divide &amp; Conquer   both Recursive
+  Result in Parameter vs. Result in return Value
+  Top-down vs. Bottom-up
+  Basic Usage   Merge Sort / Quick Sort
+  Almost 90% Binary Tree Problems
+  Merge Sort &amp; Quick Sort   Merge Sort
+  Quick Sort
+  Exercises on LeetCode   LeetCode 104. Maximum Depth of Binary Tree]]></description>
 </item><item>
     <title>Algorithms: Binary Search</title>
     <link>https://daijiabin.github.io/algorithms-binary-search/</link>
